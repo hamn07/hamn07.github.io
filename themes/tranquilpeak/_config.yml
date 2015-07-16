@@ -23,33 +23,37 @@ sidebar:
             title: Home
             url: /
             icon: home
-        categories:
-            title: Categories
-            url: /all-categories
-            icon: bookmark
-        tags:
-            title: Tags
-            url: /all-tags
-            icon: tags
-        archives:
-            title: Archives
-            url: /all-archives
-            icon: archive
-        search:
-            title: Search
-            url: /#search
-            icon: search
-            # `st-search-show-outputs` classes are used to open swiftype search window
-            class: st-search-show-outputs
+        web:
+            title: Web on aws
+            url: http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com
+            icon: cloud-upload
+        # categories:
+        #     title: Categories
+        #     url: /all-categories
+        #     icon: bookmark
+        # tags:
+        #     title: Tags
+        #     url: /all-tags
+        #     icon: tags
+        # archives:
+        #     title: Archives
+        #     url: /all-archives
+        #     icon: archive
+        # search:
+        #     title: Search
+        #     url: /#search
+        #     icon: search
+        #     # `st-search-show-outputs` classes are used to open swiftype search window
+        #     class: st-search-show-outputs
         about:
             title: About me
             url: /#about
             icon: question
     author_links:
-        # github:
-        #     title: GitHub
-        #     url: https://github.com/
-        #     icon: github
+        github:
+            title: GitHub
+            url: https://github.com/hamn07
+            icon: github
         # stack_overflow:
         #     title: Stack Overflow
         #     url: http://stackoverflow.com/users/
@@ -70,10 +74,10 @@ sidebar:
         #     title: Linked In
         #     url: https://www.linkedin.com/profile/
         #     icon: linkedin
-        # mail:
-        #     title: Mail
-        #     url: mailto:
-        #     icon: envelope-o
+        mail:
+            title: Mail
+            url: mailto:hamn07@gmail.com
+            icon: envelope-o
     rss:
         rss:
             title: RSS
@@ -112,7 +116,7 @@ sidebar_behavior: 1
 # Display thumbnail image of each post on index pages (disable: 0, enable: 1)
 thumbnail_image: 1
 # Message displayed after the <!-- more --> tag
-read_more_message: Continue reading
+read_more_message: 繼續閱讀
 # Message displayed after the <!-- more --> tag or after 300 characters for post with link layout
 go_to_message: Go to the website
 # Your blog cover picture located in folder `source/_images/` (development) or in `source/assets/images/` (production)
