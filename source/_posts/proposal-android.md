@@ -30,14 +30,14 @@ tags:
 | □ main page activity | ✓ server installation | ✖ subscribe slideshow |
 | □ describe image | ✓ server configuration    | □     |
 | □ [photo explore activity](https://github.com/iPaulPro/aFileChooser)     | ✖ slideshow pre-generate             | □ |
-| □ upload image   | ✖ [Creating a RESTful API with PHP](http://coreymaynard.com/blog/creating-a-restful-api-with-php/)| □ |
+| □ upload image   | ✓ [Creating a RESTful API with PHP](http://coreymaynard.com/blog/creating-a-restful-api-with-php/)| □ |
 | □ music select activity | □ thumnail to speed up layout | □ |
 | ✖ preview slideshow | □ | □ |
 | □ | □ | □ |
-|<u>***Web Browser***</u>|□|□|
-|✓ [prototype](http://52.26.138.212/)|□|□|
-|→ upload photo function     |□|□|
-|□|□|□|
+| <u>***Web Browser***</u> | □ | □ |
+| ✓ [prototype](http://52.26.138.212/)|□|□|
+| ✓ upload photo function     |□|□|
+| □ | □ | □ |
 ※ **→ : 進行中的項目**
 ※ **□ : 7月底前完成項目**
 ※ **✖ : 待規劃時程實作**
@@ -58,12 +58,15 @@ ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes
 [Server Error Codes and Messages](https://dev.mysql.com/doc/refman/5.7/en/error-messages-server.html)
 
 ## PowerShell
-`Start-Process Hexo s`
+`Start-Process hexo s` or `start hexo s`
 
 
 
 
 ## PHP
+
+
+
 ### 定界符對應之結束符的前一個位元需為換行符號
 
 以下會報錯`Parse error: syntax error, unexpected $end in xxx.php on line 64 `
@@ -96,8 +99,39 @@ extension=php_exif.dll
 ```
 
 
-
 ### Reference
 [PDO Tutorial for MySQL Developers](http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers)
 [REST API Turorial](http://www.restapitutorial.com/index.html)
 [Scope Resolution Operator (::)](http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php)
+
+
+
+## Git
+### git diff 比較兩個commit的差異
+```bash
+>
+>
+D:\dvp\workspace\hamn07.github.io [master]> git show --pretty=fuller
+commit ad92f1e68a0c2b10f9d72307b7ab4299c475c1d3
+Merge: 3c038a1 8865490
+Author:     hamn07 <hamn07@gmail.com>
+AuthorDate: Tue Jul 21 13:58:09 2015 +0800
+Commit:     hamn07 <hamn07@gmail.com>
+CommitDate: Tue Jul 21 13:58:09 2015 +0800
+
+    Merge branch 'master' of github.com:hamn07/src.hamn07.github.io
+>
+>
+D:\dvp\workspace\hamn07.github.io [master]> git diff 3c038a1 8865490
+diff --git a/_config.yml b/_config.yml
+index 626a0bb..a092632 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -63,6 +63,7 @@ pagination_dir: page
+ # Extensions
+ ## Plugins: http://hexo.io/plugins/
+ ## Themes: http://hexo.io/themes/
++#theme: landscape
+ #theme: phase
+ theme: tranquilpeak
+```
