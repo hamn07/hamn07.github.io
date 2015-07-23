@@ -26,17 +26,19 @@ tags:
 | :------------- | :------------- | :------------- |
 | <u>***Android App***</u> | <u>[***LAMP Server***](http://52.26.138.212/)</u>| <u>***Android App***</u>|
 | ✓ [prototype](https://popapp.in/w/projects/55a3af3ba8a45529517254bf/preview)  | ✓ create DB schema      | ✓ [prototype](https://popapp.in/w/projects/55a42a94e6f76c5a5a709b1a/preview)     |
-| □ login activity | ✓ [Entity-Relation diagram](er-diagram.svg) | □ play slideshow  |
-| □ main page activity | ✓ server installation | ✖ subscribe slideshow |
-| □ describe image | ✓ server configuration    | □     |
-| □ [photo explore activity](https://github.com/iPaulPro/aFileChooser)     | ✖ slideshow pre-generate             | □ |
-| □ upload image   | ✓ [Creating a RESTful API with PHP](http://coreymaynard.com/blog/creating-a-restful-api-with-php/)| □ |
-| □ music select activity | □ thumnail to speed up layout | □ |
+| ✖ login activity | ✓ [Entity-Relation diagram](er-diagram.svg) | □ play slideshow  |
+| ✖ main page activity | ✓ server installation | ✖ subscribe slideshow |
+| ✖ describe image | ✓ server configuration    | □     |
+| ✖ [photo explore activity](https://github.com/iPaulPro/aFileChooser)     | ✖ slideshow pre-generate             | □ |
+| ✖ upload image   | ✓ [Creating a RESTful API with PHP](http://coreymaynard.com/blog/creating-a-restful-api-with-php/)| □ |
+| ✖ music select activity | ✖ thumnail to speed up layout | □ |
 | ✖ preview slideshow | □ | □ |
 | □ | □ | □ |
 | <u>***Web Browser***</u> | □ | □ |
 | ✓ [prototype](http://52.26.138.212/)|□|□|
 | ✓ upload photo function     |□|□|
+| □ | □ | □ |
+| □ | □ | □ |
 | □ | □ | □ |
 ※ **→ : 進行中的項目**
 ※ **□ : 7月底前完成項目**
@@ -103,35 +105,3 @@ extension=php_exif.dll
 [PDO Tutorial for MySQL Developers](http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers)
 [REST API Turorial](http://www.restapitutorial.com/index.html)
 [Scope Resolution Operator (::)](http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php)
-
-
-
-## Git
-### git diff 比較兩個commit的差異
-```bash
->
->
-D:\dvp\workspace\hamn07.github.io [master]> git show --pretty=fuller
-commit ad92f1e68a0c2b10f9d72307b7ab4299c475c1d3
-Merge: 3c038a1 8865490
-Author:     hamn07 <hamn07@gmail.com>
-AuthorDate: Tue Jul 21 13:58:09 2015 +0800
-Commit:     hamn07 <hamn07@gmail.com>
-CommitDate: Tue Jul 21 13:58:09 2015 +0800
-
-    Merge branch 'master' of github.com:hamn07/src.hamn07.github.io
->
->
-D:\dvp\workspace\hamn07.github.io [master]> git diff 3c038a1 8865490
-diff --git a/_config.yml b/_config.yml
-index 626a0bb..a092632 100644
---- a/_config.yml
-+++ b/_config.yml
-@@ -63,6 +63,7 @@ pagination_dir: page
- # Extensions
- ## Plugins: http://hexo.io/plugins/
- ## Themes: http://hexo.io/themes/
-+#theme: landscape
- #theme: phase
- theme: tranquilpeak
-```

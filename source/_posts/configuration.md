@@ -3,9 +3,71 @@ date: 2015-07-22 07:45:21
 tags:
 ---
 <!-- toc -->
+# Git
+## 將現有專案push上gihub.com
+1. 於github.com建立repository
+2. 於專案目錄下:
+  1. git init
+  2. git add -A
+  3. git commit -m "init"
+  4. git remote add origin `{github.com上repository的HTTPS clone URL}`
+  5. git push -u origin master
+```
+$ git push -u origin master
+Counting objects: 421, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (387/387), done.
+Writing objects: 100% (421/421), 31.74 MiB | 190.00 KiB/s, done.
+Total 421 (delta 42), reused 0 (delta 0)
+To git@github.com:hamn07/pichannel.web.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+```
+  6. git status
+```
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+```
+3. github.com的repository有檔案，Done.
+
+
+## git diff 比較兩個commit的差異
+```bash
+>
+>
+D:\dvp\workspace\hamn07.github.io [master]> git show --pretty=fuller
+commit ad92f1e68a0c2b10f9d72307b7ab4299c475c1d3
+Merge: 3c038a1 8865490
+Author:     hamn07 <hamn07@gmail.com>
+AuthorDate: Tue Jul 21 13:58:09 2015 +0800
+Commit:     hamn07 <hamn07@gmail.com>
+CommitDate: Tue Jul 21 13:58:09 2015 +0800
+
+    Merge branch 'master' of github.com:hamn07/src.hamn07.github.io
+>
+>
+D:\dvp\workspace\hamn07.github.io [master]> git diff 3c038a1 8865490
+diff --git a/_config.yml b/_config.yml
+index 626a0bb..a092632 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -63,6 +63,7 @@ pagination_dir: page
+ # Extensions
+ ## Plugins: http://hexo.io/plugins/
+ ## Themes: http://hexo.io/themes/
++#theme: landscape
+ #theme: phase
+ theme: tranquilpeak
+```
+
+
+
 
 # Apache httpd
-## win7
+## win7建置
 
 1. 目錄預設檔案
 ```
@@ -61,7 +123,7 @@ Options FollowSymLinks
 
 
 # PHP
-## win7
+## win7建置
 1. 顯示錯誤
 `display_errors = On`
 
@@ -82,3 +144,23 @@ Options FollowSymLinks
 `date.timezone = Asia/Taipei`
 
 5. 環境變數$PATH加入`D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64`
+
+## Linux建置
+上傳檔案時報錯`PHP Warning:  mkdir(): Permission denied`
+Workaround: [參考](http://stackoverflow.com/questions/13908722/php-unable-to-create-a-directory-with-mkdir)
+```
+$ ls -lZ img-repo/
+drwxrwxr-x. ec2-user ec2-user unconfined_u:object_r:httpd_sys_content_t:s0 img-repo
+$ chcon -R -t httpd_sys_content_rw_t img-repo/
+```
+```
+vi /etc/httpd/conf/httpd.conf
+
+user ec2-user
+group ec2-user
+```
+
+
+# hexo
+## Reference
+[lukang介紹Hexo系列文章](http://lukang.me/categories/Hexo/)
