@@ -24,9 +24,13 @@ sidebar:
             url: /
             icon: home
         web:
-            title: Web on aws
+            title: web
             url: http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com
             icon: cloud-upload
+        slide:
+            title: slides
+            url: http://slides.com/hamn07/deck/live
+            icon: slideshare
         # categories:
         #     title: Categories
         #     url: /all-categories

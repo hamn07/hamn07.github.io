@@ -145,6 +145,9 @@ Options FollowSymLinks
 
 5. 環境變數$PATH加入`D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64`
 
+6. 設置最大post size - Production
+post_max_size = 1M
+
 ## Linux建置
 上傳檔案時報錯`PHP Warning:  mkdir(): Permission denied`
 Workaround: [參考](http://stackoverflow.com/questions/13908722/php-unable-to-create-a-directory-with-mkdir)

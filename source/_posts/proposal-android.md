@@ -26,7 +26,7 @@ tags:
 | :------------- | :------------- | :------------- |
 | <u>***Android App***</u> | <u>[***LAMP Server***](http://52.26.138.212/)</u>| <u>***Android App***</u>|
 | ✓ [prototype](https://popapp.in/w/projects/55a3af3ba8a45529517254bf/preview)  | ✓ create DB schema      | ✓ [prototype](https://popapp.in/w/projects/55a42a94e6f76c5a5a709b1a/preview)     |
-| ✖ login activity | ✓ [Entity-Relation diagram](er-diagram.svg) | □ play slideshow  |
+| ✖ login activity | ✓ [Entity-Relation diagram](er-diagram.svg) | → play slideshow  |
 | ✖ main page activity | ✓ server installation | ✖ subscribe slideshow |
 | ✖ describe image | ✓ server configuration    | □     |
 | ✖ [photo explore activity](https://github.com/iPaulPro/aFileChooser)     | ✖ slideshow pre-generate             | □ |
@@ -37,7 +37,7 @@ tags:
 | <u>***Web Browser***</u> | □ | □ |
 | ✓ [prototype](http://52.26.138.212/)|□|□|
 | ✓ upload photo function     |□|□|
-| □ | □ | □ |
+| ✖ [Resize image before upload on client-side](https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/) | □ | □ |
 | □ | □ | □ |
 | □ | □ | □ |
 ※ **→ : 進行中的項目**
