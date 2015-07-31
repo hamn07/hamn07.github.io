@@ -165,5 +165,6 @@ group ec2-user
 
 
 # hexo
+`npm install hexo-toc --save`
 ## Reference
 [lukang介紹Hexo系列文章](http://lukang.me/categories/Hexo/)

@@ -2,7 +2,79 @@ title: android note
 date: 2015-07-30 09:17:19
 tags:
 ---
+![](http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png)
+***
+![](http://developer.android.com/images/service_lifecycle.png )
+[趙老師的雲端分享資料夾](https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&usp=sharing#list)
 <!-- toc -->
+# sensor
+- 位移
+- 環境
+- 位置
+
+## example
+```xml
+    <!--設定device需有三軸加速感應器才可安裝-->
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+```
+```java
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        mgr = (SensorManager) getSystemService(SENSOR_SERVICE);
+        List<Sensor> list = mgr.getSensorList(Sensor.TYPE_ALL);
+
+
+        for (Sensor sensor:list) {
+            Log.i("henry",sensor.getName()+" : "+sensor.getType()+" : "+sensor.getVendor());
+        }
+
+        sensor = mgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        if (sensor!=null) {
+            isSensorEnable=true;
+        }
+        /**
+         * define
+         */
+        sensorEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                float[] values = event.values;
+
+                ((TextView)findViewById(R.id.tv1)).setText("x : "+values[0]);
+                ((TextView)findViewById(R.id.tv2)).setText("y : "+values[1]);
+                ((TextView)findViewById(R.id.tv3)).setText("z : "+values[2]);
+
+                MyView mv = (MyView) findViewById(R.id.mv);
+
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            }
+        };
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (isSensorEnable) {
+            mgr.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (isSensorEnable) {
+            mgr.unregisterListener(sensorEventListener, sensor);
+        }
+    }
+```
 # volley
 ## POST image file
 [stackoverflow](http://stackoverflow.com/questions/29430599/upload-an-image-using-google-volley)
@@ -162,6 +234,15 @@ task.execute("test1",
 
 # 上架App
 [Google Play Developer Console](https://play.google.com/apps/publish/)
+export signed package
+keystore
+
+
+
+
+
+
+
 # Providing Resource
 [official](http://developer.android.com/intl/zh-cn/guide/topics/resources/providing-resources.html)
 `res/layout-land`當device拿橫時，就會套用到此版面
@@ -200,6 +281,25 @@ task.execute("test1",
 
 ```
 
+# java
+- garbage collection
+> 物件沒有被reference時，`System.gc();`會要求系統做gc，但若系統沒空，還是要等到它有空才會做。
+
 # Question
-## Service的動作是否都能做在Activity
-## 啥是Context
+- Service的動作是否都能做在Activity
+- 啥是Context
+- QA
+  1. coding完用JUnit單元測試，[參考](http://140.127.82.166/retrieve/18991/91.pdf)
+  2. brad客製化QA測試工具做整體測試
+
+- 公司VersionControlSystem, gitignore
+> 內部git, vpn
+
+- API https
+
+
+- 程式架構文件-> PGM: Phase Gate Model
+  1. 流程圖 -> brad
+  2. 演算法 -> all
+  3. coding -> member
+  4. code review -> all
