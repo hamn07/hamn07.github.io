@@ -7,6 +7,16 @@ tags:
 ![](http://developer.android.com/images/service_lifecycle.png )
 [趙老師的雲端分享資料夾](https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&usp=sharing#list)
 <!-- toc -->
+# dialog
+1. ProgressDialog
+```java
+ProgressDialog dialog = new ProgressDialog(this);
+dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+dialog.setMessage("downloading...");
+dialog.show();
+dialog.dismiss();
+```
+
 # sensor
 - 位移
 - 環境
@@ -75,6 +85,9 @@ tags:
         }
     }
 ```
+# media player
+![](http://developer.android.com/intl/zh-cn/images/mediaplayer_state_diagram.gif)
+
 # volley
 ## POST image file
 [stackoverflow](http://stackoverflow.com/questions/29430599/upload-an-image-using-google-volley)

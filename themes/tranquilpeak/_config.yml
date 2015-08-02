@@ -25,12 +25,16 @@ sidebar:
             icon: home
         web:
             title: web
-            url: http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com
-            icon: cloud-upload
+            url: https://stark-everglades-8527.herokuapp.com/
+            icon: globe
         slide:
             title: slides
             url: http://slides.com/hamn07/deck/live
             icon: slideshare
+        api:
+            title: database
+            url: http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/
+            icon: database
         # categories:
         #     title: Categories
         #     url: /all-categories
