@@ -7,6 +7,18 @@ tags:
 ![](http://developer.android.com/images/service_lifecycle.png )
 [趙老師的雲端分享資料夾](https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&usp=sharing#list)
 <!-- toc -->
+# bluetooth
+[official guide](http://developer.android.com/intl/zh-cn/guide/topics/connectivity/bluetooth.html)
+
+```xml
+<manifest ... >
+  <uses-permission android:name="android.permission.BLUETOOTH" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+  ...
+</manifest>
+```
+
+
 # dialog
 1. ProgressDialog
 ```java
@@ -294,13 +306,25 @@ keystore
 
 ```
 
+
 # java
 - garbage collection
 > 物件沒有被reference時，`System.gc();`會要求系統做gc，但若系統沒空，還是要等到它有空才會做。
 
+# convetion
+[Official Code Style Guidelines for Contributors](http://source.android.com/source/code-style.html)
+
+> lint
+在計算機科學中，lint是一種工具程序的名稱，它用來標記源代碼中，某些可疑的、不具結構性的段落。它是一種靜態程序分析工具，最早適用於C語言，在UNIX平台上開發出來。後來它成為通用術語，可用於描述在任何一種電腦編程語言中，用來標記源代碼中有疑義段落的工具。
+
+
 # Question
 - Service的動作是否都能做在Activity
+跟UI無關的動作都放在Service
+
 - 啥是Context
+Activity/Service..等類別
+
 - QA
   1. coding完用JUnit單元測試，[參考](http://140.127.82.166/retrieve/18991/91.pdf)
   2. brad客製化QA測試工具做整體測試
