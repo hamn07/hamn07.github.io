@@ -33,7 +33,7 @@ sidebar:
             icon: slideshare
         api:
             title: database
-            url: http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/
+            url: http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/api/user/hamn07?apiKey=key1
             icon: database
         # categories:
         #     title: Categories
