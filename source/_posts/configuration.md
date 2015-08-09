@@ -4,6 +4,48 @@ tags:
 ---
 <!-- toc -->
 # Git
+## 設定`.gitignore_global`
+> git config --global core.excludesfile ~/.gitignore_global
+
+```bash
+10:39 $ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.idea/
+	lab-android-studio.iml
+	pichannelur/pichannelur.iml
+	pichannelvr/pichannelvr.iml
+
+nothing added to commit but untracked files present (use "git add" to track)
+✔ ~/Workspace/lab-android-studio [master|…11]
+```
+```bash
+10:43 $ git config --global -l
+fatal: unable to read config file '/Users/Hamn/.gitconfig': No such file or directory
+✘-128 ~/Workspace/lab-android-studio [master|…11]
+```
+```bash
+10:43 $ git config --global core.excludesfile ~/.gitignore_global
+✔ ~/Workspace/lab-android-studio [master|✔]
+```
+```bash
+10:44 $ git config --global -l
+core.excludesfile=/Users/Hamn/.gitignore_global
+✔ ~/Workspace/lab-android-studio [master|✔]
+```
+```bash
+10:44 $ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+✔ ~/Workspace/lab-android-studio [master|✔]
+```
+
 ## 將現有專案push上gihub.com
 1. 於github.com建立repository
 2. 於專案目錄下:
