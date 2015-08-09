@@ -19,7 +19,8 @@ tags:
   ...
 </manifest>
 ```
-
+# problem to fix
+[Android uploading pictures to server in most efficient way](https://www.evernote.com/shard/s75/sh/ef5c662a-4cb3-486e-b24f-c59191df5f39/cdb742b3e18301296d66d002b36fcb2f)
 
 # dialog
 1. ProgressDialog
