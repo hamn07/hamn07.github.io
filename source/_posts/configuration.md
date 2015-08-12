@@ -3,6 +3,32 @@ date: 2015-07-22 07:45:21
 tags:
 ---
 <!-- toc -->
+
+
+
+# OSX
+## CyberDuck
+![](CyberDuck.png)
+## MenuMeter
+![](MenuMeter.png)
+## Keka
+[官網](http://www.kekaosx.com/zh-tw/)
+
+
+
+
+# Heroku
+## deploy
+1. Download `Heroku Toolbelt`
+2. `$ heroku login`
+3. `$ heroku git:clone -a stark-everglades-8527`
+4. `$ git push heroku master`
+
+
+
+
+
+
 # Git
 ## 設定`.gitignore_global`
 > git config --global core.excludesfile ~/.gitignore_global
