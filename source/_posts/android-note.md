@@ -8,6 +8,7 @@ tags:
 ***
 ![](http://developer.android.com/images/service_lifecycle.png )
 [趙老師的雲端分享資料夾](https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&usp=sharing#list)
+[林老師的教作業郵件](mailto://homeworks.iii@gmail.com)
 <!-- toc -->
 # bluetooth
 [official guide](http://developer.android.com/intl/zh-cn/guide/topics/connectivity/bluetooth.html)
