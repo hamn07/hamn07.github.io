@@ -13,7 +13,8 @@ tags:
 ![](MenuMeter.png)
 ## Keka
 [官網](http://www.kekaosx.com/zh-tw/)
-
+## ec2
+alias sshec2='ssh -i ~/.ssh/dvp.pem ec2-user@52.26.138.212'
 
 
 
