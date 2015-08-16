@@ -36,9 +36,9 @@ tags:
 | □ | □ | □ |
 | <u>***Web Browser***</u> | □ | □ |
 | ✓ [prototype](http://52.26.138.212/)|□|□|
-| ✓ upload photo function     |□|□|
+| ✓ image CURD        |□|□|
 | ✖ [Resize image before upload on client-side](https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/) | □ | □ |
-| □ | □ | □ |
+| ✖ [auto rotate portrait image](https://github.com/blueimp/JavaScript-Load-Image) | □ | □ |
 | □ | □ | □ |
 ※ **→ : 進行中的項目**
 ※ **□ : 7月底前完成項目**

@@ -4,13 +4,17 @@ tags:
 ---
 
 # 問題
-- 相機的firmware為何?
+- 是否為x5行車記錄器DV-5200
+- 產品的firmware為何? 用c語言編程嗎? 有開發文件可以參考嗎?
+- 儲存於EEPROM? Flash?
+- 若不插sd卡，是否還有剩餘空間可以儲放拍攝影片?
 - 相機wifi模組直上雲端如何實作?
 - 相機wifi模組連通相機再上雲端?
-- 是否為x5行車記錄器DV-5200
+- 相機vga模組如何串接led螢幕/micro HDMI訊號輸出
 [使用手冊](http://www.px.com.tw/file/R5235G%20DV-5200.pdf)
 ![](http://ec1img.pchome.com.tw/pic/v1/data/item/201408/C/G/A/A/B/X/CGAABX-A9005D4ZF000_53eac536b3bc7.jpg)
 ![](http://ec1img.pchome.com.tw/pic/v1/data/item/201408/C/G/A/A/B/X/CGAABX-A9005D4ZF000_53eac536b0132.jpg)
+[安霸A7LS晶片](http://www.ambarella.com/uploads/docs/A7LS-Brief-121713.pdf)
 
 
 # 實作方向

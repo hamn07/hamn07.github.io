@@ -14,8 +14,8 @@ tags:
 ## Keka
 [官網](http://www.kekaosx.com/zh-tw/)
 ## ec2
+$ chmod 400 ~/.ssh/dvp.pem
 alias sshec2='ssh -i ~/.ssh/dvp.pem ec2-user@52.26.138.212'
-
 
 
 # Heroku
