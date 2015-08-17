@@ -16,7 +16,8 @@ tags:
 ## ec2
 $ chmod 400 ~/.ssh/dvp.pem
 alias sshec2='ssh -i ~/.ssh/dvp.pem ec2-user@52.26.138.212'
-
+## 嘸蝦米輸入法
+直接安裝bin檔
 
 # Heroku
 ## deploy
@@ -235,5 +236,32 @@ group ec2-user
 
 # hexo
 `npm install hexo-toc --save`
+`npm install hexo-deployer-git --save`
+
+```bash
+$ hexo d
+INFO  Deploying: git
+INFO  Clearing .deploy folder...
+INFO  Copying files from public folder...
+On branch master
+nothing to commit, working directory clean
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+FATAL Something wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
+Error: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+    at ChildProcess.<anonymous> (/Users/Hamn/Workspace/src.hamn07.github.io/node_modules/hexo-deployer-git/node_modules/hexo-util/lib/spawn.js:42:17)
+    at ChildProcess.emit (events.js:110:17)
+    at maybeClose (child_process.js:1015:16)
+    at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
+```
+Workaround: [add SSH keys to GitHub.com](https://help.github.com/articles/generating-ssh-keys/)
 ## Reference
 [lukang介紹Hexo系列文章](http://lukang.me/categories/Hexo/)
