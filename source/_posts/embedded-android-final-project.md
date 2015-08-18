@@ -33,3 +33,19 @@ tags:
 [X5跨界行車記錄器DV-5200大通](http://my.px.com.tw/PX/moreinfo_38669.htm)
 [大通pxtv-100](http://24h.pchome.com.tw/prod/DMAA6X-A80521833)
 ![大通pxtv-100](http://ec1img.pchome.com.tw/pic/v1/data/item/201310/D/M/A/A/6/X/DMAA6X-A80521833000_5268dba5a3bbc)
+
+# (Draft)  資策會專題google drive生活記錄器實作詢問
+
+楊組長您好,
+
+我們是資策會嵌入式android就業養成班的學員，對於您提供的**google drive生活記錄器**實作很感興趣，想再跟您討論實作細節，先條列如下，看看是否方便跟楊組長約時間當面討論，謝謝。
+
+1. 此裝置firmware開發平台/SDK
+2. 此裝置影像上傳雲端機制:
+ - 透過手機
+ - 直上雲端
+3. 除了google drive外，亦可使用[Picasa Web Albums Data API](https://developers.google.com/picasa-web/)上傳影像，與google drive僅做檔案儲存相比，另可於以下3個Google服務中做相片加值應用
+ - [Picasa網路相簿](https://picasaweb.google.com/home)，舊有的網路相簿服務，，介面陽春
+ - [Google+相片](https://plus.google.com/u/0/photos/highlights)，將上述相片資料及CRUD功能整合進Google+便於社群分享，較特別的是會自動依據GPS資訊產生相片故事集
+ - [Google相片](https://photos.google.com/u/0/)，今年3月由Google+獨立出來的相片服務，功能大抵跟Google+ 照片相同
+4. 參考您給的簡報，此裝置是否為[x5行車紀錄器](http://my.px.com.tw/PX/moreinfo_38669.htm)?[安霸A7LS](http://www.ambarella.com/uploads/docs/A7LS-Brief-121713.pdf)?
