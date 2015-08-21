@@ -2,8 +2,6 @@ title: android note
 date: 2015-07-30 09:17:19
 tags:
 ---
-[p](https://www.dropbox.com/s/2pa858ybc10iakn/pichannelur-debug.apk?dl=0)
-[p](https://www.dropbox.com/s/v3pzkc78iznrnwd/pichannelvr-debug.apk?dl=0)
 ![](http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png)
 ***
 ![](http://developer.android.com/images/service_lifecycle.png )

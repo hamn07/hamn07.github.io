@@ -2,6 +2,8 @@ title: 期末專題
 date: 2015-08-12 07:45:04
 tags:
 ---
+<!-- toc -->
+[Wireless Camera with Arduino and the CC3000 WiFi chip](https://www.openhomeautomation.net/wireless-camera/)
 
 # 問題
 - 是否為x5行車記錄器DV-5200
@@ -49,3 +51,6 @@ tags:
  - [Google+相片](https://plus.google.com/u/0/photos/highlights)，將上述相片資料及CRUD功能整合進Google+便於社群分享，較特別的是會自動依據GPS資訊產生相片故事集
  - [Google相片](https://photos.google.com/u/0/)，今年3月由Google+獨立出來的相片服務，功能大抵跟Google+ 照片相同
 4. 參考您給的簡報，此裝置是否為[x5行車紀錄器](http://my.px.com.tw/PX/moreinfo_38669.htm)?[安霸A7LS](http://www.ambarella.com/uploads/docs/A7LS-Brief-121713.pdf)?
+
+Henry李兆涵 hamn07@gmail.com
+Rock張育誠 xiu43317@gmail.com
