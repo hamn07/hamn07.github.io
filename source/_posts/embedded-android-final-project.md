@@ -4,7 +4,10 @@ tags:
 ---
 <!-- toc -->
 [Wireless Camera with Arduino and the CC3000 WiFi chip](https://www.openhomeautomation.net/wireless-camera/)
-
+[OV7670 image sensor data capture with Atxmega32E5 without using external FIFO](https://github.com/kehribar/xmega_ov7670)
+[eBook](http://www.psycho-sphere.com/)
+[Hacking the OV7670 camera module (SCCB cheat sheet inside)](http://embeddedprogrammer.blogspot.tw/2012/07/hacking-ov7670-camera-module-sccb-cheat.html)
+[Arduino + OV7670 - Without FIFO - Reading Snapshot](http://stackoverflow.com/questions/21220738/arduino-ov7670-without-fifo-reading-snapshot)
 # 問題
 - 是否為x5行車記錄器DV-5200
 - 產品的firmware為何? 用c語言編程嗎? 有開發文件可以參考嗎?
