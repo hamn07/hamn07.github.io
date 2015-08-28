@@ -3,6 +3,9 @@ date: 2015-08-12 07:45:04
 tags:
 ---
 <!-- toc -->
+[Lab5 Arduino 應用教學-安全警衛](http://here-apps.blogspot.tw/2014/07/lab5-arduino.html)
+[[Arduino WIFI相机，自动拍照Intel Edison 和云端储存](http://www.dfrobot.com.cn/community/forum.php?mod=viewthread&tid=12432)
+[Grove - Serial Camera Kit 串口照相機套件](https://www.mcuapps.com/goods/groves/grove-serial-camera-kit)
 [Wireless Camera with Arduino and the CC3000 WiFi chip](https://www.openhomeautomation.net/wireless-camera/)
 [OV7670 image sensor data capture with Atxmega32E5 without using external FIFO](https://github.com/kehribar/xmega_ov7670)
 [eBook](http://www.psycho-sphere.com/)
