@@ -188,3 +188,16 @@ OSX
 `mysql.server {start|status|stop}`
 Linux
 `systemctl {start|status|stop} mariadb`
+
+## Trouble Shooting
+### add primary key時，出現key was too long的錯誤訊息
+
+```sql
+mysql> ALTER TABLE post
+    ->   ADD PRIMARY KEY (timestamp,member_id);
+ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes
+```
+> id 長度設定為VARCHAR(256)，db編碼採用utf8，要佔掉256x3=768 bytes，再加上timestamp佔掉4個bytes，已超過限制，因此將id長度改成254
+
+## Reference
+[Server Error Codes and Messages](https://dev.mysql.com/doc/refman/5.7/en/error-messages-server.html)

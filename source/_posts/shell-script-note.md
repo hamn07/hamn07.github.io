@@ -1,4 +1,4 @@
-title: shell-script-note
+title: shell筆記區
 date: 2015-08-20 06:21:30
 tags:
 ---
@@ -19,3 +19,6 @@ resolver #1
   flags    : Request A records
   reach    : Reachable,Directly Reachable Address
 ```
+
+# PowerShell
+`Start-Process hexo s` or `start hexo s`

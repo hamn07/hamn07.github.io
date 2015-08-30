@@ -33,6 +33,7 @@ tags:
 | ✖ upload image   | ✓ [Creating a RESTful API with PHP](http://coreymaynard.com/blog/creating-a-restful-api-with-php/)| ✖ theme selection |
 | ✖ music select activity | ✖ thumnail to speed up layout | □ compression before upload |
 | ✖ preview slideshow | □ | □ |
+| □ [How can i convert ByteArrayInputStream to jpeg and display on android mobile?](http://stackoverflow.com/questions/12908318/how-can-i-convert-bytearrayinputstream-to-jpeg-and-display-on-android-mobile) | □ | □ |
 | □ | □ | □ |
 | <u>***Web Browser***</u> | □ | □ |
 | ✓ [prototype](http://52.26.138.212/)|□|□|
@@ -44,64 +45,3 @@ tags:
 ※ **□ : 7月底前完成項目**
 ※ **✖ : 待規劃時程實作**
 ※ **✓ : 已完成項目**
-
-# 筆記區
-## MySQL
-### add primary key時，出現key was too long的錯誤訊息
-
-```sql
-mysql> ALTER TABLE post
-    ->   ADD PRIMARY KEY (timestamp,member_id);
-ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes
-```
-> id 長度設定為VARCHAR(256)，db編碼採用utf8，要佔掉256x3=768 bytes，再加上timestamp佔掉4個bytes，已超過限制，因此將id長度改成254
-
-### Reference
-[Server Error Codes and Messages](https://dev.mysql.com/doc/refman/5.7/en/error-messages-server.html)
-
-## PowerShell
-`Start-Process hexo s` or `start hexo s`
-
-
-
-
-## PHP
-
-
-
-### 定界符對應之結束符的前一個位元需為換行符號
-
-以下會報錯`Parse error: syntax error, unexpected $end in xxx.php on line 64 `
-```php
-function insertImage($sha1,$timestamp){
-
-  $sql = <<<sqlText
-    INSERT INTO image VALUES (?,?)
-  sqlText;
-```
-
-以下正解
-```php
-function insertImage($sha1,$timestamp){
-
-  $sql = <<<sqlText
-    INSERT INTO image VALUES (?,?)
-sqlText;
-```
-### 使用exif_read_date需於php.ini做以下設定
-以下報錯`Fatal error: Call to undefined function exif_read_data() xxx.php on line 2 `
-```php
-extension=php_exif.dll
-extension=php_mbstring.dll
-```
-以下正解
-```php
-extension=php_mbstring.dll
-extension=php_exif.dll
-```
-
-
-### Reference
-[PDO Tutorial for MySQL Developers](http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers)
-[REST API Turorial](http://www.restapitutorial.com/index.html)
-[Scope Resolution Operator (::)](http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php)

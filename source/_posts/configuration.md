@@ -27,7 +27,8 @@ alias sshec2='ssh -i ~/.ssh/dvp.pem ec2-user@52.26.138.212'
 安裝套件都放在`/usr/local/Cellar`底下
 ## XtraFinder - 補強Finder功能
 ## MPlayerX
-
+## Sublime
+[Sublime Text 3 新手上路：必要的安裝、設定與基本使用教學](https://www.evernote.com/shard/s75/sh/a1cd7790-c07f-41f6-9031-951c3988b457/5dd08a112d111e9e60c15bdc203466a9)
 
 # Heroku
 ## deploy
@@ -142,8 +143,9 @@ index 626a0bb..a092632 100644
  theme: tranquilpeak
 ```
 
-
-
+# Eclipse
+[CDT](http://www.eclipse.org/cdt/downloads.php)
+[Arduino plugin nightly-osx](http://www.baeyens.it/eclipse/nightly-osx.html)
 
 # hexo
 `npm install hexo-toc --save`

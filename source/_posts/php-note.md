@@ -13,6 +13,7 @@ tags:
 ![](pdo-error-phpini.png)
 ![](pdo-error-mysql-sock.png)
 
+
 ## OSX上傳檔案時報錯`PHP Warning:  mkdir(): Permission denied`
 ```bash
 [Fri Aug 21 06:46:19.036740 2015] [:error] [pid 4098] [client ::1:52036] PHP Warning:  mkdir(): Permission denied in /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line 77
@@ -23,6 +24,9 @@ Workaround:
 $ mkdir img-repo
 $ sudo chown img-repo _www
 ```
+
+
+
 ## Redhat上傳檔案時報錯`PHP Warning:  mkdir(): Permission denied`
 Workaround: [參考](http://stackoverflow.com/questions/13908722/php-unable-to-create-a-directory-with-mkdir)
 ```
@@ -37,10 +41,50 @@ user ec2-user
 group ec2-user
 ```
 
+
+## 定界符對應之結束符的前一個位元需為換行符號
+
+以下會報錯`Parse error: syntax error, unexpected $end in xxx.php on line 64 `
+```php
+function insertImage($sha1,$timestamp){
+
+  $sql = <<<sqlText
+    INSERT INTO image VALUES (?,?)
+  sqlText;
+```
+
+以下正解
+```php
+function insertImage($sha1,$timestamp){
+
+  $sql = <<<sqlText
+    INSERT INTO image VALUES (?,?)
+sqlText;
+```
+
+
+
+## 使用exif_read_date需於php.ini做以下設定
+以下報錯`Fatal error: Call to undefined function exif_read_data() xxx.php on line 2 `
+```php
+extension=php_exif.dll
+extension=php_mbstring.dll
+```
+以下正解
+```php
+extension=php_mbstring.dll
+extension=php_exif.dll
+```
+
+
+
+
 ## 上傳檔案時無法取得原始拍攝日期
 ```bash
 [Sat Aug 22 18:12:45.538546 2015] [:error] [pid 833] [client ::1:49587] PHP Notice:  Undefined index: DateTimeOriginal in /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line 89
 ```
+
+
 
 # Apache httpd建置
 ## win7
@@ -132,3 +176,9 @@ post_max_size = 1M
 ### Composer
 `curl -sS https://getcomposer.org/installer | php`
 `mv composer.phar /usr/local/bin/composer`
+
+
+# Reference
+[PDO Tutorial for MySQL Developers](http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers)
+[REST API Turorial](http://www.restapitutorial.com/index.html)
+[Scope Resolution Operator (::)](http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php)

@@ -1,4 +1,4 @@
-title: android note
+title: 安卓筆記區
 date: 2015-07-30 09:17:19
 tags:
 ---
@@ -105,6 +105,10 @@ dialog.dismiss();
 # volley
 ## POST image file
 [stackoverflow](http://stackoverflow.com/questions/29430599/upload-an-image-using-google-volley)
+
+# HttpURLConnection
+## POST image file
+[Android HttpURLConnection 上傳檔案 (multipart/form-data)](http://blog.kenyang.net/2011/12/android-httpurlconnection-multipartform.html)
 
 # AsyncTask
 ```java
