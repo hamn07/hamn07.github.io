@@ -146,6 +146,13 @@ index 626a0bb..a092632 100644
 # Eclipse
 [CDT](http://www.eclipse.org/cdt/downloads.php)
 [Arduino plugin nightly-osx](http://www.baeyens.it/eclipse/nightly-osx.html)
+Log Viewer
+SQL Development Tool
+
+# Chrome
+Insomnia
+postman
+
 
 # hexo
 `npm install hexo-toc --save`
