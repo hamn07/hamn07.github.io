@@ -3,6 +3,7 @@ date: 2015-08-12 07:45:04
 tags:
 ---
 <!-- toc -->
+[How to use Code for OV7670 in arduino uno](http://arduino.stackexchange.com/questions/10170/how-to-use-code-for-ov7670-in-arduino-uno)
 [Lab5 Arduino 應用教學-安全警衛](http://here-apps.blogspot.tw/2014/07/lab5-arduino.html)
 [[Arduino WIFI相机，自动拍照Intel Edison 和云端储存](http://www.dfrobot.com.cn/community/forum.php?mod=viewthread&tid=12432)
 [Grove - Serial Camera Kit 串口照相機套件](https://www.mcuapps.com/goods/groves/grove-serial-camera-kit)
