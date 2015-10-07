@@ -9,6 +9,7 @@ tags:
 [官網教學](https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/)
 
 1. `brew install mariadb`
+
 ```bash
 04:55 $ brew install mariadb
 ==> Installing mariadb dependency: openssl
@@ -57,13 +58,17 @@ Or, if you don't want/need launchctl, you can just run:
 ==> Summary
 🍺  /usr/local/Cellar/mariadb/10.0.21: 530 files, 130M
 ```
+
 2. `unset TMPDIR`
+
 ```bash
 $ echo $TMPDIR
 /var/folders/jw/6rpyrtd14g156cll7p2fx_vc0000gn/T/
 $ unset TMPDIR
 ```
+
 3. `mysql_install_db`
+
 ```bash
 $ mysql_install_db
 Installing MariaDB/MySQL system tables in '/usr/local/var/mysql' ...
@@ -138,7 +143,9 @@ Corporation Ab. You can contact us about this at sales@mariadb.com.
 Alternatively consider joining our community based development effort:
 http://mariadb.com/kb/en/contributing-to-the-mariadb-project/
 ```
+
 4. `mysql.server start`
+
 ```bash
 $ mysql.server start
 Starting MySQL
@@ -148,6 +155,7 @@ Starting MySQL
 5. `mysqladmin -u root password '密碼'`
 
 6. `mysql -uroot -p`
+
 ```bash
 $ mysql -uroot -p
 Enter password:
@@ -171,7 +179,43 @@ MariaDB [(none)]> show databases;
 4 rows in set (0.01 sec)
 ```
 
+## 啟動mariadb發生錯誤
+查看/usr/local/var/mysql/Leeteki-MacBook-Pro.local.err
 
+> 151006 13:05:14 [ERROR] mysqld: File '/usr/local/var/mysql/aria_log_control' not found (Errcode: 13 "Permission denied")
+> 151006 13:05:14 [ERROR] mysqld: Got error 'Can't open file' when trying to use aria control file '/usr/local/var/mysql/aria_log_control'
+> 151006 13:05:14 [ERROR] Plugin 'Aria' init function returned error.
+> 151006 13:05:14 [ERROR] Plugin 'Aria' registration as a STORAGE ENGINE failed.
+
+[解法](https://www.evernote.com/shard/s75/sh/7cbf8a25-bd79-4024-a73f-f0688883befe/c970ee04dedab7f6fd8fd499f61f7f1a)
+```bash
+13:30 $ ls -al
+total 0
+drwxr-xr-x   3 HamnLee  admin  102  8 20 04:58 .
+drwxrwxr-x  24 root     admin  816 10  3 05:58 ..
+drwxr-xr-x  16 HamnLee  admin  544 10  6 13:30 mysql
+✔ /usr/local/var [master L|✔]
+13:30 $ sudo chown -R _mysql /usr/local/var/mysql
+Password:
+✔ /usr/local/var [master L|✔]
+13:30 $ ls -al
+total 0
+drwxr-xr-x   3 HamnLee  admin  102  8 20 04:58 .
+drwxrwxr-x  24 root     admin  816 10  3 05:58 ..
+drwxr-xr-x  16 _mysql   admin  544 10  6 13:30 mysql
+✔ /usr/local/var [master L|✔]
+13:30 $ sudo chmod -R g+rwx /usr/local/var/mysql
+✔ /usr/local/var [master L|✔]
+13:31 $ ls -al
+total 0
+drwxr-xr-x   3 HamnLee  admin  102  8 20 04:58 .
+drwxrwxr-x  24 root     admin  816 10  3 05:58 ..
+drwxrwxr-x  16 _mysql   admin  544 10  6 13:30 mysql
+✔ /usr/local/var [master L|✔]
+13:31 $ sudo mysql.server start
+Starting MySQL
+.. SUCCESS!
+```
 ## 查此session是用那個帳號登入
 
 > Actually, you need to use two functions

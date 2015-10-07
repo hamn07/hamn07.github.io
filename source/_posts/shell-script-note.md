@@ -8,6 +8,10 @@ tags:
 ## 搜尋.bash_history下過的command
 `Ctrl + R`
 
+## 查版本
+`uname -a`
+`lsb_release -a`
+
 ## 找DNS IP
 ```bash
 $ scutil --dns

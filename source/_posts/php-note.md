@@ -3,7 +3,34 @@ date: 2015-08-07 06:44:51
 tags:
 ---
 <!-- toc -->
+
+
+
 [How to process PUT requests with PHP](http://phpave.com/how-to-process-put-requests-with-php/)
+
+# Spring
+[官網文件](http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/index.html)
+
+# Security
+## HTTPS - HTTP over SSL
+工作原理:
+1. 使用非對稱式加密演算法來對通訊雙方做身分認證
+2. 並交換對稱金鑰為Session Key
+3. 使用Session Key來加密C/S間的通訊內容
+
+缺點:
+1. 通訊內容加量，因此傳輸時間變長
+2. 加解密需消耗額外機器資源 (可由SSL acceleration加速之)
+
+IETF - Internet Engineering Task Force
+SSL - Secure Socket Layer
+TLS - Transport Layer Secure
+
+
+SSL acceleration
+
+
+
 
 # Trouble Shooting
 ## PDO連線報錯no such file

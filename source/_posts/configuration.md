@@ -4,9 +4,45 @@ tags:
 ---
 <!-- toc -->
 
+# Kaazing
+```bash
+✔ /usr/local/kaazing-gateway-community-5.0.0/bin [master L|✔]
+06:01 $ ./gateway.start
+INFO  Kaazing Gateway (5.0.0.15)
+INFO  Configuration file: /usr/local/kaazing-gateway-community-5.0.0/conf/gateway-config-minimal.xml
+INFO  Starting server
+INFO  Starting services
+INFO    http://localhost:8000/
+INFO    http://localhost:8000/commandcenter
+INFO    ws://localhost:8000/echo
+INFO    ws://localhost:8000/snmp
+INFO  Started services
+INFO  Started server successfully in 2.391 secs at 2015-10-03 06:02:06
 
+```
 
 # OSX
+## CentOS bootable USB
+```bash
+$ diskutil list
+/dev/disk0
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *500.1 GB   disk0
+   1:                        EFI EFI                     209.7 MB   disk0s1
+   2:                  Apple_HFS Macintosh HD            419.0 GB   disk0s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
+   4:       Microsoft Basic Data                         80.2 GB    disk0s4
+/dev/disk1
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *8.1 GB     disk1
+   1:                 DOS_FAT_32 NO NAME                 8.1 GB     disk1s1
+$ diskutil unmountDisk /dev/disk1
+Unmount of all volumes on disk1 was successful
+$ sudo dd if=CentOS-7-x86_64-DVD-1503-01.iso of=/dev/disk1
+8419328+0 records in
+8419328+0 records out
+4310695936 bytes transferred in 11507.233801 secs (374607 bytes/sec)
+```
 ## 設定apache
 [Setting up a local web server on OS ](https://discussions.apple.com/docs/DOC-3083)
 `sudo vi /etc/apache2/httpd.conf`
@@ -144,14 +180,18 @@ index 626a0bb..a092632 100644
 ```
 
 # Eclipse
-[CDT](http://www.eclipse.org/cdt/downloads.php)
-[Arduino plugin nightly-osx](http://www.baeyens.it/eclipse/nightly-osx.html)
-Log Viewer
-SQL Development Tool
+- [CDT](http://www.eclipse.org/cdt/downloads.php)
+- [Arduino plugin nightly-osx](http://www.baeyens.it/eclipse/nightly-osx.html)
+- Log Viewer
+- SQL Development Tool
+- Eclipse Color Theme
+- Eclipse Moonrise UI Theme
+- Gradle IDE package 3.6.x
 
 # Chrome
 Insomnia
 postman
+better google tasks
 
 
 # hexo
