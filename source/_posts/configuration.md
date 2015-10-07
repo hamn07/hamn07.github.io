@@ -21,8 +21,12 @@ INFO  Started server successfully in 2.391 secs at 2015-10-03 06:02:06
 
 ```
 
+
 # OSX
+
+
 ## CentOS bootable USB
+
 ```bash
 $ diskutil list
 /dev/disk0
