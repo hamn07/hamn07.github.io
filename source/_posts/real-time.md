@@ -26,3 +26,9 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 - http://activemq.apache.org/
 - http://kaazing.org/
 - http://jwebsocket.org/
+
+# GlassFish開發環境建置
+![](glassfish-eclipse-1.png)
+![](glassfish-eclipse-2.png)
+![](glassfish-eclipse-3.png)
+![](glassfish-eclipse-4.png)
