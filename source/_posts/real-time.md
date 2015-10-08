@@ -28,7 +28,24 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 - http://jwebsocket.org/
 
 # GlassFish開發環境建置
+`在Eclipse主視窗按下cmd+,叫出preference`
+`點擊Add...`
 ![](glassfish-eclipse-1.png)
+
+
+`點擊Download additional server adapters`
 ![](glassfish-eclipse-2.png)
+
+
 ![](glassfish-eclipse-3.png)
 ![](glassfish-eclipse-4.png)
+`重覆上述步驟，在這邊選取GlassFish 4`
+![](glassfish-eclipse-6.png)
+`輸入GlassFish安裝路徑`
+![](glassfish-eclipse-5.png)
+`回到Eclipse主視窗按下cmd+N，使用Wizard來建立Server`
+![](glassfish-eclipse-7.png)
+![](glassfish-eclipse-8.png)
+![](glassfish-eclipse-9.png)
+![](glassfish-eclipse-10.png)
+![](glassfish-eclipse-11.png)
