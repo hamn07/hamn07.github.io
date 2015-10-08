@@ -183,6 +183,11 @@ index 626a0bb..a092632 100644
  theme: tranquilpeak
 ```
 
+# Atom
+- Seti
+- 
+
+
 # Eclipse
 - [CDT](http://www.eclipse.org/cdt/downloads.php)
 - [Arduino plugin nightly-osx](http://www.baeyens.it/eclipse/nightly-osx.html)
