@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Android小專題 - 網路相簿 - Hexo</title>
+    <meta name="author" content="Henry Lee">
+    <meta name="description" content="Hexo">
+    <link rel="icon" href="/assets/images/null">
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="http://hamn07.github.io">Hexo</a>
+    </h1>
+    
+</header>
+            <nav id="sidebar" data-behavior="1">
+    
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://stark-everglades-8527.herokuapp.com/" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-globe"></i>
+                    <span class="sidebar-button-desc">web</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="http://slides.com/hamn07/deck/live" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-slideshare"></i>
+                    <span class="sidebar-button-desc">slides</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/api/user/hamn07?apiKey=key1" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-database"></i>
+                    <span class="sidebar-button-desc">database</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/#about">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About me</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://github.com/hamn07" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="mailto:hamn07@gmail.com" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/atom.xml">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+            <div id="main" data-behavior="1">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+        <div class="post-header main-content-wrap">
+    
+        <h1 class="post-title" itemprop="headline">Android小專題 - 網路相簿</h1>
+    
+    <div class="post-meta">
+    <time  itemprop="datePublished" content="Sun Jul 12 2015 07:08:20 GMT+0800">
+        Jul 12, 2015
+    </time>
+    
+</div>
+</div>
+    
+    <div class="post-content markdown main-content-wrap" itemprop="articleBody">
+        <!-- toc -->
+<ul>
+<li><a href="#&#x5C08;&#x984C;&#x6982;&#x8FF0;">&#x5C08;&#x984C;&#x6982;&#x8FF0;</a></li>
+<li><a href="#&#x5C08;&#x984C;&#x529F;&#x80FD;">&#x5C08;&#x984C;&#x529F;&#x80FD;</a></li>
+<li><a href="#&#x6848;&#x4F8B;&#x5716;use-case">&#x6848;&#x4F8B;&#x5716;use case</a></li>
+<li><a href="#er-diagram">ER Diagram</a></li>
+<li><a href="#&#x96F2;&#x7AEF;&#x670D;&#x52D9;&#x67B6;&#x69CB;todo">&#x96F2;&#x7AEF;&#x670D;&#x52D9;&#x67B6;&#x69CB;todo</a></li>
+</ul>
+<!-- tocstop -->
+<h1 id="&#x5C08;&#x984C;&#x6982;&#x8FF0;">&#x5C08;&#x984C;&#x6982;&#x8FF0;</h1><p>&#x63D0;&#x4F9B;&#x985E;&#x4F3C;<a href="https://picasaweb.google.com" target="_blank" rel="external">picasa</a>, <a href="https://www.flickr.com/" target="_blank" rel="external">flikr</a>&#x7B49;&#x96F2;&#x7AEF;&#x76F8;&#x7C3F;CRUD&#x529F;&#x80FD;&#xFF0C;&#x8B93;&#x4F7F;&#x7528;&#x8005;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Android&#x624B;&#x6A5F;&#x5C07;&#x76F8;&#x7247;&#x5B58;&#x653E;&#x65BC;&#x96F2;&#x7AEF;&#x4F86;&#x7BA1;&#x7406;&#x3002;&#x518D;&#x53C3;&#x8003;<a href="https://animoto.com/" target="_blank" rel="external">Animoto</a>, <a href="https://studio.stupeflix.com" target="_blank" rel="external">Stupeflix</a>, <a href="http://www.magisto.com/" target="_blank" rel="external">Magisto</a>&#x7B49;online video editor&#xFF0C;&#x8B93;&#x4F7F;&#x7528;&#x8005;&#x80FD;&#x8F15;&#x9B06;&#x5730;&#x4EE5;slideshow&#x8072;&#x5149;&#x6548;&#x679C;&#x7684;&#x6A21;&#x5F0F;&#x4F86;&#x89C0;&#x8CDE;&#x76F8;&#x7C3F;&#x3002;</p>
+<h1 id="&#x5C08;&#x984C;&#x529F;&#x80FD;">&#x5C08;&#x984C;&#x529F;&#x80FD;</h1><ul>
+<li>&#x624B;&#x6A5F;&#x76F8;&#x7247;&#x4E0A;&#x50B3;</li>
+<li>&#x96F2;&#x7AEF;&#x76F8;&#x7C3F;&#x7BA1;&#x7406;</li>
+<li>Google&#x5E33;&#x865F;&#x767B;&#x5165;</li>
+<li>&#x96F2;&#x7AEF;&#x76F8;&#x7C3F;&#x65BC;&#x624B;&#x6A5F;&#x4EE5;slideshow&#x8072;&#x5149;&#x6548;&#x679C;&#x7684;&#x6A21;&#x5F0F;&#x64AD;&#x653E;</li>
+</ul>
+<h1 id="&#x6848;&#x4F8B;&#x5716;use-case">&#x6848;&#x4F8B;&#x5716;use case</h1><p><img src="use-case.svg" alt="&#x6848;&#x4F8B;&#x5716;"></p>
+<h1 id="er-diagram">ER Diagram</h1><p><img src="er-diagram.svg" alt="ER Diagram"></p>
+<h1 id="&#x96F2;&#x7AEF;&#x670D;&#x52D9;&#x67B6;&#x69CB;todo">&#x96F2;&#x7AEF;&#x670D;&#x52D9;&#x67B6;&#x69CB;todo</h1><table>
+<thead>
+<tr>
+<th style="text-align:left"><img src="image-owner.png" alt=""></th>
+<th style="text-align:left"><img src="cloud_80x58.png" alt="cloud"></th>
+<th style="text-align:left"><img src="audience.png" alt=""></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><u><strong><em>Android App</em></strong></u></td>
+<td style="text-align:left"><u><a href="http://52.26.138.212/" target="_blank" rel="external"><strong><em>LAMP Server</em></strong></a></u></td>
+<td style="text-align:left"><u><strong><em>Android App</em></strong></u></td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2713; <a href="https://popapp.in/w/projects/55a3af3ba8a45529517254bf/preview" target="_blank" rel="external">prototype</a></td>
+<td style="text-align:left">&#x2713; create DB schema</td>
+<td style="text-align:left">&#x2713; <a href="https://popapp.in/w/projects/55a42a94e6f76c5a5a709b1a/preview" target="_blank" rel="external">prototype</a></td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; login activity</td>
+<td style="text-align:left">&#x2713; <a href="er-diagram.svg">Entity-Relation diagram</a></td>
+<td style="text-align:left">&#x2713; play slideshow</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; main page activity</td>
+<td style="text-align:left">&#x2713; server installation</td>
+<td style="text-align:left">&#x2716; subscribe slideshow</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; describe image</td>
+<td style="text-align:left">&#x2713; server configuration</td>
+<td style="text-align:left">&#x25A1; show description</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; <a href="https://github.com/iPaulPro/aFileChooser" target="_blank" rel="external">photo explore activity</a></td>
+<td style="text-align:left">&#x2716; slideshow pre-generate</td>
+<td style="text-align:left">&#x2716; music selection</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; upload image</td>
+<td style="text-align:left">&#x2713; <a href="http://coreymaynard.com/blog/creating-a-restful-api-with-php/" target="_blank" rel="external">Creating a RESTful API with PHP</a></td>
+<td style="text-align:left">&#x2716; theme selection</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; music select activity</td>
+<td style="text-align:left">&#x2716; thumnail to speed up layout</td>
+<td style="text-align:left">&#x25A1; compression before upload</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; preview slideshow</td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x25A1; <a href="http://stackoverflow.com/questions/12908318/how-can-i-convert-bytearrayinputstream-to-jpeg-and-display-on-android-mobile" target="_blank" rel="external">How can i convert ByteArrayInputStream to jpeg and display on android mobile?</a></td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+<tr>
+<td style="text-align:left"><u><strong><em>Web Browser</em></strong></u></td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2713; <a href="http://52.26.138.212/" target="_blank" rel="external">prototype</a></td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2713; image CURD</td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; <a href="https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/" target="_blank" rel="external">Resize image before upload on client-side</a></td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x2716; <a href="https://github.com/blueimp/JavaScript-Load-Image" target="_blank" rel="external">auto rotate portrait image</a></td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+<td style="text-align:left">&#x25A1;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x203B; <strong>&#x2192; : &#x9032;&#x884C;&#x4E2D;&#x7684;&#x9805;&#x76EE;</strong><br>&#x203B; <strong>&#x25A1; : 7&#x6708;&#x5E95;&#x524D;&#x5B8C;&#x6210;&#x9805;&#x76EE;</strong><br>&#x203B; <strong>&#x2716; : &#x5F85;&#x898F;&#x5283;&#x6642;&#x7A0B;&#x5BE6;&#x4F5C;</strong><br>&#x203B; <strong>&#x2713; : &#x5DF2;&#x5B8C;&#x6210;&#x9805;&#x76EE;</strong></p>
+
+        
+            
+        
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/22/configuration/"  data-tooltip="備忘 - Configuration of Server, IDE">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/07/12/proposal-android/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/07/12/proposal-android/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/07/12/proposal-android/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 Henry Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/22/configuration/"  data-tooltip="備忘 - Configuration of Server, IDE">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/07/12/proposal-android/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/07/12/proposal-android/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/07/12/proposal-android/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+                </div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Henry Lee</h4>
+        
+        
+        
+    </div>
+</div>
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

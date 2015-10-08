@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>安卓筆記區 - Hexo</title>
+    <meta name="author" content="Henry Lee">
+    <meta name="description" content="Hexo">
+    <link rel="icon" href="/assets/images/null">
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="http://hamn07.github.io">Hexo</a>
+    </h1>
+    
+</header>
+            <nav id="sidebar" data-behavior="1">
+    
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://stark-everglades-8527.herokuapp.com/" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-globe"></i>
+                    <span class="sidebar-button-desc">web</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="http://slides.com/hamn07/deck/live" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-slideshare"></i>
+                    <span class="sidebar-button-desc">slides</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/api/user/hamn07?apiKey=key1" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-database"></i>
+                    <span class="sidebar-button-desc">database</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/#about">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About me</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://github.com/hamn07" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="mailto:hamn07@gmail.com" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/atom.xml">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+            <div id="main" data-behavior="1">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+        <div class="post-header main-content-wrap">
+    
+        <h1 class="post-title" itemprop="headline">安卓筆記區</h1>
+    
+    <div class="post-meta">
+    <time  itemprop="datePublished" content="Thu Jul 30 2015 09:17:19 GMT+0800">
+        Jul 30, 2015
+    </time>
+    
+</div>
+</div>
+    
+    <div class="post-content markdown main-content-wrap" itemprop="articleBody">
+        <p><img src="http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png" alt=""></p>
+<hr>
+<p><img src="http://developer.android.com/images/service_lifecycle.png" alt=""><br><a href="https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&amp;usp=sharing#list" target="_blank" rel="external">&#x8D99;&#x8001;&#x5E2B;&#x7684;&#x96F2;&#x7AEF;&#x5206;&#x4EAB;&#x8CC7;&#x6599;&#x593E;</a><br><a href="mailto://homeworks.iii@gmail.com" target="_blank" rel="external">&#x6797;&#x8001;&#x5E2B;&#x7684;&#x6559;&#x4F5C;&#x696D;&#x90F5;&#x4EF6;</a></p>
+<!-- toc -->
+<ul>
+<li><a href="#bluetooth">bluetooth</a></li>
+<li><a href="#problem-to-fix">problem to fix</a></li>
+<li><a href="#dialog">dialog</a></li>
+<li><a href="#sensor">sensor</a><ul>
+<li><a href="#example">example</a></li>
+</ul>
+</li>
+<li><a href="#media-player">media player</a></li>
+<li><a href="#volley">volley</a><ul>
+<li><a href="#post-image-file">POST image file</a></li>
+</ul>
+</li>
+<li><a href="#httpurlconnection">HttpURLConnection</a><ul>
+<li><a href="#post-image-file">POST image file</a></li>
+</ul>
+</li>
+<li><a href="#asynctask">AsyncTask</a></li>
+<li><a href="#&#x4E0A;&#x67B6;app">&#x4E0A;&#x67B6;App</a></li>
+<li><a href="#providing-resource">Providing Resource</a></li>
+<li><a href="#notification">Notification</a></li>
+<li><a href="#java">java</a></li>
+<li><a href="#convetion">convetion</a></li>
+<li><a href="#question">Question</a></li>
+</ul>
+<!-- tocstop -->
+<h1 id="bluetooth">bluetooth</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/connectivity/bluetooth.html" target="_blank" rel="external">official guide</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">manifest</span> <span class="attribute">...</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">&quot;android.permission.BLUETOOTH&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">&quot;android.permission.BLUETOOTH_ADMIN&quot;</span> /&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="problem-to-fix">problem to fix</h1><p><a href="https://www.evernote.com/shard/s75/sh/ef5c662a-4cb3-486e-b24f-c59191df5f39/cdb742b3e18301296d66d002b36fcb2f" target="_blank" rel="external">Android uploading pictures to server in most efficient way</a></p>
+<h1 id="dialog">dialog</h1><ol>
+<li>ProgressDialog<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ProgressDialog dialog = <span class="keyword">new</span> ProgressDialog(<span class="keyword">this</span>);</span><br><span class="line">dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);</span><br><span class="line">dialog.setMessage(<span class="string">&quot;downloading...&quot;</span>);</span><br><span class="line">dialog.show();</span><br><span class="line">dialog.dismiss();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="sensor">sensor</h1><ul>
+<li>&#x4F4D;&#x79FB;</li>
+<li>&#x74B0;&#x5883;</li>
+<li>&#x4F4D;&#x7F6E;</li>
+</ul>
+<h2 id="example">example</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&#x8A2D;&#x5B9A;device&#x9700;&#x6709;&#x4E09;&#x8EF8;&#x52A0;&#x901F;&#x611F;&#x61C9;&#x5668;&#x624D;&#x53EF;&#x5B89;&#x88DD;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">uses-feature</span></span><br><span class="line">    <span class="attribute">android:name</span>=<span class="value">&quot;android.hardware.sensor.accelerometer&quot;</span></span><br><span class="line">    <span class="attribute">android:required</span>=<span class="value">&quot;true&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    mgr = (SensorManager) getSystemService(SENSOR_SERVICE);</span><br><span class="line">    List&lt;Sensor&gt; list = mgr.getSensorList(Sensor.TYPE_ALL);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Sensor sensor:list) {</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>,sensor.getName()+<span class="string">&quot; : &quot;</span>+sensor.getType()+<span class="string">&quot; : &quot;</span>+sensor.getVendor());</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    sensor = mgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);</span><br><span class="line">    <span class="keyword">if</span> (sensor!=<span class="keyword">null</span>) {</span><br><span class="line">        isSensorEnable=<span class="keyword">true</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * define</span><br><span class="line">     */</span></span><br><span class="line">    sensorEventListener = <span class="keyword">new</span> SensorEventListener() {</span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSensorChanged</span><span class="params">(SensorEvent event)</span> </span>{</span><br><span class="line">            <span class="keyword">float</span>[] values = event.values;</span><br><span class="line"></span><br><span class="line">            ((TextView)findViewById(R.id.tv1)).setText(<span class="string">&quot;x : &quot;</span>+values[<span class="number">0</span>]);</span><br><span class="line">            ((TextView)findViewById(R.id.tv2)).setText(<span class="string">&quot;y : &quot;</span>+values[<span class="number">1</span>]);</span><br><span class="line">            ((TextView)findViewById(R.id.tv3)).setText(<span class="string">&quot;z : &quot;</span>+values[<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">            MyView mv = (MyView) findViewById(R.id.mv);</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAccuracyChanged</span><span class="params">(Sensor sensor, <span class="keyword">int</span> accuracy)</span> </span>{</span><br><span class="line">        }</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">super</span>.onResume();</span><br><span class="line">    <span class="keyword">if</span> (isSensorEnable) {</span><br><span class="line">        mgr.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">super</span>.onStop();</span><br><span class="line">    <span class="keyword">if</span> (isSensorEnable) {</span><br><span class="line">        mgr.unregisterListener(sensorEventListener, sensor);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h1 id="media-player">media player</h1><p><img src="http://developer.android.com/intl/zh-cn/images/mediaplayer_state_diagram.gif" alt=""></p>
+<h1 id="volley">volley</h1><h2 id="post-image-file">POST image file</h2><p><a href="http://stackoverflow.com/questions/29430599/upload-an-image-using-google-volley" target="_blank" rel="external">stackoverflow</a></p>
+<h1 id="httpurlconnection">HttpURLConnection</h1><h2 id="post-image-file">POST image file</h2><p><a href="http://blog.kenyang.net/2011/12/android-httpurlconnection-multipartform.html" target="_blank" rel="external">Android HttpURLConnection &#x4E0A;&#x50B3;&#x6A94;&#x6848; (multipart/form-data)</a></p>
+<h1 id="asynctask">AsyncTask</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyAsyncTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">String</span>, <span class="title">Integer</span>, <span class="title">Boolean</span>&gt; </span>{</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Creates a new asynchronous task. This constructor must be invoked on the UI thread.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyAsyncTask</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Runs on the UI thread before {<span class="doctag">@link</span> #doInBackground}.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@see</span> #onPostExecute</span><br><span class="line">     * <span class="doctag">@see</span> #doInBackground</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.onPreExecute();</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onPreExecute&quot;</span>);</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Override this method to perform a computation on a background thread. The</span><br><span class="line">     * specified parameters are the parameters passed to {<span class="doctag">@link</span> #execute}</span><br><span class="line">     * by the caller of this task.</span><br><span class="line">     * &lt;p/&gt;</span><br><span class="line">     * This method can call {<span class="doctag">@link</span> #publishProgress} to publish updates</span><br><span class="line">     * on the UI thread.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> names The parameters of the task.</span><br><span class="line">     * <span class="doctag">@return</span> A result, defined by the subclass of this task.</span><br><span class="line">     * <span class="doctag">@see</span> #onPreExecute()</span><br><span class="line">     * <span class="doctag">@see</span> #onPostExecute</span><br><span class="line">     * <span class="doctag">@see</span> #publishProgress</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Boolean <span class="title">doInBackground</span><span class="params">(String... names)</span> </span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (String name:names){</span><br><span class="line">            intCounter++;</span><br><span class="line">            Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;doInBackground&quot;</span>);</span><br><span class="line"></span><br><span class="line">            publishProgress(intCounter,intCounter*<span class="number">10</span>,intCounter*<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (isCancelled()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Runs on the UI thread after {<span class="doctag">@link</span> #publishProgress} is invoked.</span><br><span class="line">     * The specified values are the values passed to {<span class="doctag">@link</span> #publishProgress}.</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> values The values indicating progress.</span><br><span class="line">     * <span class="doctag">@see</span> #publishProgress</span><br><span class="line">     * <span class="doctag">@see</span> #doInBackground</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Integer... values)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.onProgressUpdate(values);</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onProgressUpdate&quot;</span>);</span><br><span class="line">        tv1.setText(<span class="string">&quot;OK&quot;</span>+values[<span class="number">0</span>]);</span><br><span class="line">        tv2.setText(<span class="string">&quot;OK&quot;</span>+values[<span class="number">1</span>]);</span><br><span class="line">        tv3.setText(<span class="string">&quot;OK&quot;</span>+values[<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &lt;p&gt;Runs on the UI thread after {<span class="doctag">@link</span> #doInBackground}. The</span><br><span class="line">     * specified result is the value returned by {<span class="doctag">@link</span> #doInBackground}.&lt;/p&gt;</span><br><span class="line">     * &lt;p/&gt;</span><br><span class="line">     * &lt;p&gt;This method won&apos;t be invoked if the task was cancelled.&lt;/p&gt;</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> aVoid The result of the operation computed by {<span class="doctag">@link</span> #doInBackground}.</span><br><span class="line">     * <span class="doctag">@see</span> #onPreExecute</span><br><span class="line">     * <span class="doctag">@see</span> #doInBackground</span><br><span class="line">     * <span class="doctag">@see</span> #onCancelled(Object)</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Boolean aVoid)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.onPostExecute(aVoid);</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onPostExecute&quot;</span>);</span><br><span class="line">        tv4.setText(aVoid?<span class="string">&quot;Finished&quot;</span>:<span class="string">&quot;Cancelled&quot;</span>);</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &lt;p&gt;Runs on the UI thread after {<span class="doctag">@link</span> #cancel(boolean)} is invoked and</span><br><span class="line">     * {<span class="doctag">@link</span> #doInBackground(Object[])} has finished.&lt;/p&gt;</span><br><span class="line">     * &lt;p/&gt;</span><br><span class="line">     * &lt;p&gt;The default implementation simply invokes {<span class="doctag">@link</span> #onCancelled()} and</span><br><span class="line">     * ignores the result. If you write your own implementation, do not call</span><br><span class="line">     * &lt;code&gt;super.onCancelled(result)&lt;/code&gt;.&lt;/p&gt;</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> aVoid The result, if any, computed in</span><br><span class="line">     *              {<span class="doctag">@link</span> #doInBackground(Object[])}, can be null</span><br><span class="line">     * <span class="doctag">@see</span> #cancel(boolean)</span><br><span class="line">     * <span class="doctag">@see</span> #isCancelled()</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">(Boolean aVoid)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.onCancelled(aVoid);</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onCancelled&quot;</span>);</span><br><span class="line">        tv4.setText(aVoid?<span class="string">&quot;Finished&quot;</span>:<span class="string">&quot;Cancelled&quot;</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &lt;p&gt;Applications should preferably override {<span class="doctag">@link</span> #onCancelled(Object)}.</span><br><span class="line">     * This method is invoked by the default implementation of</span><br><span class="line">     * {<span class="doctag">@link</span> #onCancelled(Object)}.&lt;/p&gt;</span><br><span class="line">     * &lt;p/&gt;</span><br><span class="line">     * &lt;p&gt;Runs on the UI thread after {<span class="doctag">@link</span> #cancel(boolean)} is invoked and</span><br><span class="line">     * {<span class="doctag">@link</span> #doInBackground(Object[])} has finished.&lt;/p&gt;</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@see</span> #onCancelled(Object)</span><br><span class="line">     * <span class="doctag">@see</span> #cancel(boolean)</span><br><span class="line">     * <span class="doctag">@see</span> #isCancelled()</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.onCancelled();</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onCancelled2&quot;</span>);</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">task = <span class="keyword">new</span> MyAsyncTask();</span><br><span class="line">task.execute(<span class="string">&quot;test1&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test3&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="&#x4E0A;&#x67B6;app">&#x4E0A;&#x67B6;App</h1><p><a href="https://play.google.com/apps/publish/" target="_blank" rel="external">Google Play Developer Console</a><br>export signed package<br>keystore</p>
+<h1 id="providing-resource">Providing Resource</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/resources/providing-resources.html" target="_blank" rel="external">official</a><br><code>res/layout-land</code>&#x7576;device&#x62FF;&#x6A6B;&#x6642;&#xFF0C;&#x5C31;&#x6703;&#x5957;&#x7528;&#x5230;&#x6B64;&#x7248;&#x9762;<br><code>res/values-zh-rTW</code>&#x7576;&#x8A9E;&#x7CFB;&#x6539;&#x70BA;&#x4E2D;&#x6587;&#x53F0;&#x7063;&#x6642;&#xFF0C;&#x5C31;&#x6703;&#x5957;&#x7528;&#x6B64;values&#x8A2D;&#x5B9A;</p>
+<h1 id="notification">Notification</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/ui/notifiers/notifications.html" target="_blank" rel="external">official</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiate PendingIntent</span></span><br><span class="line">TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(<span class="keyword">this</span>);</span><br><span class="line">taskStackBuilder.addParentStack(NoticePageActivity.class);</span><br><span class="line">taskStackBuilder.addNextIntent(<span class="keyword">new</span> Intent(<span class="keyword">this</span>,NoticePageActivity.class));</span><br><span class="line">PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(<span class="number">124</span>,PendingIntent.FLAG_UPDATE_CURRENT);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiate Notification.Builder</span></span><br><span class="line">Notification.Builder builder = <span class="keyword">new</span> Notification.Builder(<span class="keyword">this</span>);</span><br><span class="line">builder.setTicker(<span class="string">&quot;super important&quot;</span>);</span><br><span class="line">builder.setAutoCancel(<span class="keyword">true</span>);</span><br><span class="line">builder.setSmallIcon(android.R.drawable.sym_def_app_icon);</span><br><span class="line">builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.drawable.sym_def_app_icon));</span><br><span class="line">builder.setSound(Uri.fromFile(<span class="keyword">new</span> File(Environment.getExternalStorageDirectory(),<span class="string">&quot;sound.wav&quot;</span>)));</span><br><span class="line">builder.setContentInfo(<span class="string">&quot;info&quot;</span>);</span><br><span class="line">builder.setContentText(<span class="string">&quot;text&quot;</span>);</span><br><span class="line">builder.setContentTitle(<span class="string">&quot;title&quot;</span>);</span><br><span class="line">builder.setContentIntent(pendingIntent);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// API Level 11+</span></span><br><span class="line"><span class="comment">//Notification notification = builder.getNotification();</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// API Level 16+ (4.1.2+)</span></span><br><span class="line">Notification notification = builder.build();</span><br><span class="line"><span class="comment">// send notification</span></span><br><span class="line">mgr.notify(<span class="number">0</span>,notification);</span><br></pre></td></tr></table></figure></p>
+<h1 id="java">java</h1><ul>
+<li>garbage collection<blockquote>
+<p>&#x7269;&#x4EF6;&#x6C92;&#x6709;&#x88AB;reference&#x6642;&#xFF0C;<code>System.gc();</code>&#x6703;&#x8981;&#x6C42;&#x7CFB;&#x7D71;&#x505A;gc&#xFF0C;&#x4F46;&#x82E5;&#x7CFB;&#x7D71;&#x6C92;&#x7A7A;&#xFF0C;&#x9084;&#x662F;&#x8981;&#x7B49;&#x5230;&#x5B83;&#x6709;&#x7A7A;&#x624D;&#x6703;&#x505A;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="convetion">convetion</h1><p><a href="http://source.android.com/source/code-style.html" target="_blank" rel="external">Official Code Style Guidelines for Contributors</a></p>
+<blockquote>
+<p>lint<br>&#x5728;&#x8A08;&#x7B97;&#x6A5F;&#x79D1;&#x5B78;&#x4E2D;&#xFF0C;lint&#x662F;&#x4E00;&#x7A2E;&#x5DE5;&#x5177;&#x7A0B;&#x5E8F;&#x7684;&#x540D;&#x7A31;&#xFF0C;&#x5B83;&#x7528;&#x4F86;&#x6A19;&#x8A18;&#x6E90;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;&#x67D0;&#x4E9B;&#x53EF;&#x7591;&#x7684;&#x3001;&#x4E0D;&#x5177;&#x7D50;&#x69CB;&#x6027;&#x7684;&#x6BB5;&#x843D;&#x3002;&#x5B83;&#x662F;&#x4E00;&#x7A2E;&#x975C;&#x614B;&#x7A0B;&#x5E8F;&#x5206;&#x6790;&#x5DE5;&#x5177;&#xFF0C;&#x6700;&#x65E9;&#x9069;&#x7528;&#x65BC;C&#x8A9E;&#x8A00;&#xFF0C;&#x5728;UNIX&#x5E73;&#x53F0;&#x4E0A;&#x958B;&#x767C;&#x51FA;&#x4F86;&#x3002;&#x5F8C;&#x4F86;&#x5B83;&#x6210;&#x70BA;&#x901A;&#x7528;&#x8853;&#x8A9E;&#xFF0C;&#x53EF;&#x7528;&#x65BC;&#x63CF;&#x8FF0;&#x5728;&#x4EFB;&#x4F55;&#x4E00;&#x7A2E;&#x96FB;&#x8166;&#x7DE8;&#x7A0B;&#x8A9E;&#x8A00;&#x4E2D;&#xFF0C;&#x7528;&#x4F86;&#x6A19;&#x8A18;&#x6E90;&#x4EE3;&#x78BC;&#x4E2D;&#x6709;&#x7591;&#x7FA9;&#x6BB5;&#x843D;&#x7684;&#x5DE5;&#x5177;&#x3002;</p>
+</blockquote>
+<h1 id="question">Question</h1><ul>
+<li>Content Provider&#x7684;&#x4F7F;&#x7528;&#x6642;&#x6A5F;</li>
+<li>Fragment&#x7684;&#x4F7F;&#x7528;&#x6642;&#x6A5F;</li>
+<li><p>FrameLayout&#x7684;&#x4F7F;&#x7528;&#x6642;&#x6A5F;</p>
+</li>
+<li><p>Service&#x7684;&#x52D5;&#x4F5C;&#x662F;&#x5426;&#x90FD;&#x80FD;&#x505A;&#x5728;Activity<br>&#x8DDF;UI&#x7121;&#x95DC;&#x7684;&#x52D5;&#x4F5C;&#x90FD;&#x653E;&#x5728;Service</p>
+</li>
+<li><p>&#x5565;&#x662F;Context<br>Activity/Service..&#x7B49;&#x985E;&#x5225;</p>
+</li>
+<li><p>QA</p>
+<ol>
+<li>coding&#x5B8C;&#x7528;JUnit&#x55AE;&#x5143;&#x6E2C;&#x8A66;&#xFF0C;<a href="http://140.127.82.166/retrieve/18991/91.pdf" target="_blank" rel="external">&#x53C3;&#x8003;</a></li>
+<li>brad&#x5BA2;&#x88FD;&#x5316;QA&#x6E2C;&#x8A66;&#x5DE5;&#x5177;&#x505A;&#x6574;&#x9AD4;&#x6E2C;&#x8A66;</li>
+</ol>
+</li>
+<li><p>&#x516C;&#x53F8;VersionControlSystem, gitignore</p>
+<blockquote>
+<p>&#x5167;&#x90E8;git, vpn</p>
+</blockquote>
+</li>
+<li><p>API https</p>
+</li>
+</ul>
+<ul>
+<li>&#x7A0B;&#x5F0F;&#x67B6;&#x69CB;&#x6587;&#x4EF6;-&gt; PGM: Phase Gate Model<ol>
+<li>&#x6D41;&#x7A0B;&#x5716; -&gt; brad</li>
+<li>&#x6F14;&#x7B97;&#x6CD5; -&gt; all</li>
+<li>coding -&gt; member</li>
+<li>code review -&gt; all</li>
+</ol>
+</li>
+</ul>
+
+        
+            
+        
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/07/php-note/"  data-tooltip="Web筆記區">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/22/configuration/" data-tooltip="備忘 - Configuration of Server, IDE">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/07/30/android-note/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/07/30/android-note/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/07/30/android-note/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 Henry Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/07/php-note/"  data-tooltip="Web筆記區">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/22/configuration/" data-tooltip="備忘 - Configuration of Server, IDE">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/07/30/android-note/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/07/30/android-note/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/07/30/android-note/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+                </div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Henry Lee</h4>
+        
+        
+        
+    </div>
+</div>
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

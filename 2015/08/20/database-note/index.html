@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>資料庫筆記區 - Hexo</title>
+    <meta name="author" content="Henry Lee">
+    <meta name="description" content="Hexo">
+    <link rel="icon" href="/assets/images/null">
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="http://hamn07.github.io">Hexo</a>
+    </h1>
+    
+</header>
+            <nav id="sidebar" data-behavior="1">
+    
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://stark-everglades-8527.herokuapp.com/" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-globe"></i>
+                    <span class="sidebar-button-desc">web</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="http://slides.com/hamn07/deck/live" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-slideshare"></i>
+                    <span class="sidebar-button-desc">slides</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/api/user/hamn07?apiKey=key1" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-database"></i>
+                    <span class="sidebar-button-desc">database</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/#about">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About me</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://github.com/hamn07" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="mailto:hamn07@gmail.com" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/atom.xml">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+            <div id="main" data-behavior="1">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+        <div class="post-header main-content-wrap">
+    
+        <h1 class="post-title" itemprop="headline">資料庫筆記區</h1>
+    
+    <div class="post-meta">
+    <time  itemprop="datePublished" content="Thu Aug 20 2015 05:55:47 GMT+0800">
+        Aug 20, 2015
+    </time>
+    
+</div>
+</div>
+    
+    <div class="post-content markdown main-content-wrap" itemprop="articleBody">
+        <!-- toc -->
+<ul>
+<li><a href="#mysql">MySQL</a><ul>
+<li><a href="#mariadb-install-on-osx">MariaDB install on OSX</a></li>
+<li><a href="#&#x555F;&#x52D5;mariadb&#x767C;&#x751F;&#x932F;&#x8AA4;">&#x555F;&#x52D5;mariadb&#x767C;&#x751F;&#x932F;&#x8AA4;</a></li>
+<li><a href="#&#x67E5;&#x6B64;session&#x662F;&#x7528;&#x90A3;&#x500B;&#x5E33;&#x865F;&#x767B;&#x5165;">&#x67E5;&#x6B64;session&#x662F;&#x7528;&#x90A3;&#x500B;&#x5E33;&#x865F;&#x767B;&#x5165;</a></li>
+<li><a href="#&#x555F;&#x52D5;mysql">&#x555F;&#x52D5;MySQL</a></li>
+<li><a href="#trouble-shooting">Trouble Shooting</a><ul>
+<li><a href="#add-primary-key&#x6642;&#x51FA;&#x73FE;key-was-too-long&#x7684;&#x932F;&#x8AA4;&#x8A0A;&#x606F;">add primary key&#x6642;&#xFF0C;&#x51FA;&#x73FE;key was too long&#x7684;&#x932F;&#x8AA4;&#x8A0A;&#x606F;</a></li>
+</ul>
+</li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="mysql">MySQL</h1><h2 id="mariadb-install-on-osx">MariaDB install on OSX</h2><p><a href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/" target="_blank" rel="external">&#x5B98;&#x7DB2;&#x6559;&#x5B78;</a></p>
+<ol>
+<li><code>brew install mariadb</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">04</span>:<span class="number">55</span> $ brew install mariadb</span><br><span class="line">==&gt; Installing mariadb dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl-<span class="number">1.0</span>.<span class="number">2</span>d_1.yosemite.bottle.tar.gz</span><br><span class="line"><span class="comment">######################################################################## 100.0%</span></span><br><span class="line">==&gt; Pouring openssl-<span class="number">1.0</span>.<span class="number">2</span>d_1.yosemite.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">A CA file has been bootstrapped using certificates from the system</span><br><span class="line">keychain. To add additional certificates, place .pem files <span class="keyword">in</span></span><br><span class="line">  /usr/<span class="built_in">local</span>/etc/openssl/certs</span><br><span class="line"></span><br><span class="line">and run</span><br><span class="line">  /usr/<span class="built_in">local</span>/opt/openssl/bin/c_<span class="built_in">rehash</span></span><br><span class="line"></span><br><span class="line">This formula is keg-only, <span class="built_in">which</span> means it was not symlinked into /usr/local.</span><br><span class="line"></span><br><span class="line">Apple has deprecated use of OpenSSL <span class="keyword">in</span> favor of its own TLS and crypto libraries</span><br><span class="line"></span><br><span class="line">Generally there are no consequences of this <span class="keyword">for</span> you. If you build your</span><br><span class="line">own software and it requires this formula, you<span class="string">&apos;ll need to add to your</span><br><span class="line">build variables:</span><br><span class="line"></span><br><span class="line">    LDFLAGS:  -L/usr/local/opt/openssl/lib</span><br><span class="line">    CPPFLAGS: -I/usr/local/opt/openssl/include</span><br><span class="line"></span><br><span class="line">==&gt; Summary</span><br><span class="line">&#x1F37A;  /usr/local/Cellar/openssl/1.0.2d_1: 464 files, 18M</span><br><span class="line">==&gt; Installing mariadb</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/mariadb-10.0.21.yosemite.bottle.tar.gz</span><br><span class="line">######################################################################## 100.0%</span><br><span class="line">==&gt; Pouring mariadb-10.0.21.yosemite.bottle.tar.gz</span><br><span class="line">==&gt; /usr/local/Cellar/mariadb/10.0.21/bin/mysql_install_db --verbose --user=HamnLee --basedir=/usr/lo</span><br><span class="line">==&gt; Caveats</span><br><span class="line">A &quot;/etc/my.cnf&quot; from another install may interfere with a Homebrew-built</span><br><span class="line">server starting up correctly.</span><br><span class="line"></span><br><span class="line">To connect:</span><br><span class="line">    mysql -uroot</span><br><span class="line"></span><br><span class="line">To have launchd start mariadb at login:</span><br><span class="line">  ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents</span><br><span class="line">Then to load mariadb now:</span><br><span class="line">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist</span><br><span class="line">Or, if you don&apos;</span>t want/need launchctl, you can just run:</span><br><span class="line">  mysql.server start</span><br><span class="line">==&gt; Summary</span><br><span class="line">&#x1F37A;  /usr/<span class="built_in">local</span>/Cellar/mariadb/<span class="number">10.0</span>.<span class="number">21</span>: <span class="number">530</span> files, <span class="number">130</span>M</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>unset TMPDIR</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$TMPDIR</span></span><br><span class="line">/var/folders/jw/<span class="number">6</span>rpyrtd14g156cll7p2fx_vc0000gn/T/</span><br><span class="line">$ <span class="built_in">unset</span> TMPDIR</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>mysql_install_db</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">$ mysql_install_db</span><br><span class="line">Installing MariaDB/MySQL system tables <span class="keyword">in</span> <span class="string">&apos;/usr/local/var/mysql&apos;</span> ...</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] /usr/<span class="built_in">local</span>/Cellar/mariadb/<span class="number">10.0</span>.<span class="number">21</span>/bin/mysqld (mysqld <span class="number">10.0</span>.<span class="number">21</span>-MariaDB) starting as process <span class="number">6132</span> ...</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Using mutexes to ref count buffer pool pages</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: The InnoDB memory heap is disabled</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Memory barrier is not used</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Compressed tables use zlib <span class="number">1.2</span>.<span class="number">5</span></span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Using CPU crc32 instructions</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Initializing buffer pool, size = <span class="number">128.0</span>M</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Completed initialization of buffer pool</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Highest supported file format is Barracuda.</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: <span class="number">128</span> rollback segment(s) are active.</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB: Waiting <span class="keyword">for</span> purge to start</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">02</span>:<span class="number">59</span> [Note] InnoDB:  Percona XtraDB (http://www.percona.com) <span class="number">5.6</span>.<span class="number">25</span>-<span class="number">73.1</span> started; <span class="built_in">log</span> sequence number <span class="number">1616707</span></span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">06</span> [Note] InnoDB: FTS optimize thread exiting.</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">06</span> [Note] InnoDB: Starting shutdown...</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">08</span> [Note] InnoDB: Shutdown completed; <span class="built_in">log</span> sequence number <span class="number">1616717</span></span><br><span class="line">OK</span><br><span class="line">Filling <span class="built_in">help</span> tables...</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] /usr/<span class="built_in">local</span>/Cellar/mariadb/<span class="number">10.0</span>.<span class="number">21</span>/bin/mysqld (mysqld <span class="number">10.0</span>.<span class="number">21</span>-MariaDB) starting as process <span class="number">6136</span> ...</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Using mutexes to ref count buffer pool pages</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: The InnoDB memory heap is disabled</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Memory barrier is not used</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Compressed tables use zlib <span class="number">1.2</span>.<span class="number">5</span></span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Using CPU crc32 instructions</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Initializing buffer pool, size = <span class="number">128.0</span>M</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Completed initialization of buffer pool</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Highest supported file format is Barracuda.</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: <span class="number">128</span> rollback segment(s) are active.</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Waiting <span class="keyword">for</span> purge to start</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB:  Percona XtraDB (http://www.percona.com) <span class="number">5.6</span>.<span class="number">25</span>-<span class="number">73.1</span> started; <span class="built_in">log</span> sequence number <span class="number">1616717</span></span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: FTS optimize thread exiting.</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">09</span> [Note] InnoDB: Starting shutdown...</span><br><span class="line"><span class="number">150820</span>  <span class="number">5</span>:<span class="number">03</span>:<span class="number">11</span> [Note] InnoDB: Shutdown completed; <span class="built_in">log</span> sequence number <span class="number">1616727</span></span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">To start mysqld at boot time you have to copy</span><br><span class="line">support-files/mysql.server to the right place <span class="keyword">for</span> your system</span><br><span class="line"></span><br><span class="line">PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !</span><br><span class="line">To <span class="keyword">do</span> so, start the server, <span class="keyword">then</span> issue the following commands:</span><br><span class="line"></span><br><span class="line"><span class="string">&apos;/usr/local/Cellar/mariadb/10.0.21/bin/mysqladmin&apos;</span> -u root password <span class="string">&apos;new-password&apos;</span></span><br><span class="line"><span class="string">&apos;/usr/local/Cellar/mariadb/10.0.21/bin/mysqladmin&apos;</span> -u root -h Leeteki-MacBook-Pro.local password <span class="string">&apos;new-password&apos;</span></span><br><span class="line"></span><br><span class="line">Alternatively you can run:</span><br><span class="line"><span class="string">&apos;/usr/local/Cellar/mariadb/10.0.21/bin/mysql_secure_installation&apos;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">which</span> will also give you the option of removing the <span class="built_in">test</span></span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended <span class="keyword">for</span> production servers.</span><br><span class="line"></span><br><span class="line">See the MariaDB Knowledgebase at http://mariadb.com/kb or the</span><br><span class="line">MySQL manual <span class="keyword">for</span> more instructions.</span><br><span class="line"></span><br><span class="line">You can start the MariaDB daemon with:</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&apos;/usr/local/Cellar/mariadb/10.0.21&apos;</span> ; /usr/<span class="built_in">local</span>/Cellar/mariadb/<span class="number">10.0</span>.<span class="number">21</span>/bin/mysqld_safe --datadir=<span class="string">&apos;/usr/local/var/mysql&apos;</span></span><br><span class="line"></span><br><span class="line">You can <span class="built_in">test</span> the MariaDB daemon with mysql-test-run.pl</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&apos;/usr/local/Cellar/mariadb/10.0.21/mysql-test&apos;</span> ; perl mysql-test-run.pl</span><br><span class="line"></span><br><span class="line">Please report any problems at http://mariadb.org/jira</span><br><span class="line"></span><br><span class="line">The latest information about MariaDB is available at http://mariadb.org/.</span><br><span class="line">You can find additional information about the MySQL part at:</span><br><span class="line">http://dev.mysql.com</span><br><span class="line">Support MariaDB development by buying support/new features from MariaDB</span><br><span class="line">Corporation Ab. You can contact us about this at sales@mariadb.com.</span><br><span class="line">Alternatively consider joining our community based development effort:</span><br><span class="line">http://mariadb.com/kb/en/contributing-to-the-mariadb-project/</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>mysql.server start</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mysql.server start</span><br><span class="line">Starting MySQL</span><br><span class="line">. SUCCESS!</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><code>mysqladmin -u root password &apos;&#x5BC6;&#x78BC;&apos;</code></p>
+</li>
+<li><p><code>mysql -uroot -p</code></p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -uroot -p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is <span class="number">4</span></span><br><span class="line">Server version: <span class="number">10.0</span>.<span class="number">21</span>-MariaDB Homebrew</span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2015</span>, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&apos;help;&apos;</span> or <span class="string">&apos;\h&apos;</span> <span class="keyword">for</span> help. Type <span class="string">&apos;\c&apos;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| <span class="built_in">test</span>               |</span><br><span class="line">+--------------------+</span><br><span class="line"><span class="number">4</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0.01</span> sec)</span><br></pre></td></tr></table></figure>
+<h2 id="&#x555F;&#x52D5;mariadb&#x767C;&#x751F;&#x932F;&#x8AA4;">&#x555F;&#x52D5;mariadb&#x767C;&#x751F;&#x932F;&#x8AA4;</h2><p>&#x67E5;&#x770B;/usr/local/var/mysql/Leeteki-MacBook-Pro.local.err</p>
+<blockquote>
+<p>151006 13:05:14 [ERROR] mysqld: File &#x2018;/usr/local/var/mysql/aria_log_control&#x2019; not found (Errcode: 13 &#x201C;Permission denied&#x201D;)<br>151006 13:05:14 [ERROR] mysqld: Got error &#x2018;Can&#x2019;t open file&#x2019; when trying to use aria control file &#x2018;/usr/local/var/mysql/aria_log_control&#x2019;<br>151006 13:05:14 [ERROR] Plugin &#x2018;Aria&#x2019; init function returned error.<br>151006 13:05:14 [ERROR] Plugin &#x2018;Aria&#x2019; registration as a STORAGE ENGINE failed.</p>
+</blockquote>
+<p><a href="https://www.evernote.com/shard/s75/sh/7cbf8a25-bd79-4024-a73f-f0688883befe/c970ee04dedab7f6fd8fd499f61f7f1a" target="_blank" rel="external">&#x89E3;&#x6CD5;</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">13</span>:<span class="number">30</span> $ ls -al</span><br><span class="line">total <span class="number">0</span></span><br><span class="line">drwxr-xr-x   <span class="number">3</span> HamnLee  admin  <span class="number">102</span>  <span class="number">8</span> <span class="number">20</span> <span class="number">04</span>:<span class="number">58</span> .</span><br><span class="line">drwxrwxr-x  <span class="number">24</span> root     admin  <span class="number">816</span> <span class="number">10</span>  <span class="number">3</span> <span class="number">05</span>:<span class="number">58</span> ..</span><br><span class="line">drwxr-xr-x  <span class="number">16</span> HamnLee  admin  <span class="number">544</span> <span class="number">10</span>  <span class="number">6</span> <span class="number">13</span>:<span class="number">30</span> mysql</span><br><span class="line">&#x2714; /usr/<span class="built_in">local</span>/var [master L|&#x2714;]</span><br><span class="line"><span class="number">13</span>:<span class="number">30</span> $ sudo chown -R _mysql /usr/<span class="built_in">local</span>/var/mysql</span><br><span class="line">Password:</span><br><span class="line">&#x2714; /usr/<span class="built_in">local</span>/var [master L|&#x2714;]</span><br><span class="line"><span class="number">13</span>:<span class="number">30</span> $ ls -al</span><br><span class="line">total <span class="number">0</span></span><br><span class="line">drwxr-xr-x   <span class="number">3</span> HamnLee  admin  <span class="number">102</span>  <span class="number">8</span> <span class="number">20</span> <span class="number">04</span>:<span class="number">58</span> .</span><br><span class="line">drwxrwxr-x  <span class="number">24</span> root     admin  <span class="number">816</span> <span class="number">10</span>  <span class="number">3</span> <span class="number">05</span>:<span class="number">58</span> ..</span><br><span class="line">drwxr-xr-x  <span class="number">16</span> _mysql   admin  <span class="number">544</span> <span class="number">10</span>  <span class="number">6</span> <span class="number">13</span>:<span class="number">30</span> mysql</span><br><span class="line">&#x2714; /usr/<span class="built_in">local</span>/var [master L|&#x2714;]</span><br><span class="line"><span class="number">13</span>:<span class="number">30</span> $ sudo chmod -R g+rwx /usr/<span class="built_in">local</span>/var/mysql</span><br><span class="line">&#x2714; /usr/<span class="built_in">local</span>/var [master L|&#x2714;]</span><br><span class="line"><span class="number">13</span>:<span class="number">31</span> $ ls -al</span><br><span class="line">total <span class="number">0</span></span><br><span class="line">drwxr-xr-x   <span class="number">3</span> HamnLee  admin  <span class="number">102</span>  <span class="number">8</span> <span class="number">20</span> <span class="number">04</span>:<span class="number">58</span> .</span><br><span class="line">drwxrwxr-x  <span class="number">24</span> root     admin  <span class="number">816</span> <span class="number">10</span>  <span class="number">3</span> <span class="number">05</span>:<span class="number">58</span> ..</span><br><span class="line">drwxrwxr-x  <span class="number">16</span> _mysql   admin  <span class="number">544</span> <span class="number">10</span>  <span class="number">6</span> <span class="number">13</span>:<span class="number">30</span> mysql</span><br><span class="line">&#x2714; /usr/<span class="built_in">local</span>/var [master L|&#x2714;]</span><br><span class="line"><span class="number">13</span>:<span class="number">31</span> $ sudo mysql.server start</span><br><span class="line">Starting MySQL</span><br><span class="line">.. SUCCESS!</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x67E5;&#x6B64;session&#x662F;&#x7528;&#x90A3;&#x500B;&#x5E33;&#x865F;&#x767B;&#x5165;">&#x67E5;&#x6B64;session&#x662F;&#x7528;&#x90A3;&#x500B;&#x5E33;&#x865F;&#x767B;&#x5165;</h2><blockquote>
+<p>Actually, you need to use two functions</p>
+<p><code>SELECT USER(),CURRENT_USER();</code><br>USER() reports how you attempted to authenticate in MySQL</p>
+<p>CURRENT_USER() reports how you were allowed to authenticate in MySQL</p>
+<p>Sometimes, they are different</p>
+</blockquote>
+<h2 id="&#x555F;&#x52D5;mysql">&#x555F;&#x52D5;MySQL</h2><p>OSX<br><code>mysql.server {start|status|stop}</code><br>Linux<br><code>systemctl {start|status|stop} mariadb</code></p>
+<h2 id="trouble-shooting">Trouble Shooting</h2><h3 id="add-primary-key&#x6642;&#x51FA;&#x73FE;key-was-too-long&#x7684;&#x932F;&#x8AA4;&#x8A0A;&#x606F;">add primary key&#x6642;&#xFF0C;&#x51FA;&#x73FE;key was too long&#x7684;&#x932F;&#x8AA4;&#x8A0A;&#x606F;</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE post</span><br><span class="line">    -&gt;   ADD PRIMARY KEY (timestamp,member_id);</span><br><span class="line">ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>id &#x9577;&#x5EA6;&#x8A2D;&#x5B9A;&#x70BA;VARCHAR(256)&#xFF0C;db&#x7DE8;&#x78BC;&#x63A1;&#x7528;utf8&#xFF0C;&#x8981;&#x4F54;&#x6389;256x3=768 bytes&#xFF0C;&#x518D;&#x52A0;&#x4E0A;timestamp&#x4F54;&#x6389;4&#x500B;bytes&#xFF0C;&#x5DF2;&#x8D85;&#x904E;&#x9650;&#x5236;&#xFF0C;&#x56E0;&#x6B64;&#x5C07;id&#x9577;&#x5EA6;&#x6539;&#x6210;254</p>
+</blockquote>
+<h2 id="reference">Reference</h2><p><a href="https://dev.mysql.com/doc/refman/5.7/en/error-messages-server.html" target="_blank" rel="external">Server Error Codes and Messages</a></p>
+
+        
+            
+        
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/20/shell-script-note/"  data-tooltip="shell筆記區">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/16/quotes/" data-tooltip="金玉良言">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/08/20/database-note/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/08/20/database-note/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/08/20/database-note/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 Henry Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/20/shell-script-note/"  data-tooltip="shell筆記區">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/16/quotes/" data-tooltip="金玉良言">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/08/20/database-note/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/08/20/database-note/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/08/20/database-note/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+                </div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Henry Lee</h4>
+        
+        
+        
+    </div>
+</div>
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Web筆記區 - Hexo</title>
+    <meta name="author" content="Henry Lee">
+    <meta name="description" content="Hexo">
+    <link rel="icon" href="/assets/images/null">
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="http://hamn07.github.io">Hexo</a>
+    </h1>
+    
+</header>
+            <nav id="sidebar" data-behavior="1">
+    
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://stark-everglades-8527.herokuapp.com/" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-globe"></i>
+                    <span class="sidebar-button-desc">web</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="http://slides.com/hamn07/deck/live" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-slideshare"></i>
+                    <span class="sidebar-button-desc">slides</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/api/user/hamn07?apiKey=key1" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-database"></i>
+                    <span class="sidebar-button-desc">database</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/#about">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About me</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="https://github.com/hamn07" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="mailto:hamn07@gmail.com" target="_blank">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+    <ul class="sidebar-buttons">
+        
+        <li class="sidebar-button">
+            
+                <a  class="sidebar-button-link " href="/atom.xml">
+            
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+            <div id="main" data-behavior="1">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+        <div class="post-header main-content-wrap">
+    
+        <h1 class="post-title" itemprop="headline">Web筆記區</h1>
+    
+    <div class="post-meta">
+    <time  itemprop="datePublished" content="Fri Aug 07 2015 06:44:51 GMT+0800">
+        Aug 07, 2015
+    </time>
+    
+</div>
+</div>
+    
+    <div class="post-content markdown main-content-wrap" itemprop="articleBody">
+        <!-- toc -->
+<ul>
+<li><a href="#spring">Spring</a></li>
+<li><a href="#security">Security</a><ul>
+<li><a href="#https-http-over-ssl">HTTPS - HTTP over SSL</a></li>
+</ul>
+</li>
+<li><a href="#trouble-shooting">Trouble Shooting</a><ul>
+<li><a href="#pdo&#x9023;&#x7DDA;&#x5831;&#x932F;no-such-file">PDO&#x9023;&#x7DDA;&#x5831;&#x932F;no such file</a></li>
+<li><a href="#osx&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x5831;&#x932F;php-warning-mkdir-permission-denied">OSX&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x5831;&#x932F;<code>PHP Warning:  mkdir(): Permission denied</code></a></li>
+<li><a href="#redhat&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x5831;&#x932F;php-warning-mkdir-permission-denied">Redhat&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x5831;&#x932F;<code>PHP Warning:  mkdir(): Permission denied</code></a></li>
+<li><a href="#&#x5B9A;&#x754C;&#x7B26;&#x5C0D;&#x61C9;&#x4E4B;&#x7D50;&#x675F;&#x7B26;&#x7684;&#x524D;&#x4E00;&#x500B;&#x4F4D;&#x5143;&#x9700;&#x70BA;&#x63DB;&#x884C;&#x7B26;&#x865F;">&#x5B9A;&#x754C;&#x7B26;&#x5C0D;&#x61C9;&#x4E4B;&#x7D50;&#x675F;&#x7B26;&#x7684;&#x524D;&#x4E00;&#x500B;&#x4F4D;&#x5143;&#x9700;&#x70BA;&#x63DB;&#x884C;&#x7B26;&#x865F;</a></li>
+<li><a href="#&#x4F7F;&#x7528;exif_read_date&#x9700;&#x65BC;phpini&#x505A;&#x4EE5;&#x4E0B;&#x8A2D;&#x5B9A;">&#x4F7F;&#x7528;exif_read_date&#x9700;&#x65BC;php.ini&#x505A;&#x4EE5;&#x4E0B;&#x8A2D;&#x5B9A;</a></li>
+<li><a href="#&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x7121;&#x6CD5;&#x53D6;&#x5F97;&#x539F;&#x59CB;&#x62CD;&#x651D;&#x65E5;&#x671F;">&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x7121;&#x6CD5;&#x53D6;&#x5F97;&#x539F;&#x59CB;&#x62CD;&#x651D;&#x65E5;&#x671F;</a></li>
+</ul>
+</li>
+<li><a href="#apache-httpd&#x5EFA;&#x7F6E;">Apache httpd&#x5EFA;&#x7F6E;</a><ul>
+<li><a href="#win7">win7</a></li>
+<li><a href="#osx">OSX</a></li>
+</ul>
+</li>
+<li><a href="#php">PHP</a><ul>
+<li><a href="#win7">win7</a></li>
+<li><a href="#osx-extra">OSX (extra)</a><ul>
+<li><a href="#&#x958B;&#x555F;xdebug">&#x958B;&#x555F;xdebug</a></li>
+<li><a href="#composer">Composer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<!-- tocstop -->
+<p><a href="http://phpave.com/how-to-process-put-requests-with-php/" target="_blank" rel="external">How to process PUT requests with PHP</a></p>
+<h1 id="spring">Spring</h1><p><a href="http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/index.html" target="_blank" rel="external">&#x5B98;&#x7DB2;&#x6587;&#x4EF6;</a></p>
+<h1 id="security">Security</h1><h2 id="https-http-over-ssl">HTTPS - HTTP over SSL</h2><p>&#x5DE5;&#x4F5C;&#x539F;&#x7406;:</p>
+<ol>
+<li>&#x4F7F;&#x7528;&#x975E;&#x5C0D;&#x7A31;&#x5F0F;&#x52A0;&#x5BC6;&#x6F14;&#x7B97;&#x6CD5;&#x4F86;&#x5C0D;&#x901A;&#x8A0A;&#x96D9;&#x65B9;&#x505A;&#x8EAB;&#x5206;&#x8A8D;&#x8B49;</li>
+<li>&#x4E26;&#x4EA4;&#x63DB;&#x5C0D;&#x7A31;&#x91D1;&#x9470;&#x70BA;Session Key</li>
+<li>&#x4F7F;&#x7528;Session Key&#x4F86;&#x52A0;&#x5BC6;C/S&#x9593;&#x7684;&#x901A;&#x8A0A;&#x5167;&#x5BB9;</li>
+</ol>
+<p>&#x7F3A;&#x9EDE;:</p>
+<ol>
+<li>&#x901A;&#x8A0A;&#x5167;&#x5BB9;&#x52A0;&#x91CF;&#xFF0C;&#x56E0;&#x6B64;&#x50B3;&#x8F38;&#x6642;&#x9593;&#x8B8A;&#x9577;</li>
+<li>&#x52A0;&#x89E3;&#x5BC6;&#x9700;&#x6D88;&#x8017;&#x984D;&#x5916;&#x6A5F;&#x5668;&#x8CC7;&#x6E90; (&#x53EF;&#x7531;SSL acceleration&#x52A0;&#x901F;&#x4E4B;)</li>
+</ol>
+<p>IETF - Internet Engineering Task Force<br>SSL - Secure Socket Layer<br>TLS - Transport Layer Secure</p>
+<p>SSL acceleration</p>
+<h1 id="trouble-shooting">Trouble Shooting</h1><h2 id="pdo&#x9023;&#x7DDA;&#x5831;&#x932F;no-such-file">PDO&#x9023;&#x7DDA;&#x5831;&#x932F;no such file</h2><p><a href="https://dzone.com/articles/setting-php-mysql-os-x" target="_blank" rel="external">Setting up PHP &amp; MySQL on OS X Yosemite</a><br><img src="pdo-error-msg.png" alt=""><br><img src="pdo-error-phpinfo.png" alt=""><br><img src="pdo-error-phpini.png" alt=""><br><img src="pdo-error-mysql-sock.png" alt=""></p>
+<h2 id="osx&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x5831;&#x932F;php-warning-mkdir-permission-denied">OSX&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x5831;&#x932F;<code>PHP Warning:  mkdir(): Permission denied</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Fri Aug <span class="number">21</span> <span class="number">06</span>:<span class="number">46</span>:<span class="number">19.036740</span> <span class="number">2015</span>] [:error] [pid <span class="number">4098</span>] [client ::<span class="number">1</span>:<span class="number">52036</span>] PHP Warning:  mkdir(): Permission denied <span class="keyword">in</span> /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line <span class="number">77</span></span><br><span class="line">[Fri Aug <span class="number">21</span> <span class="number">06</span>:<span class="number">46</span>:<span class="number">19.037019</span> <span class="number">2015</span>] [:error] [pid <span class="number">4098</span>] [client ::<span class="number">1</span>:<span class="number">52036</span>] PHP Warning:  file_put_contents(/Users/Hamn/Workspace/pichannel.web/img-repo/fd/<span class="number">94400820857</span>e1f415555cda791b279af6d72e8.jpg): failed to open stream: No such file or dir</span><br></pre></td></tr></table></figure>
+<p>Workaround:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir img-repo</span><br><span class="line">$ sudo chown img-repo _www</span><br></pre></td></tr></table></figure></p>
+<h2 id="redhat&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x5831;&#x932F;php-warning-mkdir-permission-denied">Redhat&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x5831;&#x932F;<code>PHP Warning:  mkdir(): Permission denied</code></h2><p>Workaround: <a href="http://stackoverflow.com/questions/13908722/php-unable-to-create-a-directory-with-mkdir" target="_blank" rel="external">&#x53C3;&#x8003;</a><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ls -lZ img-repo/</span><br><span class="line">drwxrwxr-x. ec2-user ec2-user <span class="string">unconfined_u:</span><span class="string">object_r:</span><span class="string">httpd_sys_content_t:</span>s0 img-repo</span><br><span class="line">$ chcon -R -t httpd_sys_content_rw_t img-repo/</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/httpd/conf/httpd.conf</span><br><span class="line"></span><br><span class="line"><span class="built_in">user</span> ec2-<span class="built_in">user</span></span><br><span class="line">group ec2-<span class="built_ins">user</span></span><br></pre></td></tr></table></figure>
+<h2 id="&#x5B9A;&#x754C;&#x7B26;&#x5C0D;&#x61C9;&#x4E4B;&#x7D50;&#x675F;&#x7B26;&#x7684;&#x524D;&#x4E00;&#x500B;&#x4F4D;&#x5143;&#x9700;&#x70BA;&#x63DB;&#x884C;&#x7B26;&#x865F;">&#x5B9A;&#x754C;&#x7B26;&#x5C0D;&#x61C9;&#x4E4B;&#x7D50;&#x675F;&#x7B26;&#x7684;&#x524D;&#x4E00;&#x500B;&#x4F4D;&#x5143;&#x9700;&#x70BA;&#x63DB;&#x884C;&#x7B26;&#x865F;</h2><p>&#x4EE5;&#x4E0B;&#x6703;&#x5831;&#x932F;<code>Parse error: syntax error, unexpected $end in xxx.php on line 64</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertImage</span><span class="params">(<span class="variable">$sha1</span>,<span class="variable">$timestamp</span>)</span></span>{</span><br><span class="line"></span><br><span class="line">  <span class="variable">$sql</span> = <span class="string">&lt;&lt;&lt;sqlText</span><br><span class="line">    INSERT INTO image VALUES (?,?)</span><br><span class="line">  sqlText;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x4EE5;&#x4E0B;&#x6B63;&#x89E3;<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertImage</span><span class="params">(<span class="variable">$sha1</span>,<span class="variable">$timestamp</span>)</span></span>{</span><br><span class="line"></span><br><span class="line">  <span class="variable">$sql</span> = <span class="string">&lt;&lt;&lt;sqlText</span><br><span class="line">    INSERT INTO image VALUES (?,?)</span><br><span class="line">sqlText;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x4F7F;&#x7528;exif_read_date&#x9700;&#x65BC;phpini&#x505A;&#x4EE5;&#x4E0B;&#x8A2D;&#x5B9A;">&#x4F7F;&#x7528;exif_read_date&#x9700;&#x65BC;php.ini&#x505A;&#x4EE5;&#x4E0B;&#x8A2D;&#x5B9A;</h2><p>&#x4EE5;&#x4E0B;&#x5831;&#x932F;<code>Fatal error: Call to undefined function exif_read_data() xxx.php on line 2</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extension=php_exif.dll</span><br><span class="line">extension=php_mbstring.dll</span><br></pre></td></tr></table></figure></p>
+<p>&#x4EE5;&#x4E0B;&#x6B63;&#x89E3;<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extension=php_mbstring.dll</span><br><span class="line">extension=php_exif.dll</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x7121;&#x6CD5;&#x53D6;&#x5F97;&#x539F;&#x59CB;&#x62CD;&#x651D;&#x65E5;&#x671F;">&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x6642;&#x7121;&#x6CD5;&#x53D6;&#x5F97;&#x539F;&#x59CB;&#x62CD;&#x651D;&#x65E5;&#x671F;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Sat Aug <span class="number">22</span> <span class="number">18</span>:<span class="number">12</span>:<span class="number">45.538546</span> <span class="number">2015</span>] [:error] [pid <span class="number">833</span>] [client ::<span class="number">1</span>:<span class="number">49587</span>] PHP Notice:  Undefined index: DateTimeOriginal <span class="keyword">in</span> /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line <span class="number">89</span></span><br></pre></td></tr></table></figure>
+<h1 id="apache-httpd&#x5EFA;&#x7F6E;">Apache httpd&#x5EFA;&#x7F6E;</h1><h2 id="win7">win7</h2><ol>
+<li><p>&#x76EE;&#x9304;&#x9810;&#x8A2D;&#x6A94;&#x6848;</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;IfModule dir_module&gt;</span></span><br><span class="line">    <span class="keyword">DirectoryIndex</span> index.php</span><br><span class="line"><span class="tag">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>apache&#x5B89;&#x88DD;&#x76EE;&#x9304;<br><code>Define SRVROOT &quot;D:\dvp\dev-tool\httpd-2.4.16-x64-vc11\Apache24&quot;</code></p>
+</li>
+<li><p>&#x7DB2;&#x9801;&#x6839;&#x76EE;&#x9304;<br><code>DocumentRoot &quot;D:\dvp\workspace\classroom2001\project&quot;</code><br><code>&lt;Directory &quot;D:\dvp\workspace\classroom2001\project&quot;&gt;</code></p>
+</li>
+<li><p>&#x4ECB;&#x7D39;apache&#x8A8D;&#x8B58;php</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LoadModule php5_module &quot;D:<span class="command">\dvp</span><span class="command">\dev</span>-tool<span class="command">\php</span>-5.6.11-Win32-VC11-x64<span class="command">\php</span>5apache2_4.dll&quot;</span><br><span class="line">AddType application/x-httpd-php .php</span><br><span class="line">PHPIniDir &quot;D:<span class="command">\dvp</span><span class="command">\dev</span>-tool<span class="command">\php</span>-5.6.11-Win32-VC11-x64&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x7DB2;&#x9801;&#x91CD;&#x5C0E;&#x8A2D;&#x5B9A;<br><code>LoadModule rewrite_module modules/mod_rewrite.so</code></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;IfModule mod_rewrite.c&gt;</span></span><br><span class="line"><span class="keyword"><span class="common">RewriteEngine</span></span> <span class="literal">On</span></span><br><span class="line"><span class="keyword"><span class="common">RewriteCond</span></span> <span class="cbracket">%{REQUEST_FILENAME}</span> !-f</span><br><span class="line"><span class="keyword"><span class="common">RewriteCond</span></span> <span class="cbracket">%{REQUEST_FILENAME}</span> !-d</span><br><span class="line"><span class="comment">#RewriteRule api/v1/(.*)$ phpinfo.php?request=$1 [QSA,NC,L]</span></span><br><span class="line"><span class="keyword"><span class="common">RewriteRule</span></span> api/(.*)$ /api/controller.php?request=<span class="number">$1</span><span class="sqbracket"> [QSA,NC,L]</span></span><br><span class="line"><span class="tag">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x74B0;&#x5883;&#x8B8A;&#x6578;$PATH&#x52A0;&#x5165;<code>D:\dvp\dev-tool\httpd-2.4.16-x64-vc11\Apache24\bin</code></p>
+</li>
+<li><p>&#x9632;&#x6B62;diretory listing (Production)</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Options Indexes FollowSymLinks</span></span><br><span class="line"><span class="keyword"><span class="common">Options</span></span> FollowSymLinks</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Cross-Origin Resource Sharing (Optional)&#xFF0C;&#x65BC;DocumentRoot&#x7684;Diretory&#x88E1;&#x8A2D;&#x5B9A;<br><code>LoadModule headers_module modules/mod_headers.so</code></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;IfModule mod_headers.c&gt;</span></span><br><span class="line">  <span class="keyword"><span class="common">Header</span></span> set Access-Control-Allow-Origin <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="tag">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8A3B;&#x518A;&#x5230;service&#x5F8C;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;Apache Monitor&#x7BA1;&#x7406;<br><code>httpd.exe -k install [-n MyServiceName]</code></p>
+</li>
+</ol>
+<blockquote>
+<p>&#x203B;&#x4F7F;&#x7528;service&#x958B;&#x555F;httpd&#x7121;&#x6CD5;&#x8F09;&#x5165;curl&#xFF0C;&#x539F;&#x56E0;&#x662F;apache&#x8A8D;&#x4E0D;&#x5230;curl&#x5728;PHP&#x76EE;&#x9304;&#x88E1;&#x7684;&#x4F9D;&#x8CF4;&#x5305;libssh2.dll<br><code>PHP Fatal error:  Call to undefined function curl_init()</code><br>&#x89E3;&#x6CD5;: &#x5C07;libssh2.dll&#x8907;&#x88FD;&#x4E00;&#x4EFD;&#x5230;apache/bin&#x518D;&#x91CD;&#x555F;</p>
+</blockquote>
+<h2 id="osx">OSX</h2><p><a href="https://discussions.apple.com/docs/DOC-3083" target="_blank" rel="external">Setting up a local web server on OS X</a></p>
+<h1 id="php">PHP</h1><h2 id="win7">win7</h2><ol>
+<li><p>&#x986F;&#x793A;&#x932F;&#x8AA4;<br><code>display_errors = On</code></p>
+</li>
+<li><p>&#x8A2D;&#x7F6E;extension&#x76EE;&#x9304;<br><code>extension_dir = &quot;D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64\ext&quot;</code></p>
+</li>
+<li><p>enable extenstions<br><code>extension=php_bz2.dll</code><br><code>extension=php_curl.dll</code><br><code>extension=php_gd2.dll</code><br><code>extension=php_mbstring.dll</code><br><code>extension=php_exif.dll</code><br><code>extension=php_mysql.dll</code><br><code>extension=php_mysqli.dll</code><br><code>extension=php_pdo_mysql.dll</code></p>
+</li>
+<li><p>&#x6642;&#x5340;<br><code>date.timezone = Asia/Taipei</code></p>
+</li>
+<li><p>&#x74B0;&#x5883;&#x8B8A;&#x6578;$PATH&#x52A0;&#x5165;<code>D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64</code></p>
+</li>
+<li><p>&#x8A2D;&#x7F6E;&#x6700;&#x5927;post size - Production<br>post_max_size = 1M</p>
+</li>
+</ol>
+<h2 id="osx-extra">OSX (extra)</h2><h3 id="&#x958B;&#x555F;xdebug">&#x958B;&#x555F;xdebug</h3><p><code>zend_extension = &quot;xdebug.so&quot;</code></p>
+<h3 id="composer">Composer</h3><p><code>curl -sS https://getcomposer.org/installer | php</code><br><code>mv composer.phar /usr/local/bin/composer</code></p>
+<h1 id="reference">Reference</h1><p><a href="http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers" target="_blank" rel="external">PDO Tutorial for MySQL Developers</a><br><a href="http://www.restapitutorial.com/index.html" target="_blank" rel="external">REST API Turorial</a><br><a href="http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php" target="_blank" rel="external">Scope Resolution Operator (::)</a></p>
+
+        
+            
+        
+    </div>
+    <div class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/12/embedded-android-final-project/"  data-tooltip="期末專題">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/30/android-note/" data-tooltip="安卓筆記區">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/08/07/php-note/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/08/07/php-note/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/08/07/php-note/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 Henry Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/12/embedded-android-final-project/"  data-tooltip="期末專題">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/30/android-note/" data-tooltip="安卓筆記區">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/08/07/php-note/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/08/07/php-note/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/08/07/php-note/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+
+                </div>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">Henry Lee</h4>
+        
+        
+        
+    </div>
+</div>
+        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>
