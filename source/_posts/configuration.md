@@ -199,6 +199,34 @@ better google tasks
 
 
 # hexo
+
+## npm install卡在node-gyp rebuild
+Workaround:
+1.安裝nvm
+`wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.28.0/install.sh | bash`
+
+2.更新npm
+
+```bash
+08:58 $ nvm list
+->       system
+node -> stable (-> N/A) (default)
+iojs -> N/A (default)
+✔ ~
+08:58 $ nvm install stable
+######################################################################## 100.0%
+WARNING: checksums are currently disabled for node.js v4.0 and later
+Now using node v4.1.2 (npm v2.14.4)
+✔ ~
+09:00 $ nvm ls
+->       v4.1.2
+         system
+node -> stable (-> v4.1.2) (default)
+stable -> 4.1 (-> v4.1.2) (default)
+iojs -> N/A (default)
+```
+
+## deploy前置設定
 `npm install hexo-toc --save`
 `npm install hexo-deployer-git --save`
 
