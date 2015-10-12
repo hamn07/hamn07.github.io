@@ -12,7 +12,7 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 ### Refernces
 [In which domains are message oriented middleware like AMQP useful?](http://stackoverflow.com/questions/2388539/in-which-domains-are-message-oriented-middleware-like-amqp-useful)
 [Message Queue Evaluation Notes](http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes#Criteria)
-
+[Messaging Patterns Overview](http://www.enterpriseintegrationpatterns.com/patterns/messaging/index.html)
 ## Reactive Programming
 ### Refernces
 [FRP與函數式](https://www.evernote.com/shard/s75/sh/20e03309-c4b7-4a6a-9440-048f43526f90/a46385724a71c34839213c719b360d79)
