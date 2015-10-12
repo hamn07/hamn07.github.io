@@ -34,8 +34,259 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 - http://kaazing.org/
 - http://caucho.com/
 
-## [jWebsocket](http://jwebsocket.org/)
+## jWebsocket
+[jWebsocket official site](http://jwebsocket.org/)
 [jWebSocket JMS based Cluster](http://jwebsocket.org/documentation/installation-guide/jwebsocket-cluster)
+
+## WebSocket over TLS (GlassFish)
+
+### preview
+
+![](ws-echo-server1.png)
+![](ws-echo-server2.png)
+![](ws-echo-server3.png)
+
+
+### server-side
+
+
+`web.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+...
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Protected resource</web-resource-name>
+      <url-pattern>/*</url-pattern>
+      <http-method>GET</http-method>
+    </web-resource-collection>
+
+    <!-- https -->
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+</web-app>
+```
+
+
+`EchoEndpoint.java`
+```java
+package tw.henry.websocket;
+
+import java.io.IOException;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.websocket.OnClose;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.ServerEndpoint;
+
+
+@ServerEndpoint("/echo")
+public class EchoEndpoint {
+	private static final Logger LOG = Logger.getLogger(EchoEndpoint.class.getName());
+
+	private static Set<Session> allSessions;
+
+	static ScheduledExecutorService timer =
+		       Executors.newSingleThreadScheduledExecutor();
+	DateTimeFormatter timeFormatter =  
+	          DateTimeFormatter.ofPattern("HH:mm:ss");
+
+	ScheduledFuture<?> result;
+	@OnMessage
+	public String echo(String message) {
+	    return message + " (from your server)";
+	}
+
+	@OnOpen
+	public void connectionOpened(Session session) {
+		LOG.log(Level.INFO, "WebSocket opened: "+session.getId());
+
+		allSessions = session.getOpenSessions();
+
+		if (allSessions.size()==1){   
+	        result = timer.scheduleAtFixedRate(
+	             () -> sendTimeToAll(session),0,10,TimeUnit.SECONDS);    
+	    }
+	}
+
+	private void sendTimeToAll(Session session){       
+	     allSessions = session.getOpenSessions();
+	     for (Session sess: allSessions){          
+	        try{   
+	          sess.getBasicRemote().sendText("Hi, give me some thing to echo (Server time: " +
+	                    LocalTime.now().format(timeFormatter)+")");
+	          } catch (IOException ioe) {        
+	              System.out.println(ioe.getMessage());         
+	          }   
+	     }  
+	}
+
+	@OnClose
+	public void connectionClosed() {
+		result.cancel(true);
+		LOG.log(Level.INFO, "connection closed");
+	}
+}
+```
+
+
+### client-side: Web
+```html
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+</head>
+
+<body>
+  <meta charset="utf-8">
+  <title>Web Socket JavaScript Echo Client</title>
+  <script language="javascript" type="text/javascript">
+    var endpointPath = "/echo";
+    var wsUri = getRootUri() + endpointPath;
+    var websocket;
+    /**
+     * Get application root uri with ws/wss protocol.
+     *
+     * @returns {string}
+     */
+    function getRootUri() {
+      var uri = "wss://" + (document.location.hostname == "" ? "localhost" : document.location.hostname) + ":" +
+        (document.location.port == "" ? "8181" : document.location.port);
+
+      var pathname = window.location.pathname;
+
+      if (endsWith(pathname, "/index.html")) {
+        uri = uri + pathname.substring(0, pathname.length - 11);
+      } else if (endsWith(pathname, "/")) {
+        uri = uri + pathname.substring(0, pathname.length - 1);
+      }
+
+      return uri;
+    }
+
+    function endsWith(str, suffix) {
+      return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+
+    function init() {
+      output = document.getElementById("output");
+    }
+
+    function send_echo() {
+      if (!websocket) {
+
+        websocket = new WebSocket(wsUri);
+
+        websocket.onopen = function(evt) {
+          onOpen(evt)
+        };
+        websocket.onmessage = function(evt) {
+          onMessage(evt)
+        };
+        websocket.onerror = function(evt) {
+          onError(evt)
+        };
+        websocket.onclose = function(evt) {
+          onClose(evt);
+        }
+      }
+      // doSend(textID.value);
+      sendMessage(textID.value);
+    }
+
+    function onOpen(evt) {
+      writeToScreen("CONNECTED");
+    }
+
+    function onMessage(evt) {
+      writeToScreen("RECEIVED: " + evt.data);
+    }
+
+    function onClose(evt) {
+      writeToScreen("CLOSED: " + evt.code + ": " + evt.reason);
+    }
+
+    function onError(evt) {
+      writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
+    }
+
+    function doSend(message) {
+      console.log(websocket);
+      writeToScreen("SENT: " + message);
+      websocket.send(message);
+    }
+
+    function sendMessage(msg) {
+      waitForSocketConnection(websocket, function() {
+    	    writeToScreen("SENT: " + msg);
+        websocket.send(msg);
+      });
+    };
+
+    function waitForSocketConnection(socket, callback) {
+      setTimeout(
+        function() {
+          if (socket.readyState === WebSocket.OPEN) {
+            if (callback !== undefined) {
+              callback();
+            }
+            return;
+          } else {
+            waitForSocketConnection(socket, callback);
+          }
+        }, 5);
+    };
+
+    function writeToScreen(message) {
+      var pre = document.createElement("p");
+      pre.style.wordWrap = "break-word";
+      pre.innerHTML = message;
+      //alert(output);
+      output.appendChild(pre);
+    }
+
+    window.addEventListener("load", init, false);
+  </script>
+
+  <h2 style="text-align: center;">Web Socket Echo Client</h2>
+
+  <div style="text-align: center;">
+    <img style=" width: 64px; height: 64px;" alt="" src="HTML5_Logo_512.png">
+  </div>
+  <br/>
+
+  <div style="text-align: center;">
+    <form action="">
+      <input onclick="send_echo()" value="Press me" type="button">
+      <input id="textID" name="message" label="message" value="Hello Web Sockets !" type="text">
+      <br>
+    </form>
+  </div>
+  <div id="output"></div>
+</body>
+
+</html>
+
+```
+
+
+
+
+
+
 
 ## GlassFish-Eclipse development Env. setup
 ### Environment

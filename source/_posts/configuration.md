@@ -185,7 +185,7 @@ index 626a0bb..a092632 100644
 
 # Atom
 - Seti
-- 
+-
 
 
 # Eclipse
@@ -195,7 +195,11 @@ index 626a0bb..a092632 100644
 - SQL Development Tool
 - Eclipse Color Theme
 - Eclipse Moonrise UI Theme
+![](eclipse-color-theme-1.png)
+![](eclipse-color-theme-2.png)
 - Gradle IDE package 3.6.x
+
+
 
 # Chrome
 Insomnia
@@ -204,6 +208,70 @@ better google tasks
 
 
 # hexo
+
+## 報錯[Error: Module version mismatch. Expected 14, got 46.]
+
+```bash
+✔ ~/Workspace/src.hamn07.github.io [master|✔]
+13:08 $ hexo --version
+[Error: Module version mismatch. Expected 14, got 46.]
+{ [Error: Cannot find module './build/default/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
+{ [Error: Cannot find module './build/Debug/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
+hexo: 3.1.1
+os: Darwin 15.0.0 darwin x64
+http_parser: 2.3
+node: 0.12.7
+v8: 3.28.71.19
+uv: 1.6.1
+zlib: 1.2.8
+modules: 14
+openssl: 1.0.1p
+```
+
+**Workaround**
+```bash
+13:08 $ npm install hexo --no-optional
+hexo@3.1.1 node_modules/hexo
+├── hexo-front-matter@0.2.2
+├── pretty-hrtime@1.0.1
+├── abbrev@1.0.7
+├── archy@1.0.0
+├── titlecase@1.0.2
+├── text-table@0.2.0
+├── tildify@1.1.2 (os-homedir@1.0.1)
+├── strip-indent@1.0.1 (get-stdin@4.0.1)
+├── hexo-i18n@0.2.1 (sprintf-js@1.0.3)
+├── chalk@1.1.1 (escape-string-regexp@1.0.3, supports-color@2.0.0, ansi-styles@2.1.0, has-ansi@2.0.0, strip-ansi@3.0.0)
+├── minimatch@2.0.10 (brace-expansion@1.1.1)
+├── bunyan@1.5.1
+├── through2@1.1.1 (xtend@4.0.0, readable-stream@1.1.13)
+├── swig-extras@0.0.1 (markdown@0.5.0)
+├── bluebird@2.10.2
+├── js-yaml@3.4.3 (esprima@2.6.0, argparse@1.0.2)
+├── cheerio@0.19.0 (entities@1.1.1, dom-serializer@0.1.0, css-select@1.0.0, htmlparser2@3.8.3)
+├── warehouse@1.0.3 (graceful-fs@4.1.2, cuid@1.2.5, JSONStream@1.0.6)
+├── nunjucks@1.3.4 (optimist@0.6.1, chokidar@0.12.6)
+├── hexo-cli@0.1.8 (minimist@1.2.0)
+├── hexo-fs@0.1.4 (escape-string-regexp@1.0.3, graceful-fs@4.1.2, chokidar@1.2.0)
+├── hexo-util@0.1.7 (ent@2.2.0, highlight.js@8.8.0)
+├── moment-timezone@0.3.1
+├── lodash@3.10.1
+├── moment@2.10.6
+└── swig@1.4.2 (optimist@0.6.1, uglify-js@2.4.24)
+
+13:09 $ hexo server &
+[1] 3911
+✔ ~/Workspace/src.hamn07.github.io [master|✔]
+13:09 $ INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
+
+13:14 $ ps
+  PID TTY           TIME CMD
+  596 ttys000    0:01.23 -bash
+ 3911 ttys000    0:24.76 hexo
+
+13:14 $ kill 3911
+[1]+  Terminated: 15          hexo server
+```
 
 ## npm install卡在node-gyp rebuild
 Workaround:
