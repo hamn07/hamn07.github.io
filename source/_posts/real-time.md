@@ -11,6 +11,7 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 
 ### Refernces
 [In which domains are message oriented middleware like AMQP useful?](http://stackoverflow.com/questions/2388539/in-which-domains-are-message-oriented-middleware-like-amqp-useful)
+[Message Queue Evaluation Notes](http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes#Criteria)
 
 ## Reactive Programming
 ### Refernces
@@ -34,6 +35,7 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 - http://kaazing.org/
 - http://caucho.com/
 
+[消息队列软件产品大比拼](https://www.evernote.com/shard/s75/sh/3eb6cf33-71db-4412-973d-7d7efac62d47/02330b3286d02dd6558129f4ec914c75)
 ## jWebsocket
 [jWebsocket official site](http://jwebsocket.org/)
 [jWebSocket JMS based Cluster](http://jwebsocket.org/documentation/installation-guide/jwebsocket-cluster)
