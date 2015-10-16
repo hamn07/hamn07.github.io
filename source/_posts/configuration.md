@@ -132,6 +132,8 @@ nothing to commit, working directory clean
   3. git commit -m "init"
   4. git remote add origin `{github.com上repository的HTTPS clone URL}`
   5. git push -u origin master
+> 若是要把remote端的repo覆蓋掉，使用`git push origin --mirror` 
+
 ```
 $ git push -u origin master
 Counting objects: 421, done.

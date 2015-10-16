@@ -19,12 +19,123 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 [FRP與函數式](https://www.evernote.com/shard/s75/sh/20e03309-c4b7-4a6a-9440-048f43526f90/a46385724a71c34839213c719b360d79)
 
 ## websocket
+
+### RFC 6455
+[ieft official](https://tools.ietf.org/html/rfc6455)
+
+#### 5.2 Base Framing Protocol
+```
+0                   1                   2                   3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-------+-+-------------+-------------------------------+
+|F|R|R|R| opcode|M| Payload len |    Extended payload length    |
+|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
+|N|V|V|V|       |S|             |   (if payload len==126/127)   |
+| |1|2|3|       |K|             |                               |
++-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
+|     Extended payload length continued, if payload len == 127  |
++ - - - - - - - - - - - - - - - +-------------------------------+
+|                               |Masking-key, if MASK set to 1  |
++-------------------------------+-------------------------------+
+| Masking-key (continued)       |          Payload Data         |
++-------------------------------- - - - - - - - - - - - - - - - +
+:                     Payload Data continued ...                :
++ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+|                     Payload Data continued ...                |
++---------------------------------------------------------------+
+```
+
+
+
+Let's explain our framing protocol according to rfc6455 base framing protocol (shown above)
+```php
+// our framing protocol
+function frame($s) {
+  $a = str_split($s, 125);
+  if (count($a) == 1) {
+    return "\x81".chr(strlen($a[0])).$a[0];
+  }
+
+  $ns = "";
+  foreach ($a as $o) {
+    $ns .= "\x81".chr(strlen($o)).$o;
+  }
+  return $ns;
+}
+```
+\x81 are 2 hex, so transfer to binary is 10000001.
+
+FIN=1 denotes a final frame
+> Indicates that this is the final fragment in a message.  The first fragment MAY also be the final fragment.
+
+RSV1=0
+RSV2=0
+RSV3=0
+> RSV1, RSV2, RSV3:  1 bit each
+>
+> MUST be 0 unless an extension is negotiated that defines meanings for non-zero values.  If a nonzero value is received and none of the negotiated extensions defines the meaning of such a nonzero value, the receiving endpoint MUST \_Fail the WebSocket Connection_.
+
+
+opcode=0001 denotes a text frame
+> Opcode:  4 bits
+>
+> Defines the interpretation of the "Payload data".  If an unknown opcode is received, the receiving endpoint MUST \_Fail the WebSocket Connection_.  The following values are defined.
+>
+>      *  %x0 denotes a continuation frame
+>
+>      *  %x1 denotes a text frame
+>
+>      *  %x2 denotes a binary frame
+>
+>      *  %x3-7 are reserved for further non-control frames
+>
+>      *  %x8 denotes a connection close
+>
+>      *  %x9 denotes a ping
+>
+>      *  %xA denotes a pong
+>
+>      *  %xB-F are reserved for further control frames
+
+`chr(strlen($a[0]))` return a specific charater according to frame length, since we limit frame length to 125, the return would be character according to frame length.
+
+this character would be 0??????? in binary.
+
+Mask=0 denotes no mask
+> Mask:  1 bit
+>
+>   Defines whether the "Payload data" is masked.  If set to 1, a
+>   masking key is present in masking-key, and this is used to unmask
+>   the "Payload data" as per Section 5.3.  All frames sent from
+>   client to server have this bit set to 1.
+
+> Payload length:  7 bits, 7+16 bits, or 7+64 bits
+>
+>   The length of the "Payload data", in bytes: if 0-125, that is the
+>   payload length.  If 126, the following 2 bytes interpreted as a
+>   16-bit unsigned integer are the payload length.  If 127, the
+>   following 8 bytes interpreted as a 64-bit unsigned integer (the
+>   most significant bit MUST be 0) are the payload length.  Multibyte
+>   length quantities are expressed in network byte order.  Note that
+>   in all cases, the minimal number of bytes MUST be used to encode
+>   the length, for example, the length of a 124-byte-long string
+>   can't be encoded as the sequence 126, 0, 124.  The payload length
+>   is the length of the "Extension data" + the length of the
+>   "Application data".  The length of the "Extension data" may be
+>   zero, in which case the payload length is the length of the
+>   "Application data".
+
+
 [w3c](http://www.w3.org/TR/websockets/)
+
 
 ### websocket communication by Java (server-side)
 [JSR 356, Java API for WebSocket](http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html)
 [Java Day pdf](http://javaday.org.ua/2013/images/pdf/Delabassee_Kiev_WebSocket.pdf)
 [Securing WebSocket applications on Glassfish](https://blogs.oracle.com/PavelBucek/entry/securing_websocket_applications_on_glassfish)
+
+
+
 
 
 
@@ -56,7 +167,10 @@ The Gateway is a network gateway created to provide a single access point for re
 [jWebsocket official site](http://jwebsocket.org/)
 [jWebSocket JMS based Cluster](http://jwebsocket.org/documentation/installation-guide/jwebsocket-cluster)
 
-## WebSocket over TLS (GlassFish)
+## GlassFish implements WebSocket over TLS
+
+> This example demostrate a echo server peroidically return server time via websocket connection.
+
 
 ### preview
 
@@ -65,7 +179,7 @@ The Gateway is a network gateway created to provide a single access point for re
 ![](ws-echo-server3.png)
 
 
-### server-side
+### server configuration
 
 `web.xml`
 ```xml
@@ -86,6 +200,7 @@ The Gateway is a network gateway created to provide a single access point for re
 </web-app>
 ```
 
+### server-side
 
 `EchoEndpoint.java`
 ```java
@@ -301,7 +416,131 @@ public class EchoEndpoint {
 
 ### client-side : Android
 
+```java
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import org.java_websocket.client.DefaultSSLWebSocketClientFactory;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.drafts.Draft_17;
+import org.java_websocket.handshake.ServerHandshake;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
+
+public class MainActivity extends AppCompatActivity {
+    private WebSocketClient mWebSocketClient;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        try {
+
+ //           connectWebSocket(new URI("ws://10.0.3.2:8080/tm.EchoServer/echo"),false);
+//           connectWebSocket(new URI("wss://10.0.3.2:8181/tm.EchoServer/echo"),true);
+//           connectWebSocket(new URI("ws://10.0.1.147:8080/tm.EchoServer/echo"),false);
+           connectWebSocket(new URI("wss://10.0.1.147:8181/tm.EchoServer/echo"),true);
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void connectWebSocket(URI uri, boolean overTLS) {
+
+
+        mWebSocketClient = new WebSocketClient(uri, new Draft_17()) {
+            @Override
+            public void onOpen(ServerHandshake serverHandshake) {
+                Log.i("Websocket", "Opened");
+                mWebSocketClient.send("Hello from " + Build.MANUFACTURER + " " + Build.MODEL);
+            }
+
+            @Override
+            public void onMessage(String s) {
+                final String message = s;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        TextView textView = (TextView)findViewById(R.id.messages);
+                        textView.setText(textView.getText() + "\n" + message);
+                    }
+                });
+            }
+
+            @Override
+            public void onClose(int i, String s, boolean b) {
+                Log.i("Websocket", "Closed " + s);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.i("Websocket", "Error " + e.getMessage());
+            }
+        };
+
+        if (overTLS) {
+            /***************************************************************************/
+            //This part is needed in case you are going to use self-signed certificates
+            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
+                @Override
+                public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws java.security.cert.CertificateException {
+
+                }
+
+                @Override
+                public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws java.security.cert.CertificateException {
+
+                }
+
+                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                    return new java.security.cert.X509Certificate[]{};
+                }
+
+            }};
+            /**************************************************************************/
+            try {
+                SSLContext sc = SSLContext.getInstance("TLS");
+                sc.init(null, trustAllCerts, new java.security.SecureRandom());
+
+                //Otherwise the line below is all that is needed.
+                //sc.init(null, null, null);
+                mWebSocketClient.setWebSocketFactory(new DefaultSSLWebSocketClientFactory(sc));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        mWebSocketClient.connect();
+    }
+
+    public void sendMessage(View view) {
+        EditText editText = (EditText)findViewById(R.id.message);
+        mWebSocketClient.send(editText.getText().toString());
+        editText.setText("");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mWebSocketClient.close();
+
+    }
+}
+
+```
 
 ### Reference
 [Connect and transfer data with secure WebSockets in Android](http://www.juliankrone.com/connect-and-transfer-data-with-secure-websockets-in-android/)
@@ -314,13 +553,20 @@ public class EchoEndpoint {
 ### Environment
 
 1. JDK 8
+```bash
+$ java -version
+java version "1.8.0_45"
+Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
+```
 2. GlassFish 4 Java EE 7 Full Platform
+![](capture-20151016-154243.png)
 3. Eclipse (Mars Release) IDE for Java EE Developers
 
 
 ### Setup Steps
 
-1. enter Eclipse preferences `hotkey: cmd+,`, preferences->Server->Runtime Environment->Add...
+1. goto Eclipse preferences `hotkey: cmd+,`, preferences->Server->Runtime Environment->Add...
 ![](glassfish-eclipse-1.png)
 
 2. no glashfish environment runtime found, click `Download additional server adapters`
