@@ -1,8 +1,9 @@
 title: real time communication, server push
 date: 2015-10-08 09:42:39
 tags:
+toc: true
 ---
-<!-- toc -->
+
 # Concpet
 ## Message Oriented Middleware (MOM)
 Asynchronous Messaging, fire-and-forget, evnet-driven architechure
@@ -28,12 +29,27 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 
 
 
-# [Server](https://dzone.com/refcardz/html5-websocket) (message broker, gateway)
+# Server (message broker, gateway)
+[alternatives](https://dzone.com/refcardz/html5-websocket)
 - https://www.process-one.net/en/ejabberd/#getejabberd
 - http://www.rabbitmq.com/
 - http://activemq.apache.org/
 - http://kaazing.org/
+The Gateway is a network gateway created to provide a single access point for real-time web based protocol elevation that supports **load balancing, clustering, and security management**. It is designed to provide scalable and secure bidirectional event-based communication over the web; **on every platform, browser, and device**.
+
+ - Requirement
+   - Java Runtime Environment (JRE) 1.7.0_21 or higher
+   - JAVA_HOME must be set
+
+ - Feature
+   - cluster -> [參考連結](http://developer.kaazing.com/documentation/5.0/high-availability/u_ha.html)
+   - [AWS marketplace](http://developer.kaazing.com/documentation/aws/marketplace/index.html)
+   - [About Security with KAAZING Gateway](http://developer.kaazing.com/documentation/5.0/security/c_sec_security.html)
+   - [WebSocket Emulation for older browsers](http://kaazing.com/products/kaazing-websocket-gateway/websocket-emulation/)
 - http://caucho.com/
+- http://www.lightstreamer.com/
+ - http://www.slideshare.net/alinone/from-push-technology-to-the-realtime-web
+- https://www.ejabberd.im/
 
 [消息队列软件产品大比拼](https://www.evernote.com/shard/s75/sh/3eb6cf33-71db-4412-973d-7d7efac62d47/02330b3286d02dd6558129f4ec914c75)
 ## jWebsocket
@@ -50,7 +66,6 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 
 
 ### server-side
-
 
 `web.xml`
 ```xml
@@ -284,7 +299,12 @@ public class EchoEndpoint {
 
 ```
 
+### client-side : Android
 
+
+
+### Reference
+[Connect and transfer data with secure WebSockets in Android](http://www.juliankrone.com/connect-and-transfer-data-with-secure-websockets-in-android/)
 
 
 
@@ -345,12 +365,20 @@ public class EchoEndpoint {
 
 [Eclipse download Page](https://www.eclipse.org/downloads/)
 
+
+
 # Cloud Service (SaaS)
 - http://framework.realtime.co/
 - https://pusher.com/
 - https://www.pubnub.com/
 - https://ejabberd-saas.com/
 - https://www.mulesoft.com/
+- https://www.hydna.com/
+- https://www.pubnub.com/
+- https://www.intercom.io/
+- https://cloud.google.com/pubsub/
+
+[Scaling Secret: Real-time Chat](https://medium.com/@davidbyttow/scaling-secret-real-time-chat-d8589f8f0c9b)
 
 # Protocol
 - STOMP: Simple (or Streaming) Text Oriented Messaging Protocol
@@ -364,3 +392,9 @@ public class EchoEndpoint {
 ## Refernces
 [Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP
 ](https://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html)
+
+# whatsapp
+[What is the technology behind the web-based version of WhatsApp?](https://www.quora.com/What-is-the-technology-behind-the-web-based-version-of-WhatsApp)
+
+# 加解密
+[POST over HTTPS “secure enough” for sensitive data?](http://security.stackexchange.com/questions/51069/post-over-https-secure-enough-for-sensitive-data)

@@ -7,7 +7,7 @@ title: Hexo
 subtitle:
 description:
 author: Henry Lee
-language:
+language: en
 timezone:
 
 # URL
@@ -65,7 +65,8 @@ pagination_dir: page
 ## Themes: http://hexo.io/themes/
 #theme: landscape
 #theme: phase
-theme: tranquilpeak
+#theme: tranquilpeak
+theme: next
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
@@ -77,3 +78,6 @@ feed:
     type: atom
     path: atom.xml
     limit: 20
+
+#avatar: https://dyn.web.whatsapp.com/pp?t=l&u=886922386742%40c.us&i=1444397103
+avatar: /images/pp.jpeg
