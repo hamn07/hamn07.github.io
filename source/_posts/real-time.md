@@ -693,6 +693,7 @@ By using standard protocol instead of proprietary one, we could leverage lots of
 - Protocol Buffers
 
 ## Refernces
+[Message Queue Evaluation Notes](http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes)
 [Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP
 ](https://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html)
 
