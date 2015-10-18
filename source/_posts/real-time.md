@@ -47,10 +47,14 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 
 
 
-Let's explain our framing protocol according to rfc6455 base framing protocol (shown above)
+Let's examin our framing logic base by rfc6455 framing protocol as below.
 ```php
-// our framing protocol
+$msg = 'hi';
+
+echo bstr2bin(frame($msg));
+
 function frame($s) {
+  // our framing logic
   $a = str_split($s, 125);
   if (count($a) == 1) {
     return "\x81".chr(strlen($a[0])).$a[0];
@@ -62,15 +66,47 @@ function frame($s) {
   }
   return $ns;
 }
+
+function bstr2bin($input)
+// Binary representation of a binary-string
+{
+  if (!is_string($input)) return null; // Sanity check
+
+  // Unpack as a hexadecimal string
+  $value = unpack('H*', $input);
+
+  // Output binary representation
+  return base_convert($value[1], 16, 2);
+}```
+while sent 'hi' as message, the output would be `10000001000000100110100001101001` in binary. Let's fill in base frame protocol table as below.
+
 ```
-\x81 are 2 hex, so transfer to binary is 10000001.
+0                   1                   2                   3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-------+-+-------------+-------------------------------+
+|F|R|R|R| opcode|M| Payload len |         payload Data (hi)     |
+|I|S|S|S|  (4)  |A|     (7)     |             (16)              |
+|N|V|V|V|       |S|             |                               |
+| |1|2|3|       |K|             |                               |
++-+-+-+-+-------+-+-------------+-------------------------------+
+|1|0|0|0|0 0 0 1|0|0 0 0 0 0 1 0|0 1 1 0 1 0 0 0 0 1 1 0 1 0 0 1|
++-+-+-+-+-------+-+-------------+-------------------------------+
+```
+\x81 are 2 hex; 10000001 in binary.
 
 FIN=1 denotes a final frame
-> Indicates that this is the final fragment in a message.  The first fragment MAY also be the final fragment.
+> FIN:  1 bit
+>
+> Indicates that this is the final fragment in a message.  The first
+> fragment MAY also be the final fragment.
+
+
 
 RSV1=0
 RSV2=0
 RSV3=0
+
+RSV1~3 are set to 0, denotes we don't use any extension.
 > RSV1, RSV2, RSV3:  1 bit each
 >
 > MUST be 0 unless an extension is negotiated that defines meanings for non-zero values.  If a nonzero value is received and none of the negotiated extensions defines the meaning of such a nonzero value, the receiving endpoint MUST \_Fail the WebSocket Connection_.
@@ -97,9 +133,7 @@ opcode=0001 denotes a text frame
 >
 >      *  %xB-F are reserved for further control frames
 
-`chr(strlen($a[0]))` return a specific charater according to frame length, since we limit frame length to 125, the return would be character according to frame length.
-
-this character would be 0??????? in binary.
+`chr(strlen($a[0]))` returns a specific charater according to frame length, since we limit frame length to 125, first binary would be 0.
 
 Mask=0 denotes no mask
 > Mask:  1 bit
@@ -109,6 +143,8 @@ Mask=0 denotes no mask
 >   the "Payload data" as per Section 5.3.  All frames sent from
 >   client to server have this bit set to 1.
 
+Payload length= 0000010
+in this example, 'hi' is a 2 charater data, '0000010' in binary.
 > Payload length:  7 bits, 7+16 bits, or 7+64 bits
 >
 >   The length of the "Payload data", in bytes: if 0-125, that is the
@@ -125,7 +161,22 @@ Mask=0 denotes no mask
 >   zero, in which case the payload length is the length of the
 >   "Application data".
 
+Payload Data=0110100001101001
+since we limit our frame length to 125, the remaining bytes are payload.
+01101000 is 'h' in binary
+01101001 is 'i' in binary
+> Application data:  y bytes
+>
+> Arbitrary "Application data", taking up the remainder of the frame
+> after any "Extension data".  The length of the "Application data"
+> is equal to the payload length minus the length of the "Extension
+> data".
 
+
+Note: Further discussion would be needed while migration to another platform language which already implements WebSocket (like Java).
+
+
+### Refernces
 [w3c](http://www.w3.org/TR/websockets/)
 
 
@@ -145,6 +196,8 @@ Mask=0 denotes no mask
 - https://www.process-one.net/en/ejabberd/#getejabberd
 - http://www.rabbitmq.com/
 - http://activemq.apache.org/
+- [apache karaf](http://karaf.apache.org/)
+Apache Karaf is a small OSGi based runtime which provides a lightweight container onto which various components and applications can be deployed.
 - http://kaazing.org/
 The Gateway is a network gateway created to provide a single access point for real-time web based protocol elevation that supports **load balancing, clustering, and security management**. It is designed to provide scalable and secure bidirectional event-based communication over the web; **on every platform, browser, and device**.
 
@@ -627,13 +680,17 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
 [Scaling Secret: Real-time Chat](https://medium.com/@davidbyttow/scaling-secret-real-time-chat-d8589f8f0c9b)
 
 # Protocol
+By using standard protocol instead of proprietary one, we could leverage lots of client and server implementations to quickly build our app.
 - STOMP: Simple (or Streaming) Text Oriented Messaging Protocol
  - it’s not always straightforward to port code between brokers
 - XMPP : Extensible Messaging and Presence Protocol
+  - http://igniterealtime.org/
 - AQMP : Advanced Message Queuing Protocol
+  - Except puducer,broker,consumer(like JMS), AQMP introduce new component 'exchange'
 - [MQTT](https://github.com/mqtt/mqtt.github.io/wiki) : Message Queue Telemery Transport
  - Can be applied to IoT, such as connecting an Arduino device to a web service with MQTT.
 - JMS : Java Message Service
+- Protocol Buffers
 
 ## Refernces
 [Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP
