@@ -24,30 +24,11 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 [ieft official](https://tools.ietf.org/html/rfc6455)
 
 #### 5.2 Base Framing Protocol
-```
-0                   1                   2                   3
-0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+-+-+-+-+-------+-+-------------+-------------------------------+
-|F|R|R|R| opcode|M| Payload len |    Extended payload length    |
-|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
-|N|V|V|V|       |S|             |   (if payload len==126/127)   |
-| |1|2|3|       |K|             |                               |
-+-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
-|     Extended payload length continued, if payload len == 127  |
-+ - - - - - - - - - - - - - - - +-------------------------------+
-|                               |Masking-key, if MASK set to 1  |
-+-------------------------------+-------------------------------+
-| Masking-key (continued)       |          Payload Data         |
-+-------------------------------- - - - - - - - - - - - - - - - +
-:                     Payload Data continued ...                :
-+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-|                     Payload Data continued ...                |
-+---------------------------------------------------------------+
-```
-
-
 
 Let's examin our framing logic base by rfc6455 framing protocol as below.
+
+
+
 ```php
 $msg = 'hi';
 
@@ -73,14 +54,17 @@ function bstr2bin($input)
   if (!is_string($input)) return null; // Sanity check
 
   // Unpack as a hexadecimal string
-  $value = unpack('H*', $input);
+  $value = unpack("H*", $input);
 
   // Output binary representation
   return base_convert($value[1], 16, 2);
-}```
-while sent 'hi' as message, the output would be `10000001000000100110100001101001` in binary. Let's fill in base frame protocol table as below.
-
+}
 ```
+
+while sent hi as message, the output would be `10000001000000100110100001101001` in binary. Let's fill in base frame protocol table as below.
+
+
+```bash
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-------+-+-------------+-------------------------------+
@@ -92,6 +76,7 @@ while sent 'hi' as message, the output would be `1000000100000010011010000110100
 |1|0|0|0|0 0 0 1|0|0 0 0 0 0 1 0|0 1 1 0 1 0 0 0 0 1 1 0 1 0 0 1|
 +-+-+-+-+-------+-+-------------+-------------------------------+
 ```
+
 \x81 are 2 hex; 10000001 in binary.
 
 FIN=1 denotes a final frame
@@ -698,7 +683,23 @@ By using standard protocol instead of proprietary one, we could leverage lots of
 ](https://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html)
 
 # whatsapp
+[The WhatsApp Architecture Facebook Bought For $19 Billion - High Scalability -](https://www.evernote.com/shard/s75/sh/caec8dac-1026-4603-bab4-d241c9e1e1e3/bea5136188b0948f22aea9f65e5652e4)
+[INSIDE ERLANG, THE RARE PROGRAMMING LANGUAGE BEHIND WHATSAPP'S SUCCESS](https://www.evernote.com/shard/s75/sh/5a371dae-b43c-4229-8717-4d5bb1d031a5/a43f440b05685b66b342bd7c0ad061f9)
 [What is the technology behind the web-based version of WhatsApp?](https://www.quora.com/What-is-the-technology-behind-the-web-based-version-of-WhatsApp)
-
+- chat history is only stored on phone, none on server. Thus, to use the web client your smartphone has to be connected to the internet.
+- What protocol is used in Whatsapp app? SSL socket to the WhatsApp server pools.
+- Erlang/FreeBSD-based server infrastructure
+  - Server systems that do the backend message routing are done in Erlang.
+    - Ericsson engineer Joe Armstrong developed Erlang with the logic of telecommunications in mind: millions of parallel conversations happening at the same time, with almost zero tolerance for downtime.
+    - Erlang allows for bug fixes and updates without downtime.
+    - Erlang is very good at efficiently executing commands across processors within a single machine.
+  - Great achievement is that the number of active users is managed with a really small server footprint. Team consensus is that it is largely because of Erlang.
+  - Interesting to note Facebook Chat was written in Erlang in 2009, but they went away from it because it was hard to find qualified programmers.
+- WhatsApp server has started from ejabberd
+  - Ejabberd is a famous open source Jabber server written in Erlang.
+  - Originally chosen because its open, had great reviews by developers, ease of start and the promise of Erlang’s long term suitability for large communication system.
+  - The next few years were spent re-writing and modifying quite a few parts of ejabberd, including switching from XMPP to internally developed protocol, restructuring the code base and redesigning some core components, and making lots of important modifications to Erlang VM to optimize server performance.
+- A primary gauge of system health is message queue length. The message queue length of all the processes on a node is constantly monitored and an alert is sent out if they accumulate backlog beyond a preset threshold. If one or more processes falls behind that is alerted on, which gives a pointer to the next bottleneck to attack.
+- Multimedia messages are sent by uploading the image, audio or video to be sent to an HTTP server and then sending a link to the content along with its Base64 encoded thumbnail (if applicable).
 # 加解密
 [POST over HTTPS “secure enough” for sensitive data?](http://security.stackexchange.com/questions/51069/post-over-https-secure-enough-for-sensitive-data)
