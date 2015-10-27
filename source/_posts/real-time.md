@@ -701,5 +701,19 @@ By using standard protocol instead of proprietary one, we could leverage lots of
   - The next few years were spent re-writing and modifying quite a few parts of ejabberd, including switching from XMPP to internally developed protocol, restructuring the code base and redesigning some core components, and making lots of important modifications to Erlang VM to optimize server performance.
 - A primary gauge of system health is message queue length. The message queue length of all the processes on a node is constantly monitored and an alert is sent out if they accumulate backlog beyond a preset threshold. If one or more processes falls behind that is alerted on, which gives a pointer to the next bottleneck to attack.
 - Multimedia messages are sent by uploading the image, audio or video to be sent to an HTTP server and then sending a link to the content along with its Base64 encoded thumbnail (if applicable).
-# 加解密
+## Erlang
+- The basic unit of concurrency in Erlang is the process.
+- An Erlang process is a little virtual machine that can evaluate a single Erlang function; it should not be confused with an operating system process.
+- cannot rebind variable.
+
+
+# encryption
+## Concept
+[What is SSL?](http://info.ssl.com/article.aspx?id=10241)
+## certificate transparency
+[免費申請 StartSSL™ 個人數位簽章與網站 SSL 憑證完全攻略](https://www.evernote.com/shard/s75/sh/7ad82494-f38b-40f6-a14f-ad78370c2f8f/b7b87d174d5d7337d4f8e1bd5140fc07)
+[Symantec員工誤發Google憑證被開除](http://www.ithome.com.tw/news/98897)
+## the necessity to encrypt-decrypt again
 [POST over HTTPS “secure enough” for sensitive data?](http://security.stackexchange.com/questions/51069/post-over-https-secure-enough-for-sensitive-data)
+## alternatives
+[digicert](https://www.digicert.com/), used by facebook / whatsapp

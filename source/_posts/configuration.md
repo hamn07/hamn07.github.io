@@ -49,9 +49,21 @@ $ sudo dd if=CentOS-7-x86_64-DVD-1503-01.iso of=/dev/disk1
 ```
 ## 設定apache
 [Setting up a local web server on OS ](https://discussions.apple.com/docs/DOC-3083)
-`sudo vi /etc/apache2/httpd.conf`
 `sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist`
 `sudo /usr/sbin/apachectl restart`
+```bash
+$ grep DocumentRoot /etc/apache2/httpd.conf
+# DocumentRoot: The directory out of which you will serve your
+DocumentRoot "/Library/WebServer/Documents"
+```
+```bash
+$ pwd
+$ grep ErrorLog /etc/apache2/httpd.conf
+# ErrorLog: The location of the error log file.
+# If you do not specify an ErrorLog directive w
+-rw-r--r--  1 root  wheel  903123088 10 25 20:39 access_log
+-rw-r--r--  1 root  wheel    3208194 10 25 20:38 error_log
+```
 ## CyberDuck
 ![](CyberDuck.png)
 ## MenuMeter
@@ -132,7 +144,7 @@ nothing to commit, working directory clean
   3. git commit -m "init"
   4. git remote add origin `{github.com上repository的HTTPS clone URL}`
   5. git push -u origin master
-> 若是要把remote端的repo覆蓋掉，使用`git push origin --mirror` 
+> 若是要把remote端的repo覆蓋掉，使用`git push origin --mirror`
 
 ```
 $ git push -u origin master
@@ -184,7 +196,189 @@ index 626a0bb..a092632 100644
  #theme: phase
  theme: tranquilpeak
 ```
+# Maven
+```bash
+$ cat ~/.bash_profile | grep maven
+export PATH="/Users/tomin.henrylee/Applications/apache-maven-3.3.3/bin:$PATH"
+```
+```bash
+$ mvn -v
+Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T19:57:37+08:00)
+Maven home: /Users/tomin.henrylee/Applications/apache-maven-3.3.3
+Java version: 1.8.0_45, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre
+Default locale: zh_TW, platform encoding: UTF-8
+OS name: "mac os x", version: "10.11", arch: "x86_64", family: "mac"
+```
+```bash
+$ mvn archetype:generate -DgroupId=com.henry.webapp -DartifactId=maven-test -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] >>> maven-archetype-plugin:2.4:generate (default-cli) > generate-sources @ standalone-pom >>>
+[INFO]
+[INFO] <<< maven-archetype-plugin:2.4:generate (default-cli) < generate-sources @ standalone-pom <<<
+[INFO]
+[INFO] --- maven-archetype-plugin:2.4:generate (default-cli) @ standalone-pom ---
+[INFO] Generating project in Batch mode
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Old (1.x) Archetype: maven-archetype-quickstart:1.0
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: basedir, Value: /Users/tomin.henrylee/Workspace/temp
+[INFO] Parameter: package, Value: com.henry.webapp
+[INFO] Parameter: groupId, Value: com.henry.webapp
+[INFO] Parameter: artifactId, Value: maven-test
+[INFO] Parameter: packageName, Value: com.henry.webapp
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] project created from Old (1.x) Archetype in dir: /Users/tomin.henrylee/Workspace/temp/maven-test
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.268 s
+[INFO] Finished at: 2015-10-23T14:00:05+08:00
+```
+```bash
+$ tree maven-test/
+maven-test/
+├── pom.xml
+└── src
+    ├── main
+    │   └── java
+    │       └── com
+    │           └── henry
+    │               └── webapp
+    │                   └── App.java
+    └── test
+        └── java
+            └── com
+                └── henry
+                    └── webapp
+                        └── AppTest.java
 
+11 directories, 3 files
+```
+```bash
+$ cd maven-test/
+$ cat pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.henry.webapp</groupId>
+  <artifactId>maven-test</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>maven-test</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+```
+```bash
+$ mvn package
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building maven-test 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ maven-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/tomin.henrylee/Workspace/temp/maven-test/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ maven-test ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ maven-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/tomin.henrylee/Workspace/temp/maven-test/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ maven-test ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ maven-test ---
+[INFO] Surefire report directory: /Users/tomin.henrylee/Workspace/temp/maven-test/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.henry.webapp.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ maven-test ---
+[INFO] Building jar: /Users/tomin.henrylee/Workspace/temp/maven-test/target/maven-test-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.147 s
+[INFO] Finished at: 2015-10-23T14:20:40+08:00
+[INFO] Final Memory: 11M/220M
+[INFO] ------------------------------------------------------------------------
+```
+```bash
+$ tree .
+.
+├── pom.xml
+├── src
+│   ├── main
+│   │   └── java
+│   │       └── com
+│   │           └── henry
+│   │               └── webapp
+│   │                   └── App.java
+│   └── test
+│       └── java
+│           └── com
+│               └── henry
+│                   └── webapp
+│                       └── AppTest.java
+└── target
+    ├── classes
+    │   └── com
+    │       └── henry
+    │           └── webapp
+    │               └── App.class
+    ├── maven-archiver
+    │   └── pom.properties
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               ├── createdFiles.lst
+    │               └── inputFiles.lst
+    ├── maven-test-1.0-SNAPSHOT.jar
+    ├── surefire-reports
+    │   ├── TEST-com.henry.webapp.AppTest.xml
+    │   └── com.henry.webapp.AppTest.txt
+    └── test-classes
+        └── com
+            └── henry
+                └── webapp
+                    └── AppTest.class
+
+28 directories, 13 files
+```
+[Maven by Example](http://books.sonatype.com/mvnex-book/reference/index.html)
+[How to enable index downloads in Eclipse for Maven search?](https://www.evernote.com/shard/s75/sh/20369e9b-278a-4782-b42c-9f4e820aced6/2fd59b98812bfd5a45e9bd6763ba63b8)
+[Maven – Maven in 5 Minutes](https://www.evernote.com/shard/s75/sh/af016fc0-1205-4c35-b663-6ba2b7ecf41e/073450b9e72f07636e8e7329885e102c)
+[How do I prevent "[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!"](https://www.evernote.com/shard/s75/sh/309517cb-d15f-4f31-b3e2-79d2c0b41101/a47793422368965fa44fe1a7cfabb823)
 # Atom
 - Seti
 -
