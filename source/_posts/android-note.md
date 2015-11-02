@@ -6,7 +6,6 @@ tags:
 ***
 ![](http://developer.android.com/images/service_lifecycle.png )
 [趙老師的雲端分享資料夾](https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&usp=sharing#list)
-[林老師的教作業郵件](mailto://homeworks.iii@gmail.com)
 <!-- toc -->
 # bluetooth
 [official guide](http://developer.android.com/intl/zh-cn/guide/topics/connectivity/bluetooth.html)
@@ -350,3 +349,171 @@ Activity/Service..等類別
   2. 演算法 -> all
   3. coding -> member
   4. code review -> all
+
+# Java
+  [brad@brad.tw](mailto://brad@brad.tw)
+
+  > **Apache Cordova** is a platform for building native mobile applications using HTML, CSS and JavaScript
+  > [官網](https://cordova.apache.org/)
+
+  ```java
+  byte b; // [a-zA-Z$_][a-zA-Z0-9$_]
+  byte 成績=127; //8個位元組，-127~127，常用在圖形及網路streaming
+  System.out.println(成績);
+  ```
+
+  > Instances of `StringBuilder` are not safe for use by multiple threads. If such synchronization is required then it is recommended that `StringBuffer` be used.
+  ***
+  > **FileInputStream**:  一次讀取一個byte，適用於讀取影片、圖片…等檔案
+  > **FileReader**: 一次讀取一個character，適用於讀取文件
+  > **BufferReader**: 一次讀取一行`readline()`，適用於讀取文件，需串接`InputStreamReader`，再由`InputStreamReader`串接`FileInputStream`
+  > **FileOutputStream**:
+  > - 最後要close前，要強制將buffer裡的資料寫入disk---->`flush()`
+  >
+  > DataInputStream: 可存基本型態(primitive Java data types)
+  > ObjectInputStream: 可存Object，前提是此Object需`implements Serializable`，另可再此Object屬性加上`transient`表示此屬性不可序列化
+  >
+  ***
+  > 存取權
+  > - public: 全世界
+  > - protected:
+  > -- 同package
+  > -- 子類別
+  > - 沒寫: 同package
+  > - private: 本類別
+
+## java.net
+  > InetAddress
+  UDP:
+  - fast
+  - unreliable
+  - socket: 接口, `DatagramSocket`
+  - packet: 封包, `DatagramPacket`
+
+  ```java
+  //sender
+  byte[] buf = "hello, I'm Henry".getBytes();
+  DatagramSocket socket = new DatagramSocket();
+  DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName("10.2.24.156"), 9999);
+  socket.send(packet);
+  socket.close();
+  ```
+
+  ```java
+  //reciever
+  byte[] buf = new byte[4096];
+  DatagramSocket socket = new DatagramSocket(8888);
+  DatagramPacket packet = new DatagramPacket(buf, buf.length);
+  socket.receive(packet);
+  socket.close();
+  ```
+
+  TCP:
+  server socket: `ServerSocket`
+  client socket: `Socket`
+
+  ```java
+  // reciever
+  ServerSocket server = new ServerSocket(8888);
+  Socket socket = server.accept();
+  InputStream is = socket.getInputStream();
+
+  InputStreamReader isr = new InputStreamReader(is);
+  int temp;
+  while ( (temp = isr.read())!=-1)
+  {
+  	System.out.print((char)temp);
+  }
+
+  is.close();
+  socket.close();
+  server.close();
+  ```
+
+  ```java
+  // sender
+  Socket socket = new Socket(ip, 8888);
+  OutputStream out = socket.getOutputStream();
+  out.write("Hi, I'm Henry!!".getBytes());
+  out.flush();
+  out.close();
+  socket.close();
+  ```
+
+## 執行緒Thread
+  - 有生命週期之物件
+  - 寫法一`extends Thread`
+  ```java
+
+  public class ThreadObject {
+
+  	public static void main(String[] args) {
+  		ServerThreads st1 = new ServerThreads("bella");
+  		ServerThreads st2 = new ServerThreads("vivian");
+  		st1.start();
+  		st2.start();
+  		System.out.println("penny");
+  		try {
+  			Thread.sleep(1000);
+  		} catch (InterruptedException e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+  		}
+  		System.out.println("henry");
+  	    // trigger InterruptedException例外
+  		st1.interrupt();
+  	}
+
+  }
+
+  class ServerThreads extends Thread{
+  	private String name;
+  	public ServerThreads(String s) {
+  		name = s;
+  	}
+
+  	@Override
+  	public void run() {
+  		for (int i = 0; i < 20; i++) {
+  			try {
+  				Thread.sleep(200);
+  			} catch (InterruptedException e) {
+  			// trigger by st1.interrupt();
+  			    break;
+  			}
+  			System.out.println(name+":"+i);
+  		}
+  	}
+  }
+  ```
+  - 寫法二`implements Runnable`
+  ```java
+
+  public class ThreadObject {
+
+  	public static void main(String[] args) {
+
+  		ServerRunnable sr1 = new ServerRunnable("bella");
+  		Thread t1 = new Thread(sr1);
+  		t1.start();
+  	}
+
+  }
+  class ServerRunnable implements Runnable{
+  	private String name;
+  	public ServerRunnable(String s) {
+  		name = s;
+  	}
+
+  	@Override
+  	public void run() {
+  		for (int i = 0; i < 20; i++) {
+  			try {
+  				Thread.sleep(200);
+  			} catch (InterruptedException e) {
+  			}
+  			System.out.println(name+":"+i);
+  		}
+  	}
+  }
+  ```
