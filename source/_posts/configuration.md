@@ -64,22 +64,26 @@ $ grep ErrorLog /etc/apache2/httpd.conf
 -rw-r--r--  1 root  wheel  903123088 10 25 20:39 access_log
 -rw-r--r--  1 root  wheel    3208194 10 25 20:38 error_log
 ```
-## CyberDuck
+## Software
+- CyberDuck
 ![](CyberDuck.png)
-## MenuMeter
+- MenuMeter
 ![](MenuMeter.png)
-## Keka
+- Keka
 [官網](http://www.kekaosx.com/zh-tw/)
-## ec2
+- ec2
 $ chmod 400 ~/.ssh/dvp.pem
 alias sshec2='ssh -i ~/.ssh/dvp.pem ec2-user@52.26.138.212'
-## 嘸蝦米輸入法
+- 嘸蝦米輸入法
 直接安裝bin檔
-## homebrew - The missing package manager for OS X
+- homebrew - The missing package manager for OS X
 安裝套件都放在`/usr/local/Cellar`底下
-## XtraFinder - 補強Finder功能
-## MPlayerX
-## Sublime
+- [Homebrew Cask](http://caskroom.io/) extends Homebrew and brings its elegance, simplicity, and speed to OS X applications and large binaries alike. It only takes 1 line in your shell to reach 2835 Casks maintained by 434 contributors.
+- XtraFinder - 補強Finder功能
+- [QLMarkdown](https://github.com/toland/qlmarkdown) is a simple QuickLook generator for Markdown files.
+- MPlayerX
+- Sublime
+- PhotoScape X
 [Sublime Text 3 新手上路：必要的安裝、設定與基本使用教學](https://www.evernote.com/shard/s75/sh/a1cd7790-c07f-41f6-9031-951c3988b457/5dd08a112d111e9e60c15bdc203466a9)
 
 # Heroku

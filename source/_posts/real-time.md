@@ -163,7 +163,7 @@ Note: Further discussion would be needed while migration to another platform lan
 
 ### Refernces
 [w3c](http://www.w3.org/TR/websockets/)
-
+[WebSockets vs. Regular Sockets](http://eng.kifi.com/websockets-vs-regular-sockets/)
 
 ### websocket communication by Java (server-side)
 [JSR 356, Java API for WebSocket](http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html)
@@ -637,6 +637,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
 11. visit http://localhost:8080/ to see if GlassFish works properly.
 ![](glassfish-eclipse-11.png)
 
+### Spring
+[Spring 4 WebSocket + SockJS + STOMP + Tomcat Example](http://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example)
 ### Refernces
 
 [Multiple JDK in Mac OSX 10.10 Yosemite](https://www.evernote.com/shard/s75/sh/b3bab388-37e0-4945-8a3e-eda3fb9e398c/8e4b3a2fb69ab2d662a36db15230201d)
