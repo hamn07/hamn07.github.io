@@ -98,6 +98,10 @@ alias sshec2='ssh -i ~/.ssh/dvp.pem ec2-user@52.26.138.212'
 
 
 # Git
+[git help連結](https://help.github.com/)
+
+A successful Git branching model
+![A successful Git branching model](http://backlogtool.com/git-guide/tw/img/post/stepup/capture_stepup1_5_6.png)
 ## 設定`.gitignore_global`
 > git config --global core.excludesfile ~/.gitignore_global
 

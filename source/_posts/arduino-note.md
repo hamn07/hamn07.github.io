@@ -4,6 +4,8 @@ tags:
 ---
 <!-- toc -->
 
+[林老師的教作業郵件](mailto://homeworks.iii@gmail.com)
+
 
 # Syntax
 [Memory](http://playground.arduino.cc/Learning/Memory)
