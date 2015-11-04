@@ -517,3 +517,4 @@ Activity/Service..等類別
   	}
   }
   ```
+## [Java 7 新的 try-with-resources 语句，自动资源释放](https://www.evernote.com/shard/s75/sh/95db27f4-be6d-4e21-ab5c-8e6e50f45aa2/d778d182765dc1ef92b79988df04fe79)

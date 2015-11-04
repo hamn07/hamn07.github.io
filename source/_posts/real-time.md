@@ -585,7 +585,43 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+## JBoss-Eclipse development Env. setup
 
+### Environment
+
+1. JDK 8
+```bash
+$ java -version
+java version "1.8.0_45"
+Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
+```
+2. JBoss Enterprise Application Platform 6.4
+
+3. Eclipse (Mars Release) IDE for Java EE Developers
+
+
+
+### Setup Steps
+1. Download JBoss EPA
+![](JBoss-1.png)
+2. installation
+![](JBoss-2.png)
+![](JBoss-3.png)
+![](JBoss-4.png)
+![](JBoss-5.png)
+![](JBoss-6.png)
+![](JBoss-7.png)
+3. Download JBoss Development Studio in marketplace
+![](JBoss-Eclipse-1.png)
+![](JBoss-Eclipse-2.png)
+4. add JBoss server in eclipse
+![](JBoss-Eclipse-3.png)
+![](JBoss-Eclipse-4.png)
+![](JBoss-Eclipse-5.png)
+![](JBoss-Eclipse-6.png)
+5. Run JBoss server in eclipse, visit [http://localhost:8080](http://localhost:8080)
+![](JBoss-Eclipse-7.png)
 
 ## GlassFish-Eclipse development Env. setup
 ### Environment
