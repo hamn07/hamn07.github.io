@@ -402,7 +402,12 @@ $ tree .
 ![](eclipse-color-theme-1.png)
 ![](eclipse-color-theme-2.png)
 - Gradle IDE package 3.6.x
-
+## eclipse-dark-theme-project-explore-black-text
+1. export original preference setting
+![](eclipse-dark-theme-project-explore-black-text-1.png)
+2. import fixed-preference setting
+![](eclipse-dark-theme-project-explore-black-text-2.png)
+![](eclipse-dark-theme-project-explore-black-text-3.png)
 
 
 # Chrome
