@@ -201,10 +201,13 @@ The Gateway is a network gateway created to provide a single access point for re
 - https://www.ejabberd.im/
 
 [消息队列软件产品大比拼](https://www.evernote.com/shard/s75/sh/3eb6cf33-71db-4412-973d-7d7efac62d47/02330b3286d02dd6558129f4ec914c75)
+[What are the differences between JBoss, GlassFish, and Apache Tomcat servers?](https://www.quora.com/What-are-the-differences-between-JBoss-GlassFish-and-Apache-Tomcat-servers)
 ## jWebsocket
 [jWebsocket official site](http://jwebsocket.org/)
 [jWebSocket JMS based Cluster](http://jwebsocket.org/documentation/installation-guide/jwebsocket-cluster)
-
+## php
+### Reference
+[Laravel 4 Real Time Chat](https://medium.com/laravel-4/laravel-4-real-time-chat-eaa550829538)
 ## GlassFish implements WebSocket over TLS
 
 > This example demostrate a echo server peroidically return server time via websocket connection.
@@ -580,7 +583,7 @@ public class MainActivity extends AppCompatActivity {
 
 ```
 
-### Reference
+Reference
 [Connect and transfer data with secure WebSockets in Android](http://www.juliankrone.com/connect-and-transfer-data-with-secure-websockets-in-android/)
 
 
@@ -673,9 +676,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
 11. visit http://localhost:8080/ to see if GlassFish works properly.
 ![](glassfish-eclipse-11.png)
 
-### Spring
-[Spring 4 WebSocket + SockJS + STOMP + Tomcat Example](http://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example)
-### Refernces
+Refernces
 
 [Multiple JDK in Mac OSX 10.10 Yosemite](https://www.evernote.com/shard/s75/sh/b3bab388-37e0-4945-8a3e-eda3fb9e398c/8e4b3a2fb69ab2d662a36db15230201d)
 
@@ -686,6 +687,18 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
 [JDK Download Page](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 [Eclipse download Page](https://www.eclipse.org/downloads/)
+
+
+### Spring
+[Spring 4 WebSocket + SockJS + STOMP + Tomcat Example](http://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example)
+[Test Microsoft Edge and versions of IE6 through IE11 using free virtual machines you download and manage locally.](https://dev.windows.com/en-us/microsoft-edge/tools/vms/mac/)
+
+## Nginx as reverse proxy
+
+### Reference
+[nginx WebSocket Proxy](https://github.com/nicokaiser/nginx-websocket-proxy)
+[NGINX to reverse proxy websockets AND enable SSL (wss://)?](http://stackoverflow.com/questions/12102110/nginx-to-reverse-proxy-websockets-and-enable-ssl-wss)
+[NGINX as a WebSocket Proxy](https://www.nginx.com/blog/websocket-nginx/)
 
 
 
