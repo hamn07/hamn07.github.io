@@ -204,6 +204,15 @@ index 626a0bb..a092632 100644
  #theme: phase
  theme: tranquilpeak
 ```
+## git pull 後, 回復到前版次
+```bash
+$ git reflog
+4afe7c0 HEAD@{0}: pull: Fast-forward
+1bcd64b HEAD@{1}: pull: Fast-forward
+65ce0d2 HEAD@{2}: clone: from https://github.com/iissnan/hexo-theme-next
+$ git reset --hard 65ce0d2
+HEAD is now at 65ce0d2 Merge pull request #418 from Acris/master
+```
 # Maven
 ```bash
 $ cat ~/.bash_profile | grep maven
