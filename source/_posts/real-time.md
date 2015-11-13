@@ -10,13 +10,15 @@ Asynchronous Messaging, fire-and-forget, evnet-driven architechure
 
 Systems that rely upon synchronous requests typically have a limited ability to scale because eventually requests will begin to back up, thereby slowing the whole system.
 
-### Refernces
-[In which domains are message oriented middleware like AMQP useful?](http://stackoverflow.com/questions/2388539/in-which-domains-are-message-oriented-middleware-like-amqp-useful)
-[Message Queue Evaluation Notes](http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes#Criteria)
-[Messaging Patterns Overview](http://www.enterpriseintegrationpatterns.com/patterns/messaging/index.html)
+*Refernces*
+
+- [In which domains are message oriented middleware like AMQP useful?](http://stackoverflow.com/questions/2388539/in-which-domains-are-message-oriented-middleware-like-amqp-useful)
+- [Message Queue Evaluation Notes](http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes#Criteria)
+- [Messaging Patterns Overview](http://www.enterpriseintegrationpatterns.com/patterns/messaging/index.html)
+
 ## Reactive Programming
-### Refernces
-[FRP與函數式](https://www.evernote.com/shard/s75/sh/20e03309-c4b7-4a6a-9440-048f43526f90/a46385724a71c34839213c719b360d79)
+
+- [FRP與函數式](https://www.evernote.com/shard/s75/sh/20e03309-c4b7-4a6a-9440-048f43526f90/a46385724a71c34839213c719b360d79)
 
 ## websocket
 
@@ -161,14 +163,16 @@ since we limit our frame length to 125, the remaining bytes are payload.
 Note: Further discussion would be needed while migration to another platform language which already implements WebSocket (like Java).
 
 
-### Refernces
-[w3c](http://www.w3.org/TR/websockets/)
-[WebSockets vs. Regular Sockets](http://eng.kifi.com/websockets-vs-regular-sockets/)
+*Refernces*
+
+- [w3c](http://www.w3.org/TR/websockets/)
+- [WebSockets vs. Regular Sockets](http://eng.kifi.com/websockets-vs-regular-sockets/)
 
 ### websocket communication by Java (server-side)
-[JSR 356, Java API for WebSocket](http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html)
-[Java Day pdf](http://javaday.org.ua/2013/images/pdf/Delabassee_Kiev_WebSocket.pdf)
-[Securing WebSocket applications on Glassfish](https://blogs.oracle.com/PavelBucek/entry/securing_websocket_applications_on_glassfish)
+
+- [JSR 356, Java API for WebSocket](http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html)
+- [Java Day pdf](http://javaday.org.ua/2013/images/pdf/Delabassee_Kiev_WebSocket.pdf)
+- [Securing WebSocket applications on Glassfish](https://blogs.oracle.com/PavelBucek/entry/securing_websocket_applications_on_glassfish)
 
 
 

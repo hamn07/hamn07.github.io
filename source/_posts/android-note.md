@@ -42,6 +42,8 @@ dialog.dismiss();
         android:name="android.hardware.sensor.accelerometer"
         android:required="true" />
 ```
+
+
 ```java
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +100,7 @@ dialog.dismiss();
         }
     }
 ```
+
 # media player
 ![](http://developer.android.com/intl/zh-cn/images/mediaplayer_state_diagram.gif)
 
@@ -250,6 +253,7 @@ class MyAsyncTask extends AsyncTask<String, Integer, Boolean> {
 
 }
 ```
+
 ```java
 task = new MyAsyncTask();
 task.execute("test1",
@@ -277,8 +281,10 @@ keystore
 [official](http://developer.android.com/intl/zh-cn/guide/topics/resources/providing-resources.html)
 `res/layout-land`當device拿橫時，就會套用到此版面
 `res/values-zh-rTW`當語系改為中文台灣時，就會套用此values設定
+
 # Notification
 [official](http://developer.android.com/intl/zh-cn/guide/topics/ui/notifiers/notifications.html)
+
 ```java
         mgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
@@ -310,6 +316,8 @@ keystore
         mgr.notify(0,notification);
 
 ```
+
+
 
 
 # java
@@ -350,69 +358,74 @@ Activity/Service..等類別
   3. coding -> member
   4. code review -> all
 
+
 # Java
-  [brad@brad.tw](mailto://brad@brad.tw)
 
-  > **Apache Cordova** is a platform for building native mobile applications using HTML, CSS and JavaScript
-  > [官網](https://cordova.apache.org/)
+[brad@brad.tw](mailto://brad@brad.tw)
 
-  ```java
+**Apache Cordova** is a platform for building native mobile applications using HTML, CSS and JavaScript
+[官網](https://cordova.apache.org/)
+
+```java
   byte b; // [a-zA-Z$_][a-zA-Z0-9$_]
   byte 成績=127; //8個位元組，-127~127，常用在圖形及網路streaming
   System.out.println(成績);
-  ```
+```
 
-  > Instances of `StringBuilder` are not safe for use by multiple threads. If such synchronization is required then it is recommended that `StringBuffer` be used.
-  ***
-  > **FileInputStream**:  一次讀取一個byte，適用於讀取影片、圖片…等檔案
-  > **FileReader**: 一次讀取一個character，適用於讀取文件
-  > **BufferReader**: 一次讀取一行`readline()`，適用於讀取文件，需串接`InputStreamReader`，再由`InputStreamReader`串接`FileInputStream`
-  > **FileOutputStream**:
-  > - 最後要close前，要強制將buffer裡的資料寫入disk---->`flush()`
-  >
-  > DataInputStream: 可存基本型態(primitive Java data types)
-  > ObjectInputStream: 可存Object，前提是此Object需`implements Serializable`，另可再此Object屬性加上`transient`表示此屬性不可序列化
-  >
-  ***
-  > 存取權
-  > - public: 全世界
-  > - protected:
-  > -- 同package
-  > -- 子類別
-  > - 沒寫: 同package
-  > - private: 本類別
+Instances of `StringBuilder` are not safe for use by multiple threads. If such synchronization is required then it is recommended that `StringBuffer` be used.
+
+**FileInputStream**:  一次讀取一個byte，適用於讀取影片、圖片…等檔案
+**FileReader**: 一次讀取一個character，適用於讀取文件
+**BufferReader**: 一次讀取一行`readline()`，適用於讀取文件，需串接`InputStreamReader`，再由`InputStreamReader`串接`FileInputStream`
+**FileOutputStream**:
+- 最後要close前，要強制將buffer裡的資料寫入disk---->`flush()`
+
+DataInputStream: 可存基本型態(primitive Java data types)
+ObjectInputStream: 可存Object，前提是此Object需`implements Serializable`，另可再此Object屬性加上`transient`表示此屬性不可序列化
+
+
+
+
+存取權
+
+- public: 全世界
+- protected:
+	- 同package
+	- 子類別
+- 沒寫: 同package
+- private: 本類別
 
 ## java.net
-  > InetAddress
-  UDP:
-  - fast
-  - unreliable
-  - socket: 接口, `DatagramSocket`
-  - packet: 封包, `DatagramPacket`
+> InetAddress
+UDP:
+- fast
+- unreliable
+- socket: 接口, `DatagramSocket`
+- packet: 封包, `DatagramPacket`
 
-  ```java
+```java
   //sender
   byte[] buf = "hello, I'm Henry".getBytes();
   DatagramSocket socket = new DatagramSocket();
   DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName("10.2.24.156"), 9999);
   socket.send(packet);
   socket.close();
-  ```
+```
 
-  ```java
+```java
   //reciever
   byte[] buf = new byte[4096];
   DatagramSocket socket = new DatagramSocket(8888);
   DatagramPacket packet = new DatagramPacket(buf, buf.length);
   socket.receive(packet);
   socket.close();
-  ```
+```
 
   TCP:
   server socket: `ServerSocket`
   client socket: `Socket`
 
-  ```java
+```java
   // reciever
   ServerSocket server = new ServerSocket(8888);
   Socket socket = server.accept();
@@ -428,9 +441,9 @@ Activity/Service..等類別
   is.close();
   socket.close();
   server.close();
-  ```
+```
 
-  ```java
+```java
   // sender
   Socket socket = new Socket(ip, 8888);
   OutputStream out = socket.getOutputStream();
@@ -438,12 +451,13 @@ Activity/Service..等類別
   out.flush();
   out.close();
   socket.close();
-  ```
+```
 
 ## 執行緒Thread
   - 有生命週期之物件
   - 寫法一`extends Thread`
-  ```java
+
+```java
 
   public class ThreadObject {
 
@@ -485,9 +499,11 @@ Activity/Service..等類別
   		}
   	}
   }
-  ```
-  - 寫法二`implements Runnable`
-  ```java
+```
+  
+- 寫法二`implements Runnable`
+
+```java
 
   public class ThreadObject {
 
@@ -516,5 +532,13 @@ Activity/Service..等類別
   		}
   	}
   }
-  ```
-## [Java 7 新的 try-with-resources 语句，自动资源释放](https://www.evernote.com/shard/s75/sh/95db27f4-be6d-4e21-ab5c-8e6e50f45aa2/d778d182765dc1ef92b79988df04fe79)
+```
+
+## Collection
+
+- [what is the sense of final ArrayList?](https://www.evernote.com/shard/s75/sh/29c4aebe-c386-4275-a320-94fa28e3b32f/5552b7359ba91b9e8a00e0989df94d62)
+- [HashMap with multiple values under the same key](https://www.evernote.com/shard/s75/sh/f6f4a967-57d5-4139-82c2-6120f1dc4df8/523b027d19c67ec23c6afd48f63c9b72)
+
+## IO
+
+- [Java 7 新的 try-with-resources 语句，自动资源释放](https://www.evernote.com/shard/s75/sh/95db27f4-be6d-4e21-ab5c-8e6e50f45aa2/d778d182765dc1ef92b79988df04fe79)

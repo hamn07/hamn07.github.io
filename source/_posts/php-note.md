@@ -52,9 +52,174 @@ div {
 [HTML5 Drag and Drop Upload and File API Tutorial](http://www.thebuzzmedia.com/html5-drag-and-drop-and-file-api-tutorial/)
 
 
+
+
+
+# Security
+## HTTPS - HTTP over SSL
+工作原理:
+1. 使用非對稱式加密演算法來對通訊雙方做身分認證
+2. 並交換對稱金鑰為Session Key
+3. 使用Session Key來加密C/S間的通訊內容
+
+缺點:
+1. 通訊內容加量，因此傳輸時間變長
+2. 加解密需消耗額外機器資源 (可由SSL acceleration加速之)
+
+IETF - Internet Engineering Task Force
+SSL - Secure Socket Layer
+TLS - Transport Layer Secure
+
+
+SSL acceleration
+
+
+
+
+# Trouble Shooting
+## PDO連線報錯no such file
+[Setting up PHP & MySQL on OS X Yosemite](https://dzone.com/articles/setting-php-mysql-os-x)
+![](pdo-error-msg.png)
+![](pdo-error-phpinfo.png)
+![](pdo-error-phpini.png)
+![](pdo-error-mysql-sock.png)
+
+
+## OSX上傳檔案時報錯`PHP Warning:  mkdir(): Permission denied`
+```bash
+[Fri Aug 21 06:46:19.036740 2015] [:error] [pid 4098] [client ::1:52036] PHP Warning:  mkdir(): Permission denied in /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line 77
+[Fri Aug 21 06:46:19.037019 2015] [:error] [pid 4098] [client ::1:52036] PHP Warning:  file_put_contents(/Users/Hamn/Workspace/pichannel.web/img-repo/fd/94400820857e1f415555cda791b279af6d72e8.jpg): failed to open stream: No such file or dir
+```
+Workaround:
+```bash
+$ mkdir img-repo
+$ sudo chown img-repo _www
+```
+
+
+
+## Redhat上傳檔案時報錯`PHP Warning:  mkdir(): Permission denied`
+Workaround: [參考](http://stackoverflow.com/questions/13908722/php-unable-to-create-a-directory-with-mkdir)
+```
+$ ls -lZ img-repo/
+drwxrwxr-x. ec2-user ec2-user unconfined_u:object_r:httpd_sys_content_t:s0 img-repo
+$ chcon -R -t httpd_sys_content_rw_t img-repo/
+```
+```
+vi /etc/httpd/conf/httpd.conf
+
+user ec2-user
+group ec2-user
+```
+
+
+## 定界符對應之結束符的前一個位元需為換行符號
+
+以下會報錯`Parse error: syntax error, unexpected $end in xxx.php on line 64 `
+```php
+function insertImage($sha1,$timestamp){
+
+  $sql = <<<sqlText
+    INSERT INTO image VALUES (?,?)
+  sqlText;
+```
+
+以下正解
+```php
+function insertImage($sha1,$timestamp){
+
+  $sql = <<<sqlText
+    INSERT INTO image VALUES (?,?)
+sqlText;
+```
+
+
+
+## 使用exif_read_date需於php.ini做以下設定
+以下報錯`Fatal error: Call to undefined function exif_read_data() xxx.php on line 2 `
+```php
+extension=php_exif.dll
+extension=php_mbstring.dll
+```
+以下正解
+```php
+extension=php_mbstring.dll
+extension=php_exif.dll
+```
+
+
+
+
+## 上傳檔案時無法取得原始拍攝日期
+```bash
+[Sat Aug 22 18:12:45.538546 2015] [:error] [pid 833] [client ::1:49587] PHP Notice:  Undefined index: DateTimeOriginal in /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line 89
+```
+
+
+
+# Apache httpd建置
+## win7
+
+1. 目錄預設檔案
+```
+<IfModule dir_module>
+    DirectoryIndex index.php
+</IfModule>
+```
+2. apache安裝目錄
+`Define SRVROOT "D:\dvp\dev-tool\httpd-2.4.16-x64-vc11\Apache24"`
+
+3. 網頁根目錄
+`DocumentRoot "D:\dvp\workspace\classroom2001\project"`
+`<Directory "D:\dvp\workspace\classroom2001\project">`
+
+4. 介紹apache認識php
+```
+LoadModule php5_module "D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64\php5apache2_4.dll"
+AddType application/x-httpd-php .php
+PHPIniDir "D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64"
+```
+5. 網頁重導設定
+`LoadModule rewrite_module modules/mod_rewrite.so`
+```
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule api/v1/(.*)$ phpinfo.php?request=$1 [QSA,NC,L]
+RewriteRule api/(.*)$ /api/controller.php?request=$1 [QSA,NC,L]
+</IfModule>
+```
+6. 環境變數$PATH加入`D:\dvp\dev-tool\httpd-2.4.16-x64-vc11\Apache24\bin`
+
+7. 防止diretory listing (Production)
+```
+#Options Indexes FollowSymLinks
+Options FollowSymLinks
+```
+8. Cross-Origin Resource Sharing (Optional)，於DocumentRoot的Diretory裡設定
+`LoadModule headers_module modules/mod_headers.so`
+```
+    <IfModule mod_headers.c>
+      Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+```
+
+9. 註冊到service後，可使用Apache Monitor管理
+`httpd.exe -k install [-n MyServiceName]`
+
+>※使用service開啟httpd無法載入curl，原因是apache認不到curl在PHP目錄裡的依賴包libssh2.dll
+>`PHP Fatal error:  Call to undefined function curl_init()`
+>解法: 將libssh2.dll複製一份到apache/bin再重啟
+
+## OSX
+[Setting up a local web server on OS X](https://discussions.apple.com/docs/DOC-3083)
+
+# PHP
+
 [How to process PUT requests with PHP](http://phpave.com/how-to-process-put-requests-with-php/)
 
-#php
+
 [教材](http://sdrv.ms/178960Y)
 MAMP: Mac Apache MySQL PHP
 錢達智老師 [wolfgang.chien@gmail.com](wolfgang.chien@gmail.com)
@@ -312,6 +477,8 @@ echo "檔案寫入完成，大小為 $filesize bytes";
 </body>
 </html>
 ```
+
+
 ```php
 <?php
 	if($_FILES["fileUpload"]["error"]==0){
@@ -334,8 +501,11 @@ echo "檔案寫入完成，大小為 $filesize bytes";
 繼承(extends). 多型.
 建構子(construct) / 解構子(destruct)
 
+
 ##物件導向
+
 OOPLib.php
+
 ```php
 <?php
 class media {
@@ -363,7 +533,9 @@ class image extends media {
 	}
 }
 ```
+
 OOP.php
+
 ```php
 <?php
 
@@ -379,7 +551,11 @@ header("Location: OOP2.php");
 
 ?>
 ```
+
+
+
 OOP2.php
+
 ```php
 <?php
 require_once 'OOPLib.php';
@@ -398,7 +574,9 @@ echo '<h3>';
 var_dump($img);
 ```
 ##JSON
+
 0630
+
 ```php
 $sJson = '{"cID":"01","cName":"\u7c21\u5949\u541b","cSex":"F","cBirthday":"1987-04-04","cEmail":"elven@superstar.com","cPhone":"0922988876","cAddr":"\u53f0\u5317\u5e02\u6fdf\u6d32\u5317\u8def12\u865f"}';
 
@@ -419,6 +597,7 @@ echo "<h4> $obj";
 , 逗號分隔屬性
 \: 分號設定屬性值
 " 雙引號括住屬性值
+
 ```js
 a=[1,2,3];
 sJson = JSON.stringify(a);
@@ -434,7 +613,7 @@ solution: 透過指定script的src來跨域取得資料
 
 http://**localhost**/Lab_JSONP/GetDataFromServer_34.php
 
-![Alt text](./螢幕快照 2015-06-30 下午2.06.16.png)
+
 ```js
 $("#btnRefresh").click(btnRefresh_click);
 
@@ -449,7 +628,10 @@ function DataArrived(data) {
 	$("#txtUnitsInStock").val(data.UnitsInStock);
 }
 ```
+
+
 jQuery的寫法
+
 ```js
 $("#btnRefresh").click(btnRefresh_click);
 
@@ -505,168 +687,6 @@ foreach ($entries as $entry)
 Application key [TlDlIaffLhhfrgA5doqNw6iecg9KjNoU] set successfully.
 
 
-
-# Security
-## HTTPS - HTTP over SSL
-工作原理:
-1. 使用非對稱式加密演算法來對通訊雙方做身分認證
-2. 並交換對稱金鑰為Session Key
-3. 使用Session Key來加密C/S間的通訊內容
-
-缺點:
-1. 通訊內容加量，因此傳輸時間變長
-2. 加解密需消耗額外機器資源 (可由SSL acceleration加速之)
-
-IETF - Internet Engineering Task Force
-SSL - Secure Socket Layer
-TLS - Transport Layer Secure
-
-
-SSL acceleration
-
-
-
-
-# Trouble Shooting
-## PDO連線報錯no such file
-[Setting up PHP & MySQL on OS X Yosemite](https://dzone.com/articles/setting-php-mysql-os-x)
-![](pdo-error-msg.png)
-![](pdo-error-phpinfo.png)
-![](pdo-error-phpini.png)
-![](pdo-error-mysql-sock.png)
-
-
-## OSX上傳檔案時報錯`PHP Warning:  mkdir(): Permission denied`
-```bash
-[Fri Aug 21 06:46:19.036740 2015] [:error] [pid 4098] [client ::1:52036] PHP Warning:  mkdir(): Permission denied in /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line 77
-[Fri Aug 21 06:46:19.037019 2015] [:error] [pid 4098] [client ::1:52036] PHP Warning:  file_put_contents(/Users/Hamn/Workspace/pichannel.web/img-repo/fd/94400820857e1f415555cda791b279af6d72e8.jpg): failed to open stream: No such file or dir
-```
-Workaround:
-```bash
-$ mkdir img-repo
-$ sudo chown img-repo _www
-```
-
-
-
-## Redhat上傳檔案時報錯`PHP Warning:  mkdir(): Permission denied`
-Workaround: [參考](http://stackoverflow.com/questions/13908722/php-unable-to-create-a-directory-with-mkdir)
-```
-$ ls -lZ img-repo/
-drwxrwxr-x. ec2-user ec2-user unconfined_u:object_r:httpd_sys_content_t:s0 img-repo
-$ chcon -R -t httpd_sys_content_rw_t img-repo/
-```
-```
-vi /etc/httpd/conf/httpd.conf
-
-user ec2-user
-group ec2-user
-```
-
-
-## 定界符對應之結束符的前一個位元需為換行符號
-
-以下會報錯`Parse error: syntax error, unexpected $end in xxx.php on line 64 `
-```php
-function insertImage($sha1,$timestamp){
-
-  $sql = <<<sqlText
-    INSERT INTO image VALUES (?,?)
-  sqlText;
-```
-
-以下正解
-```php
-function insertImage($sha1,$timestamp){
-
-  $sql = <<<sqlText
-    INSERT INTO image VALUES (?,?)
-sqlText;
-```
-
-
-
-## 使用exif_read_date需於php.ini做以下設定
-以下報錯`Fatal error: Call to undefined function exif_read_data() xxx.php on line 2 `
-```php
-extension=php_exif.dll
-extension=php_mbstring.dll
-```
-以下正解
-```php
-extension=php_mbstring.dll
-extension=php_exif.dll
-```
-
-
-
-
-## 上傳檔案時無法取得原始拍攝日期
-```bash
-[Sat Aug 22 18:12:45.538546 2015] [:error] [pid 833] [client ::1:49587] PHP Notice:  Undefined index: DateTimeOriginal in /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line 89
-```
-
-
-
-# Apache httpd建置
-## win7
-
-1. 目錄預設檔案
-```
-<IfModule dir_module>
-    DirectoryIndex index.php
-</IfModule>
-```
-2. apache安裝目錄
-`Define SRVROOT "D:\dvp\dev-tool\httpd-2.4.16-x64-vc11\Apache24"`
-
-3. 網頁根目錄
-`DocumentRoot "D:\dvp\workspace\classroom2001\project"`
-`<Directory "D:\dvp\workspace\classroom2001\project">`
-
-4. 介紹apache認識php
-```
-LoadModule php5_module "D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64\php5apache2_4.dll"
-AddType application/x-httpd-php .php
-PHPIniDir "D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64"
-```
-5. 網頁重導設定
-`LoadModule rewrite_module modules/mod_rewrite.so`
-```
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule api/v1/(.*)$ phpinfo.php?request=$1 [QSA,NC,L]
-RewriteRule api/(.*)$ /api/controller.php?request=$1 [QSA,NC,L]
-</IfModule>
-```
-6. 環境變數$PATH加入`D:\dvp\dev-tool\httpd-2.4.16-x64-vc11\Apache24\bin`
-
-7. 防止diretory listing (Production)
-```
-#Options Indexes FollowSymLinks
-Options FollowSymLinks
-```
-8. Cross-Origin Resource Sharing (Optional)，於DocumentRoot的Diretory裡設定
-`LoadModule headers_module modules/mod_headers.so`
-```
-    <IfModule mod_headers.c>
-      Header set Access-Control-Allow-Origin "*"
-    </IfModule>
-```
-
-9. 註冊到service後，可使用Apache Monitor管理
-`httpd.exe -k install [-n MyServiceName]`
-
->※使用service開啟httpd無法載入curl，原因是apache認不到curl在PHP目錄裡的依賴包libssh2.dll
->`PHP Fatal error:  Call to undefined function curl_init()`
->解法: 將libssh2.dll複製一份到apache/bin再重啟
-
-## OSX
-[Setting up a local web server on OS X](https://discussions.apple.com/docs/DOC-3083)
-
-# PHP
 ## win7
 1. 顯示錯誤
 `display_errors = On`
