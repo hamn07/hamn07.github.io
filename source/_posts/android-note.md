@@ -542,3 +542,33 @@ UDP:
 ## IO
 
 - [Java 7 新的 try-with-resources 语句，自动资源释放](https://www.evernote.com/shard/s75/sh/95db27f4-be6d-4e21-ab5c-8e6e50f45aa2/d778d182765dc1ef92b79988df04fe79)
+
+## Annotation
+
+- 將metadata, data, methods都放在程式裡, 易於分析/解讀.
+
+## CDI
+
+- 當沒有@ApplicationScoped, 會報錯Unsatisfied dependencies for type xxxxx with qualifiers @Default
+
+```bash
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: org.apache.catalina.LifecycleException: org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type CdiServerJava with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private tw.henry.test.JaxRsService.server
+  at tw.henry.test.JaxRsService.server(JaxRsService.java:0)
+```
+[參考](http://stackoverflow.com/questions/27706091/unsatisfied-dependencies-for-type-x-with-qualifiers-default)
+
+
+- 當有兩個以上的@Default, 會報錯Ambiguous dependencies
+
+```bash
+org.jboss.weld.exceptions.DeploymentException: WELD-001409: Ambiguous dependencies for type CdiServerIF with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private tw.henry.test.JaxRsService.server
+  at tw.henry.test.JaxRsService.server(JaxRsService.java:0)
+  Possible dependencies:
+  - Managed Bean [class tw.henry.test.CdiServerJava] with qualifiers [@Any @Default],
+  - Managed Bean [class tw.henry.test.CdiServerPhp] with qualifiers [@Any @Default]
+```
+
+- 管理物件生命週期, e.g. JDBC resource, client 無需開關
+- 没有 Scope 注解的情况下，default scope 是@Dependent, 而@Dependent Scope 中的 Bean 的生命周期取决于被注入的 Bean 的生命周期
