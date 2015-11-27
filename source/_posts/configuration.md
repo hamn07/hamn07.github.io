@@ -64,6 +64,10 @@ $ grep ErrorLog /etc/apache2/httpd.conf
 -rw-r--r--  1 root  wheel  903123088 10 25 20:39 access_log
 -rw-r--r--  1 root  wheel    3208194 10 25 20:38 error_log
 ```
+
+## iTerm2
+![](https://dl.dropbox.com/s/wxyrn9is5bsdxm5/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202015-11-26%20%E4%B8%8A%E5%8D%8810.44.33.png?dl=0)
+
 ## Software
 - CyberDuck
 ![](CyberDuck.png)
@@ -400,6 +404,13 @@ $ tree .
 - Seti
 -
 
+# Sublime
+
+- 修改編輯器字型
+
+Preferences/Settings - User
+
+![](https://dl.dropbox.com/s/ibc99anekxd4b1o/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202015-11-27%20%E4%B8%8B%E5%8D%881.55.16.png?dl=0)
 
 # Eclipse
 - [CDT](http://www.eclipse.org/cdt/downloads.php)
