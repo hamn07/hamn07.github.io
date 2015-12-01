@@ -542,3 +542,7 @@ UDP:
 ## IO
 
 - [Java 7 新的 try-with-resources 语句，自动资源释放](https://www.evernote.com/shard/s75/sh/95db27f4-be6d-4e21-ab5c-8e6e50f45aa2/d778d182765dc1ef92b79988df04fe79)
+
+## Database
+
+- PreparedStatement與Statement最大的差異在於SQL已預載入，因此執行時僅需bind variable即可，所以SQL是bind不同var頻繁執行時，使用PS會比較有效率；但若是不重覆執行頻繁更換SQL的用法時，效能基本上就跟S差不多。

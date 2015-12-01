@@ -47,8 +47,11 @@ $ sudo dd if=CentOS-7-x86_64-DVD-1503-01.iso of=/dev/disk1
 8419328+0 records out
 4310695936 bytes transferred in 11507.233801 secs (374607 bytes/sec)
 ```
+
 ## 設定apache
+
 [Setting up a local web server on OS ](https://discussions.apple.com/docs/DOC-3083)
+
 `sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist`
 `sudo /usr/sbin/apachectl restart`
 ```bash
@@ -56,6 +59,7 @@ $ grep DocumentRoot /etc/apache2/httpd.conf
 # DocumentRoot: The directory out of which you will serve your
 DocumentRoot "/Library/WebServer/Documents"
 ```
+
 ```bash
 $ pwd
 $ grep ErrorLog /etc/apache2/httpd.conf
@@ -64,6 +68,17 @@ $ grep ErrorLog /etc/apache2/httpd.conf
 -rw-r--r--  1 root  wheel  903123088 10 25 20:39 access_log
 -rw-r--r--  1 root  wheel    3208194 10 25 20:38 error_log
 ```
+
+## 使用mac備份iphone
+
+1. mac接上iphone後會自行啟動『照片』這個應用程式
+2. 輸入->輸入所有新照片 
+3. 相片->選取要輸出的照片影片
+4. 檔案->輸出->輸出...原始未修改檔
+5. 輸出到Synology上的 _待整理
+
+
+
 ## Software
 - CyberDuck
 ![](CyberDuck.png)
