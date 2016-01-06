@@ -1,202 +1,374 @@
-<!DOCTYPE html>
-<html lang="null">
-    
+<!doctype html>
+<html class="theme-next use-motion ">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>real time communication, server push - Hexo</title>
-    <meta name="author" content="Henry Lee">
-    <meta name="description" content="Hexo">
-    <link rel="icon" href="/assets/images/null">
-    
-        <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
-    <!--STYLES END-->
-    
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="ConcpetMessage Oriented Middleware (MOM)Asynchronous Messaging, fire-and-forget, evnet-driven architechure
+Systems that rely upon synchronous requests typically have a limited ability to scale because">
+<meta property="og:type" content="article">
+<meta property="og:title" content="real time communication, server push">
+<meta property="og:url" content="http://hamn07.github.io/2015/10/08/real-time/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ConcpetMessage Oriented Middleware (MOM)Asynchronous Messaging, fire-and-forget, evnet-driven architechure
+Systems that rely upon synchronous requests typically have a limited ability to scale because">
+<meta property="og:image" content="http://hamn07.github.io/ws-echo-server1.png">
+<meta property="og:image" content="http://hamn07.github.io/ws-echo-server2.png">
+<meta property="og:image" content="http://hamn07.github.io/ws-echo-server3.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-1.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-2.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-3.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-4.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-5.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-6.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-7.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-1.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-2.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-3.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-4.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-5.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-6.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-7.png">
+<meta property="og:image" content="http://hamn07.github.io/capture-20151016-154243.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-1.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-2.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-3.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-4.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-6.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-5.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-7.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-8.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-9.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-10.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-11.png">
+<meta property="og:updated_time" content="2015-12-17T08:03:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="real time communication, server push">
+<meta name="twitter:description" content="ConcpetMessage Oriented Middleware (MOM)Asynchronous Messaging, fire-and-forget, evnet-driven architechure
+Systems that rely upon synchronous requests typically have a limited ability to scale because">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> real time communication, server push | Hexo </title>
 </head>
 
-    <body>
-        <div id="blog">
-            <header id="header" data-behavior="1">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="http://hamn07.github.io">Hexo</a>
-    </h1>
-    
-</header>
-            <nav id="sidebar" data-behavior="1">
-    
-    
-    <ul class="sidebar-buttons">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Hexo</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Home</span>
-                </a>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
         </li>
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="https://stark-everglades-8527.herokuapp.com/" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-globe"></i>
-                    <span class="sidebar-button-desc">web</span>
-                </a>
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
         </li>
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="http://slides.com/hamn07/deck/live" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-slideshare"></i>
-                    <span class="sidebar-button-desc">slides</span>
-                </a>
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
         </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/api/user/hamn07?apiKey=key1" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-database"></i>
-                    <span class="sidebar-button-desc">database</span>
-                </a>
-        </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/#about">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">About me</span>
-                </a>
-        </li>
-        
+      
+
+      
+      
     </ul>
-    
-    <ul class="sidebar-buttons">
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="https://github.com/hamn07" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
-                    <span class="sidebar-button-desc">GitHub</span>
-                </a>
-        </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="mailto:hamn07@gmail.com" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
-                    <span class="sidebar-button-desc">Mail</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-    <ul class="sidebar-buttons">
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/atom.xml">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
-                </a>
-        </li>
-        
-    </ul>
-    
+  
+
+  
 </nav>
-            <div id="main" data-behavior="1">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
     
-        <div class="post-header main-content-wrap">
-    
-        <h1 class="post-title" itemprop="headline">real time communication, server push</h1>
-    
-    <div class="post-meta">
-    <time  itemprop="datePublished" content="Thu Oct 08 2015 09:42:39 GMT+0800">
-        Oct 08, 2015
-    </time>
-    
-</div>
-</div>
-    
-    <div class="post-content markdown main-content-wrap" itemprop="articleBody">
-        <!-- toc -->
-<ul>
-<li><a href="#concpet">Concpet</a><ul>
-<li><a href="#message-oriented-middleware-mom">Message Oriented Middleware (MOM)</a><ul>
-<li><a href="#refernces">Refernces</a></li>
-</ul>
-</li>
-<li><a href="#reactive-programming">Reactive Programming</a><ul>
-<li><a href="#refernces">Refernces</a></li>
-</ul>
-</li>
-<li><a href="#websocket">websocket</a><ul>
-<li><a href="#websocket-communication-by-java-server-side">websocket communication by Java (server-side)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#serverhttpsdzonecomrefcardzhtml5-websocket-message-broker-gateway"><a href="https://dzone.com/refcardz/html5-websocket" target="_blank" rel="external">Server</a> (message broker, gateway)</a><ul>
-<li><a href="#jwebsocket">jWebsocket</a></li>
-<li><a href="#websocket-over-tls-glassfish">WebSocket over TLS (GlassFish)</a><ul>
-<li><a href="#preview">preview</a></li>
-<li><a href="#server-side">server-side</a></li>
-<li><a href="#client-side-web">client-side: Web</a></li>
-</ul>
-</li>
-<li><a href="#glassfish-eclipse-development-env-setup">GlassFish-Eclipse development Env. setup</a><ul>
-<li><a href="#environment">Environment</a></li>
-<li><a href="#setup-steps">Setup Steps</a></li>
-<li><a href="#refernces">Refernces</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#cloud-service-saas">Cloud Service (SaaS)</a></li>
-<li><a href="#protocol">Protocol</a><ul>
-<li><a href="#refernces">Refernces</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-<h1 id="concpet">Concpet</h1><h2 id="message-oriented-middleware-mom">Message Oriented Middleware (MOM)</h2><p>Asynchronous Messaging, fire-and-forget, evnet-driven architechure</p>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              real time communication, server push
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-10-08T09:42:39+08:00" content="2015-10-08">
+            2015-10-08
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="concpet">Concpet</h1><h2 id="message-oriented-middleware-mom">Message Oriented Middleware (MOM)</h2><p>Asynchronous Messaging, fire-and-forget, evnet-driven architechure</p>
 <p>Systems that rely upon synchronous requests typically have a limited ability to scale because eventually requests will begin to back up, thereby slowing the whole system.</p>
-<h3 id="refernces">Refernces</h3><p><a href="http://stackoverflow.com/questions/2388539/in-which-domains-are-message-oriented-middleware-like-amqp-useful" target="_blank" rel="external">In which domains are message oriented middleware like AMQP useful?</a></p>
-<h2 id="reactive-programming">Reactive Programming</h2><h3 id="refernces">Refernces</h3><p><a href="https://www.evernote.com/shard/s75/sh/20e03309-c4b7-4a6a-9440-048f43526f90/a46385724a71c34839213c719b360d79" target="_blank" rel="external">FRP&#x8207;&#x51FD;&#x6578;&#x5F0F;</a></p>
-<h2 id="websocket">websocket</h2><p><a href="http://www.w3.org/TR/websockets/" target="_blank" rel="external">w3c</a></p>
-<h3 id="websocket-communication-by-java-server-side">websocket communication by Java (server-side)</h3><p><a href="http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html" target="_blank" rel="external">JSR 356, Java API for WebSocket</a><br><a href="http://javaday.org.ua/2013/images/pdf/Delabassee_Kiev_WebSocket.pdf" target="_blank" rel="external">Java Day pdf</a><br><a href="https://blogs.oracle.com/PavelBucek/entry/securing_websocket_applications_on_glassfish" target="_blank" rel="external">Securing WebSocket applications on Glassfish</a></p>
-<h1 id="server-message-broker-gateway"><a href="https://dzone.com/refcardz/html5-websocket" target="_blank" rel="external">Server</a> (message broker, gateway)</h1><ul>
+<p><em>Refernces</em></p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/2388539/in-which-domains-are-message-oriented-middleware-like-amqp-useful" target="_blank" rel="external">In which domains are message oriented middleware like AMQP useful?</a></li>
+<li><a href="http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes#Criteria" target="_blank" rel="external">Message Queue Evaluation Notes</a></li>
+<li><a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/index.html" target="_blank" rel="external">Messaging Patterns Overview</a></li>
+</ul>
+<h2 id="reactive-programming">Reactive Programming</h2><ul>
+<li><a href="https://www.evernote.com/shard/s75/sh/20e03309-c4b7-4a6a-9440-048f43526f90/a46385724a71c34839213c719b360d79" target="_blank" rel="external">FRP&#x8207;&#x51FD;&#x6578;&#x5F0F;</a></li>
+</ul>
+<h2 id="websocket">websocket</h2><h3 id="rfc-6455">RFC 6455</h3><p><a href="https://tools.ietf.org/html/rfc6455" target="_blank" rel="external">ieft official</a></p>
+<h4 id="52-base-framing-protocol">5.2 Base Framing Protocol</h4><p>Let&#x2019;s examin our framing logic base by rfc6455 framing protocol as below.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$msg</span> = <span class="string">&apos;hi&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> bstr2bin(frame(<span class="variable">$msg</span>));</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">frame</span><span class="params">(<span class="variable">$s</span>)</span> </span>{</span><br><span class="line">  <span class="comment">// our framing logic</span></span><br><span class="line">  <span class="variable">$a</span> = str_split(<span class="variable">$s</span>, <span class="number">125</span>);</span><br><span class="line">  <span class="keyword">if</span> (count(<span class="variable">$a</span>) == <span class="number">1</span>) {</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;\x81&quot;</span>.chr(strlen(<span class="variable">$a</span>[<span class="number">0</span>])).<span class="variable">$a</span>[<span class="number">0</span>];</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="variable">$ns</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="keyword">foreach</span> (<span class="variable">$a</span> <span class="keyword">as</span> <span class="variable">$o</span>) {</span><br><span class="line">    <span class="variable">$ns</span> .= <span class="string">&quot;\x81&quot;</span>.chr(strlen(<span class="variable">$o</span>)).<span class="variable">$o</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$ns</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bstr2bin</span><span class="params">(<span class="variable">$input</span>)</span></span><br><span class="line">// <span class="title">Binary</span> <span class="title">representation</span> <span class="title">of</span> <span class="title">a</span> <span class="title">binary</span>-<span class="title">string</span></span><br><span class="line"></span>{</span><br><span class="line">  <span class="keyword">if</span> (!is_string(<span class="variable">$input</span>)) <span class="keyword">return</span> <span class="keyword">null</span>; <span class="comment">// Sanity check</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Unpack as a hexadecimal string</span></span><br><span class="line">  <span class="variable">$value</span> = unpack(<span class="string">&quot;H*&quot;</span>, <span class="variable">$input</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Output binary representation</span></span><br><span class="line">  <span class="keyword">return</span> base_convert(<span class="variable">$value</span>[<span class="number">1</span>], <span class="number">16</span>, <span class="number">2</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>while sent hi as message, the output would be <code>10000001000000100110100001101001</code> in binary. Let&#x2019;s fill in base frame protocol table as below.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>                   <span class="number">1</span>                   <span class="number">2</span>                   <span class="number">3</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br><span class="line">|F|R|R|R| opcode|M| Payload len |         payload Data (hi)     |</span><br><span class="line">|I|S|S|S|  (<span class="number">4</span>)  |A|     (<span class="number">7</span>)     |             (<span class="number">16</span>)              |</span><br><span class="line">|N|V|V|V|       |S|             |                               |</span><br><span class="line">| |<span class="number">1</span>|<span class="number">2</span>|<span class="number">3</span>|       |K|             |                               |</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br><span class="line">|<span class="number">1</span>|<span class="number">0</span>|<span class="number">0</span>|<span class="number">0</span>|<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>|<span class="number">0</span>|<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>|<span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>|</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br></pre></td></tr></table></figure>
+<p>\x81 are 2 hex; 10000001 in binary.</p>
+<p>FIN=1 denotes a final frame</p>
+<blockquote>
+<p>FIN:  1 bit</p>
+<p>Indicates that this is the final fragment in a message.  The first<br>fragment MAY also be the final fragment.</p>
+</blockquote>
+<p>RSV1=0<br>RSV2=0<br>RSV3=0</p>
+<p>RSV1~3 are set to 0, denotes we don&#x2019;t use any extension.</p>
+<blockquote>
+<p>RSV1, RSV2, RSV3:  1 bit each</p>
+<p>MUST be 0 unless an extension is negotiated that defines meanings for non-zero values.  If a nonzero value is received and none of the negotiated extensions defines the meaning of such a nonzero value, the receiving endpoint MUST _Fail the WebSocket Connection_.</p>
+</blockquote>
+<p>opcode=0001 denotes a text frame</p>
+<blockquote>
+<p>Opcode:  4 bits</p>
+<p>Defines the interpretation of the &#x201C;Payload data&#x201D;.  If an unknown opcode is received, the receiving endpoint MUST _Fail the WebSocket Connection_.  The following values are defined.</p>
+<pre><code>*  <span class="comment">%x0 denotes a continuation frame</span>
+
+*  <span class="comment">%x1 denotes a text frame</span>
+
+*  <span class="comment">%x2 denotes a binary frame</span>
+
+*  <span class="comment">%x3-7 are reserved for further non-control frames</span>
+
+*  <span class="comment">%x8 denotes a connection close</span>
+
+*  <span class="comment">%x9 denotes a ping</span>
+
+*  <span class="comment">%xA denotes a pong</span>
+
+*  <span class="comment">%xB-F are reserved for further control frames</span>
+</code></pre></blockquote>
+<p><code>chr(strlen($a[0]))</code> returns a specific charater according to frame length, since we limit frame length to 125, first binary would be 0.</p>
+<p>Mask=0 denotes no mask</p>
+<blockquote>
+<p>Mask:  1 bit</p>
+<p>  Defines whether the &#x201C;Payload data&#x201D; is masked.  If set to 1, a<br>  masking key is present in masking-key, and this is used to unmask<br>  the &#x201C;Payload data&#x201D; as per Section 5.3.  All frames sent from<br>  client to server have this bit set to 1.</p>
+</blockquote>
+<p>Payload length= 0000010<br>in this example, &#x2018;hi&#x2019; is a 2 charater data, &#x2018;0000010&#x2019; in binary.</p>
+<blockquote>
+<p>Payload length:  7 bits, 7+16 bits, or 7+64 bits</p>
+<p>  The length of the &#x201C;Payload data&#x201D;, in bytes: if 0-125, that is the<br>  payload length.  If 126, the following 2 bytes interpreted as a<br>  16-bit unsigned integer are the payload length.  If 127, the<br>  following 8 bytes interpreted as a 64-bit unsigned integer (the<br>  most significant bit MUST be 0) are the payload length.  Multibyte<br>  length quantities are expressed in network byte order.  Note that<br>  in all cases, the minimal number of bytes MUST be used to encode<br>  the length, for example, the length of a 124-byte-long string<br>  can&#x2019;t be encoded as the sequence 126, 0, 124.  The payload length<br>  is the length of the &#x201C;Extension data&#x201D; + the length of the<br>  &#x201C;Application data&#x201D;.  The length of the &#x201C;Extension data&#x201D; may be<br>  zero, in which case the payload length is the length of the<br>  &#x201C;Application data&#x201D;.</p>
+</blockquote>
+<p>Payload Data=0110100001101001<br>since we limit our frame length to 125, the remaining bytes are payload.<br>01101000 is &#x2018;h&#x2019; in binary<br>01101001 is &#x2018;i&#x2019; in binary</p>
+<blockquote>
+<p>Application data:  y bytes</p>
+<p>Arbitrary &#x201C;Application data&#x201D;, taking up the remainder of the frame<br>after any &#x201C;Extension data&#x201D;.  The length of the &#x201C;Application data&#x201D;<br>is equal to the payload length minus the length of the &#x201C;Extension<br>data&#x201D;.</p>
+</blockquote>
+<p>Note: Further discussion would be needed while migration to another platform language which already implements WebSocket (like Java).</p>
+<p><em>Refernces</em></p>
+<ul>
+<li><a href="http://www.w3.org/TR/websockets/" target="_blank" rel="external">w3c</a></li>
+<li><a href="http://eng.kifi.com/websockets-vs-regular-sockets/" target="_blank" rel="external">WebSockets vs. Regular Sockets</a></li>
+</ul>
+<h3 id="websocket-communication-by-java-server-side">websocket communication by Java (server-side)</h3><ul>
+<li><a href="http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html" target="_blank" rel="external">JSR 356, Java API for WebSocket</a></li>
+<li><a href="http://javaday.org.ua/2013/images/pdf/Delabassee_Kiev_WebSocket.pdf" target="_blank" rel="external">Java Day pdf</a></li>
+<li><a href="https://blogs.oracle.com/PavelBucek/entry/securing_websocket_applications_on_glassfish" target="_blank" rel="external">Securing WebSocket applications on Glassfish</a></li>
+</ul>
+<h1 id="server-message-broker-gateway">Server (message broker, gateway)</h1><p><a href="https://dzone.com/refcardz/html5-websocket" target="_blank" rel="external">alternatives</a></p>
+<ul>
 <li><a href="https://www.process-one.net/en/ejabberd/#getejabberd" target="_blank" rel="external">https://www.process-one.net/en/ejabberd/#getejabberd</a></li>
 <li><a href="http://www.rabbitmq.com/" target="_blank" rel="external">http://www.rabbitmq.com/</a></li>
 <li><a href="http://activemq.apache.org/" target="_blank" rel="external">http://activemq.apache.org/</a></li>
-<li><a href="http://kaazing.org/" target="_blank" rel="external">http://kaazing.org/</a></li>
-<li><a href="http://caucho.com/" target="_blank" rel="external">http://caucho.com/</a></li>
+<li><a href="http://karaf.apache.org/" target="_blank" rel="external">apache karaf</a><br>Apache Karaf is a small OSGi based runtime which provides a lightweight container onto which various components and applications can be deployed.</li>
+<li><p><a href="http://kaazing.org/" target="_blank" rel="external">http://kaazing.org/</a><br>The Gateway is a network gateway created to provide a single access point for real-time web based protocol elevation that supports <strong>load balancing, clustering, and security management</strong>. It is designed to provide scalable and secure bidirectional event-based communication over the web; <strong>on every platform, browser, and device</strong>.</p>
+<ul>
+<li><p>Requirement</p>
+<ul>
+<li>Java Runtime Environment (JRE) 1.7.0_21 or higher</li>
+<li>JAVA_HOME must be set</li>
 </ul>
+</li>
+<li><p>Feature</p>
+<ul>
+<li>cluster -&gt; <a href="http://developer.kaazing.com/documentation/5.0/high-availability/u_ha.html" target="_blank" rel="external">&#x53C3;&#x8003;&#x9023;&#x7D50;</a></li>
+<li><a href="http://developer.kaazing.com/documentation/aws/marketplace/index.html" target="_blank" rel="external">AWS marketplace</a></li>
+<li><a href="http://developer.kaazing.com/documentation/5.0/security/c_sec_security.html" target="_blank" rel="external">About Security with KAAZING Gateway</a></li>
+<li><a href="http://kaazing.com/products/kaazing-websocket-gateway/websocket-emulation/" target="_blank" rel="external">WebSocket Emulation for older browsers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="http://caucho.com/" target="_blank" rel="external">http://caucho.com/</a></li>
+<li><a href="http://www.lightstreamer.com/" target="_blank" rel="external">http://www.lightstreamer.com/</a><ul>
+<li><a href="http://www.slideshare.net/alinone/from-push-technology-to-the-realtime-web" target="_blank" rel="external">http://www.slideshare.net/alinone/from-push-technology-to-the-realtime-web</a></li>
+</ul>
+</li>
+<li><a href="https://www.ejabberd.im/" target="_blank" rel="external">https://www.ejabberd.im/</a></li>
+</ul>
+<p><a href="https://www.evernote.com/shard/s75/sh/3eb6cf33-71db-4412-973d-7d7efac62d47/02330b3286d02dd6558129f4ec914c75" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5927;&#x6BD4;&#x62FC;</a><br><a href="https://www.quora.com/What-are-the-differences-between-JBoss-GlassFish-and-Apache-Tomcat-servers" target="_blank" rel="external">What are the differences between JBoss, GlassFish, and Apache Tomcat servers?</a></p>
 <h2 id="jwebsocket">jWebsocket</h2><p><a href="http://jwebsocket.org/" target="_blank" rel="external">jWebsocket official site</a><br><a href="http://jwebsocket.org/documentation/installation-guide/jwebsocket-cluster" target="_blank" rel="external">jWebSocket JMS based Cluster</a></p>
-<h2 id="websocket-over-tls-glassfish">WebSocket over TLS (GlassFish)</h2><h3 id="preview">preview</h3><p><img src="ws-echo-server1.png" alt=""><br><img src="ws-echo-server2.png" alt=""><br><img src="ws-echo-server3.png" alt=""></p>
-<h3 id="server-side">server-side</h3><p><code>web.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line">...</span><br><span class="line">  <span class="tag">&lt;<span class="title">security-constraint</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">web-resource-collection</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">web-resource-name</span>&gt;</span>Protected resource<span class="tag">&lt;/<span class="title">web-resource-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">http-method</span>&gt;</span>GET<span class="tag">&lt;/<span class="title">http-method</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">web-resource-collection</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- https --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">user-data-constraint</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">transport-guarantee</span>&gt;</span>CONFIDENTIAL<span class="tag">&lt;/<span class="title">transport-guarantee</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">user-data-constraint</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">security-constraint</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><code>EchoEndpoint.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tw.henry.websocket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ScheduledExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ScheduledFuture;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"><span class="keyword">import</span> java.util.logging.Level;</span><br><span class="line"><span class="keyword">import</span> java.util.logging.Logger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnClose;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnMessage;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnOpen;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.Session;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.server.ServerEndpoint;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="annotation">@ServerEndpoint</span>(<span class="string">&quot;/echo&quot;</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EchoEndpoint</span> </span>{</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = Logger.getLogger(EchoEndpoint.class.getName());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Set&lt;Session&gt; allSessions;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> ScheduledExecutorService timer =</span><br><span class="line">		       Executors.newSingleThreadScheduledExecutor();</span><br><span class="line">	DateTimeFormatter timeFormatter =  </span><br><span class="line">	          DateTimeFormatter.ofPattern(<span class="string">&quot;HH:mm:ss&quot;</span>);</span><br><span class="line"></span><br><span class="line">	ScheduledFuture&lt;?&gt; result;</span><br><span class="line">	<span class="annotation">@OnMessage</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">echo</span><span class="params">(String message)</span> </span>{</span><br><span class="line">	    <span class="keyword">return</span> message + <span class="string">&quot; (from your server)&quot;</span>;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@OnOpen</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connectionOpened</span><span class="params">(Session session)</span> </span>{</span><br><span class="line">		LOG.log(Level.INFO, <span class="string">&quot;WebSocket opened: &quot;</span>+session.getId());</span><br><span class="line"></span><br><span class="line">		allSessions = session.getOpenSessions();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (allSessions.size()==<span class="number">1</span>){   </span><br><span class="line">	        result = timer.scheduleAtFixedRate(</span><br><span class="line">	             () -&gt; sendTimeToAll(session),<span class="number">0</span>,<span class="number">10</span>,TimeUnit.SECONDS);    </span><br><span class="line">	    }</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendTimeToAll</span><span class="params">(Session session)</span></span>{       </span><br><span class="line">	     allSessions = session.getOpenSessions();</span><br><span class="line">	     <span class="keyword">for</span> (Session sess: allSessions){          </span><br><span class="line">	        <span class="keyword">try</span>{   </span><br><span class="line">	          sess.getBasicRemote().sendText(<span class="string">&quot;Hi, give me some thing to echo (Server time: &quot;</span> +</span><br><span class="line">	                    LocalTime.now().format(timeFormatter)+<span class="string">&quot;)&quot;</span>);</span><br><span class="line">	          } <span class="keyword">catch</span> (IOException ioe) {        </span><br><span class="line">	              System.out.println(ioe.getMessage());         </span><br><span class="line">	          }   </span><br><span class="line">	     }  </span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@OnClose</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connectionClosed</span><span class="params">()</span> </span>{</span><br><span class="line">		result.cancel(<span class="keyword">true</span>);</span><br><span class="line">		LOG.log(Level.INFO, <span class="string">&quot;connection closed&quot;</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<h2 id="php">php</h2><h3 id="reference">Reference</h3><p><a href="https://medium.com/laravel-4/laravel-4-real-time-chat-eaa550829538" target="_blank" rel="external">Laravel 4 Real Time Chat</a></p>
+<h2 id="glassfish-implements-websocket-over-tls">GlassFish implements WebSocket over TLS</h2><blockquote>
+<p>This example demostrate a echo server peroidically return server time via websocket connection.</p>
+</blockquote>
+<h3 id="preview">preview</h3><p><img src="ws-echo-server1.png" alt=""><br><img src="ws-echo-server2.png" alt=""><br><img src="ws-echo-server3.png" alt=""></p>
+<h3 id="server-configuration">server configuration</h3><p><code>web.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line">...</span><br><span class="line">  <span class="tag">&lt;<span class="title">security-constraint</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">web-resource-collection</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">web-resource-name</span>&gt;</span>Protected resource<span class="tag">&lt;/<span class="title">web-resource-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">http-method</span>&gt;</span>GET<span class="tag">&lt;/<span class="title">http-method</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">web-resource-collection</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- https --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">user-data-constraint</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">transport-guarantee</span>&gt;</span>CONFIDENTIAL<span class="tag">&lt;/<span class="title">transport-guarantee</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">user-data-constraint</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">security-constraint</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="server-side">server-side</h3><p><code>EchoEndpoint.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tw.henry.websocket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ScheduledExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ScheduledFuture;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"><span class="keyword">import</span> java.util.logging.Level;</span><br><span class="line"><span class="keyword">import</span> java.util.logging.Logger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnClose;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnMessage;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnOpen;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.Session;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.server.ServerEndpoint;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="annotation">@ServerEndpoint</span>(<span class="string">&quot;/echo&quot;</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EchoEndpoint</span> </span>{</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = Logger.getLogger(EchoEndpoint.class.getName());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Set&lt;Session&gt; allSessions;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> ScheduledExecutorService timer =</span><br><span class="line">		       Executors.newSingleThreadScheduledExecutor();</span><br><span class="line">	DateTimeFormatter timeFormatter =  </span><br><span class="line">	          DateTimeFormatter.ofPattern(<span class="string">&quot;HH:mm:ss&quot;</span>);</span><br><span class="line"></span><br><span class="line">	ScheduledFuture&lt;?&gt; result;</span><br><span class="line">	<span class="annotation">@OnMessage</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">echo</span><span class="params">(String message)</span> </span>{</span><br><span class="line">	    <span class="keyword">return</span> message + <span class="string">&quot; (from your server)&quot;</span>;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@OnOpen</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connectionOpened</span><span class="params">(Session session)</span> </span>{</span><br><span class="line">		LOG.log(Level.INFO, <span class="string">&quot;WebSocket opened: &quot;</span>+session.getId());</span><br><span class="line"></span><br><span class="line">		allSessions = session.getOpenSessions();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (allSessions.size()==<span class="number">1</span>){   </span><br><span class="line">	        result = timer.scheduleAtFixedRate(</span><br><span class="line">	             () -&gt; sendTimeToAll(session),<span class="number">0</span>,<span class="number">10</span>,TimeUnit.SECONDS);    </span><br><span class="line">	    }</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendTimeToAll</span><span class="params">(Session session)</span></span>{       </span><br><span class="line">	     allSessions = session.getOpenSessions();</span><br><span class="line">	     <span class="keyword">for</span> (Session sess: allSessions){          </span><br><span class="line">	        <span class="keyword">try</span>{   </span><br><span class="line">	          sess.getBasicRemote().sendText(<span class="string">&quot;Hi, give me some thing to echo (Server time: &quot;</span> +</span><br><span class="line">	                    LocalTime.now().format(timeFormatter)+<span class="string">&quot;)&quot;</span>);</span><br><span class="line">	          } <span class="keyword">catch</span> (IOException ioe) {        </span><br><span class="line">	              System.out.println(ioe.getMessage());         </span><br><span class="line">	          }   </span><br><span class="line">	     }  </span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@OnClose</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connectionClosed</span><span class="params">()</span> </span>{</span><br><span class="line">		result.cancel(<span class="keyword">true</span>);</span><br><span class="line">		LOG.log(Level.INFO, <span class="string">&quot;connection closed&quot;</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 <h3 id="client-side-web">client-side: Web</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">&quot;content-type&quot;</span> <span class="attribute">content</span>=<span class="value">&quot;text/html; charset=ISO-8859-1&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Web Socket JavaScript Echo Client<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">language</span>=<span class="value">&quot;javascript&quot;</span> <span class="attribute">type</span>=<span class="value">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> endpointPath = <span class="string">&quot;/echo&quot;</span>;</span><br><span class="line">    <span class="keyword">var</span> wsUri = getRootUri() + endpointPath;</span><br><span class="line">    <span class="keyword">var</span> websocket;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Get application root uri with ws/wss protocol.</span><br><span class="line">     *</span><br><span class="line">     * @returns {string}</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getRootUri</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="keyword">var</span> uri = <span class="string">&quot;wss://&quot;</span> + (<span class="built_in">document</span>.location.hostname == <span class="string">&quot;&quot;</span> ? <span class="string">&quot;localhost&quot;</span> : <span class="built_in">document</span>.location.hostname) + <span class="string">&quot;:&quot;</span> +</span><br><span class="line">        (<span class="built_in">document</span>.location.port == <span class="string">&quot;&quot;</span> ? <span class="string">&quot;8181&quot;</span> : <span class="built_in">document</span>.location.port);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> pathname = <span class="built_in">window</span>.location.pathname;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (endsWith(pathname, <span class="string">&quot;/index.html&quot;</span>)) {</span><br><span class="line">        uri = uri + pathname.substring(<span class="number">0</span>, pathname.length - <span class="number">11</span>);</span><br><span class="line">      } <span class="keyword">else</span> <span class="keyword">if</span> (endsWith(pathname, <span class="string">&quot;/&quot;</span>)) {</span><br><span class="line">        uri = uri + pathname.substring(<span class="number">0</span>, pathname.length - <span class="number">1</span>);</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> uri;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">endsWith</span>(<span class="params">str, suffix</span>) </span>{</span><br><span class="line">      <span class="keyword">return</span> str.indexOf(suffix, str.length - suffix.length) !== -<span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>{</span><br><span class="line">      output = <span class="built_in">document</span>.getElementById(<span class="string">&quot;output&quot;</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">send_echo</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="keyword">if</span> (!websocket) {</span><br><span class="line"></span><br><span class="line">        websocket = <span class="keyword">new</span> WebSocket(wsUri);</span><br><span class="line"></span><br><span class="line">        websocket.onopen = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>{</span><br><span class="line">          onOpen(evt)</span><br><span class="line">        };</span><br><span class="line">        websocket.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>{</span><br><span class="line">          onMessage(evt)</span><br><span class="line">        };</span><br><span class="line">        websocket.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>{</span><br><span class="line">          onError(evt)</span><br><span class="line">        };</span><br><span class="line">        websocket.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>{</span><br><span class="line">          onClose(evt);</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">      <span class="comment">// doSend(textID.value);</span></span><br><span class="line">      sendMessage(textID.value);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onOpen</span>(<span class="params">evt</span>) </span>{</span><br><span class="line">      writeToScreen(<span class="string">&quot;CONNECTED&quot;</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onMessage</span>(<span class="params">evt</span>) </span>{</span><br><span class="line">      writeToScreen(<span class="string">&quot;RECEIVED: &quot;</span> + evt.data);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onClose</span>(<span class="params">evt</span>) </span>{</span><br><span class="line">      writeToScreen(<span class="string">&quot;CLOSED: &quot;</span> + evt.code + <span class="string">&quot;: &quot;</span> + evt.reason);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onError</span>(<span class="params">evt</span>) </span>{</span><br><span class="line">      writeToScreen(<span class="string">&apos;&lt;span style=&quot;color: red;&quot;&gt;ERROR:&lt;/span&gt; &apos;</span> + evt.data);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doSend</span>(<span class="params">message</span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.log(websocket);</span><br><span class="line">      writeToScreen(<span class="string">&quot;SENT: &quot;</span> + message);</span><br><span class="line">      websocket.send(message);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sendMessage</span>(<span class="params">msg</span>) </span>{</span><br><span class="line">      waitForSocketConnection(websocket, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    	    writeToScreen(<span class="string">&quot;SENT: &quot;</span> + msg);</span><br><span class="line">        websocket.send(msg);</span><br><span class="line">      });</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">waitForSocketConnection</span>(<span class="params">socket, callback</span>) </span>{</span><br><span class="line">      setTimeout(</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">          <span class="keyword">if</span> (socket.readyState === WebSocket.OPEN) {</span><br><span class="line">            <span class="keyword">if</span> (callback !== <span class="literal">undefined</span>) {</span><br><span class="line">              callback();</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">          } <span class="keyword">else</span> {</span><br><span class="line">            waitForSocketConnection(socket, callback);</span><br><span class="line">          }</span><br><span class="line">        }, <span class="number">5</span>);</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">writeToScreen</span>(<span class="params">message</span>) </span>{</span><br><span class="line">      <span class="keyword">var</span> pre = <span class="built_in">document</span>.createElement(<span class="string">&quot;p&quot;</span>);</span><br><span class="line">      pre.style.wordWrap = <span class="string">&quot;break-word&quot;</span>;</span><br><span class="line">      pre.innerHTML = message;</span><br><span class="line">      <span class="comment">//alert(output);</span></span><br><span class="line">      output.appendChild(pre);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&quot;load&quot;</span>, init, <span class="literal">false</span>);</span><br><span class="line">  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">h2</span> <span class="attribute">style</span>=<span class="value">&quot;text-align: center;&quot;</span>&gt;</span>Web Socket Echo Client<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">&quot;text-align: center;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">style</span>=<span class="value">&quot; width: 64px; height: 64px;&quot;</span> <span class="attribute">alt</span>=<span class="value">&quot;&quot;</span> <span class="attribute">src</span>=<span class="value">&quot;HTML5_Logo_512.png&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">&quot;text-align: center;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">&quot;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">onclick</span>=<span class="value">&quot;send_echo()&quot;</span> <span class="attribute">value</span>=<span class="value">&quot;Press me&quot;</span> <span class="attribute">type</span>=<span class="value">&quot;button&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">&quot;textID&quot;</span> <span class="attribute">name</span>=<span class="value">&quot;message&quot;</span> <span class="attribute">label</span>=<span class="value">&quot;message&quot;</span> <span class="attribute">value</span>=<span class="value">&quot;Hello Web Sockets !&quot;</span> <span class="attribute">type</span>=<span class="value">&quot;text&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">&quot;output&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="client-side-android">client-side : Android</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.os.Build;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.EditText;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.java_websocket.client.DefaultSSLWebSocketClientFactory;</span><br><span class="line"><span class="keyword">import</span> org.java_websocket.client.WebSocketClient;</span><br><span class="line"><span class="keyword">import</span> org.java_websocket.drafts.Draft_17;</span><br><span class="line"><span class="keyword">import</span> org.java_websocket.handshake.ServerHandshake;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.URI;</span><br><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.SSLContext;</span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.TrustManager;</span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.X509TrustManager;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> WebSocketClient mWebSocketClient;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line"></span><br><span class="line"> <span class="comment">//           connectWebSocket(new URI(&quot;ws://10.0.3.2:8080/tm.EchoServer/echo&quot;),false);</span></span><br><span class="line"><span class="comment">//           connectWebSocket(new URI(&quot;wss://10.0.3.2:8181/tm.EchoServer/echo&quot;),true);</span></span><br><span class="line"><span class="comment">//           connectWebSocket(new URI(&quot;ws://10.0.1.147:8080/tm.EchoServer/echo&quot;),false);</span></span><br><span class="line">           connectWebSocket(<span class="keyword">new</span> URI(<span class="string">&quot;wss://10.0.1.147:8181/tm.EchoServer/echo&quot;</span>),<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        } <span class="keyword">catch</span> (URISyntaxException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">connectWebSocket</span><span class="params">(URI uri, <span class="keyword">boolean</span> overTLS)</span> </span>{</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        mWebSocketClient = <span class="keyword">new</span> WebSocketClient(uri, <span class="keyword">new</span> Draft_17()) {</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onOpen</span><span class="params">(ServerHandshake serverHandshake)</span> </span>{</span><br><span class="line">                Log.i(<span class="string">&quot;Websocket&quot;</span>, <span class="string">&quot;Opened&quot;</span>);</span><br><span class="line">                mWebSocketClient.send(<span class="string">&quot;Hello from &quot;</span> + Build.MANUFACTURER + <span class="string">&quot; &quot;</span> + Build.MODEL);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(String s)</span> </span>{</span><br><span class="line">                <span class="keyword">final</span> String message = s;</span><br><span class="line">                runOnUiThread(<span class="keyword">new</span> Runnable() {</span><br><span class="line">                    <span class="annotation">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">                        TextView textView = (TextView)findViewById(R.id.messages);</span><br><span class="line">                        textView.setText(textView.getText() + <span class="string">&quot;\n&quot;</span> + message);</span><br><span class="line">                    }</span><br><span class="line">                });</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClose</span><span class="params">(<span class="keyword">int</span> i, String s, <span class="keyword">boolean</span> b)</span> </span>{</span><br><span class="line">                Log.i(<span class="string">&quot;Websocket&quot;</span>, <span class="string">&quot;Closed &quot;</span> + s);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Exception e)</span> </span>{</span><br><span class="line">                Log.i(<span class="string">&quot;Websocket&quot;</span>, <span class="string">&quot;Error &quot;</span> + e.getMessage());</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (overTLS) {</span><br><span class="line">            <span class="comment">/***************************************************************************/</span></span><br><span class="line">            <span class="comment">//This part is needed in case you are going to use self-signed certificates</span></span><br><span class="line">            TrustManager[] trustAllCerts = <span class="keyword">new</span> TrustManager[]{<span class="keyword">new</span> X509TrustManager() {</span><br><span class="line">                <span class="annotation">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkClientTrusted</span><span class="params">(java.security.cert.X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> java.security.cert.CertificateException </span>{</span><br><span class="line"></span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="annotation">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkServerTrusted</span><span class="params">(java.security.cert.X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> java.security.cert.CertificateException </span>{</span><br><span class="line"></span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">public</span> java.security.cert.X509Certificate[] getAcceptedIssuers() {</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> java.security.cert.X509Certificate[]{};</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            }};</span><br><span class="line">            <span class="comment">/**************************************************************************/</span></span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                SSLContext sc = SSLContext.getInstance(<span class="string">&quot;TLS&quot;</span>);</span><br><span class="line">                sc.init(<span class="keyword">null</span>, trustAllCerts, <span class="keyword">new</span> java.security.SecureRandom());</span><br><span class="line"></span><br><span class="line">                <span class="comment">//Otherwise the line below is all that is needed.</span></span><br><span class="line">                <span class="comment">//sc.init(null, null, null);</span></span><br><span class="line">                mWebSocketClient.setWebSocketFactory(<span class="keyword">new</span> DefaultSSLWebSocketClientFactory(sc));</span><br><span class="line">            } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        mWebSocketClient.connect();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(View view)</span> </span>{</span><br><span class="line">        EditText editText = (EditText)findViewById(R.id.message);</span><br><span class="line">        mWebSocketClient.send(editText.getText().toString());</span><br><span class="line">        editText.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        mWebSocketClient.close();</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>Reference<br><a href="http://www.juliankrone.com/connect-and-transfer-data-with-secure-websockets-in-android/" target="_blank" rel="external">Connect and transfer data with secure WebSockets in Android</a></p>
+<h2 id="jboss-eclipse-development-env-setup">JBoss-Eclipse development Env. setup</h2><h3 id="environment">Environment</h3><ol>
+<li><p>JDK 8</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">java version <span class="string">&quot;1.8.0_45&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">1.8</span>.<span class="number">0</span>_45-b14)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">25.45</span>-b02, mixed mode)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JBoss Enterprise Application Platform 6.4</p>
+</li>
+<li><p>Eclipse (Mars Release) IDE for Java EE Developers</p>
+</li>
+</ol>
+<h3 id="setup-steps">Setup Steps</h3><ol>
+<li>Download JBoss EPA<br><img src="JBoss-1.png" alt=""></li>
+<li>installation<br><img src="JBoss-2.png" alt=""><br><img src="JBoss-3.png" alt=""><br><img src="JBoss-4.png" alt=""><br><img src="JBoss-5.png" alt=""><br><img src="JBoss-6.png" alt=""><br><img src="JBoss-7.png" alt=""></li>
+<li>Download JBoss Development Studio in marketplace<br><img src="JBoss-Eclipse-1.png" alt=""><br><img src="JBoss-Eclipse-2.png" alt=""></li>
+<li>add JBoss server in eclipse<br><img src="JBoss-Eclipse-3.png" alt=""><br><img src="JBoss-Eclipse-4.png" alt=""><br><img src="JBoss-Eclipse-5.png" alt=""><br><img src="JBoss-Eclipse-6.png" alt=""></li>
+<li>Run JBoss server in eclipse, visit <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a><br><img src="JBoss-Eclipse-7.png" alt=""></li>
+</ol>
 <h2 id="glassfish-eclipse-development-env-setup">GlassFish-Eclipse development Env. setup</h2><h3 id="environment">Environment</h3><ol>
-<li>JDK 8</li>
-<li>GlassFish 4 Java EE 7 Full Platform</li>
+<li><p>JDK 8</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">java version <span class="string">&quot;1.8.0_45&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">1.8</span>.<span class="number">0</span>_45-b14)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">25.45</span>-b02, mixed mode)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>GlassFish 4 Java EE 7 Full Platform<br><img src="capture-20151016-154243.png" alt=""></p>
+</li>
 <li>Eclipse (Mars Release) IDE for Java EE Developers</li>
 </ol>
 <h3 id="setup-steps">Setup Steps</h3><ol>
-<li><p>enter Eclipse preferences <code>hotkey: cmd+,</code>, preferences-&gt;Server-&gt;Runtime Environment-&gt;Add&#x2026;<br><img src="glassfish-eclipse-1.png" alt=""></p>
+<li><p>goto Eclipse preferences <code>hotkey: cmd+,</code>, preferences-&gt;Server-&gt;Runtime Environment-&gt;Add&#x2026;<br><img src="glassfish-eclipse-1.png" alt=""></p>
 </li>
 <li><p>no glashfish environment runtime found, click <code>Download additional server adapters</code><br><img src="glassfish-eclipse-2.png" alt=""></p>
 </li>
@@ -219,172 +391,463 @@
 <li><p>visit <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a> to see if GlassFish works properly.<br><img src="glassfish-eclipse-11.png" alt=""></p>
 </li>
 </ol>
-<h3 id="refernces">Refernces</h3><p><a href="https://www.evernote.com/shard/s75/sh/b3bab388-37e0-4945-8a3e-eda3fb9e398c/8e4b3a2fb69ab2d662a36db15230201d" target="_blank" rel="external">Multiple JDK in Mac OSX 10.10 Yosemite</a></p>
+<p>Refernces</p>
+<p><a href="https://www.evernote.com/shard/s75/sh/b3bab388-37e0-4945-8a3e-eda3fb9e398c/8e4b3a2fb69ab2d662a36db15230201d" target="_blank" rel="external">Multiple JDK in Mac OSX 10.10 Yosemite</a></p>
 <p><a href="https://www.evernote.com/shard/s75/sh/a8635da6-efa0-4eda-a3a7-0a79ba6315d0/f8b95301cf59fed2b8993ad263e9cb72" target="_blank" rel="external">Eclipse Marketplace GlassFish Tools</a></p>
 <p><a href="https://glassfish.java.net/download.html" target="_blank" rel="external">GlassFish Download Page</a></p>
 <p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">JDK Download Page</a></p>
 <p><a href="https://www.eclipse.org/downloads/" target="_blank" rel="external">Eclipse download Page</a></p>
+<h3 id="spring">Spring</h3><p><a href="http://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example" target="_blank" rel="external">Spring 4 WebSocket + SockJS + STOMP + Tomcat Example</a><br><a href="https://dev.windows.com/en-us/microsoft-edge/tools/vms/mac/" target="_blank" rel="external">Test Microsoft Edge and versions of IE6 through IE11 using free virtual machines you download and manage locally.</a></p>
+<h2 id="nginx-as-reverse-proxy">Nginx as reverse proxy</h2><h3 id="reference">Reference</h3><p><a href="https://github.com/nicokaiser/nginx-websocket-proxy" target="_blank" rel="external">nginx WebSocket Proxy</a><br><a href="http://stackoverflow.com/questions/12102110/nginx-to-reverse-proxy-websockets-and-enable-ssl-wss" target="_blank" rel="external">NGINX to reverse proxy websockets AND enable SSL (wss://)?</a><br><a href="https://www.nginx.com/blog/websocket-nginx/" target="_blank" rel="external">NGINX as a WebSocket Proxy</a></p>
 <h1 id="cloud-service-saas">Cloud Service (SaaS)</h1><ul>
 <li><a href="http://framework.realtime.co/" target="_blank" rel="external">http://framework.realtime.co/</a></li>
 <li><a href="https://pusher.com/" target="_blank" rel="external">https://pusher.com/</a></li>
 <li><a href="https://www.pubnub.com/" target="_blank" rel="external">https://www.pubnub.com/</a></li>
 <li><a href="https://ejabberd-saas.com/" target="_blank" rel="external">https://ejabberd-saas.com/</a></li>
 <li><a href="https://www.mulesoft.com/" target="_blank" rel="external">https://www.mulesoft.com/</a></li>
+<li><a href="https://www.hydna.com/" target="_blank" rel="external">https://www.hydna.com/</a></li>
+<li><a href="https://www.pubnub.com/" target="_blank" rel="external">https://www.pubnub.com/</a></li>
+<li><a href="https://www.intercom.io/" target="_blank" rel="external">https://www.intercom.io/</a></li>
+<li><a href="https://cloud.google.com/pubsub/" target="_blank" rel="external">https://cloud.google.com/pubsub/</a></li>
 </ul>
-<h1 id="protocol">Protocol</h1><ul>
+<p><a href="https://medium.com/@davidbyttow/scaling-secret-real-time-chat-d8589f8f0c9b" target="_blank" rel="external">Scaling Secret: Real-time Chat</a></p>
+<h1 id="protocol">Protocol</h1><p>By using standard protocol instead of proprietary one, we could leverage lots of client and server implementations to quickly build our app.</p>
+<ul>
 <li>STOMP: Simple (or Streaming) Text Oriented Messaging Protocol<ul>
 <li>it&#x2019;s not always straightforward to port code between brokers</li>
 </ul>
 </li>
-<li>XMPP : Extensible Messaging and Presence Protocol</li>
-<li>AQMP : Advanced Message Queuing Protocol</li>
+<li>XMPP : Extensible Messaging and Presence Protocol<ul>
+<li><a href="http://igniterealtime.org/" target="_blank" rel="external">http://igniterealtime.org/</a></li>
+</ul>
+</li>
+<li>AQMP : Advanced Message Queuing Protocol<ul>
+<li>Except puducer,broker,consumer(like JMS), AQMP introduce new component &#x2018;exchange&#x2019;</li>
+</ul>
+</li>
 <li><a href="https://github.com/mqtt/mqtt.github.io/wiki" target="_blank" rel="external">MQTT</a> : Message Queue Telemery Transport<ul>
 <li>Can be applied to IoT, such as connecting an Arduino device to a web service with MQTT.</li>
 </ul>
 </li>
 <li>JMS : Java Message Service</li>
+<li>Protocol Buffers</li>
 </ul>
-<h2 id="refernces">Refernces</h2><p><a href="https://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html" target="_blank" rel="external">Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP
+<h2 id="refernces">Refernces</h2><p><a href="http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes" target="_blank" rel="external">Message Queue Evaluation Notes</a><br><a href="https://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html" target="_blank" rel="external">Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP
 </a></p>
-
-        
-            
-        
+<h1 id="whatsapp">whatsapp</h1><p><a href="https://www.evernote.com/shard/s75/sh/caec8dac-1026-4603-bab4-d241c9e1e1e3/bea5136188b0948f22aea9f65e5652e4" target="_blank" rel="external">The WhatsApp Architecture Facebook Bought For $19 Billion - High Scalability -</a><br><a href="https://www.evernote.com/shard/s75/sh/5a371dae-b43c-4229-8717-4d5bb1d031a5/a43f440b05685b66b342bd7c0ad061f9" target="_blank" rel="external">INSIDE ERLANG, THE RARE PROGRAMMING LANGUAGE BEHIND WHATSAPP&#x2019;S SUCCESS</a><br><a href="https://www.quora.com/What-is-the-technology-behind-the-web-based-version-of-WhatsApp" target="_blank" rel="external">What is the technology behind the web-based version of WhatsApp?</a></p>
+<ul>
+<li>chat history is only stored on phone, none on server. Thus, to use the web client your smartphone has to be connected to the internet.</li>
+<li>What protocol is used in Whatsapp app? SSL socket to the WhatsApp server pools.</li>
+<li>Erlang/FreeBSD-based server infrastructure<ul>
+<li>Server systems that do the backend message routing are done in Erlang.<ul>
+<li>Ericsson engineer Joe Armstrong developed Erlang with the logic of telecommunications in mind: millions of parallel conversations happening at the same time, with almost zero tolerance for downtime.</li>
+<li>Erlang allows for bug fixes and updates without downtime.</li>
+<li>Erlang is very good at efficiently executing commands across processors within a single machine.</li>
+</ul>
+</li>
+<li>Great achievement is that the number of active users is managed with a really small server footprint. Team consensus is that it is largely because of Erlang.</li>
+<li>Interesting to note Facebook Chat was written in Erlang in 2009, but they went away from it because it was hard to find qualified programmers.</li>
+</ul>
+</li>
+<li>WhatsApp server has started from ejabberd<ul>
+<li>Ejabberd is a famous open source Jabber server written in Erlang.</li>
+<li>Originally chosen because its open, had great reviews by developers, ease of start and the promise of Erlang&#x2019;s long term suitability for large communication system.</li>
+<li>The next few years were spent re-writing and modifying quite a few parts of ejabberd, including switching from XMPP to internally developed protocol, restructuring the code base and redesigning some core components, and making lots of important modifications to Erlang VM to optimize server performance.</li>
+</ul>
+</li>
+<li>A primary gauge of system health is message queue length. The message queue length of all the processes on a node is constantly monitored and an alert is sent out if they accumulate backlog beyond a preset threshold. If one or more processes falls behind that is alerted on, which gives a pointer to the next bottleneck to attack.</li>
+<li>Multimedia messages are sent by uploading the image, audio or video to be sent to an HTTP server and then sending a link to the content along with its Base64 encoded thumbnail (if applicable).<h2 id="erlang">Erlang</h2></li>
+<li>The basic unit of concurrency in Erlang is the process.</li>
+<li>An Erlang process is a little virtual machine that can evaluate a single Erlang function; it should not be confused with an operating system process.</li>
+<li>cannot rebind variable.</li>
+</ul>
+</span>
+      
     </div>
-    <div class="post-footer main-content-wrap">
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--disabled">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/07/hello-world/" data-tooltip="Hello World">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/10/08/real-time/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/10/08/real-time/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/10/08/real-time/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
-        
-    </ul>
-</div>
 
+    <footer class="post-footer">
+      
 
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2015 Henry Lee. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--disabled">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/07/hello-world/" data-tooltip="Hello World">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/10/08/real-time/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/10/08/real-time/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/10/08/real-time/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
-
-                </div>
+              <a href="/2015/12/02/hello-world/" rel="prev">Hello World</a>
             
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/27/arduino-note/" rel="next">arduino筆記區</a>
+            
+          </div>
         </div>
-        <div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">Henry Lee</h4>
-        
-        
-        
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/pp.jpeg" alt="Henry Lee" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Henry Lee</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">categories</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#concpet"><span class="nav-number">1.</span> <span class="nav-text">Concpet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#message-oriented-middleware-mom"><span class="nav-number">1.1.</span> <span class="nav-text">Message Oriented Middleware (MOM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reactive-programming"><span class="nav-number">1.2.</span> <span class="nav-text">Reactive Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#websocket"><span class="nav-number">1.3.</span> <span class="nav-text">websocket</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rfc-6455"><span class="nav-number">1.3.1.</span> <span class="nav-text">RFC 6455</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#52-base-framing-protocol"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">5.2 Base Framing Protocol</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#websocket-communication-by-java-server-side"><span class="nav-number">1.3.2.</span> <span class="nav-text">websocket communication by Java (server-side)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#server-message-broker-gateway"><span class="nav-number">2.</span> <span class="nav-text">Server (message broker, gateway)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jwebsocket"><span class="nav-number">2.1.</span> <span class="nav-text">jWebsocket</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php"><span class="nav-number">2.2.</span> <span class="nav-text">php</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-number">2.2.1.</span> <span class="nav-text">Reference</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#glassfish-implements-websocket-over-tls"><span class="nav-number">2.3.</span> <span class="nav-text">GlassFish implements WebSocket over TLS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#preview"><span class="nav-number">2.3.1.</span> <span class="nav-text">preview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#server-configuration"><span class="nav-number">2.3.2.</span> <span class="nav-text">server configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#server-side"><span class="nav-number">2.3.3.</span> <span class="nav-text">server-side</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client-side-web"><span class="nav-number">2.3.4.</span> <span class="nav-text">client-side: Web</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client-side-android"><span class="nav-number">2.3.5.</span> <span class="nav-text">client-side : Android</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jboss-eclipse-development-env-setup"><span class="nav-number">2.4.</span> <span class="nav-text">JBoss-Eclipse development Env. setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#environment"><span class="nav-number">2.4.1.</span> <span class="nav-text">Environment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setup-steps"><span class="nav-number">2.4.2.</span> <span class="nav-text">Setup Steps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#glassfish-eclipse-development-env-setup"><span class="nav-number">2.5.</span> <span class="nav-text">GlassFish-Eclipse development Env. setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#environment"><span class="nav-number">2.5.1.</span> <span class="nav-text">Environment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setup-steps"><span class="nav-number">2.5.2.</span> <span class="nav-text">Setup Steps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring"><span class="nav-number">2.5.3.</span> <span class="nav-text">Spring</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-as-reverse-proxy"><span class="nav-number">2.6.</span> <span class="nav-text">Nginx as reverse proxy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-number">2.6.1.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cloud-service-saas"><span class="nav-number">3.</span> <span class="nav-text">Cloud Service (SaaS)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#protocol"><span class="nav-number">4.</span> <span class="nav-text">Protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#refernces"><span class="nav-number">4.1.</span> <span class="nav-text">Refernces</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#whatsapp"><span class="nav-number">5.</span> <span class="nav-text">whatsapp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#erlang"><span class="nav-number">5.1.</span> <span class="nav-text">Erlang</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Henry Lee</span>
 </div>
-        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script.min.js" type="text/javascript"></script>
-<!--SCRIPTS END-->
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
 </html>

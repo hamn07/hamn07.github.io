@@ -1,140 +1,240 @@
-<!DOCTYPE html>
-<html lang="null">
-    
+<!doctype html>
+<html class="theme-next use-motion ">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>Web筆記區 - Hexo</title>
-    <meta name="author" content="Henry Lee">
-    <meta name="description" content="Hexo">
-    <link rel="icon" href="/assets/images/null">
-    
-        <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
-    <!--STYLES END-->
-    
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="&amp;lt;!-- toc --&amp;gt;
+
+html
+css
+jQuery
+Security
+HTTPS - HTTP over SSL
+
+
+Trouble Shooting
+PDO&amp;#x9023;&amp;#x7DDA;&amp;#x5831;&amp;#x932F;no such file
+OSX&amp;#x4E0A;&amp;#x50B3;&amp;#x6A94;&amp;#x6848;&amp;#x6642;&amp;#x5831;&amp;#x932F;PHP Warning:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web筆記區">
+<meta property="og:url" content="http://hamn07.github.io/2015/08/07/php-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;lt;!-- toc --&amp;gt;
+
+html
+css
+jQuery
+Security
+HTTPS - HTTP over SSL
+
+
+Trouble Shooting
+PDO&amp;#x9023;&amp;#x7DDA;&amp;#x5831;&amp;#x932F;no such file
+OSX&amp;#x4E0A;&amp;#x50B3;&amp;#x6A94;&amp;#x6848;&amp;#x6642;&amp;#x5831;&amp;#x932F;PHP Warning:">
+<meta property="og:image" content="http://hamn07.github.io/pdo-error-msg.png">
+<meta property="og:image" content="http://hamn07.github.io/pdo-error-phpinfo.png">
+<meta property="og:image" content="http://hamn07.github.io/pdo-error-phpini.png">
+<meta property="og:image" content="http://hamn07.github.io/pdo-error-mysql-sock.png">
+<meta property="og:updated_time" content="2015-11-10T03:38:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web筆記區">
+<meta name="twitter:description" content="&amp;lt;!-- toc --&amp;gt;
+
+html
+css
+jQuery
+Security
+HTTPS - HTTP over SSL
+
+
+Trouble Shooting
+PDO&amp;#x9023;&amp;#x7DDA;&amp;#x5831;&amp;#x932F;no such file
+OSX&amp;#x4E0A;&amp;#x50B3;&amp;#x6A94;&amp;#x6848;&amp;#x6642;&amp;#x5831;&amp;#x932F;PHP Warning:">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> Web筆記區 | Hexo </title>
 </head>
 
-    <body>
-        <div id="blog">
-            <header id="header" data-behavior="1">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="http://hamn07.github.io">Hexo</a>
-    </h1>
-    
-</header>
-            <nav id="sidebar" data-behavior="1">
-    
-    
-    <ul class="sidebar-buttons">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Hexo</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Home</span>
-                </a>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
         </li>
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="https://stark-everglades-8527.herokuapp.com/" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-globe"></i>
-                    <span class="sidebar-button-desc">web</span>
-                </a>
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
         </li>
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="http://slides.com/hamn07/deck/live" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-slideshare"></i>
-                    <span class="sidebar-button-desc">slides</span>
-                </a>
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
         </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/api/user/hamn07?apiKey=key1" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-database"></i>
-                    <span class="sidebar-button-desc">database</span>
-                </a>
-        </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/#about">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">About me</span>
-                </a>
-        </li>
-        
+      
+
+      
+      
     </ul>
-    
-    <ul class="sidebar-buttons">
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="https://github.com/hamn07" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
-                    <span class="sidebar-button-desc">GitHub</span>
-                </a>
-        </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="mailto:hamn07@gmail.com" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
-                    <span class="sidebar-button-desc">Mail</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-    <ul class="sidebar-buttons">
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/atom.xml">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
-                </a>
-        </li>
-        
-    </ul>
-    
+  
+
+  
 </nav>
-            <div id="main" data-behavior="1">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
     
-        <div class="post-header main-content-wrap">
-    
-        <h1 class="post-title" itemprop="headline">Web筆記區</h1>
-    
-    <div class="post-meta">
-    <time  itemprop="datePublished" content="Fri Aug 07 2015 06:44:51 GMT+0800">
-        Aug 07, 2015
-    </time>
-    
-</div>
-</div>
-    
-    <div class="post-content markdown main-content-wrap" itemprop="articleBody">
-        <!-- toc -->
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Web筆記區
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-08-07T06:44:51+08:00" content="2015-08-07">
+            2015-08-07
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><!-- toc -->
 <ul>
-<li><a href="#spring">Spring</a></li>
+<li><a href="#html">html</a></li>
+<li><a href="#css">css</a></li>
+<li><a href="#jquery">jQuery</a></li>
 <li><a href="#security">Security</a><ul>
 <li><a href="#https-http-over-ssl">HTTPS - HTTP over SSL</a></li>
 </ul>
@@ -165,8 +265,10 @@
 <li><a href="#reference">Reference</a></li>
 </ul>
 <!-- tocstop -->
-<p><a href="http://phpave.com/how-to-process-put-requests-with-php/" target="_blank" rel="external">How to process PUT requests with PHP</a></p>
-<h1 id="spring">Spring</h1><p><a href="http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/index.html" target="_blank" rel="external">&#x5B98;&#x7DB2;&#x6587;&#x4EF6;</a></p>
+<h1 id="html">html</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &#x700F;&#x89BD;&#x5668;&#x6703;&#x6839;&#x64DA;&#x4F3A;&#x670D;&#x5668;&#x9001;&#x904E;&#x4F86;&#x7684; header &#x6216;&#x662F;&#x7528;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x4F86;&#x5224;&#x5B9A; HTML&#x6587;&#x4EF6;&#x7684;&#x7DE8;&#x78BC;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &#x4F46;&#x662F;&#x5224;&#x5B9A;&#x4E0D;&#x4E00;&#x5B9A;&#x6703;&#x662F;&#x6B63;&#x78BA;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x6703;&#x5728; &lt;head&gt; &#x544A;&#x8A34;&#x700F;&#x89BD;&#x5668;&#xFF0C;&#x9019;&#x4E00;&#x4EFD;HTML&#x6587;&#x4EF6;&#x7684;&#x7DE8;&#x78BC;&#x662F;&#x4EC0;&#x9EBC; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &#x70BA;&#x4E86;&#x624B;&#x6A5F;&#x700F;&#x89BD;&#x5668;&#x8A2D;&#x5B9A;&#x7684;&#x4E00;&#x500B;&#x6A19;&#x7C64; viewport (p17-12)--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">&quot;viewport&quot;</span> <span class="attribute">content</span>=<span class="value">&quot;width=device-width, user-scalable=no&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>HTML data-* Attributes&#x2013;&gt;&#x81EA;&#x5B9A;&#x7FA9;tag&#x5C6C;&#x6027;<br><a href="http://www.w3schools.com/tags/att_global_data.asp" target="_blank" rel="external">w3c</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">data-animal-type</span>=<span class="value">&quot;bird&quot;</span>&gt;</span>Owl<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">data-animal-type</span>=<span class="value">&quot;fish&quot;</span>&gt;</span>Salmon<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">data-animal-type</span>=<span class="value">&quot;spider&quot;</span>&gt;</span>Tarantula<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="css">css</h1><p>&#x6587;&#x5B57;&#x6BB5;&#x843D;&#x592A;&#x9577;&#x8D85;&#x904E;div&#x5F8C;&#x6703;&#x6709;  &#x2026;  &#x7684;&#x6548;&#x679C;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">{</span><br><span class="line">        <span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">border-color</span>:<span class="value"> <span class="hexcolor">#000000</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">border-style</span>:<span class="value"> solid</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">400px</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*&#x9019;&#x4E09;&#x7D44;&#x5C6C;&#x6027;&#x5FC5;&#x9808;&#x540C;&#x6642;&#x5B58;&#x5728;*/</span></span><br><span class="line">        <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">white-space</span>:<span class="value"> nowrap</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> ellipsis</span></span>;</span><br><span class="line">    }</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="jquery">jQuery</h1><p><a href="http://www.w3schools.com/jquerymobile/" target="_blank" rel="external">w3c&#x53C3;&#x8003;&#x7DB2;&#x9801;</a><br><a href="http://demos.jquerymobile.com/1.4.5/grids/" target="_blank" rel="external">&#x5B98;&#x7DB2;demo</a><br><a href="http://api.jquerymobile.com/data-attribute/" target="_blank" rel="external">Data Arributes</a><br><a href="http://api.jquerymobile.com/classes/" target="_blank" rel="external">Classes</a><br><a href="http://www.w3schools.com/jquery/jquery_selectors.asp" target="_blank" rel="external">jQuery Selectors</a><br><a href="http://www.anowave.com/factory/anoslide/demo.html" target="_blank" rel="external">&#x5716;&#x7247;slide&#x7684;demo</a><br><a href="http://photoswipe.com/" target="_blank" rel="external">PhotoSwipe</a><br><a href="http://glide.jedrzejchalubek.com/" target="_blank" rel="external">Glide</a><br><a href="http://www.thebuzzmedia.com/html5-drag-and-drop-and-file-api-tutorial/" target="_blank" rel="external">HTML5 Drag and Drop Upload and File API Tutorial</a></p>
 <h1 id="security">Security</h1><h2 id="https-http-over-ssl">HTTPS - HTTP over SSL</h2><p>&#x5DE5;&#x4F5C;&#x539F;&#x7406;:</p>
 <ol>
 <li>&#x4F7F;&#x7528;&#x975E;&#x5C0D;&#x7A31;&#x5F0F;&#x52A0;&#x5BC6;&#x6F14;&#x7B97;&#x6CD5;&#x4F86;&#x5C0D;&#x901A;&#x8A0A;&#x96D9;&#x65B9;&#x505A;&#x8EAB;&#x5206;&#x8A8D;&#x8B49;</li>
@@ -219,7 +321,71 @@
 <p>&#x203B;&#x4F7F;&#x7528;service&#x958B;&#x555F;httpd&#x7121;&#x6CD5;&#x8F09;&#x5165;curl&#xFF0C;&#x539F;&#x56E0;&#x662F;apache&#x8A8D;&#x4E0D;&#x5230;curl&#x5728;PHP&#x76EE;&#x9304;&#x88E1;&#x7684;&#x4F9D;&#x8CF4;&#x5305;libssh2.dll<br><code>PHP Fatal error:  Call to undefined function curl_init()</code><br>&#x89E3;&#x6CD5;: &#x5C07;libssh2.dll&#x8907;&#x88FD;&#x4E00;&#x4EFD;&#x5230;apache/bin&#x518D;&#x91CD;&#x555F;</p>
 </blockquote>
 <h2 id="osx">OSX</h2><p><a href="https://discussions.apple.com/docs/DOC-3083" target="_blank" rel="external">Setting up a local web server on OS X</a></p>
-<h1 id="php">PHP</h1><h2 id="win7">win7</h2><ol>
+<h1 id="php">PHP</h1><p><a href="http://phpave.com/how-to-process-put-requests-with-php/" target="_blank" rel="external">How to process PUT requests with PHP</a></p>
+<p><a href="http://sdrv.ms/178960Y" target="_blank" rel="external">&#x6559;&#x6750;</a><br>MAMP: Mac Apache MySQL PHP<br>&#x9322;&#x9054;&#x667A;&#x8001;&#x5E2B; <a href="wolfgang.chien@gmail.com">wolfgang.chien@gmail.com</a><br>RWD&#x53EF;&#x53C3;&#x8003; HTML5App_0309</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5B9A;&#x754C;&#x7B26;&#x865F;</span></span><br><span class="line"><span class="variable">$sSQL</span>=<span class="string">&lt;&lt;&lt;sqlText</span><br><span class="line">SELECT id,name</span><br><span class="line">  FROM employee</span><br><span class="line">sqlText</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//string</span></span><br><span class="line"><span class="variable">$str1</span> = <span class="variable">$str1</span>.<span class="string">&quot; &quot;</span>.Str2</span><br><span class="line"><span class="comment">//string&#x88E1;&#x53EF;&#x653E;&#x8B8A;&#x6578;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;result=$sSum&quot;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>include, require: 3-40</li>
+<li>include_once, <strong>require_once</strong>: 3-43</li>
+<li>define: &#x5E38;&#x6578;, 3-11<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x7576;&#x6A94;&#x6848;&#x8B80;&#x53D6;&#x5230;&#x6700;&#x5F8C;&#x4E00;&#x884C;&#x5F8C;&#x6703;&#x50B3;&#x56DE;false</span></span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$line</span> = readline()){</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//global&#x4F7F;&#x7528;&#x5168;&#x57DF;&#x8B8A;&#x6578;</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">20</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunc</span><span class="params">(<span class="variable">$b</span>)</span></span>{</span><br><span class="line">	<span class="variable">$a</span> = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line">	<span class="keyword">global</span> <span class="variable">$a</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x9663;&#x5217;</span></span><br><span class="line"><span class="variable">$weekArr</span> [] = <span class="string">&quot;Monday&quot;</span>;</span><br><span class="line"><span class="variable">$weekArr</span> [] = <span class="string">&quot;Tuesday&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$weekArr</span> [<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$myArr</span> [<span class="string">&apos;myName&apos;</span>] = <span class="string">&apos;Henry&apos;</span>;</span><br><span class="line"><span class="variable">$myArr</span> [<span class="string">&apos;myHeight&apos;</span>] = <span class="number">183</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$myArr</span> [<span class="string">&apos;myName&apos;</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;Hello!{$myArr[&apos;myName&apos;]}&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$weekArr</span> = <span class="keyword">array</span>(<span class="string">&apos;Mondy&apos;</span>,<span class="string">&apos;Thuesday&apos;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$myArr</span> = <span class="keyword">array</span>(<span class="string">&apos;myName&apos;</span>=&gt;<span class="string">&apos;Henry&apos;</span>,<span class="string">&apos;myHeight&apos;</span>=&gt;<span class="number">183</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$weekArr</span> <span class="keyword">as</span> <span class="variable">$value</span>){</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$value</span>;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$weekArr</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>){</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$key</span> . <span class="string">&quot;:&quot;</span> . <span class="variable">$value</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x6392;&#x5E8F;func</span></span><br><span class="line"><span class="variable">$myArr</span> = <span class="keyword">array</span> (</span><br><span class="line">		<span class="string">&apos;img1&apos;</span>,</span><br><span class="line">		<span class="string">&apos;img3&apos;</span>,</span><br><span class="line">		<span class="string">&apos;img5&apos;</span>,</span><br><span class="line">		<span class="string">&apos;img2&apos;</span>,</span><br><span class="line">		<span class="string">&apos;img11&apos;</span></span><br><span class="line">);</span><br><span class="line">sort(<span class="variable">$myArr</span>);</span><br><span class="line">var_dump ( <span class="variable">$myArr</span> );</span><br><span class="line">natsort(<span class="variable">$myArr</span>);</span><br><span class="line">var_dump ( <span class="variable">$myArr</span> );</span><br><span class="line"></span><br><span class="line"><span class="comment">// usort =&gt; &#x4F7F;&#x7528;&#x8005;&#x81EA;&#x8A02;</span></span><br><span class="line">usort(<span class="variable">$myArr</span>, <span class="string">&quot;cmp&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cmp</span><span class="params">(<span class="variable">$a</span>, <span class="variable">$b</span>)</span></span>{</span><br><span class="line">	<span class="keyword">if</span> (<span class="variable">$a</span> == <span class="variable">$b</span>){</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	};</span><br><span class="line">	<span class="keyword">return</span> (<span class="variable">$a</span> &lt; <span class="variable">$b</span>) ? -<span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Session&#x64CD;&#x4F5C;</span></span><br><span class="line">start_session();</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&quot;btnWriteSession&quot;</span>])){</span><br><span class="line">	<span class="variable">$_SESSION</span>[<span class="string">&quot;userName&quot;</span>]=<span class="variable">$_POST</span>[<span class="string">&quot;txt1&quot;</span>];</span><br><span class="line">}</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&quot;btnWriteCookie&quot;</span>])){</span><br><span class="line">	setcookie(<span class="string">&quot;userid&quot;</span>, <span class="variable">$_POST</span>[<span class="string">&quot;txt2&quot;</span>]);</span><br><span class="line">	setcookie(<span class="string">&quot;userid&quot;</span>, <span class="variable">$_POST</span>[<span class="string">&quot;txt2&quot;</span>], time() + <span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>*<span class="number">7</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x53E6;&#x4E00;&#x7A2E;if else&#x5BEB;&#x6CD5;&#xFF0C;&#x53EF;&#x7528;&#x4F86;&#x5340;&#x5206;js&#x7684;if else&#xFF0C;&#x63D0;&#x9AD8;&#x53EF;&#x8B80;&#x6027;</span></span><br><span class="line"><span class="preprocessor">&lt;?php</span> <span class="keyword">if</span> (<span class="variable">$sUserName</span>==<span class="string">&quot;&quot;</span>) : <span class="preprocessor">?&gt;</span></span><br><span class="line">	&lt;td align=<span class="string">&quot;center&quot;</span> valign=<span class="string">&quot;Wbaseline&quot;</span>&gt;&lt;a href=<span class="string">&quot;login.php&quot;</span>&gt;&#x767B;&#x5165;&lt;/a&gt; | &lt;a href=<span class="string">&quot;secret.php&quot;</span>&gt;&#x6703;&#x54E1;&#x5C08;&#x7528;&#x9801;&lt;/a&gt;&lt;/td&gt;</span><br><span class="line"><span class="preprocessor">&lt;?php</span> <span class="keyword">else</span> : <span class="preprocessor">?&gt;</span></span><br><span class="line">	&lt;td align=<span class="string">&quot;center&quot;</span> valign=<span class="string">&quot;Wbaseline&quot;</span>&gt;&lt;a href=<span class="string">&quot;login.php?signout=1&quot;</span>&gt;&#x767B;&#x51FA;&lt;/a&gt; | &lt;a href=<span class="string">&quot;secret.php&quot;</span>&gt;&#x6703;&#x54E1;&#x5C08;&#x7528;&#x9801;&lt;/a&gt;&lt;/td&gt;</span><br><span class="line"><span class="preprocessor">&lt;?php</span> <span class="keyword">endif</span> <span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&apos;#letter&apos;</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">//jQuery&#x7684;$.get(url,func)&#x5373;&#x70BA;AJAX&#x6A5F;&#x5236;&#x5B58;&#x53D6;&#x8CC7;&#x6599;</span></span><br><span class="line">	$.get(<span class="string">&apos;getLetterNumber.php?letter=&apos;</span>+$(<span class="string">&apos;#letter option:selected&apos;</span>).text(),</span><br><span class="line">			<span class="function"><span class="keyword">function</span>(<span class="params">htmlData</span>)</span>{</span><br><span class="line">				$(<span class="string">&apos;#letterNumber&apos;</span>).html(htmlData);</span><br><span class="line">			});</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>Async&#x7684;&#x7BC4;&#x4F8B;&#x53EF;&#x53C3;&#x8003;0702&#x7684;Lab_AsyncPost<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sprintf(<span class="string">&quot;&lt;option value=&apos;%s&apos;&gt;%s%s&lt;/option&gt;&quot;</span>,<span class="variable">$i</span>, <span class="variable">$x</span>, <span class="variable">$i</span>+<span class="number">1</span>);</span><br></pre></td></tr></table></figure></p>
+<p>##&#x5B58;&#x53D6;DB<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x9023;db(&#x52A0;&#x4E0A;@&#x662F;&#x767C;&#x751F;&#x932F;&#x8AA4;&#x4E0D;show&#x932F;&#x8AA4;&#x8CC7;&#x8A0A;)</span></span><br><span class="line"><span class="variable">$db_link</span> = @mysql_connect(<span class="variable">$db_host</span>, <span class="variable">$db_username</span>, <span class="variable">$db_password</span>);</span><br><span class="line"><span class="comment">//&#x6307;&#x5B9A;&#x8981;&#x64CD;&#x4F5C;&#x90A3;&#x4E00;&#x500B;db</span></span><br><span class="line"><span class="variable">$seldb</span> = @mysql_select_db(<span class="string">&quot;class&quot;</span>);</span><br><span class="line"><span class="comment">//&#x6488;&#x8CC7;&#x8A0A;</span></span><br><span class="line"><span class="variable">$sql_query</span> = <span class="string">&quot;SELECT * FROM `students`&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysql_query(<span class="variable">$sql_query</span>);</span><br><span class="line"><span class="comment">//&#x6EFE;&#x8CC7;&#x6599;</span></span><br><span class="line"><span class="comment">//mysql_fetch_assoc =&gt; $item&#x70BA;&#x6B04;&#x4F4D;&#x540D; (associative array)</span></span><br><span class="line"><span class="comment">//mysql_fetch_row   =&gt; $item&#x70BA;array&#x5E8F;&#x865F; (enumerated array)</span></span><br><span class="line"><span class="comment">//mysql_fetch_array =&gt; $both&#xFF0C;&#x6240;&#x4EE5;&#x6703;&#x6709;&#x5169;&#x7B46;</span></span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$row_result</span>=mysql_fetch_assoc(<span class="variable">$result</span>)){</span><br><span class="line">	<span class="keyword">foreach</span>(<span class="variable">$row_result</span> <span class="keyword">as</span> <span class="variable">$item</span>=&gt;<span class="variable">$value</span>){</span><br><span class="line">		<span class="keyword">echo</span> <span class="variable">$item</span>.<span class="string">&quot;=&quot;</span>.<span class="variable">$value</span>.<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;hr /&gt;&quot;</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//&#x53D6;&#x5F97;&#x8CC7;&#x6599;&#x7B46;&#x6578;</span></span><br><span class="line"><span class="variable">$total_records</span> = mysql_num_rows(<span class="variable">$result</span>);</span><br></pre></td></tr></table></figure></p>
+<p>&#x4EE5;&#x4E0B;&#x7A0B;&#x5F0F;&#x78BC;&#x70BA;&#x5EFA;&#x7ACB;&#x9023;&#x7DDA;&#x5B58;&#x53D6;&#x8CC7;&#x6599;&#x7684;&#x6A19;&#x6E96;&#x5BEB;&#x6CD5;<br>/LabPhp/php/0626/Lab_MySQL_basic_1_start.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">header(<span class="string">&quot;content-type:text/html; charset=utf-8&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 0. &#x8ACB;&#x5148;&#x5EFA;&#x7ACB; Class &#x8CC7;&#x6599;&#x5EAB; &#xFF08;&#x57F7;&#x884C; class.sql&#xFF09;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. &#x9023;&#x63A5;&#x8CC7;&#x6599;&#x5EAB;&#x4F3A;&#x670D;&#x5668;</span></span><br><span class="line"><span class="variable">$link</span> = mysql_connect(<span class="string">&quot;localhost&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;root&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(mysql_error());</span><br><span class="line"><span class="variable">$result</span> = mysql_query(<span class="string">&quot;set names utf8&quot;</span>, <span class="variable">$link</span>);</span><br><span class="line">mysql_selectdb(<span class="string">&quot;class&quot;</span>, <span class="variable">$link</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. &#x57F7;&#x884C; SQL &#x6558;&#x8FF0;</span></span><br><span class="line"><span class="variable">$commandText</span> = <span class="string">&quot;select * from students&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = mysql_query(<span class="variable">$commandText</span>, <span class="variable">$link</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. &#x8655;&#x7406;&#x67E5;&#x8A62;&#x7D50;&#x679C;</span></span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$row</span> = mysql_fetch_assoc(<span class="variable">$result</span>))</span><br><span class="line">{</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;ID&#xFF1A;{$row[&apos;cID&apos;]}&lt;br&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;Name&#xFF1A;{$row[&apos;cName&apos;]}&lt;br&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;HR&gt;&quot;</span>;</span><br><span class="line">}</span><br><span class="line">mysql_free_result(<span class="variable">$result</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. &#x7D50;&#x675F;&#x9023;&#x7DDA;</span></span><br><span class="line">mysql_close(<span class="variable">$link</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br /&gt;-- Done --&quot;</span>;</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>PDO (PHP Data Object): &#x53C3;&#x8003;0702 Demo_PDO_xxxxx</p>
+</blockquote>
+<p>6.29&#x4E0A;&#x5348;<br>file i/o<br>&#x7DB2;&#x7AD9;&#x8DEF;&#x5F91;(&#x5BE6;&#x9AD4;,&#x865B;&#x64EC;)<br>&#x6A94;&#x540D;/&#x76EE;&#x9304;&#x540D;/&#x8DEF;&#x5F91;&#x7684;&#x64CD;&#x4F5C;<br>&#x6A94;&#x6848;&#x64CD;&#x4F5C;: &#x958B;/&#x8B80;/&#x95DC;<br>&#x76EE;&#x9304;&#x64CD;&#x4F5C;: &#x958B;/&#x8B80;/&#x95DC;<br>form&#x6A94;&#x6848;&#x4E0A;&#x50B3;<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x76EE;&#x9304;&#x64CD;&#x4F5C;: &#x958B;/&#x8B80;/&#x95DC;</span></span><br><span class="line">	<span class="variable">$fileDir</span> = dirname(realpath(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">	<span class="variable">$fileResource</span> = opendir(<span class="variable">$fileDir</span>);</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;table border=&apos;1&apos; width=&apos;100%&apos;&gt;&lt;tr&gt;&lt;td width=&apos;20%&apos; valign=&apos;top&apos;&gt;&#x8CC7;&#x6599;&#x593E;&#xFF1A;&lt;/td&gt;&lt;td&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="variable">$fileList</span> = readdir(<span class="variable">$fileResource</span>)){</span><br><span class="line">		<span class="keyword">if</span>(is_dir(<span class="variable">$fileDir</span>.<span class="string">&apos;/&apos;</span>.<span class="variable">$fileList</span>))	<span class="keyword">echo</span> <span class="variable">$fileList</span>.<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">	}</span><br><span class="line">	rewinddir(<span class="variable">$fileResource</span>);</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=&apos;20%&apos; valign=&apos;top&apos;&gt;&#x6A94;&#x6848;&#xFF1A;&lt;/td&gt;&lt;td&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="variable">$fileList</span> = readdir(<span class="variable">$fileResource</span>)){</span><br><span class="line">		<span class="keyword">if</span>(is_file(<span class="variable">$fileDir</span>.<span class="string">&apos;/&apos;</span>.<span class="variable">$fileList</span>))<span class="keyword">echo</span> <span class="variable">$fileList</span>.<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span>;</span><br><span class="line">	closedir(<span class="variable">$fileResource</span>);</span><br><span class="line"><span class="comment">//&#x6A94;&#x6848;&#x64CD;&#x4F5C;: &#x958B;/&#x8B80;/&#x95DC;</span></span><br><span class="line"><span class="variable">$filename</span> = fopen(<span class="string">&quot;php_file13.htm&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$line</span> = fgets(<span class="variable">$filename</span>)){</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$line</span>;</span><br><span class="line">}</span><br><span class="line">fclose(<span class="variable">$filename</span>);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">header(<span class="string">&quot;Content-Type: image/gif&quot;</span>);</span><br><span class="line"><span class="comment">// fopne&#x5716;&#x7247;/&#x5F71;&#x7247;&#x6642;&#xFF0C;&#x9700;&#x4F7F;&#x7528;rb</span></span><br><span class="line"><span class="variable">$filename</span> = fopen(<span class="string">&quot;php_file18.gif&quot;</span>,<span class="string">&quot;rb&quot;</span>);</span><br><span class="line"><span class="comment">// fread&#x8B80;&#x53D6;&#x7D66;&#x5B9A;size&#x7684;block&#x9032;&#x4F86;(&#x9019;&#x88E1;&#x7684;&#x7BC4;&#x4F8B;&#x70BA;&#x6574;&#x500B;&#x5716;&#x7247;&#x8B80;&#x9032;&#x4F86;)</span></span><br><span class="line"><span class="keyword">echo</span> fread(<span class="variable">$filename</span>,filesize(<span class="string">&quot;php_file18.gif&quot;</span>));</span><br><span class="line">fclose(<span class="variable">$filename</span>);</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://www.w3schools.com/php/php_ref_filesystem.asp" target="_blank" rel="external">PHP 5 Filesystem Functions Reference</a><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x6A94;&#x6848;&#x64CD;&#x4F5C;: &#x76F4;&#x63A5;&#x8B80;</span></span><br><span class="line"><span class="variable">$contents</span> = file_get_contents(<span class="string">&apos;php_file11.htm&apos;</span>);</span><br><span class="line"><span class="keyword">echo</span> strip_tags(<span class="variable">$contents</span>);</span><br><span class="line"><span class="comment">//&#x64CB;&#x6848;&#x64CD;&#x4F5C;: &#x76F4;&#x63A5;&#x8B80;&#x6210;array</span></span><br><span class="line"><span class="variable">$lines</span> = file(<span class="string">&apos;php_file11.htm&apos;</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$lines</span> <span class="keyword">as</span> <span class="variable">$line_num</span> =&gt; <span class="variable">$line</span>) {</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;#&lt;b&gt;$line_num&lt;/b&gt; : &quot;</span> . htmlspecialchars(<span class="variable">$line</span>) . <span class="string">&quot;&lt;br /&gt;\n&quot;</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//&#x6A94;&#x6848;&#x64CD;&#x4F5C;: &#x76F4;&#x63A5;&#x5BEB;</span></span><br><span class="line"><span class="variable">$content</span> = <span class="string">&lt;&lt;&lt;useHTML</span><br><span class="line">	&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;META HTTP-EQUIV=&quot;Content-Type&quot; CONTENT=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;&#x95DC;&#x65BC;&#x6587;&#x6DF5;&#x95A3;&#x5DE5;&#x4F5C;&#x5BA4;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;p&gt;&#x6587;&#x6DF5;&#x95A3;&#x5DE5;&#x4F5C;&#x5BA4;&#x5275;&#x7ACB;&#x65BC;1987&#x5E74;&#xFF0C;&#x7B2C;&#x4E00;&#x672C;&#x96FB;&#x8166;&#x53E2;&#x66F8;&#x300C;&#x5FEB;&#x5FEB;&#x6A02;&#x6A02;&#x5B78;&#x96FB;&#x8166;&#x300D;&#x65BC;&#x8A72;&#x5E74;&#x5E95;&#x554F;&#x4E16;&#x3002;&#x5DE5;&#x4F5C;&#x5BA4;&#x7684;&#x5275;&#x6703;&#x6210;&#x54E1;&#xFF0D;&#x9127;&#x6587;&#x6DF5;&#x3001;&#x674E;&#x6DD1;&#x73B2;&#x5747;&#x70BA;&#x82E6;&#x5B78;&#x51FA;&#x8EAB;&#xFF0C;&#x5728;&#x5B78;&#x7FD2;&#x96FB;&#x8166;&#x7684;&#x904E;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E00;&#x8DEF;&#x985B;&#x7C38;&#x8D70;&#x4F86;&#xFF0C;&#x5690;&#x904D;&#x4EBA;&#x9593;&#x51B7;&#x6696;&#x3002;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&#x56E0;&#x6B64;&#xFF0C;&#x6C7A;&#x5B9A;&#x6574;&#x5408;&#x81EA;&#x8EAB;&#x7684;&#x7DE8;&#x8F2F;&#x3001;&#x6559;&#x5B78;&#x7D93;&#x9A57;&#x53CA;&#x65B0;&#x751F;&#x4EE3;&#x7684;&#x9AD8;&#x624B;&#x7FA4;&#xFF0C;&#x9678;&#x7E8C;&#x63A8;&#x51FA; &#x300C;&#x5FEB;&#x5FEB;&#x6A02;&#x6A02;&#x5168;&#x7CFB;&#x5217;&#x300D; &#x96FB;&#x8166;&#x53E2;&#x66F8;&#xFF0C;&#x5180;&#x671B;&#x4EE5;&#x8F15;&#x9B06;&#x3001;&#x6DF1;&#x5165;&#x6DFA;&#x51FA;&#x7684;&#x7B46;&#x89F8;&#x3001;&#x8A73;&#x7D30;&#x7684;&#x5716;&#x8AAA;&#xFF0C;&#x89E3;&#x6C7A;&#x96FB;&#x8166;&#x5B78;&#x7FD2;&#x8005;&#x7684;&#x5FAC;&#x5FA8;&#x7121;&#x52A9;&#xFF0C;&#x4E26;&#x642D;&#x914D;&#x76F8;&#x95DC;&#x7DB2;&#x7AD9;&#x670D;&#x52D9;&#x8B80;&#x8005;&#x3002;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&#x611F;&#x8B1D;&#x60A8;&#x5C0D;&#x6587;&#x6DF5;&#x95A3;&#x5DE5;&#x4F5C;&#x5BA4;&#x7684;&#x71B1;&#x611B;&#xFF0C;&#x4E5F;&#x8ACB;&#x60A8;&#x548C;&#x6211;&#x5011;&#x5728;&#x5FEB;&#x5FEB;&#x6A02;&#x6A02;&#x7684;&#x6C23;&#x6C1B;&#x4E2D;&#x5171;&#x540C;&#x6210;&#x9577;&#xFF0C;&#x7A81;&#x7834;&#x6975;&#x9650;&#x3001;&#x8D85;&#x8D8A;&#x985B;&#x5CF0;&#x3002;&#x8B1D;&#x8B1D;&#x5927;&#x5BB6;&#xFF01;&lt;/p&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">	&lt;/html&gt;</span><br><span class="line">useHTML;</span></span><br><span class="line"><span class="variable">$filesize</span> = file_put_contents(<span class="string">&quot;php_file13a.htm&quot;</span>, <span class="variable">$content</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&#x6A94;&#x6848;&#x5BEB;&#x5165;&#x5B8C;&#x6210;&#xFF0C;&#x5927;&#x5C0F;&#x70BA; $filesize bytes&quot;</span>;</span><br></pre></td></tr></table></figure></p>
+<p>##&#x6A94;&#x6848;&#x4E0A;&#x50B3;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">META</span> <span class="attribute">HTTP-EQUIV</span>=<span class="value">&quot;Content-Type&quot;</span> <span class="attribute">CONTENT</span>=<span class="value">&quot;text/html; charset=utf-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x8868;&#x55AE;<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">&quot;php_file9.php&quot;</span> <span class="attribute">method</span>=<span class="value">&quot;post&quot;</span> <span class="attribute">enctype</span>=<span class="value">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">	&#x8ACB;&#x9078;&#x53D6;&#x8981;&#x4E0A;&#x50B3;&#x7684;&#x6A94;&#x6848;&#xFF1A;<span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">&quot;file&quot;</span> <span class="attribute">name</span>=<span class="value">&quot;fileUpload&quot;</span> /&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">&quot;submit&quot;</span> <span class="attribute">value</span>=<span class="value">&quot;&#x9001;&#x51FA;&#x8CC7;&#x6599;&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;error&quot;</span>]==<span class="number">0</span>){</span><br><span class="line">		<span class="keyword">if</span>(move_uploaded_file(<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;tmp_name&quot;</span>], <span class="string">&quot;./&quot;</span>.<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;name&quot;</span>])){</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;&#x4E0A;&#x50B3;&#x6210;&#x529F;&lt;br /&gt;&quot;</span>;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;&#x6A94;&#x6848;&#x540D;&#x7A31;&#xFF1A;&quot;</span>.<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;name&quot;</span>].<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;&#x6A94;&#x6848;&#x985E;&#x578B;&#xFF1A;&quot;</span>.<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;type&quot;</span>].<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;&#x6A94;&#x6848;&#x5927;&#x5C0F;&#xFF1A;&quot;</span>.<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;size&quot;</span>].<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">		}<span class="keyword">else</span>{</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;&#x4E0A;&#x50B3;&#x5931;&#x6557;! &quot;</span>;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;&lt;a href=&apos;javascript:window.history.back();&apos;&gt;&#x56DE;&#x4E0A;&#x4E00;&#x9801;&lt;/a&gt;&quot;</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>6.29&#x4E0B;&#x5348;<br>&#x7269;&#x4EF6;&#x5C0E;&#x5411;<br>&#x985E;&#x5225;: &#x5B9A;&#x7FA9;&#x8CC7;&#x6599;&amp;&#x65B9;&#x6CD5;(&#x5C01;&#x88DD;)<br>&#x7269;&#x4EF6;: &#x5BE6;&#x9AD4;&#x5316;&#x985E;&#x5225;&#x5B9A;&#x7FA9;<br>&#x7E7C;&#x627F;(extends). &#x591A;&#x578B;.<br>&#x5EFA;&#x69CB;&#x5B50;(construct) / &#x89E3;&#x69CB;&#x5B50;(destruct)</p>
+<p>##&#x7269;&#x4EF6;&#x5C0E;&#x5411;</p>
+<p>OOPLib.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">media</span> </span>{</span><br><span class="line">	<span class="keyword">private</span>  <span class="variable">$name</span>;</span><br><span class="line">	<span class="keyword">protected</span>  <span class="variable">$size</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="variable">$desc</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(<span class="variable">$fname</span>)</span></span>{</span><br><span class="line">		<span class="variable">$this</span>-&gt;name = <span class="variable">$fname</span>;</span><br><span class="line">		<span class="comment">//echo &apos;&lt;h2&gt;new image constrct&lt;br&gt;&apos;;</span></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">echoDesc</span><span class="params">()</span></span>{</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;&lt;h1&gt;$this-&gt;name description: $this-&gt;desc&lt;br&gt;&quot;</span>;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span>{</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;&lt;h2&gt;this image($this-&gt;name) has been desctrct&quot;</span>;</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">image</span> <span class="keyword">extends</span> <span class="title">media</span> </span>{</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(<span class="variable">$fname</span>)</span></span>{</span><br><span class="line">		<span class="keyword">parent</span>::__construct(<span class="variable">$fname</span> . <span class="string">&quot;(image)&quot;</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>OOP.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">&apos;OOPLib.php&apos;</span>;</span><br><span class="line"></span><br><span class="line">session_start();</span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">&apos;image&apos;</span>])) {</span><br><span class="line">	<span class="variable">$img</span> = <span class="keyword">new</span> image(<span class="string">&apos;lily-image.jpg&apos;</span>);</span><br><span class="line">	<span class="variable">$_SESSION</span>[<span class="string">&apos;image&apos;</span>]=<span class="variable">$img</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">header(<span class="string">&quot;Location: OOP2.php&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>OOP2.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">&apos;OOPLib.php&apos;</span>;</span><br><span class="line">session_start();</span><br><span class="line"><span class="variable">$img</span> = <span class="variable">$_SESSION</span>[<span class="string">&apos;image&apos;</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$img</span>-&gt;desc = <span class="string">&apos;boracay&apos;</span>;</span><br><span class="line"><span class="variable">$img</span>-&gt;echoDesc();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&apos;&lt;h3&gt;&apos;</span>;</span><br><span class="line">var_dump(<span class="variable">$img</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$img</span> = <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&apos;&lt;h3&gt;&apos;</span>;</span><br><span class="line">var_dump(<span class="variable">$img</span>);</span><br></pre></td></tr></table></figure>
+<p>##JSON</p>
+<p>0630</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sJson</span> = <span class="string">&apos;{&quot;cID&quot;:&quot;01&quot;,&quot;cName&quot;:&quot;\u7c21\u5949\u541b&quot;,&quot;cSex&quot;:&quot;F&quot;,&quot;cBirthday&quot;:&quot;1987-04-04&quot;,&quot;cEmail&quot;:&quot;elven@superstar.com&quot;,&quot;cPhone&quot;:&quot;0922988876&quot;,&quot;cAddr&quot;:&quot;\u53f0\u5317\u5e02\u6fdf\u6d32\u5317\u8def12\u865f&quot;}&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$obj</span> = json_decode(<span class="variable">$sJson</span>, <span class="keyword">false</span>);<span class="comment">//$assoc&#x4EE3;&#x4E0A;false&#x8868;&#x793A;&#x8F49;&#x6210;&#x7269;&#x4EF6;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;h1&gt; $obj-&gt;cName&quot;</span>;</span><br><span class="line"><span class="variable">$arr</span> = json_decode(<span class="variable">$sJson</span>, <span class="keyword">true</span>);<span class="comment">//$assoc&#x4EE3;&#x4E0A;true&#x8868;&#x793A;&#x8F49;&#x6210;&#x9663;&#x5217;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;h2&gt; {$arr[&apos;cName&apos;]}&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$arrData</span> = <span class="keyword">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="keyword">Array</span>(<span class="string">&apos;A&apos;</span>, <span class="string">&apos;B&apos;</span>, <span class="string">&apos;C&apos;</span>), <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="variable">$arr</span> = json_encode(<span class="variable">$arrData</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;h3&gt; $arr&quot;</span>;</span><br><span class="line"><span class="variable">$obj</span> = json_encode(<span class="variable">$arrData</span>, JSON_FORCE_OBJECT);</span><br><span class="line"><span class="comment">//JSON_FORCE_OBJECT (integer) Outputs an object rather than an array when a non-associative array is used. Especially useful when the recipient of the output is expecting an object and the array is empty. Available since PHP 5.3.0.</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;h4&gt; $obj&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>[&#x2026;] &#x4E2D;&#x62EC;&#x865F;&#x4EE3;&#x8868;&#x9663;&#x5217;<br>{&#x2026;} &#x5927;&#x62EC;&#x865F;&#x4EE3;&#x8868;&#x7269;&#x4EF6;<br>, &#x9017;&#x865F;&#x5206;&#x9694;&#x5C6C;&#x6027;<br>\: &#x5206;&#x865F;&#x8A2D;&#x5B9A;&#x5C6C;&#x6027;&#x503C;<br>&#x201C; &#x96D9;&#x5F15;&#x865F;&#x62EC;&#x4F4F;&#x5C6C;&#x6027;&#x503C;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">sJson = <span class="built_in">JSON</span>.stringify(a);</span><br><span class="line">b=<span class="built_in">JSON</span>.parse(sJson);<span class="comment">//&#x56B4;&#x8B39;&#xFF0C;JSON&#x5B57;&#x4E32;&#x9700;&#x7B26;&#x5408;&#x683C;&#x5F0F;</span></span><br><span class="line">b=<span class="built_in">eval</span>(sJson);<span class="comment">//&#x8F03;&#x9B06;&#x6563;&#xFF0C;JSON&#x5B57;&#x4E32;&#x53EF;&#x6709;&#x9EDE;&#x5C0F;&#x932F;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>&#x540C;&#x6E90;&#x653F;&#x7B56; (Same-origin policy): &#x540C;&#x6E90;&#x653F;&#x7B56;&#x9650;&#x5236;&#x4E86;&#x7A0B;&#x5F0F;&#x78BC;&#x548C;&#x4E0D;&#x540C;&#x7DB2;&#x57DF;&#x8CC7;&#x6E90;&#x9593;&#x7684;&#x4E92;&#x52D5;&#x3002;<br>JSONP: JSON Padding, &#x6280;&#x8853;&#x6027;&#x8655;&#x7406;&#x540C;&#x6E90;&#x653F;&#x7B56;&#x7684;issue</p>
+</blockquote>
+<p>scenario: &#x65BC;localhost&#x8DE8;&#x57DF;&#x8981;&#x6C42;www.monster.com&#x7684;&#x8CC7;&#x6599;<br>solution: &#x900F;&#x904E;&#x6307;&#x5B9A;script&#x7684;src&#x4F86;&#x8DE8;&#x57DF;&#x53D6;&#x5F97;&#x8CC7;&#x6599;</p>
+<p><a href="http://**localhost**/Lab_JSONP/GetDataFromServer_34.php" target="_blank" rel="external">http://**localhost**/Lab_JSONP/GetDataFromServer_34.php</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#btnRefresh&quot;</span>).click(btnRefresh_click);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">btnRefresh_click</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">&apos;script&apos;</span>);</span><br><span class="line">    script.src = <span class="string">&apos;http://www.monster.com/Lab_JSONP/GetProductJsonp.php?id=1&amp;callback=DataArrived&apos;</span>;</span><br><span class="line">    script.type = <span class="string">&apos;text/javascript&apos;</span>;</span><br><span class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">&apos;head&apos;</span>)[<span class="number">0</span>].appendChild(script);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DataArrived</span>(<span class="params">data</span>) </span>{</span><br><span class="line">	$(<span class="string">&quot;#txtUnitsInStock&quot;</span>).val(data.UnitsInStock);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>jQuery&#x7684;&#x5BEB;&#x6CD5;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#btnRefresh&quot;</span>).click(btnRefresh_click);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">btnRefresh_click</span>(<span class="params"></span>) </span>{</span><br><span class="line">	$.ajax({</span><br><span class="line">		url: <span class="string">&quot;http://www.monster.com/Lab_JSONP/GetProductJsonp.php&quot;</span>,</span><br><span class="line">		type: <span class="string">&quot;get&quot;</span>,</span><br><span class="line">		dataType: <span class="string">&apos;jsonp&apos;</span>,</span><br><span class="line">		data: {id: <span class="number">1</span>},</span><br><span class="line">		jsonp: <span class="string">&apos;callback&apos;</span>,</span><br><span class="line">		jsonpCallback: <span class="string">&apos;DataArrived&apos;</span>,</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DataArrived</span>(<span class="params">data</span>) </span>{</span><br><span class="line">	$(<span class="string">&quot;#txtUnitsInStock&quot;</span>).val(data.UnitsInStock);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>##XML<br>0701&#x4E0A;&#x5348;</p>
+<blockquote>
+<p><strong>&#x4F7F;&#x7528;xpath&#x4F86;&#x5B58;&#x53D6;&#x8CC7;&#x6599;</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$doc</span> = <span class="keyword">new</span> DOMDocument();</span><br><span class="line"><span class="variable">$doc</span>-&gt;Load(<span class="string">&apos;employees.xml&apos;</span>);</span><br><span class="line"><span class="variable">$xpath</span> = <span class="keyword">new</span> DOMXPath(<span class="variable">$doc</span>);</span><br><span class="line"><span class="comment">//&#x53D6;&#x5F97;&#x5C6C;&#x6027;&#x503C;</span></span><br><span class="line"><span class="variable">$entries</span> = <span class="variable">$xpath</span>-&gt;query(<span class="string">&quot;/employees/employee/@EmpType&quot;</span>);</span><br><span class="line"><span class="comment">//&#x5C0D;&#x5C6C;&#x6027;&#x503C;&#x8A2D;&#x5B9A;&#x689D;&#x4EF6;&#x4F86;filter&#x8CC7;&#x6599;</span></span><br><span class="line"><span class="variable">$entries</span> = <span class="variable">$xpath</span>-&gt;query(<span class="string">&quot;/employees/employee[@EmpType=&apos;Sales&apos;]/lastName&quot;</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$entries</span> <span class="keyword">as</span> <span class="variable">$entry</span>)</span><br><span class="line">{</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">&quot;&#x7D50;&#x679C;&#xFF1A;&quot;</span> . <span class="variable">$entry</span>-&gt;nodeValue . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>chunked transfer encoding : Lab_LongRequest<br>websocket<br>single page application</p>
+</blockquote>
+<p>##&#x5B89;&#x5168;<br>0701&#x4E0B;&#x5348;</p>
+<blockquote>
+<p>&#x53C3;&#x8003;WebProgramSecurity.pdf&#xFF0C;&#x6709;server-side&#x53CA;client-side&#xFF0C;&#x6975;&#x91CD;&#x8981;</p>
+<ul>
+<li>SQL Injection</li>
+<li>Server Configuration</li>
+<li>XSS / CSRF<br>&#x2013; captcha: &#x53EF;&#x53C3;&#x8003;0702 Lab_CAPTCHA<br>&#x2013; anti CSRF token</li>
+<li>ClickJacking<br>&#x2013; frame bustering<br>&#x2013; header(&#x201C;X-Frame-Options: Deny&#x201D;);</li>
+</ul>
+</blockquote>
+<p>##laravel<br>Application key [TlDlIaffLhhfrgA5doqNw6iecg9KjNoU] set successfully.</p>
+<h2 id="win7">win7</h2><ol>
 <li><p>&#x986F;&#x793A;&#x932F;&#x8AA4;<br><code>display_errors = On</code></p>
 </li>
 <li><p>&#x8A2D;&#x7F6E;extension&#x76EE;&#x9304;<br><code>extension_dir = &quot;D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64\ext&quot;</code></p>
@@ -236,145 +402,393 @@
 <h2 id="osx-extra">OSX (extra)</h2><h3 id="&#x958B;&#x555F;xdebug">&#x958B;&#x555F;xdebug</h3><p><code>zend_extension = &quot;xdebug.so&quot;</code></p>
 <h3 id="composer">Composer</h3><p><code>curl -sS https://getcomposer.org/installer | php</code><br><code>mv composer.phar /usr/local/bin/composer</code></p>
 <h1 id="reference">Reference</h1><p><a href="http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers" target="_blank" rel="external">PDO Tutorial for MySQL Developers</a><br><a href="http://www.restapitutorial.com/index.html" target="_blank" rel="external">REST API Turorial</a><br><a href="http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php" target="_blank" rel="external">Scope Resolution Operator (::)</a></p>
-
-        
-            
-        
+</span>
+      
     </div>
-    <div class="post-footer main-content-wrap">
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/12/embedded-android-final-project/"  data-tooltip="期末專題">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/30/android-note/" data-tooltip="安卓筆記區">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/08/07/php-note/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/08/07/php-note/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/08/07/php-note/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
-        
-    </ul>
-</div>
 
+    <footer class="post-footer">
+      
 
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2015 Henry Lee. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/12/embedded-android-final-project/"  data-tooltip="期末專題">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/30/android-note/" data-tooltip="安卓筆記區">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/08/07/php-note/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/08/07/php-note/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/08/07/php-note/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
-
-                </div>
+              <a href="/2015/08/12/embedded-android-final-project/" rel="prev">期末專題</a>
             
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/30/android-note/" rel="next">安卓筆記區</a>
+            
+          </div>
         </div>
-        <div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">Henry Lee</h4>
-        
-        
-        
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/pp.jpeg" alt="Henry Lee" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Henry Lee</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">categories</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#html"><span class="nav-number">1.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css"><span class="nav-number">2.</span> <span class="nav-text">css</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jquery"><span class="nav-number">3.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#security"><span class="nav-number">4.</span> <span class="nav-text">Security</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#https-http-over-ssl"><span class="nav-number">4.1.</span> <span class="nav-text">HTTPS - HTTP over SSL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#trouble-shooting"><span class="nav-number">5.</span> <span class="nav-text">Trouble Shooting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pdo連線報錯no-such-file"><span class="nav-number">5.1.</span> <span class="nav-text">PDO連線報錯no such file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#osx上傳檔案時報錯php-warning-mkdir-permission-denied"><span class="nav-number">5.2.</span> <span class="nav-text">OSX上傳檔案時報錯PHP Warning:  mkdir(): Permission denied</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redhat上傳檔案時報錯php-warning-mkdir-permission-denied"><span class="nav-number">5.3.</span> <span class="nav-text">Redhat上傳檔案時報錯PHP Warning:  mkdir(): Permission denied</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定界符對應之結束符的前一個位元需為換行符號"><span class="nav-number">5.4.</span> <span class="nav-text">定界符對應之結束符的前一個位元需為換行符號</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用exif_read_date需於phpini做以下設定"><span class="nav-number">5.5.</span> <span class="nav-text">使用exif_read_date需於php.ini做以下設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上傳檔案時無法取得原始拍攝日期"><span class="nav-number">5.6.</span> <span class="nav-text">上傳檔案時無法取得原始拍攝日期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apache-httpd建置"><span class="nav-number">6.</span> <span class="nav-text">Apache httpd建置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#win7"><span class="nav-number">6.1.</span> <span class="nav-text">win7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#osx"><span class="nav-number">6.2.</span> <span class="nav-text">OSX</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php"><span class="nav-number">7.</span> <span class="nav-text">PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#win7"><span class="nav-number">7.1.</span> <span class="nav-text">win7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#osx-extra"><span class="nav-number">7.2.</span> <span class="nav-text">OSX (extra)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#開啟xdebug"><span class="nav-number">7.2.1.</span> <span class="nav-text">開啟xdebug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#composer"><span class="nav-number">7.2.2.</span> <span class="nav-text">Composer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Henry Lee</span>
 </div>
-        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script.min.js" type="text/javascript"></script>
-<!--SCRIPTS END-->
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
 </html>

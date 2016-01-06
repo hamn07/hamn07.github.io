@@ -1,140 +1,249 @@
-<!DOCTYPE html>
-<html lang="null">
-    
+<!doctype html>
+<html class="theme-next use-motion ">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>安卓筆記區 - Hexo</title>
-    <meta name="author" content="Henry Lee">
-    <meta name="description" content="Hexo">
-    <link rel="icon" href="/assets/images/null">
-    
-        <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
-    <!--STYLES END-->
-    
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="&amp;#x8D99;&amp;#x8001;&amp;#x5E2B;&amp;#x7684;&amp;#x96F2;&amp;#x7AEF;&amp;#x5206;&amp;#x4EAB;&amp;#x8CC7;&amp;#x6599;&amp;#x593E;
+&amp;lt;!-- toc --&amp;gt;
+
+bluetooth
+problem to fix
+dialog
+sensor
+example
+
+
+media player
+volley
+POST image file
+
+
+HttpURLCon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓筆記區">
+<meta property="og:url" content="http://hamn07.github.io/2015/07/30/android-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;#x8D99;&amp;#x8001;&amp;#x5E2B;&amp;#x7684;&amp;#x96F2;&amp;#x7AEF;&amp;#x5206;&amp;#x4EAB;&amp;#x8CC7;&amp;#x6599;&amp;#x593E;
+&amp;lt;!-- toc --&amp;gt;
+
+bluetooth
+problem to fix
+dialog
+sensor
+example
+
+
+media player
+volley
+POST image file
+
+
+HttpURLCon">
+<meta property="og:image" content="http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png">
+<meta property="og:image" content="http://developer.android.com/images/service_lifecycle.png">
+<meta property="og:image" content="http://developer.android.com/intl/zh-cn/images/mediaplayer_state_diagram.gif">
+<meta property="og:updated_time" content="2016-01-05T01:53:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓筆記區">
+<meta name="twitter:description" content="&amp;#x8D99;&amp;#x8001;&amp;#x5E2B;&amp;#x7684;&amp;#x96F2;&amp;#x7AEF;&amp;#x5206;&amp;#x4EAB;&amp;#x8CC7;&amp;#x6599;&amp;#x593E;
+&amp;lt;!-- toc --&amp;gt;
+
+bluetooth
+problem to fix
+dialog
+sensor
+example
+
+
+media player
+volley
+POST image file
+
+
+HttpURLCon">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> 安卓筆記區 | Hexo </title>
 </head>
 
-    <body>
-        <div id="blog">
-            <header id="header" data-behavior="1">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="http://hamn07.github.io">Hexo</a>
-    </h1>
-    
-</header>
-            <nav id="sidebar" data-behavior="1">
-    
-    
-    <ul class="sidebar-buttons">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Hexo</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Home</span>
-                </a>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
         </li>
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="https://stark-everglades-8527.herokuapp.com/" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-globe"></i>
-                    <span class="sidebar-button-desc">web</span>
-                </a>
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
         </li>
+      
         
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="http://slides.com/hamn07/deck/live" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-slideshare"></i>
-                    <span class="sidebar-button-desc">slides</span>
-                </a>
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
         </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="http://ec2-52-26-138-212.us-west-2.compute.amazonaws.com/api/user/hamn07?apiKey=key1" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-database"></i>
-                    <span class="sidebar-button-desc">database</span>
-                </a>
-        </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/#about">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">About me</span>
-                </a>
-        </li>
-        
+      
+
+      
+      
     </ul>
-    
-    <ul class="sidebar-buttons">
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="https://github.com/hamn07" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
-                    <span class="sidebar-button-desc">GitHub</span>
-                </a>
-        </li>
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="mailto:hamn07@gmail.com" target="_blank">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
-                    <span class="sidebar-button-desc">Mail</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-    <ul class="sidebar-buttons">
-        
-        <li class="sidebar-button">
-            
-                <a  class="sidebar-button-link " href="/atom.xml">
-            
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
-                </a>
-        </li>
-        
-    </ul>
-    
+  
+
+  
 </nav>
-            <div id="main" data-behavior="1">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
     
-        <div class="post-header main-content-wrap">
-    
-        <h1 class="post-title" itemprop="headline">安卓筆記區</h1>
-    
-    <div class="post-meta">
-    <time  itemprop="datePublished" content="Thu Jul 30 2015 09:17:19 GMT+0800">
-        Jul 30, 2015
-    </time>
-    
-</div>
-</div>
-    
-    <div class="post-content markdown main-content-wrap" itemprop="articleBody">
-        <p><img src="http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png" alt=""></p>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              安卓筆記區
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-30T09:17:19+08:00" content="2015-07-30">
+            2015-07-30
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png" alt=""></p>
 <hr>
-<p><img src="http://developer.android.com/images/service_lifecycle.png" alt=""><br><a href="https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&amp;usp=sharing#list" target="_blank" rel="external">&#x8D99;&#x8001;&#x5E2B;&#x7684;&#x96F2;&#x7AEF;&#x5206;&#x4EAB;&#x8CC7;&#x6599;&#x593E;</a><br><a href="mailto://homeworks.iii@gmail.com" target="_blank" rel="external">&#x6797;&#x8001;&#x5E2B;&#x7684;&#x6559;&#x4F5C;&#x696D;&#x90F5;&#x4EF6;</a></p>
+<p><img src="http://developer.android.com/images/service_lifecycle.png" alt=""><br><a href="https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&amp;usp=sharing#list" target="_blank" rel="external">&#x8D99;&#x8001;&#x5E2B;&#x7684;&#x96F2;&#x7AEF;&#x5206;&#x4EAB;&#x8CC7;&#x6599;&#x593E;</a></p>
 <!-- toc -->
 <ul>
 <li><a href="#bluetooth">bluetooth</a></li>
@@ -160,6 +269,16 @@
 <li><a href="#java">java</a></li>
 <li><a href="#convetion">convetion</a></li>
 <li><a href="#question">Question</a></li>
+<li><a href="#java">Java</a><ul>
+<li><a href="#javanet">java.net</a></li>
+<li><a href="#&#x57F7;&#x884C;&#x7DD2;thread">&#x57F7;&#x884C;&#x7DD2;Thread</a></li>
+<li><a href="#collection">Collection</a></li>
+<li><a href="#io">IO</a></li>
+<li><a href="#database">Database</a></li>
+<li><a href="#annotation">Annotation</a></li>
+<li><a href="#cdi">CDI</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 <h1 id="bluetooth">bluetooth</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/connectivity/bluetooth.html" target="_blank" rel="external">official guide</a></p>
@@ -183,14 +302,16 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">task = <span class="keyword">new</span> MyAsyncTask();</span><br><span class="line">task.execute(<span class="string">&quot;test1&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test3&quot;</span>);</span><br></pre></td></tr></table></figure>
 <h1 id="&#x4E0A;&#x67B6;app">&#x4E0A;&#x67B6;App</h1><p><a href="https://play.google.com/apps/publish/" target="_blank" rel="external">Google Play Developer Console</a><br>export signed package<br>keystore</p>
 <h1 id="providing-resource">Providing Resource</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/resources/providing-resources.html" target="_blank" rel="external">official</a><br><code>res/layout-land</code>&#x7576;device&#x62FF;&#x6A6B;&#x6642;&#xFF0C;&#x5C31;&#x6703;&#x5957;&#x7528;&#x5230;&#x6B64;&#x7248;&#x9762;<br><code>res/values-zh-rTW</code>&#x7576;&#x8A9E;&#x7CFB;&#x6539;&#x70BA;&#x4E2D;&#x6587;&#x53F0;&#x7063;&#x6642;&#xFF0C;&#x5C31;&#x6703;&#x5957;&#x7528;&#x6B64;values&#x8A2D;&#x5B9A;</p>
-<h1 id="notification">Notification</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/ui/notifiers/notifications.html" target="_blank" rel="external">official</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiate PendingIntent</span></span><br><span class="line">TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(<span class="keyword">this</span>);</span><br><span class="line">taskStackBuilder.addParentStack(NoticePageActivity.class);</span><br><span class="line">taskStackBuilder.addNextIntent(<span class="keyword">new</span> Intent(<span class="keyword">this</span>,NoticePageActivity.class));</span><br><span class="line">PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(<span class="number">124</span>,PendingIntent.FLAG_UPDATE_CURRENT);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiate Notification.Builder</span></span><br><span class="line">Notification.Builder builder = <span class="keyword">new</span> Notification.Builder(<span class="keyword">this</span>);</span><br><span class="line">builder.setTicker(<span class="string">&quot;super important&quot;</span>);</span><br><span class="line">builder.setAutoCancel(<span class="keyword">true</span>);</span><br><span class="line">builder.setSmallIcon(android.R.drawable.sym_def_app_icon);</span><br><span class="line">builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.drawable.sym_def_app_icon));</span><br><span class="line">builder.setSound(Uri.fromFile(<span class="keyword">new</span> File(Environment.getExternalStorageDirectory(),<span class="string">&quot;sound.wav&quot;</span>)));</span><br><span class="line">builder.setContentInfo(<span class="string">&quot;info&quot;</span>);</span><br><span class="line">builder.setContentText(<span class="string">&quot;text&quot;</span>);</span><br><span class="line">builder.setContentTitle(<span class="string">&quot;title&quot;</span>);</span><br><span class="line">builder.setContentIntent(pendingIntent);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// API Level 11+</span></span><br><span class="line"><span class="comment">//Notification notification = builder.getNotification();</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// API Level 16+ (4.1.2+)</span></span><br><span class="line">Notification notification = builder.build();</span><br><span class="line"><span class="comment">// send notification</span></span><br><span class="line">mgr.notify(<span class="number">0</span>,notification);</span><br></pre></td></tr></table></figure></p>
+<h1 id="notification">Notification</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/ui/notifiers/notifications.html" target="_blank" rel="external">official</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiate PendingIntent</span></span><br><span class="line">TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(<span class="keyword">this</span>);</span><br><span class="line">taskStackBuilder.addParentStack(NoticePageActivity.class);</span><br><span class="line">taskStackBuilder.addNextIntent(<span class="keyword">new</span> Intent(<span class="keyword">this</span>,NoticePageActivity.class));</span><br><span class="line">PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(<span class="number">124</span>,PendingIntent.FLAG_UPDATE_CURRENT);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiate Notification.Builder</span></span><br><span class="line">Notification.Builder builder = <span class="keyword">new</span> Notification.Builder(<span class="keyword">this</span>);</span><br><span class="line">builder.setTicker(<span class="string">&quot;super important&quot;</span>);</span><br><span class="line">builder.setAutoCancel(<span class="keyword">true</span>);</span><br><span class="line">builder.setSmallIcon(android.R.drawable.sym_def_app_icon);</span><br><span class="line">builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.drawable.sym_def_app_icon));</span><br><span class="line">builder.setSound(Uri.fromFile(<span class="keyword">new</span> File(Environment.getExternalStorageDirectory(),<span class="string">&quot;sound.wav&quot;</span>)));</span><br><span class="line">builder.setContentInfo(<span class="string">&quot;info&quot;</span>);</span><br><span class="line">builder.setContentText(<span class="string">&quot;text&quot;</span>);</span><br><span class="line">builder.setContentTitle(<span class="string">&quot;title&quot;</span>);</span><br><span class="line">builder.setContentIntent(pendingIntent);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// API Level 11+</span></span><br><span class="line"><span class="comment">//Notification notification = builder.getNotification();</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// API Level 16+ (4.1.2+)</span></span><br><span class="line">Notification notification = builder.build();</span><br><span class="line"><span class="comment">// send notification</span></span><br><span class="line">mgr.notify(<span class="number">0</span>,notification);</span><br></pre></td></tr></table></figure>
 <h1 id="java">java</h1><ul>
 <li>garbage collection<blockquote>
 <p>&#x7269;&#x4EF6;&#x6C92;&#x6709;&#x88AB;reference&#x6642;&#xFF0C;<code>System.gc();</code>&#x6703;&#x8981;&#x6C42;&#x7CFB;&#x7D71;&#x505A;gc&#xFF0C;&#x4F46;&#x82E5;&#x7CFB;&#x7D71;&#x6C92;&#x7A7A;&#xFF0C;&#x9084;&#x662F;&#x8981;&#x7B49;&#x5230;&#x5B83;&#x6709;&#x7A7A;&#x624D;&#x6703;&#x505A;&#x3002;</p>
 </blockquote>
 </li>
 </ul>
-<h1 id="convetion">convetion</h1><p><a href="http://source.android.com/source/code-style.html" target="_blank" rel="external">Official Code Style Guidelines for Contributors</a></p>
+<h1 id="convetion">convetion</h1><p><a href="http://source.android.com/source/code-style.html" target="_blank" rel="external">Official Code Style Guidelines for Android Contributors</a></p>
+<p><a href="https://google.github.io/styleguide/javaguide.html" target="_blank" rel="external">Google Java Style</a></p>
 <blockquote>
 <p>lint<br>&#x5728;&#x8A08;&#x7B97;&#x6A5F;&#x79D1;&#x5B78;&#x4E2D;&#xFF0C;lint&#x662F;&#x4E00;&#x7A2E;&#x5DE5;&#x5177;&#x7A0B;&#x5E8F;&#x7684;&#x540D;&#x7A31;&#xFF0C;&#x5B83;&#x7528;&#x4F86;&#x6A19;&#x8A18;&#x6E90;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;&#x67D0;&#x4E9B;&#x53EF;&#x7591;&#x7684;&#x3001;&#x4E0D;&#x5177;&#x7D50;&#x69CB;&#x6027;&#x7684;&#x6BB5;&#x843D;&#x3002;&#x5B83;&#x662F;&#x4E00;&#x7A2E;&#x975C;&#x614B;&#x7A0B;&#x5E8F;&#x5206;&#x6790;&#x5DE5;&#x5177;&#xFF0C;&#x6700;&#x65E9;&#x9069;&#x7528;&#x65BC;C&#x8A9E;&#x8A00;&#xFF0C;&#x5728;UNIX&#x5E73;&#x53F0;&#x4E0A;&#x958B;&#x767C;&#x51FA;&#x4F86;&#x3002;&#x5F8C;&#x4F86;&#x5B83;&#x6210;&#x70BA;&#x901A;&#x7528;&#x8853;&#x8A9E;&#xFF0C;&#x53EF;&#x7528;&#x65BC;&#x63CF;&#x8FF0;&#x5728;&#x4EFB;&#x4F55;&#x4E00;&#x7A2E;&#x96FB;&#x8166;&#x7DE8;&#x7A0B;&#x8A9E;&#x8A00;&#x4E2D;&#xFF0C;&#x7528;&#x4F86;&#x6A19;&#x8A18;&#x6E90;&#x4EE3;&#x78BC;&#x4E2D;&#x6709;&#x7591;&#x7FA9;&#x6BB5;&#x843D;&#x7684;&#x5DE5;&#x5177;&#x3002;</p>
 </blockquote>
@@ -226,145 +347,462 @@
 </ol>
 </li>
 </ul>
-
-        
-            
-        
+<h1 id="java">Java</h1><p><a href="mailto://brad@brad.tw" target="_blank" rel="external">brad@brad.tw</a></p>
+<p><strong>Apache Cordova</strong> is a platform for building native mobile applications using HTML, CSS and JavaScript<br><a href="https://cordova.apache.org/" target="_blank" rel="external">&#x5B98;&#x7DB2;</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> b; <span class="comment">// [a-zA-Z$_][a-zA-Z0-9$_]</span></span><br><span class="line"><span class="keyword">byte</span> &#x6210;&#x7E3E;=<span class="number">127</span>; <span class="comment">//8&#x500B;&#x4F4D;&#x5143;&#x7D44;&#xFF0C;-127~127&#xFF0C;&#x5E38;&#x7528;&#x5728;&#x5716;&#x5F62;&#x53CA;&#x7DB2;&#x8DEF;streaming</span></span><br><span class="line">System.out.println(&#x6210;&#x7E3E;);</span><br></pre></td></tr></table></figure>
+<p>Instances of <code>StringBuilder</code> are not safe for use by multiple threads. If such synchronization is required then it is recommended that <code>StringBuffer</code> be used.</p>
+<p><strong>FileInputStream</strong>:  &#x4E00;&#x6B21;&#x8B80;&#x53D6;&#x4E00;&#x500B;byte&#xFF0C;&#x9069;&#x7528;&#x65BC;&#x8B80;&#x53D6;&#x5F71;&#x7247;&#x3001;&#x5716;&#x7247;&#x2026;&#x7B49;&#x6A94;&#x6848;<br><strong>FileReader</strong>: &#x4E00;&#x6B21;&#x8B80;&#x53D6;&#x4E00;&#x500B;character&#xFF0C;&#x9069;&#x7528;&#x65BC;&#x8B80;&#x53D6;&#x6587;&#x4EF6;<br><strong>BufferReader</strong>: &#x4E00;&#x6B21;&#x8B80;&#x53D6;&#x4E00;&#x884C;<code>readline()</code>&#xFF0C;&#x9069;&#x7528;&#x65BC;&#x8B80;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x9700;&#x4E32;&#x63A5;<code>InputStreamReader</code>&#xFF0C;&#x518D;&#x7531;<code>InputStreamReader</code>&#x4E32;&#x63A5;<code>FileInputStream</code><br><strong>FileOutputStream</strong>:</p>
+<ul>
+<li>&#x6700;&#x5F8C;&#x8981;close&#x524D;&#xFF0C;&#x8981;&#x5F37;&#x5236;&#x5C07;buffer&#x88E1;&#x7684;&#x8CC7;&#x6599;&#x5BEB;&#x5165;disk&#x2014;-&gt;<code>flush()</code></li>
+</ul>
+<p>DataInputStream: &#x53EF;&#x5B58;&#x57FA;&#x672C;&#x578B;&#x614B;(primitive Java data types)<br>ObjectInputStream: &#x53EF;&#x5B58;Object&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x6B64;Object&#x9700;<code>implements Serializable</code>&#xFF0C;&#x53E6;&#x53EF;&#x518D;&#x6B64;Object&#x5C6C;&#x6027;&#x52A0;&#x4E0A;<code>transient</code>&#x8868;&#x793A;&#x6B64;&#x5C6C;&#x6027;&#x4E0D;&#x53EF;&#x5E8F;&#x5217;&#x5316;</p>
+<p>&#x5B58;&#x53D6;&#x6B0A;</p>
+<ul>
+<li>public: &#x5168;&#x4E16;&#x754C;</li>
+<li>protected:<ul>
+<li>&#x540C;package</li>
+<li>&#x5B50;&#x985E;&#x5225;</li>
+</ul>
+</li>
+<li>&#x6C92;&#x5BEB;: &#x540C;package</li>
+<li>private: &#x672C;&#x985E;&#x5225;</li>
+</ul>
+<h2 id="javanet">java.net</h2><blockquote>
+<p>InetAddress<br>UDP:</p>
+<ul>
+<li>fast</li>
+<li>unreliable</li>
+<li>socket: &#x63A5;&#x53E3;, <code>DatagramSocket</code></li>
+<li>packet: &#x5C01;&#x5305;, <code>DatagramPacket</code></li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sender</span></span><br><span class="line"><span class="keyword">byte</span>[] buf = <span class="string">&quot;hello, I&apos;m Henry&quot;</span>.getBytes();</span><br><span class="line">DatagramSocket socket = <span class="keyword">new</span> DatagramSocket();</span><br><span class="line">DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(buf, buf.length, InetAddress.getByName(<span class="string">&quot;10.2.24.156&quot;</span>), <span class="number">9999</span>);</span><br><span class="line">socket.send(packet);</span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//reciever</span></span><br><span class="line"><span class="keyword">byte</span>[] buf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4096</span>];</span><br><span class="line">DatagramSocket socket = <span class="keyword">new</span> DatagramSocket(<span class="number">8888</span>);</span><br><span class="line">DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(buf, buf.length);</span><br><span class="line">socket.receive(packet);</span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
+<p>  TCP:<br>  server socket: <code>ServerSocket</code><br>  client socket: <code>Socket</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// reciever</span></span><br><span class="line">ServerSocket server = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line">Socket socket = server.accept();</span><br><span class="line">InputStream is = socket.getInputStream();</span><br><span class="line"></span><br><span class="line">InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(is);</span><br><span class="line"><span class="keyword">int</span> temp;</span><br><span class="line"><span class="keyword">while</span> ( (temp = isr.read())!=-<span class="number">1</span>)</span><br><span class="line">{</span><br><span class="line">	System.out.print((<span class="keyword">char</span>)temp);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">is.close();</span><br><span class="line">socket.close();</span><br><span class="line">server.close();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sender</span></span><br><span class="line">Socket socket = <span class="keyword">new</span> Socket(ip, <span class="number">8888</span>);</span><br><span class="line">OutputStream out = socket.getOutputStream();</span><br><span class="line">out.write(<span class="string">&quot;Hi, I&apos;m Henry!!&quot;</span>.getBytes());</span><br><span class="line">out.flush();</span><br><span class="line">out.close();</span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
+<h2 id="&#x57F7;&#x884C;&#x7DD2;thread">&#x57F7;&#x884C;&#x7DD2;Thread</h2><ul>
+<li>&#x6709;&#x751F;&#x547D;&#x9031;&#x671F;&#x4E4B;&#x7269;&#x4EF6;</li>
+<li>&#x5BEB;&#x6CD5;&#x4E00;<code>extends Thread</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadObject</span> </span>{</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		ServerThreads st1 = <span class="keyword">new</span> ServerThreads(<span class="string">&quot;bella&quot;</span>);</span><br><span class="line">		ServerThreads st2 = <span class="keyword">new</span> ServerThreads(<span class="string">&quot;vivian&quot;</span>);</span><br><span class="line">		st1.start();</span><br><span class="line">		st2.start();</span><br><span class="line">		System.out.println(<span class="string">&quot;penny&quot;</span>);</span><br><span class="line">		<span class="keyword">try</span> {</span><br><span class="line">			Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">		} <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		}</span><br><span class="line">		System.out.println(<span class="string">&quot;henry&quot;</span>);</span><br><span class="line">	    <span class="comment">// trigger InterruptedException&#x4F8B;&#x5916;</span></span><br><span class="line">		st1.interrupt();</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ServerThreads</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>{</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ServerThreads</span><span class="params">(String s)</span> </span>{</span><br><span class="line">		name = s;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) {</span><br><span class="line">			<span class="keyword">try</span> {</span><br><span class="line">				Thread.sleep(<span class="number">200</span>);</span><br><span class="line">			} <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">			<span class="comment">// trigger by st1.interrupt();</span></span><br><span class="line">			    <span class="keyword">break</span>;</span><br><span class="line">			}</span><br><span class="line">			System.out.println(name+<span class="string">&quot;:&quot;</span>+i);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x5BEB;&#x6CD5;&#x4E8C;<code>implements Runnable</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadObject</span> </span>{</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line"></span><br><span class="line">		ServerRunnable sr1 = <span class="keyword">new</span> ServerRunnable(<span class="string">&quot;bella&quot;</span>);</span><br><span class="line">		Thread t1 = <span class="keyword">new</span> Thread(sr1);</span><br><span class="line">		t1.start();</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ServerRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>{</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ServerRunnable</span><span class="params">(String s)</span> </span>{</span><br><span class="line">		name = s;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) {</span><br><span class="line">			<span class="keyword">try</span> {</span><br><span class="line">				Thread.sleep(<span class="number">200</span>);</span><br><span class="line">			} <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">			}</span><br><span class="line">			System.out.println(name+<span class="string">&quot;:&quot;</span>+i);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="collection">Collection</h2><ul>
+<li><a href="https://www.evernote.com/shard/s75/sh/29c4aebe-c386-4275-a320-94fa28e3b32f/5552b7359ba91b9e8a00e0989df94d62" target="_blank" rel="external">what is the sense of final ArrayList?</a></li>
+<li><a href="https://www.evernote.com/shard/s75/sh/f6f4a967-57d5-4139-82c2-6120f1dc4df8/523b027d19c67ec23c6afd48f63c9b72" target="_blank" rel="external">HashMap with multiple values under the same key</a></li>
+</ul>
+<h2 id="io">IO</h2><ul>
+<li><a href="https://www.evernote.com/shard/s75/sh/95db27f4-be6d-4e21-ab5c-8e6e50f45aa2/d778d182765dc1ef92b79988df04fe79" target="_blank" rel="external">Java 7 &#x65B0;&#x7684; try-with-resources &#x8BED;&#x53E5;&#xFF0C;&#x81EA;&#x52A8;&#x8D44;&#x6E90;&#x91CA;&#x653E;</a></li>
+</ul>
+<h2 id="database">Database</h2><ul>
+<li>PreparedStatement&#x8207;Statement&#x6700;&#x5927;&#x7684;&#x5DEE;&#x7570;&#x5728;&#x65BC;SQL&#x5DF2;&#x9810;&#x8F09;&#x5165;&#xFF0C;&#x56E0;&#x6B64;&#x57F7;&#x884C;&#x6642;&#x50C5;&#x9700;bind variable&#x5373;&#x53EF;&#xFF0C;&#x6240;&#x4EE5;SQL&#x662F;bind&#x4E0D;&#x540C;var&#x983B;&#x7E41;&#x57F7;&#x884C;&#x6642;&#xFF0C;&#x4F7F;&#x7528;PS&#x6703;&#x6BD4;&#x8F03;&#x6709;&#x6548;&#x7387;&#xFF1B;&#x4F46;&#x82E5;&#x662F;&#x4E0D;&#x91CD;&#x8986;&#x57F7;&#x884C;&#x983B;&#x7E41;&#x66F4;&#x63DB;SQL&#x7684;&#x7528;&#x6CD5;&#x6642;&#xFF0C;&#x6548;&#x80FD;&#x57FA;&#x672C;&#x4E0A;&#x5C31;&#x8DDF;S&#x5DEE;&#x4E0D;&#x591A;&#x3002;</li>
+</ul>
+<h2 id="annotation">Annotation</h2><ul>
+<li>&#x5C07;metadata, data, methods&#x90FD;&#x653E;&#x5728;&#x7A0B;&#x5F0F;&#x88E1;, &#x6613;&#x65BC;&#x5206;&#x6790;/&#x89E3;&#x8B80;.</li>
+</ul>
+<h2 id="cdi">CDI</h2><ul>
+<li>&#x7576;&#x6C92;&#x6709;@ApplicationScoped, &#x6703;&#x5831;&#x932F;Unsatisfied dependencies for type xxxxx with qualifiers @Default</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: org.apache.catalina.LifecycleException: org.jboss.weld.exceptions.DeploymentException: WELD-<span class="number">001408</span>: Unsatisfied dependencies <span class="keyword">for</span> <span class="built_in">type</span> CdiServerJava with qualifiers @Default</span><br><span class="line">  at injection point [BackedAnnotatedField] @Inject private tw.henry.test.JaxRsService.server</span><br><span class="line">  at tw.henry.test.JaxRsService.server(JaxRsService.java:<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="http://stackoverflow.com/questions/27706091/unsatisfied-dependencies-for-type-x-with-qualifiers-default" target="_blank" rel="external">&#x53C3;&#x8003;</a></p>
+<ul>
+<li>&#x7576;&#x6709;&#x5169;&#x500B;&#x4EE5;&#x4E0A;&#x7684;@Default, &#x6703;&#x5831;&#x932F;Ambiguous dependencies</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">org.jboss.weld.exceptions.DeploymentException: WELD-<span class="number">001409</span>: Ambiguous dependencies <span class="keyword">for</span> <span class="built_in">type</span> CdiServerIF with qualifiers @Default</span><br><span class="line">  at injection point [BackedAnnotatedField] @Inject private tw.henry.test.JaxRsService.server</span><br><span class="line">  at tw.henry.test.JaxRsService.server(JaxRsService.java:<span class="number">0</span>)</span><br><span class="line">  Possible dependencies:</span><br><span class="line">  - Managed Bean [class tw.henry.test.CdiServerJava] with qualifiers [@Any @Default],</span><br><span class="line">  - Managed Bean [class tw.henry.test.CdiServerPhp] with qualifiers [@Any @Default]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x7BA1;&#x7406;&#x7269;&#x4EF6;&#x751F;&#x547D;&#x9031;&#x671F;, e.g. JDBC resource, client &#x7121;&#x9700;&#x958B;&#x95DC;</li>
+<li>&#x6CA1;&#x6709; Scope &#x6CE8;&#x89E3;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;default scope &#x662F;@Dependent, &#x800C;@Dependent Scope &#x4E2D;&#x7684; Bean &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53D6;&#x51B3;&#x4E8E;&#x88AB;&#x6CE8;&#x5165;&#x7684; Bean &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</li>
+</ul>
+</span>
+      
     </div>
-    <div class="post-footer main-content-wrap">
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/07/php-note/"  data-tooltip="Web筆記區">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/22/configuration/" data-tooltip="備忘 - Configuration of Server, IDE">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/07/30/android-note/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/07/30/android-note/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/07/30/android-note/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
-        
-    </ul>
-</div>
 
+    <footer class="post-footer">
+      
 
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2015 Henry Lee. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/07/php-note/"  data-tooltip="Web筆記區">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/22/configuration/" data-tooltip="備忘 - Configuration of Server, IDE">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://hamn07.github.io/2015/07/30/android-note/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://hamn07.github.io/2015/07/30/android-note/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://hamn07.github.io/2015/07/30/android-note/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
-
-                </div>
+              <a href="/2015/08/07/php-note/" rel="prev">Web筆記區</a>
             
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/22/configuration/" rel="next">備忘 - Configuration of Server, IDE</a>
+            
+          </div>
         </div>
-        <div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">Henry Lee</h4>
-        
-        
-        
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/pp.jpeg" alt="Henry Lee" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Henry Lee</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">categories</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bluetooth"><span class="nav-number">1.</span> <span class="nav-text">bluetooth</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#problem-to-fix"><span class="nav-number">2.</span> <span class="nav-text">problem to fix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dialog"><span class="nav-number">3.</span> <span class="nav-text">dialog</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sensor"><span class="nav-number">4.</span> <span class="nav-text">sensor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">4.1.</span> <span class="nav-text">example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#media-player"><span class="nav-number">5.</span> <span class="nav-text">media player</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volley"><span class="nav-number">6.</span> <span class="nav-text">volley</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#post-image-file"><span class="nav-number">6.1.</span> <span class="nav-text">POST image file</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#httpurlconnection"><span class="nav-number">7.</span> <span class="nav-text">HttpURLConnection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#post-image-file"><span class="nav-number">7.1.</span> <span class="nav-text">POST image file</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#asynctask"><span class="nav-number">8.</span> <span class="nav-text">AsyncTask</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上架app"><span class="nav-number">9.</span> <span class="nav-text">上架App</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#providing-resource"><span class="nav-number">10.</span> <span class="nav-text">Providing Resource</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#notification"><span class="nav-number">11.</span> <span class="nav-text">Notification</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java"><span class="nav-number">12.</span> <span class="nav-text">java</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#convetion"><span class="nav-number">13.</span> <span class="nav-text">convetion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#question"><span class="nav-number">14.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java"><span class="nav-number">15.</span> <span class="nav-text">Java</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#javanet"><span class="nav-number">15.1.</span> <span class="nav-text">java.net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行緒thread"><span class="nav-number">15.2.</span> <span class="nav-text">執行緒Thread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collection"><span class="nav-number">15.3.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#io"><span class="nav-number">15.4.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#database"><span class="nav-number">15.5.</span> <span class="nav-text">Database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#annotation"><span class="nav-number">15.6.</span> <span class="nav-text">Annotation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cdi"><span class="nav-number">15.7.</span> <span class="nav-text">CDI</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Henry Lee</span>
 </div>
-        <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script.min.js" type="text/javascript"></script>
-<!--SCRIPTS END-->
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
 </html>
