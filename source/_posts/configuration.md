@@ -101,6 +101,7 @@ alias sshec2='ssh -i ~/.ssh/dvp.pem ec2-user@52.26.138.212'
 - [Homebrew Cask](http://caskroom.io/) extends Homebrew and brings its elegance, simplicity, and speed to OS X applications and large binaries alike. It only takes 1 line in your shell to reach 2835 Casks maintained by 434 contributors.
 - XtraFinder - 補強Finder功能
 - [QLMarkdown](https://github.com/toland/qlmarkdown) is a simple QuickLook generator for Markdown files.
+- DiffMerge
 - MPlayerX
 - Sublime
 - PhotoScape X
@@ -233,6 +234,11 @@ $ git reflog
 $ git reset --hard 65ce0d2
 HEAD is now at 65ce0d2 Merge pull request #418 from Acris/master
 ```
+
+## 修改commit說明文字
+`git commit --amend`
+
+`git commit --amend -m "說明文字"`
 # Maven
 ```bash
 $ cat ~/.bash_profile | grep maven
@@ -437,6 +443,7 @@ Preferences/Settings - User
 - Eclipse Moonrise UI Theme
 ![](eclipse-color-theme-1.png)
 ![](eclipse-color-theme-2.png)
+- ModelGoon UML4Java
 - Gradle IDE package 3.6.x
 ## eclipse-dark-theme-project-explore-black-text
 1. export original preference setting

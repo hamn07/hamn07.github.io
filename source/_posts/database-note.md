@@ -236,7 +236,7 @@ Linux
 ## Trouble Shooting
 ### add primary key時，出現key was too long的錯誤訊息
 
-```sql
+```SQL
 mysql> ALTER TABLE post
     ->   ADD PRIMARY KEY (timestamp,member_id);
 ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes

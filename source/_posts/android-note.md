@@ -325,7 +325,9 @@ keystore
 > 物件沒有被reference時，`System.gc();`會要求系統做gc，但若系統沒空，還是要等到它有空才會做。
 
 # convetion
-[Official Code Style Guidelines for Contributors](http://source.android.com/source/code-style.html)
+[Official Code Style Guidelines for Android Contributors](http://source.android.com/source/code-style.html)
+
+[Google Java Style](https://google.github.io/styleguide/javaguide.html)
 
 > lint
 在計算機科學中，lint是一種工具程序的名稱，它用來標記源代碼中，某些可疑的、不具結構性的段落。它是一種靜態程序分析工具，最早適用於C語言，在UNIX平台上開發出來。後來它成為通用術語，可用於描述在任何一種電腦編程語言中，用來標記源代碼中有疑義段落的工具。

@@ -762,13 +762,3 @@ By using standard protocol instead of proprietary one, we could leverage lots of
 - cannot rebind variable.
 
 
-# encryption
-## Concept
-[What is SSL?](http://info.ssl.com/article.aspx?id=10241)
-## certificate transparency
-[免費申請 StartSSL™ 個人數位簽章與網站 SSL 憑證完全攻略](https://www.evernote.com/shard/s75/sh/7ad82494-f38b-40f6-a14f-ad78370c2f8f/b7b87d174d5d7337d4f8e1bd5140fc07)
-[Symantec員工誤發Google憑證被開除](http://www.ithome.com.tw/news/98897)
-## the necessity to encrypt-decrypt again
-[POST over HTTPS “secure enough” for sensitive data?](http://security.stackexchange.com/questions/51069/post-over-https-secure-enough-for-sensitive-data)
-## alternatives
-[digicert](https://www.digicert.com/), used by facebook / whatsapp
