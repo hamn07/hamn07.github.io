@@ -1,6 +1,6 @@
 title: 安卓筆記區
 date: 2015-07-30 09:17:19
-tags:
+tags: android
 ---
 ![](http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png)
 ***
@@ -502,7 +502,7 @@ UDP:
   	}
   }
 ```
-  
+
 - 寫法二`implements Runnable`
 
 ```java

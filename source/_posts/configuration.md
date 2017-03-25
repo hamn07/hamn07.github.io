@@ -4,26 +4,18 @@ tags:
 ---
 <!-- toc -->
 
-# Kaazing
-```bash
-✔ /usr/local/kaazing-gateway-community-5.0.0/bin [master L|✔]
-06:01 $ ./gateway.start
-INFO  Kaazing Gateway (5.0.0.15)
-INFO  Configuration file: /usr/local/kaazing-gateway-community-5.0.0/conf/gateway-config-minimal.xml
-INFO  Starting server
-INFO  Starting services
-INFO    http://localhost:8000/
-INFO    http://localhost:8000/commandcenter
-INFO    ws://localhost:8000/echo
-INFO    ws://localhost:8000/snmp
-INFO  Started services
-INFO  Started server successfully in 2.391 secs at 2015-10-03 06:02:06
-
-```
-
 
 # OSX
 
+## 設定Automator定期備份Workspace、右鍵拷貝
+
+![](https://dl.dropbox.com/s/gi7gnlbrdpoq9qq/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.59.49.png?dl=0)
+
+![](https://dl.dropbox.com/s/npk4i2efpdcz0pj/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.58.27.png?dl=0)
+
+![](https://dl.dropbox.com/s/qxvitkypigqewpy/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.58.53.png?dl=0)
+
+![](https://dl.dropbox.com/s/azbe76p324wbup6/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%882.01.31.png?dl=0)
 
 ## CentOS bootable USB
 
@@ -83,12 +75,29 @@ $ grep ErrorLog /etc/apache2/httpd.conf
 ## iTerm2
 ![](https://dl.dropbox.com/s/wxyrn9is5bsdxm5/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202015-11-26%20%E4%B8%8A%E5%8D%8810.44.33.png?dl=0)
 
+## 設定vim會highlight syntax
+```
+$ vi ~/.vimrc
+
+(add configuration)
+
+filetype plugin indent on
+syntax on
+
+```
 
 ## Software
+- [tldr](http://tldr-pages.github.io/) 可用來查某個command的使用範例
+
 - CyberDuck
-![](CyberDuck.png)
+
+![](https://dl.dropboxusercontent.com/u/16245733/CyberDuck.png)
+
 - MenuMeter
-![](MenuMeter.png)
+
+![](https://dl.dropboxusercontent.com/u/16245733/MenuMeter.png)
+
+- [HandBrake](https://handbrake.fr/) is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
 - Keka
 [官網](http://www.kekaosx.com/zh-tw/)
 - ec2
@@ -105,7 +114,9 @@ alias sshec2='ssh -i ~/.ssh/dvp.pem ec2-user@52.26.138.212'
 - MPlayerX
 - Sublime
 - PhotoScape X
-[Sublime Text 3 新手上路：必要的安裝、設定與基本使用教學](https://www.evernote.com/shard/s75/sh/a1cd7790-c07f-41f6-9031-951c3988b457/5dd08a112d111e9e60c15bdc203466a9)
+- [Sublime Text 3 新手上路：必要的安裝、設定與基本使用教學](https://www.evernote.com/shard/s75/sh/a1cd7790-c07f-41f6-9031-951c3988b457/5dd08a112d111e9e60c15bdc203466a9)
+- [內建便條紙的用法](http://www.macosxtips.co.uk/index_files/10-tips-for-stickies.php)
+- gTask Pro NT$90買的
 
 # Heroku
 ## deploy
@@ -441,17 +452,32 @@ Preferences/Settings - User
 - SQL Development Tool
 - Eclipse Color Theme
 - Eclipse Moonrise UI Theme
-![](eclipse-color-theme-1.png)
-![](eclipse-color-theme-2.png)
+![](https://dl.dropboxusercontent.com/u/16245733/eclipse-color-theme-1.png)
+![](https://dl.dropboxusercontent.com/u/16245733/eclipse-color-theme-2.png)
 - ModelGoon UML4Java
 - Gradle IDE package 3.6.x
-## eclipse-dark-theme-project-explore-black-text
-1. export original preference setting
-![](eclipse-dark-theme-project-explore-black-text-1.png)
-2. import fixed-preference setting
-![](eclipse-dark-theme-project-explore-black-text-2.png)
-![](eclipse-dark-theme-project-explore-black-text-3.png)
 
+## eclipse-dark-theme-project-explore-black-text
+
+### solution 1
+
+1. export original preference setting
+![](https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-1.png)
+
+2. import fixed-preference setting
+![](https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-2.png)
+![](https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-3.png)
+
+### solution 2
+![](https://dl.dropboxusercontent.com/u/16245733/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-28%20%E4%B8%8A%E5%8D%886.44.07.png)
+[How to change the background color for changed files in eclipse project explorer?](http://stackoverflow.com/questions/14545978/how-to-change-the-background-color-for-changed-files-in-eclipse-project-explorer)
+
+## Maven設定
+![](https://dl.dropbox.com/s/owbo5mpunt2wyib/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-07%20%E4%B8%8A%E5%8D%889.28.46.png?dl=0)
+
+## icon定義
+[Eclipse JDT icon](http://help.eclipse.org/juno/index.jsp?topic=/org.eclipse.jdt.doc.user/reference/ref-icons.htm)
+![](https://dl.dropbox.com/s/yl3mbxsbnsn53zb/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-07%20%E4%B8%8B%E5%8D%884.14.38.png?dl=0)
 
 # Chrome
 Insomnia

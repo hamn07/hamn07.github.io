@@ -5,6 +5,12 @@ tags:
 <!-- toc -->
 # MySQL
 
+## Create Database
+
+```sql
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+```
+
 ## MariaDB install on OSX
 [官網教學](https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/)
 

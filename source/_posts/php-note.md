@@ -26,6 +26,7 @@ HTML data-* Attributes-->自定義tag屬性
 # css
 
 文字段落太長超過div後會有  ...  的效果
+
 ``` css
 div {
         border-width: 5px;
@@ -40,15 +41,25 @@ div {
         text-overflow: ellipsis;
     }
 ```
+
 # jQuery
+
 [w3c參考網頁](http://www.w3schools.com/jquerymobile/)
+
 [官網demo](http://demos.jquerymobile.com/1.4.5/grids/)
+
 [Data Arributes](http://api.jquerymobile.com/data-attribute/)
+
 [Classes](http://api.jquerymobile.com/classes/)
+
 [jQuery Selectors](http://www.w3schools.com/jquery/jquery_selectors.asp)
+
 [圖片slide的demo](http://www.anowave.com/factory/anoslide/demo.html)
+
 [PhotoSwipe](http://photoswipe.com/)
+
 [Glide](http://glide.jedrzejchalubek.com/)
+
 [HTML5 Drag and Drop Upload and File API Tutorial](http://www.thebuzzmedia.com/html5-drag-and-drop-and-file-api-tutorial/)
 
 
@@ -56,6 +67,7 @@ div {
 
 
 # Security
+
 ## HTTPS - HTTP over SSL
 工作原理:
 1. 使用非對稱式加密演算法來對通訊雙方做身分認證
@@ -77,6 +89,7 @@ SSL acceleration
 
 
 # Trouble Shooting
+
 ## PDO連線報錯no such file
 [Setting up PHP & MySQL on OS X Yosemite](https://dzone.com/articles/setting-php-mysql-os-x)
 ![](pdo-error-msg.png)
@@ -215,14 +228,57 @@ Options FollowSymLinks
 ## OSX
 [Setting up a local web server on OS X](https://discussions.apple.com/docs/DOC-3083)
 
+## 網站目錄權限設定
+
+[官網說明文件 » File and Directory Ownership and Permissions for Web Content](https://wiki.apache.org/httpd/FileSystemPermissions)
+
 # PHP
+
+## curl使用POST打JSON搭Basic Authentication
+
+##### /pichannel.web/test/curl-json.php
+
+
+```php
+
+$url = 'http://10.0.1.149:8080/SimpleTalk/test/henry/notify-sync';
+$ch = curl_init( $url );
+# Setup request to send json via POST.
+$payload = json_encode( array( "member_id"=> "Samma" , "sync_type" => "A" , "timestampe" => "123456789") );
+curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
+# Setup content-type as JSON
+curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+# Return response instead of printing.
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+# Basic Authentication
+$username = "api";
+$password = "api";
+curl_setopt( $ch, CURLOPT_USERPWD, $username . ":" . $password );
+# Send request.
+$response = curl_exec( $ch );
+# Close Resource
+curl_close( $ch );
+# Parse to Array
+$result = json_decode( $response, true );
+# Print response.
+echo var_dump($result);
+
+```
+
+[How to POST JSON Data With PHP cURL?](http://stackoverflow.com/questions/11079135/how-to-post-json-data-with-php-curl)
+
 
 [How to process PUT requests with PHP](http://phpave.com/how-to-process-put-requests-with-php/)
 
 
+## 資策會課程
+
 [教材](http://sdrv.ms/178960Y)
+
 MAMP: Mac Apache MySQL PHP
-錢達智老師 [wolfgang.chien@gmail.com](wolfgang.chien@gmail.com)
+
+錢達智老師 [wolfgang.chien@gmail.com](mailto:wolfgang.chien@gmail.com)
+
 RWD可參考 HTML5App_0309
 
 ``` php
@@ -232,21 +288,25 @@ SELECT id,name
   FROM employee
 sqlText
 ```
+
 ```php
 //string
 $str1 = $str1." ".Str2
 //string裡可放變數
 echo "result=$sSum";
 ```
+
 - include, require: 3-40
 - include_once, **require_once**: 3-43
 - define: 常數, 3-11
+
 ```php
 //當檔案讀取到最後一行後會傳回false
 while ($line = readline()){
 
 }
 ```
+
 ```php
 //global使用全域變數
 $a = 20;
@@ -257,6 +317,7 @@ function myFunc($b){
 	echo $a;
 }
 ```
+
 ```php
 // 陣列
 $weekArr [] = "Monday";
@@ -279,6 +340,7 @@ foreach ($weekArr as $key => $value){
 	echo $key . ":" . $value . "<br>";
 }
 ```
+
 ```php
 //排序func
 $myArr = array (
@@ -303,6 +365,7 @@ function cmp($a, $b){
 	return ($a < $b) ? -1 : 1;
 }
 ```
+
 ```php
 // Session操作
 start_session();
@@ -314,6 +377,7 @@ if (isset($_POST["btnWriteCookie"])){
 	setcookie("userid", $_POST["txt2"], time() + 60*60*24*7);
 }
 ```
+
 ```php
 //另一種if else寫法，可用來區分js的if else，提高可讀性
 <?php if ($sUserName=="") : ?>
@@ -322,6 +386,7 @@ if (isset($_POST["btnWriteCookie"])){
 	<td align="center" valign="Wbaseline"><a href="login.php?signout=1">登出</a> | <a href="secret.php">會員專用頁</a></td>
 <?php endif ?>
 ```
+
 ```js
 $('#letter').change(function(){
     //jQuery的$.get(url,func)即為AJAX機制存取資料
@@ -331,11 +396,15 @@ $('#letter').change(function(){
 			});
 });
 ```
+
 Async的範例可參考0702的Lab_AsyncPost
+
 ```php
 sprintf("<option value='%s'>%s%s</option>",$i, $x, $i+1);
 ```
+
 ##存取DB
+
 ```php
 //連db(加上@是發生錯誤不show錯誤資訊)
 $db_link = @mysql_connect($db_host, $db_username, $db_password);

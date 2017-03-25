@@ -66,7 +66,10 @@ pagination_dir: page
 #theme: landscape
 #theme: phase
 #theme: tranquilpeak
-theme: next
+#theme: next
+theme: jacman
+stylus:
+  compress: true
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
