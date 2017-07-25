@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://hamn07.github.io/"/>
-  <updated>2017-04-27T13:10:09.000Z</updated>
+  <updated>2017-04-28T02:02:49.000Z</updated>
   <id>http://hamn07.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://hamn07.github.io/2017/04/27/20170427-osx-rich-text-document-with-attachments/"/>
     <id>http://hamn07.github.io/2017/04/27/20170427-osx-rich-text-document-with-attachments/</id>
     <published>2017-04-27T08:57:29.000Z</published>
-    <updated>2017-04-27T13:10:09.000Z</updated>
+    <updated>2017-04-28T02:02:49.000Z</updated>
     <content type="html"><![CDATA[<h1 id="&#x5C07;&#x7D14;&#x6587;&#x5B57;&#x8F49;&#x63DB;&#x6210;rich-text">&#x5C07;&#x7D14;&#x6587;&#x5B57;&#x8F49;&#x63DB;&#x6210;rich text</h1><img src="/2017/04/27/20170427-osx-rich-text-document-with-attachments/1.png" alt="&#x8F49;&#x63DB;&#x81F3;rich text" title="&#x8F49;&#x63DB;&#x81F3;rich text">
 <img src="/2017/04/27/20170427-osx-rich-text-document-with-attachments/2.png" alt="&#x8F49;&#x63DB;&#x5F8C;&#x6703;&#x51FA;&#x73FE;rich text&#x7684;tool bar" title="&#x8F49;&#x63DB;&#x5F8C;&#x6703;&#x51FA;&#x73FE;rich text&#x7684;tool bar">
 <a id="more"></a>
@@ -487,8 +487,9 @@
     <link href="http://hamn07.github.io/2015/08/16/quotes/"/>
     <id>http://hamn07.github.io/2015/08/16/quotes/</id>
     <published>2015-08-16T02:15:05.000Z</published>
-    <updated>2017-02-13T23:19:04.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="&#x6B63;&#x5FF5;">&#x6B63;&#x5FF5;</h2><p><img src="https://dl.dropboxusercontent.com/u/16245733/d63d00dab0f29725853e33eecc0ebf7f.jpg" alt=""><br>&#xBB; &#x6D3B;&#x5728;&#x7576;&#x4E0B;</p>
+    <updated>2017-07-25T01:17:23.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="&#x6B63;&#x5FF5;">&#x6B63;&#x5FF5;</h2><img src="/2015/08/16/quotes/d63d00dab0f29725853e33eecc0ebf7f.jpg" alt="a" title="a">
+<p><img src="./quotes/d63d00dab0f29725853e33eecc0ebf7f.jpg" alt=""><br>&#xBB; &#x6D3B;&#x5728;&#x7576;&#x4E0B;</p>
 <p><img src="https://dl.dropboxusercontent.com/u/16245733/328e32ddb87a3b7bf71d58dee8a19707.jpg" alt=""><br><img src="https://dl.dropboxusercontent.com/u/16245733/%E7%8E%8B%E6%96%87%E8%8F%AFquote.jpg" alt=""><br><img src="https://dl.dropboxusercontent.com/u/16245733/%E6%96%B0%E5%BB%BA%E6%AA%94%E6%A1%88_1_mark%20Morris%20quote.jpg" alt=""><br><img src="https://dl.dropboxusercontent.com/u/16245733/38420-try-not-to-become-a-man-of-success-but.jpg" alt=""><br>&#xBB; &#x505A;&#x81EA;&#x5DF1;&#x7684;&#x4E3B;&#x4EBA;, &#x6D3B;&#x51FA;&#x81EA;&#x5DF1;&#x7684;&#x4EBA;&#x751F;</p>
 <h2 id="&#x5931;&#x6557;&#x7684;&#x529B;&#x91CF;">&#x5931;&#x6557;&#x7684;&#x529B;&#x91CF;</h2><p><img src="https://dl.dropboxusercontent.com/u/16245733/ralph-waldo-emerson-poet-unless-you-try-to-do-something-beyond-what-you-have.jpg" alt=""><br>&#xBB; &#x505A;&#x4E0D;&#x719F;&#x6089;&#x7684;&#x4E8B;=&#x6210;&#x9577;</p>
 <p><img src="https://dl.dropboxusercontent.com/u/16245733/quote-Michael-Jordan-i-can-accept-failure-everyone-fails-at-89695.png" alt=""><br><img src="https://dl.dropboxusercontent.com/u/16245733/e6386a440f24e070f62a1ada8564bcf2.jpg" alt=""><br>&#xBB; &#x5931;&#x6557;&#x7E3D;&#x6BD4;&#x6C92;&#x8A66;&#x904E;&#x597D;</p>
@@ -563,7 +564,8 @@
 <p><a href="http://quozio.com/" target="_blank" rel="external">Quozio - Make Beautiful Quotes</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="&#x6B63;&#x5FF5;">&#x6B63;&#x5FF5;</h2><p><img src="https://dl.dropboxusercontent.com/u/16245733/d63d00dab0f29725853e33eecc0ebf7f.jp]]>
+    <![CDATA[<h2 id="&#x6B63;&#x5FF5;">&#x6B63;&#x5FF5;</h2><img src="/2015/08/16/quotes/d63d00dab0f29725853e33eecc0ebf7f.jpg" alt="a" title="a">
+<p><img]]>
     </summary>
     
   </entry>
@@ -1033,7 +1035,7 @@
     <link href="http://hamn07.github.io/2015/07/22/configuration/"/>
     <id>http://hamn07.github.io/2015/07/22/configuration/</id>
     <published>2015-07-21T23:45:21.000Z</published>
-    <updated>2016-10-14T02:02:49.000Z</updated>
+    <updated>2017-05-25T02:21:05.000Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#osx">OSX</a><ul>
