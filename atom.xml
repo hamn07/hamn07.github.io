@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://hamn07.github.io/"/>
-  <updated>2017-04-27T12:34:18.000Z</updated>
+  <updated>2017-04-27T13:10:09.000Z</updated>
   <id>http://hamn07.github.io/</id>
   
   <author>
@@ -19,14 +19,17 @@
     <link href="http://hamn07.github.io/2017/04/27/20170427-osx-rich-text-document-with-attachments/"/>
     <id>http://hamn07.github.io/2017/04/27/20170427-osx-rich-text-document-with-attachments/</id>
     <published>2017-04-27T08:57:29.000Z</published>
-    <updated>2017-04-27T12:34:18.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="1-&#x5C07;&#x7D14;&#x6587;&#x5B57;&#x8F49;&#x63DB;&#x6210;rich-text">1. &#x5C07;&#x7D14;&#x6587;&#x5B57;&#x8F49;&#x63DB;&#x6210;rich text</h1><p><img src="1.png" alt=""></p>
-<p><img src="2.png" alt=""></p>
-<h1 id="2-&#x8F49;&#x63DB;&#x6210;rich-text&#x5F8C;&#x5373;&#x53EF;&#x76F4;&#x63A5;&#x7531;&#x526A;&#x8CBC;&#x7C3F;&#x8CBC;&#x4E0A;&#x5716;&#x7247;">2. &#x8F49;&#x63DB;&#x6210;rich text&#x5F8C;&#xFF0C;&#x5373;&#x53EF;&#x76F4;&#x63A5;&#x7531;&#x526A;&#x8CBC;&#x7C3F;&#x8CBC;&#x4E0A;&#x5716;&#x7247;</h1><p><img src="3.png" alt=""></p>
-<h1 id="3-&#x5B58;&#x6A94;&#x683C;&#x5F0F;&#x70BA;-rich-text-document-with-attachments">3. &#x5B58;&#x6A94;&#x683C;&#x5F0F;&#x70BA; rich text document with attachments</h1><p><img src="4.png" alt=""></p>
-]]></content>
+    <updated>2017-04-27T13:10:09.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="&#x5C07;&#x7D14;&#x6587;&#x5B57;&#x8F49;&#x63DB;&#x6210;rich-text">&#x5C07;&#x7D14;&#x6587;&#x5B57;&#x8F49;&#x63DB;&#x6210;rich text</h1><img src="/2017/04/27/20170427-osx-rich-text-document-with-attachments/1.png" alt="&#x8F49;&#x63DB;&#x81F3;rich text" title="&#x8F49;&#x63DB;&#x81F3;rich text">
+<img src="/2017/04/27/20170427-osx-rich-text-document-with-attachments/2.png" alt="&#x8F49;&#x63DB;&#x5F8C;&#x6703;&#x51FA;&#x73FE;rich text&#x7684;tool bar" title="&#x8F49;&#x63DB;&#x5F8C;&#x6703;&#x51FA;&#x73FE;rich text&#x7684;tool bar">
+<a id="more"></a>
+<h1 id="&#x8F49;&#x63DB;&#x6210;rich-text&#x5F8C;&#x5373;&#x53EF;&#x76F4;&#x63A5;&#x7531;&#x526A;&#x8CBC;&#x7C3F;&#x8CBC;&#x4E0A;&#x5716;&#x7247;">&#x8F49;&#x63DB;&#x6210;rich text&#x5F8C;&#xFF0C;&#x5373;&#x53EF;&#x76F4;&#x63A5;&#x7531;&#x526A;&#x8CBC;&#x7C3F;&#x8CBC;&#x4E0A;&#x5716;&#x7247;</h1><img src="/2017/04/27/20170427-osx-rich-text-document-with-attachments/3.png" alt="&#x8CBC;&#x4E0A;&#x622A;&#x5716;" title="&#x8CBC;&#x4E0A;&#x622A;&#x5716;">
+<!--more-->
+<h1 id="&#x5B58;&#x6A94;&#x683C;&#x5F0F;&#x70BA;-rich-text-document-with-attachments">&#x5B58;&#x6A94;&#x683C;&#x5F0F;&#x70BA; rich text document with attachments</h1><img src="/2017/04/27/20170427-osx-rich-text-document-with-attachments/4.png" alt="&#x5132;&#x5B58;&#x9078;&#x9805;" title="&#x5132;&#x5B58;&#x9078;&#x9805;">]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="1-&#x5C07;&#x7D14;&#x6587;&#x5B57;&#x8F49;&#x63DB;&#x6210;rich-text">1. &#x5C07;&#x7D14;&#x6587;&#x5B57;&#x8F49;&#x63DB;&#x6210;rich]]>
+    <![CDATA[<h1 id="將純文字轉換成rich_text">將純文字轉換成rich text</h1><img src="/2017/04/27/20170427-osx-rich-text-document-with-attachments/1.png" alt="轉換至rich text" title="轉換至rich text">
+<img src="/2017/04/27/20170427-osx-rich-text-document-with-attachments/2.png" alt="轉換後會出現rich text的tool bar" title="轉換後會出現rich text的tool bar">]]>
+    
     </summary>
     
       <category term="rtfd" scheme="http://hamn07.github.io/tags/rtfd/"/>
