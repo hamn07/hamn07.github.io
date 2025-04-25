@@ -1,0 +1,482 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>javascript | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Henry Lee">
+    
+
+    
+    <meta name="description" content="ECMAScriptdelete object property immutably1const &#123;[businessToRemove.businessID]: _, ...updatedBusinesses&#125; &#x3D; savedBusinesses;  compare arrayJSX使用條件式產生Properties1&lt;KeyboardAvoidingView &amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript">
+<meta property="og:url" content="http://hamn07.github.io/2017/03/26/javascript/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ECMAScriptdelete object property immutably1const &#123;[businessToRemove.businessID]: _, ...updatedBusinesses&#125; &#x3D; savedBusinesses;  compare arrayJSX使用條件式產生Properties1&lt;KeyboardAvoidingView &amp;#123">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2017-03-25T22:08:39.000Z">
+<meta property="article:modified_time" content="2022-03-26T07:54:03.644Z">
+<meta property="article:author" content="Henry Lee">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="dojo">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives/">Archives</a></li>
+					
+						<li><a href="/about/">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hamn07.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/26/javascript/" title="javascript" itemprop="url">javascript</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Henry Lee" target="_blank" itemprop="author">Henry Lee</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-25T22:08:39.000Z" itemprop="datePublished"> Published 2017-03-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ECMAScript"><span class="toc-number">1.</span> <span class="toc-text">ECMAScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#delete-object-property-immutably"><span class="toc-number">1.1.</span> <span class="toc-text">delete object property immutably</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compare-array"><span class="toc-number">1.2.</span> <span class="toc-text">compare array</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSX"><span class="toc-number">2.</span> <span class="toc-text">JSX</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%A2%9D%E4%BB%B6%E5%BC%8F%E7%94%A2%E7%94%9FProperties"><span class="toc-number">2.1.</span> <span class="toc-text">使用條件式產生Properties</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%B4%E5%9C%88%E7%94%A2%E7%94%9FJSX-elements"><span class="toc-number">2.2.</span> <span class="toc-text">使用迴圈產生JSX elements</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dojo-Toolkit"><span class="toc-number">3.</span> <span class="toc-text">Dojo Toolkit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dojo-on"><span class="toc-number">3.1.</span> <span class="toc-text">dojo&#x2F;on</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Closure"><span class="toc-number">3.2.</span> <span class="toc-text">Closure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Singleton"><span class="toc-number">3.3.</span> <span class="toc-text">Singleton</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h1><h2 id="delete-object-property-immutably"><a href="#delete-object-property-immutably" class="headerlink" title="delete object property immutably"></a>delete object property immutably</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;[businessToRemove.<span class="property">businessID</span>]: _, ...updatedBusinesses&#125; = savedBusinesses;</span><br></pre></td></tr></table></figure>
+
+<h2 id="compare-array"><a href="#compare-array" class="headerlink" title="compare array"></a>compare array</h2><h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><h2 id="使用條件式產生Properties"><a href="#使用條件式產生Properties" class="headerlink" title="使用條件式產生Properties"></a>使用條件式產生Properties</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">KeyboardAvoidingView</span> &#123;...(<span class="title class_">Platform</span>.<span class="property">OS</span> === <span class="string">&#x27;ios&#x27;</span> &amp;&amp; &#123;<span class="attr">behavior</span>: <span class="string">&#x27;padding&#x27;</span>&#125;)&#125;&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用迴圈產生JSX-elements"><a href="#使用迴圈產生JSX-elements" class="headerlink" title="使用迴圈產生JSX elements"></a>使用迴圈產生JSX elements</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">View</span> style=&#123;tw<span class="string">`flex-1 justify-around`</span>&#125;&gt;</span><br><span class="line">  &#123;notes.<span class="title function_">map</span>(<span class="function"><span class="params">note</span> =&gt;</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Text</span> <span class="attr">key</span>=<span class="string">&#123;note.key&#125;</span>&gt;</span>&#123;note.content&#125;<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line">  ))&#125;</span><br><span class="line">&lt;/<span class="title class_">View</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Dojo-Toolkit"><a href="#Dojo-Toolkit" class="headerlink" title="Dojo Toolkit"></a>Dojo Toolkit</h1><blockquote>
+<ul>
+<li>with the 1.7 release Dojo adopted the <strong>Asynchronous Module Definition (AMD)</strong> format for its source code, allowing completely modular web application development.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>require</code> enables you to load modules and use them, while <code>define</code> allows you to define your own modules. A module is typically a single JavaScript source file.</li>
+</ul>
+</blockquote>
+<h2 id="dojo-on"><a href="#dojo-on" class="headerlink" title="dojo&#x2F;on"></a>dojo&#x2F;on</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">&quot;dojo/on&quot;</span>], <span class="keyword">function</span>(<span class="params">on</span>)&#123;</span><br><span class="line">  <span class="title function_">on</span>(target, <span class="string">&quot;event&quot;</span>, <span class="keyword">function</span>(<span class="params">e</span>)&#123; <span class="comment">/* who, &quot;what&quot;, how */</span></span><br><span class="line">    <span class="comment">// handle the event</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Closure"><a href="#Closure" class="headerlink" title="Closure"></a>Closure</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">define</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> privateValue = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">increment</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            privateValue++;</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="attr">decrement</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            privateValue--;</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="attr">getValue</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> privateValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">define</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> privateValue = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">increment</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            privateValue++;</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="attr">decrement</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            privateValue--;</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="attr">getValue</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> privateValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://dojotoolkit.org/documentation/tutorials/1.10/modules/">Introduction to AMD Modules</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/js/">js</a><a href="/tags/javascript/">javascript</a><a href="/tags/dojo/">dojo</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://hamn07.github.io/2017/03/26/javascript/" data-title="javascript | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/04/27/20170427-osx-rich-text-document-with-attachments/" title="20170427-osx-rich_text_document_with_attachments">
+  <strong>上一篇：</strong><br/>
+  <span>
+  20170427-osx-rich_text_document_with_attachments</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/08/real-time/"  title="real time communication, server push">
+ <strong>下一篇：</strong><br/> 
+ <span>real time communication, server push
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ECMAScript"><span class="toc-number">1.</span> <span class="toc-text">ECMAScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#delete-object-property-immutably"><span class="toc-number">1.1.</span> <span class="toc-text">delete object property immutably</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compare-array"><span class="toc-number">1.2.</span> <span class="toc-text">compare array</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSX"><span class="toc-number">2.</span> <span class="toc-text">JSX</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%A2%9D%E4%BB%B6%E5%BC%8F%E7%94%A2%E7%94%9FProperties"><span class="toc-number">2.1.</span> <span class="toc-text">使用條件式產生Properties</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%B4%E5%9C%88%E7%94%A2%E7%94%9FJSX-elements"><span class="toc-number">2.2.</span> <span class="toc-text">使用迴圈產生JSX elements</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dojo-Toolkit"><span class="toc-number">3.</span> <span class="toc-text">Dojo Toolkit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dojo-on"><span class="toc-number">3.1.</span> <span class="toc-text">dojo&#x2F;on</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Closure"><span class="toc-number">3.2.</span> <span class="toc-text">Closure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Singleton"><span class="toc-number">3.3.</span> <span class="toc-text">Singleton</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/rtfd/" title="rtfd">rtfd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dojo/" title="dojo">dojo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Henry Lee in Taiwan. <br/>
+			This is my blog for study note.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2025 
+		
+		<a href="/about" target="_blank" title="Henry Lee">Henry Lee</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

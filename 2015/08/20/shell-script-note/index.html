@@ -1,0 +1,486 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>shell筆記區 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Henry Lee">
+    
+
+    
+    <meta name="description" content="bash搜尋.bash_history下過的commandCtrl + R 查版本uname -alsb_release -a 找DNS IP12345678$ scutil --dnsDNS configurationresolver #1  nameserver[0] : 192.168.43.1  if_index : 5 (en1)  flags    : Request A record">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell筆記區">
+<meta property="og:url" content="http://hamn07.github.io/2015/08/20/shell-script-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="bash搜尋.bash_history下過的commandCtrl + R 查版本uname -alsb_release -a 找DNS IP12345678$ scutil --dnsDNS configurationresolver #1  nameserver[0] : 192.168.43.1  if_index : 5 (en1)  flags    : Request A record">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2015-08-19T22:21:30.000Z">
+<meta property="article:modified_time" content="2015-12-18T01:35:32.000Z">
+<meta property="article:author" content="Henry Lee">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives/">Archives</a></li>
+					
+						<li><a href="/about/">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hamn07.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/20/shell-script-note/" title="shell筆記區" itemprop="url">shell筆記區</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Henry Lee" target="_blank" itemprop="author">Henry Lee</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-19T22:21:30.000Z" itemprop="datePublished"> Published 2015-08-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#bash"><span class="toc-number">1.</span> <span class="toc-text">bash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E5%B0%8B-bash-history%E4%B8%8B%E9%81%8E%E7%9A%84command"><span class="toc-number">1.1.</span> <span class="toc-text">搜尋.bash_history下過的command</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.</span> <span class="toc-text">查版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BEDNS-IP"><span class="toc-number">1.3.</span> <span class="toc-text">找DNS IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%80%E5%8F%96java%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">讀取java位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E6%AA%94%E6%A1%88%E9%A1%9E%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">查詢檔案類型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9Aredirect-80-%E5%88%B0-8080-A"><span class="toc-number">1.6.</span> <span class="toc-text">設定redirect 80 到 8080 (-A)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-7-open-port-8080-on-firewall"><span class="toc-number">1.7.</span> <span class="toc-text">CentOS 7 open port 8080 on firewall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">1.8.</span> <span class="toc-text">reference</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PowerShell"><span class="toc-number">2.</span> <span class="toc-text">PowerShell</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h1><h2 id="搜尋-bash-history下過的command"><a href="#搜尋-bash-history下過的command" class="headerlink" title="搜尋.bash_history下過的command"></a>搜尋.bash_history下過的command</h2><p><code>Ctrl + R</code></p>
+<h2 id="查版本"><a href="#查版本" class="headerlink" title="查版本"></a>查版本</h2><p><code>uname -a</code><br><code>lsb_release -a</code></p>
+<h2 id="找DNS-IP"><a href="#找DNS-IP" class="headerlink" title="找DNS IP"></a>找DNS IP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ scutil --dns</span><br><span class="line">DNS configuration</span><br><span class="line"></span><br><span class="line">resolver <span class="comment">#1</span></span><br><span class="line">  nameserver[0] : 192.168.43.1</span><br><span class="line">  if_index : 5 (en1)</span><br><span class="line">  flags    : Request A records</span><br><span class="line">  reach    : Reachable,Directly Reachable Address</span><br></pre></td></tr></table></figure>
+
+<h2 id="讀取java位置"><a href="#讀取java位置" class="headerlink" title="讀取java位置"></a>讀取java位置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-172-31-22-146 opt]$ <span class="built_in">readlink</span> -f $(<span class="built_in">which</span> java)</span><br><span class="line">/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45-30.b13.el7_1.x86_64/jre/bin/java</span><br><span class="line">/*redhat版本*/</span><br><span class="line">[ec2-user@ip-172-31-22-146 ~]$ <span class="built_in">cat</span> /etc/redhat-release</span><br><span class="line">Red Hat Enterprise Linux Server release 7.1 (Maipo)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="查詢檔案類型"><a href="#查詢檔案類型" class="headerlink" title="查詢檔案類型"></a>查詢檔案類型</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">file</span> /bin/<span class="keyword">grep</span></span><br><span class="line">/bin/<span class="keyword">grep</span>: ELF <span class="number">64</span>-bit LSB <span class="built_in">executable</span>, x86-<span class="number">64</span>, <span class="keyword">version</span> <span class="number">1</span> (SYSV), dynamically linked (uses shared libs), <span class="keyword">for</span> GNU/Linux <span class="number">2.6</span>.<span class="number">32</span>, BuildID[sha1]=<span class="number">0</span>x2695c3bf69db3cd5a6ea3f71ce1d0658e53ba354, stripped</span><br></pre></td></tr></table></figure>
+
+<h2 id="設定redirect-80-到-8080-A"><a href="#設定redirect-80-到-8080-A" class="headerlink" title="設定redirect 80 到 8080 (-A)"></a>設定redirect 80 到 8080 (-A)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080</span><br><span class="line">/* 移除設定 (-D)*?</span><br><span class="line">iptables -t nat -D PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080</span><br></pre></td></tr></table></figure>
+
+<h2 id="CentOS-7-open-port-8080-on-firewall"><a href="#CentOS-7-open-port-8080-on-firewall" class="headerlink" title="CentOS 7 open port 8080 on firewall"></a>CentOS 7 open port 8080 on firewall</h2><p>1.ensure <code>firewalld</code> is active.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl status firewalld.service</span></span><br><span class="line">firewalld.service - firewalld - dynamic firewall daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled)</span><br><span class="line">   Active: active (running) since 三 2015-11-25 09:11:43 CST; 5h 4min ago</span><br><span class="line"> Main PID: 654 (firewalld)</span><br><span class="line">   CGroup: /system.slice/firewalld.service</span><br><span class="line">           └─654 /usr/bin/python -Es /usr/sbin/firewalld --nofork --nopid</span><br><span class="line"></span><br><span class="line">11月 25 09:11:42 f6s systemd[1]: Starting firewalld - dynamic firewall daemon...</span><br><span class="line">11月 25 09:11:43 f6s systemd[1]: Started firewalld - dynamic firewall daemon...</span><br></pre></td></tr></table></figure>
+
+
+<p>2.pre-check firewall rule.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@f6s sysconfig]# firewall-cmd --zone=public --list-all</span><br><span class="line">public (default, active)</span><br><span class="line">  interfaces: ens32</span><br><span class="line">  sources:</span><br><span class="line">  services: dhcpv6-client ssh</span><br><span class="line">  ports:</span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports:</span><br><span class="line">  icmp-blocks:</span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure>
+
+<p>3.add rule.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@f6s sysconfig]# firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">success</span><br></pre></td></tr></table></figure>
+
+<p>4.rule not applied</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@f6s sysconfig]# firewall-cmd --zone=public --list-all</span><br><span class="line">public (default, active)</span><br><span class="line">  interfaces: ens32</span><br><span class="line">  sources:</span><br><span class="line">  services: dhcpv6-client ssh</span><br><span class="line">  ports:</span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports:</span><br><span class="line">  icmp-blocks:</span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure>
+
+<p>5.reload firewalld</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@f6s sysconfig]# firewall-cmd --reload</span><br><span class="line">success</span><br></pre></td></tr></table></figure>
+
+<p>6.rule applied</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@f6s sysconfig]# firewall-cmd --zone=public --list-all</span><br><span class="line">public (default, active)</span><br><span class="line">  interfaces: ens32</span><br><span class="line">  sources:</span><br><span class="line">  services: dhcpv6-client ssh</span><br><span class="line">  ports: 8080/tcp</span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports:</span><br><span class="line">  icmp-blocks:</span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure>
+
+<p>Remove it as needed:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@f6s sysconfig]# firewall-cmd --zone=public --remove-port=8080/tcp --permanent</span><br><span class="line">success</span><br><span class="line">[root@f6s sysconfig]# firewall-cmd --reload</span><br><span class="line">success</span><br><span class="line">[root@f6s sysconfig]# firewall-cmd --zone=public --list-all</span><br><span class="line">public (default, active)</span><br><span class="line">  interfaces: ens32</span><br><span class="line">  sources:</span><br><span class="line">  services: dhcpv6-client ssh</span><br><span class="line">  ports:</span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports:</span><br><span class="line">  icmp-blocks:</span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure>
+
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="https://www.evernote.com/shard/s75/sh/6409d14a-1b0c-4cfc-bbe3-19b0470833b9/abc3172d799d27285096c6e7c7a61798">CentOS 7 &#x2F; RHEL 7 – Open ports</a></p>
+<h1 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h1><p><code>Start-Process hexo s</code> or <code>start hexo s</code></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://hamn07.github.io/2015/08/20/shell-script-note/" data-title="shell筆記區 | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/27/arduino-note/" title="arduino筆記區">
+  <strong>上一篇：</strong><br/>
+  <span>
+  arduino筆記區</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/20/database-note/"  title="資料庫筆記區">
+ <strong>下一篇：</strong><br/> 
+ <span>資料庫筆記區
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#bash"><span class="toc-number">1.</span> <span class="toc-text">bash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E5%B0%8B-bash-history%E4%B8%8B%E9%81%8E%E7%9A%84command"><span class="toc-number">1.1.</span> <span class="toc-text">搜尋.bash_history下過的command</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.</span> <span class="toc-text">查版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BEDNS-IP"><span class="toc-number">1.3.</span> <span class="toc-text">找DNS IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%80%E5%8F%96java%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">讀取java位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E6%AA%94%E6%A1%88%E9%A1%9E%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">查詢檔案類型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9Aredirect-80-%E5%88%B0-8080-A"><span class="toc-number">1.6.</span> <span class="toc-text">設定redirect 80 到 8080 (-A)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-7-open-port-8080-on-firewall"><span class="toc-number">1.7.</span> <span class="toc-text">CentOS 7 open port 8080 on firewall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">1.8.</span> <span class="toc-text">reference</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PowerShell"><span class="toc-number">2.</span> <span class="toc-text">PowerShell</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/rtfd/" title="rtfd">rtfd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dojo/" title="dojo">dojo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Henry Lee in Taiwan. <br/>
+			This is my blog for study note.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2025 
+		
+		<a href="/about" target="_blank" title="Henry Lee">Henry Lee</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

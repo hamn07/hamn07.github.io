@@ -1,0 +1,615 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>備忘 - Configuration of Server, IDE | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Henry Lee">
+    
+
+    
+    <meta name="description" content="OSX設定Automator定期備份Workspace、右鍵拷貝    CentOS bootable USB123456789101112131415161718$ diskutil list&#x2F;dev&#x2F;disk0   #:                       TYPE NAME                    SIZE       IDENTIFIER   0:      G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="備忘 - Configuration of Server, IDE">
+<meta property="og:url" content="http://hamn07.github.io/2015/07/22/configuration/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="OSX設定Automator定期備份Workspace、右鍵拷貝    CentOS bootable USB123456789101112131415161718$ diskutil list&#x2F;dev&#x2F;disk0   #:                       TYPE NAME                    SIZE       IDENTIFIER   0:      G">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://dl.dropbox.com/s/gi7gnlbrdpoq9qq/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.59.49.png?dl=0">
+<meta property="og:image" content="https://dl.dropbox.com/s/npk4i2efpdcz0pj/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.58.27.png?dl=0">
+<meta property="og:image" content="https://dl.dropbox.com/s/qxvitkypigqewpy/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.58.53.png?dl=0">
+<meta property="og:image" content="https://dl.dropbox.com/s/azbe76p324wbup6/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%882.01.31.png?dl=0">
+<meta property="og:image" content="https://dl.dropbox.com/s/wxyrn9is5bsdxm5/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202015-11-26%20%E4%B8%8A%E5%8D%8810.44.33.png?dl=0">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/u/16245733/CyberDuck.png">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/u/16245733/MenuMeter.png">
+<meta property="og:image" content="http://backlogtool.com/git-guide/tw/img/post/stepup/capture_stepup1_5_6.png">
+<meta property="og:image" content="https://dl.dropbox.com/s/ibc99anekxd4b1o/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202015-11-27%20%E4%B8%8B%E5%8D%881.55.16.png?dl=0">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/u/16245733/eclipse-color-theme-1.png">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/u/16245733/eclipse-color-theme-2.png">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-1.png">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-2.png">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-3.png">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/u/16245733/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-28%20%E4%B8%8A%E5%8D%886.44.07.png">
+<meta property="og:image" content="https://dl.dropbox.com/s/owbo5mpunt2wyib/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-07%20%E4%B8%8A%E5%8D%889.28.46.png?dl=0">
+<meta property="og:image" content="https://dl.dropbox.com/s/yl3mbxsbnsn53zb/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-07%20%E4%B8%8B%E5%8D%884.14.38.png?dl=0">
+<meta property="article:published_time" content="2015-07-21T23:45:21.000Z">
+<meta property="article:modified_time" content="2017-05-25T02:21:05.000Z">
+<meta property="article:author" content="Henry Lee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dl.dropbox.com/s/gi7gnlbrdpoq9qq/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.59.49.png?dl=0">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives/">Archives</a></li>
+					
+						<li><a href="/about/">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hamn07.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/22/configuration/" title="備忘 - Configuration of Server, IDE" itemprop="url">備忘 - Configuration of Server, IDE</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Henry Lee" target="_blank" itemprop="author">Henry Lee</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-21T23:45:21.000Z" itemprop="datePublished"> Published 2015-07-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OSX"><span class="toc-number">1.</span> <span class="toc-text">OSX</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9AAutomator%E5%AE%9A%E6%9C%9F%E5%82%99%E4%BB%BDWorkspace%E3%80%81%E5%8F%B3%E9%8D%B5%E6%8B%B7%E8%B2%9D"><span class="toc-number">1.1.</span> <span class="toc-text">設定Automator定期備份Workspace、右鍵拷貝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-bootable-USB"><span class="toc-number">1.2.</span> <span class="toc-text">CentOS bootable USB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9Aapache"><span class="toc-number">1.3.</span> <span class="toc-text">設定apache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8mac%E5%82%99%E4%BB%BDiphone"><span class="toc-number">1.4.</span> <span class="toc-text">使用mac備份iphone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iTerm2"><span class="toc-number">1.5.</span> <span class="toc-text">iTerm2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9Avim%E6%9C%83highlight-syntax"><span class="toc-number">1.6.</span> <span class="toc-text">設定vim會highlight syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Software"><span class="toc-number">1.7.</span> <span class="toc-text">Software</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Heroku"><span class="toc-number">2.</span> <span class="toc-text">Heroku</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#deploy"><span class="toc-number">2.1.</span> <span class="toc-text">deploy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git"><span class="toc-number">3.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-gitignore-global"><span class="toc-number">3.1.</span> <span class="toc-text">設定.gitignore_global</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E7%8F%BE%E6%9C%89%E5%B0%88%E6%A1%88push%E4%B8%8Agihub-com"><span class="toc-number">3.2.</span> <span class="toc-text">將現有專案push上gihub.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-diff-%E6%AF%94%E8%BC%83%E5%85%A9%E5%80%8Bcommit%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">git diff 比較兩個commit的差異</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-pull-%E5%BE%8C-%E5%9B%9E%E5%BE%A9%E5%88%B0%E5%89%8D%E7%89%88%E6%AC%A1"><span class="toc-number">3.4.</span> <span class="toc-text">git pull 後, 回復到前版次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9commit%E8%AA%AA%E6%98%8E%E6%96%87%E5%AD%97"><span class="toc-number">3.5.</span> <span class="toc-text">修改commit說明文字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Maven"><span class="toc-number">4.</span> <span class="toc-text">Maven</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Atom"><span class="toc-number">5.</span> <span class="toc-text">Atom</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sublime"><span class="toc-number">6.</span> <span class="toc-text">Sublime</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Eclipse"><span class="toc-number">7.</span> <span class="toc-text">Eclipse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#eclipse-dark-theme-project-explore-black-text"><span class="toc-number">7.1.</span> <span class="toc-text">eclipse-dark-theme-project-explore-black-text</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#solution-1"><span class="toc-number">7.1.1.</span> <span class="toc-text">solution 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#solution-2"><span class="toc-number">7.1.2.</span> <span class="toc-text">solution 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maven%E8%A8%AD%E5%AE%9A"><span class="toc-number">7.2.</span> <span class="toc-text">Maven設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icon%E5%AE%9A%E7%BE%A9"><span class="toc-number">7.3.</span> <span class="toc-text">icon定義</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chrome"><span class="toc-number">8.</span> <span class="toc-text">Chrome</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo"><span class="toc-number">9.</span> <span class="toc-text">hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%B1%E9%8C%AF-Error-Module-version-mismatch-Expected-14-got-46"><span class="toc-number">9.1.</span> <span class="toc-text">報錯[Error: Module version mismatch. Expected 14, got 46.]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install%E5%8D%A1%E5%9C%A8node-gyp-rebuild"><span class="toc-number">9.2.</span> <span class="toc-text">npm install卡在node-gyp rebuild</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deploy%E5%89%8D%E7%BD%AE%E8%A8%AD%E5%AE%9A"><span class="toc-number">9.3.</span> <span class="toc-text">deploy前置設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">9.4.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<!-- toc -->
+
+
+<h1 id="OSX"><a href="#OSX" class="headerlink" title="OSX"></a>OSX</h1><h2 id="設定Automator定期備份Workspace、右鍵拷貝"><a href="#設定Automator定期備份Workspace、右鍵拷貝" class="headerlink" title="設定Automator定期備份Workspace、右鍵拷貝"></a>設定Automator定期備份Workspace、右鍵拷貝</h2><p><img src="https://dl.dropbox.com/s/gi7gnlbrdpoq9qq/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.59.49.png?dl=0"></p>
+<p><img src="https://dl.dropbox.com/s/npk4i2efpdcz0pj/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.58.27.png?dl=0"></p>
+<p><img src="https://dl.dropbox.com/s/qxvitkypigqewpy/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%881.58.53.png?dl=0"></p>
+<p><img src="https://dl.dropbox.com/s/azbe76p324wbup6/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-08%20%E4%B8%8B%E5%8D%882.01.31.png?dl=0"></p>
+<h2 id="CentOS-bootable-USB"><a href="#CentOS-bootable-USB" class="headerlink" title="CentOS bootable USB"></a>CentOS bootable USB</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ diskutil list</span><br><span class="line">/dev/disk0</span><br><span class="line">   <span class="comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:      GUID_partition_scheme                        *500.1 GB   disk0</span><br><span class="line">   1:                        EFI EFI                     209.7 MB   disk0s1</span><br><span class="line">   2:                  Apple_HFS Macintosh HD            419.0 GB   disk0s2</span><br><span class="line">   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3</span><br><span class="line">   4:       Microsoft Basic Data                         80.2 GB    disk0s4</span><br><span class="line">/dev/disk1</span><br><span class="line">   <span class="comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:     FDisk_partition_scheme                        *8.1 GB     disk1</span><br><span class="line">   1:                 DOS_FAT_32 NO NAME                 8.1 GB     disk1s1</span><br><span class="line">$ diskutil unmountDisk /dev/disk1</span><br><span class="line">Unmount of all volumes on disk1 was successful</span><br><span class="line">$ <span class="built_in">sudo</span> <span class="built_in">dd</span> <span class="keyword">if</span>=CentOS-7-x86_64-DVD-1503-01.iso of=/dev/disk1</span><br><span class="line">8419328+0 records <span class="keyword">in</span></span><br><span class="line">8419328+0 records out</span><br><span class="line">4310695936 bytes transferred <span class="keyword">in</span> 11507.233801 secs (374607 bytes/sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="設定apache"><a href="#設定apache" class="headerlink" title="設定apache"></a>設定apache</h2><p><a href="https://discussions.apple.com/docs/DOC-3083">Setting up a local web server on OS </a></p>
+<p><code>sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist</code><br><code>sudo /usr/sbin/apachectl restart</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ grep DocumentRoot /etc/apache2/httpd.conf</span><br><span class="line"><span class="comment"># DocumentRoot: The directory out of which you will serve your</span></span><br><span class="line">DocumentRoot <span class="string">&quot;/Library/WebServer/Documents&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">pwd</span></span><br><span class="line">$ grep ErrorLog /etc/apache2/httpd.conf</span><br><span class="line"><span class="comment"># ErrorLog: The location of the error log file.</span></span><br><span class="line"><span class="comment"># If you do not specify an ErrorLog directive w</span></span><br><span class="line">-rw-r--r--  1 root  wheel  903123088 10 25 20:39 access_log</span><br><span class="line">-rw-r--r--  1 root  wheel    3208194 10 25 20:38 error_log</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用mac備份iphone"><a href="#使用mac備份iphone" class="headerlink" title="使用mac備份iphone"></a>使用mac備份iphone</h2><ol>
+<li>mac接上iphone後會自行啟動『照片』這個應用程式</li>
+<li>輸入-&gt;輸入所有新照片 </li>
+<li>相片-&gt;選取要輸出的照片影片</li>
+<li>檔案-&gt;輸出-&gt;輸出…原始未修改檔</li>
+<li>輸出到Synology上的 _待整理</li>
+</ol>
+<h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h2><p><img src="https://dl.dropbox.com/s/wxyrn9is5bsdxm5/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202015-11-26%20%E4%B8%8A%E5%8D%8810.44.33.png?dl=0"></p>
+<h2 id="設定vim會highlight-syntax"><a href="#設定vim會highlight-syntax" class="headerlink" title="設定vim會highlight syntax"></a>設定vim會highlight syntax</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">vi</span> ~/.vimrc</span><br><span class="line"></span><br><span class="line">(<span class="built_in">add</span> configuration)</span><br><span class="line"></span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="built_in">indent</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h2><ul>
+<li><p><a href="http://tldr-pages.github.io/">tldr</a> 可用來查某個command的使用範例</p>
+</li>
+<li><p>CyberDuck</p>
+</li>
+</ul>
+<p><img src="https://dl.dropboxusercontent.com/u/16245733/CyberDuck.png"></p>
+<ul>
+<li>MenuMeter</li>
+</ul>
+<p><img src="https://dl.dropboxusercontent.com/u/16245733/MenuMeter.png"></p>
+<ul>
+<li><a href="https://handbrake.fr/">HandBrake</a> is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.</li>
+<li>Keka<br><a href="http://www.kekaosx.com/zh-tw/">官網</a></li>
+<li>ec2<br>$ chmod 400 ~&#x2F;.ssh&#x2F;dvp.pem<br>alias sshec2&#x3D;’ssh -i ~&#x2F;.ssh&#x2F;dvp.pem <a href="mailto:&#x65;&#99;&#50;&#x2d;&#x75;&#115;&#101;&#114;&#x40;&#x35;&#x32;&#x2e;&#x32;&#54;&#x2e;&#x31;&#x33;&#x38;&#46;&#50;&#x31;&#50;">ec2-user@52.26.138.212</a>‘</li>
+<li>嘸蝦米輸入法<br>直接安裝bin檔</li>
+<li>homebrew - The missing package manager for OS X<br>安裝套件都放在<code>/usr/local/Cellar</code>底下</li>
+<li><a href="http://caskroom.io/">Homebrew Cask</a> extends Homebrew and brings its elegance, simplicity, and speed to OS X applications and large binaries alike. It only takes 1 line in your shell to reach 2835 Casks maintained by 434 contributors.</li>
+<li>XtraFinder - 補強Finder功能</li>
+<li><a href="https://github.com/toland/qlmarkdown">QLMarkdown</a> is a simple QuickLook generator for Markdown files.</li>
+<li>DiffMerge</li>
+<li>MPlayerX</li>
+<li>Sublime</li>
+<li>PhotoScape X</li>
+<li><a href="https://www.evernote.com/shard/s75/sh/a1cd7790-c07f-41f6-9031-951c3988b457/5dd08a112d111e9e60c15bdc203466a9">Sublime Text 3 新手上路：必要的安裝、設定與基本使用教學</a></li>
+<li><a href="http://www.macosxtips.co.uk/index_files/10-tips-for-stickies.php">內建便條紙的用法</a></li>
+<li>gTask Pro NT$90買的</li>
+</ul>
+<h1 id="Heroku"><a href="#Heroku" class="headerlink" title="Heroku"></a>Heroku</h1><h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><ol>
+<li>Download <code>Heroku Toolbelt</code></li>
+<li><code>$ heroku login</code></li>
+<li><code>$ heroku git:clone -a stark-everglades-8527</code></li>
+<li><code>$ git push heroku master</code></li>
+</ol>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p><a href="https://help.github.com/">git help連結</a></p>
+<p>A successful Git branching model<br><img src="http://backlogtool.com/git-guide/tw/img/post/stepup/capture_stepup1_5_6.png" alt="A successful Git branching model"></p>
+<h2 id="設定-gitignore-global"><a href="#設定-gitignore-global" class="headerlink" title="設定.gitignore_global"></a>設定<code>.gitignore_global</code></h2><blockquote>
+<p>git config –global core.excludesfile ~&#x2F;.gitignore_global</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">10:39 $ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with <span class="string">&#x27;origin/master&#x27;</span>.</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line"></span><br><span class="line">	.idea/</span><br><span class="line">	lab-android-studio.iml</span><br><span class="line">	pichannelur/pichannelur.iml</span><br><span class="line">	pichannelvr/pichannelvr.iml</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use <span class="string">&quot;git add&quot;</span> to track)</span><br><span class="line">✔ ~/Workspace/lab-android-studio [master|…11]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10:43 $ git config --global -l</span><br><span class="line">fatal: unable to <span class="built_in">read</span> config file <span class="string">&#x27;/Users/Hamn/.gitconfig&#x27;</span>: No such file or directory</span><br><span class="line">✘-128 ~/Workspace/lab-android-studio [master|…11]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10:43 $ git config --global core.excludesfile ~/.gitignore_global</span><br><span class="line">✔ ~/Workspace/lab-android-studio [master|✔]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10:44 $ git config --global -l</span><br><span class="line">core.excludesfile=/Users/Hamn/.gitignore_global</span><br><span class="line">✔ ~/Workspace/lab-android-studio [master|✔]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">10:44 $ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with <span class="string">&#x27;origin/master&#x27;</span>.</span><br><span class="line"></span><br><span class="line">nothing to commit, working directory clean</span><br><span class="line">✔ ~/Workspace/lab-android-studio [master|✔]</span><br></pre></td></tr></table></figure>
+
+<h2 id="將現有專案push上gihub-com"><a href="#將現有專案push上gihub-com" class="headerlink" title="將現有專案push上gihub.com"></a>將現有專案push上gihub.com</h2><ol>
+<li>於github.com建立repository</li>
+<li>於專案目錄下:</li>
+<li>git init</li>
+<li>git add -A</li>
+<li>git commit -m “init”</li>
+<li>git remote add origin <code>&#123;github.com上repository的HTTPS clone URL&#125;</code></li>
+<li>git push -u origin master<blockquote>
+<p>若是要把remote端的repo覆蓋掉，使用<code>git push origin --mirror</code></p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin <span class="keyword">master</span></span><br><span class="line"><span class="title">Counting</span> objects: <span class="number">421</span>, done.</span><br><span class="line">Delta compression using up to <span class="number">2</span> threads.</span><br><span class="line">Compressing objects: <span class="number">100</span>% (<span class="number">387</span>/<span class="number">387</span>), done.</span><br><span class="line">Writing objects: <span class="number">100</span>% (<span class="number">421</span>/<span class="number">421</span>), <span class="number">31.74</span> MiB | <span class="number">190.00</span> KiB/s, done.</span><br><span class="line">Total <span class="number">421</span> (delta <span class="number">42</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">To git@github.com:hamn07/pichannel.web.git</span><br><span class="line"> * [new branch]      <span class="keyword">master</span> <span class="title">-&gt; master</span></span><br><span class="line">Branch <span class="keyword">master</span> <span class="title">set</span> up to track remote branch <span class="keyword">master</span> <span class="title">from</span> origin.</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>git status</li>
+</ol>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line"><span class="keyword">On</span> branch master</span><br><span class="line">Your branch <span class="keyword">is</span> up-<span class="keyword">to</span>-<span class="type">date</span> <span class="keyword">with</span> <span class="string">&#x27;origin/master&#x27;</span>.</span><br><span class="line"></span><br><span class="line"><span class="keyword">nothing</span> <span class="keyword">to</span> <span class="keyword">commit</span>, working directory clean</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>github.com的repository有檔案，Done.</li>
+</ol>
+<h2 id="git-diff-比較兩個commit的差異"><a href="#git-diff-比較兩個commit的差異" class="headerlink" title="git diff 比較兩個commit的差異"></a>git diff 比較兩個commit的差異</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt;</span><br><span class="line">D:\dvp\workspace\hamn07.github.io [master]&gt; git show --pretty=fuller</span><br><span class="line">commit ad92f1e68a0c2b10f9d72307b7ab4299c475c1d3</span><br><span class="line">Merge: 3c038a1 8865490</span><br><span class="line">Author:     hamn07 &lt;hamn07@gmail.com&gt;</span><br><span class="line">AuthorDate: Tue Jul 21 13:58:09 2015 +0800</span><br><span class="line">Commit:     hamn07 &lt;hamn07@gmail.com&gt;</span><br><span class="line">CommitDate: Tue Jul 21 13:58:09 2015 +0800</span><br><span class="line"></span><br><span class="line">    Merge branch <span class="string">&#x27;master&#x27;</span> of github.com:hamn07/src.hamn07.github.io</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br><span class="line">D:\dvp\workspace\hamn07.github.io [master]&gt; git diff 3c038a1 8865490</span><br><span class="line">diff --git a/_config.yml b/_config.yml</span><br><span class="line">index 626a0bb..a092632 100644</span><br><span class="line">--- a/_config.yml</span><br><span class="line">+++ b/_config.yml</span><br><span class="line">@@ -63,6 +63,7 @@ pagination_dir: page</span><br><span class="line"> <span class="comment"># Extensions</span></span><br><span class="line"> <span class="comment">## Plugins: http://hexo.io/plugins/</span></span><br><span class="line"> <span class="comment">## Themes: http://hexo.io/themes/</span></span><br><span class="line">+#theme: landscape</span><br><span class="line"> <span class="comment">#theme: phase</span></span><br><span class="line"> theme: tranquilpeak</span><br></pre></td></tr></table></figure>
+<h2 id="git-pull-後-回復到前版次"><a href="#git-pull-後-回復到前版次" class="headerlink" title="git pull 後, 回復到前版次"></a>git pull 後, 回復到前版次</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br><span class="line">4afe7c0 HEAD@&#123;0&#125;: pull: Fast-forward</span><br><span class="line">1bcd64b HEAD@&#123;1&#125;: pull: Fast-forward</span><br><span class="line">65ce0d2 HEAD@&#123;2&#125;: <span class="built_in">clone</span>: from https://github.com/iissnan/hexo-theme-next</span><br><span class="line">$ git reset --hard 65ce0d2</span><br><span class="line">HEAD is now at 65ce0d2 Merge pull request <span class="comment">#418 from Acris/master</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改commit說明文字"><a href="#修改commit說明文字" class="headerlink" title="修改commit說明文字"></a>修改commit說明文字</h2><p><code>git commit --amend</code></p>
+<p><code>git commit --amend -m &quot;說明文字&quot;</code></p>
+<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> ~/.bash_profile | grep maven</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/Users/tomin.henrylee/Applications/apache-maven-3.3.3/bin:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mvn -v</span><br><span class="line">Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T19:57:37+08:00)</span><br><span class="line">Maven home: /Users/tomin.henrylee/Applications/apache-maven-3.3.3</span><br><span class="line">Java version: 1.8.0_45, vendor: Oracle Corporation</span><br><span class="line">Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre</span><br><span class="line">Default locale: zh_TW, platform encoding: UTF-8</span><br><span class="line">OS name: <span class="string">&quot;mac os x&quot;</span>, version: <span class="string">&quot;10.11&quot;</span>, <span class="built_in">arch</span>: <span class="string">&quot;x86_64&quot;</span>, family: <span class="string">&quot;mac&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.henry.webapp -DartifactId=maven-test -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br><span class="line">[INFO] Scanning <span class="keyword">for</span> projects...</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Building Maven Stub Project (No POM) 1</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] &gt;&gt;&gt; maven-archetype-plugin:2.4:generate (default-cli) &gt; generate-sources @ standalone-pom &gt;&gt;&gt;</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] &lt;&lt;&lt; <span class="string">maven-archetype-plugin:2.4:generate (default-cli) &lt; generate-sources @ standalone-pom &lt;&lt;&lt;</span></span><br><span class="line"><span class="string">[INFO]</span></span><br><span class="line"><span class="string">[INFO] --- maven</span>-archetype-plugin:2.4:generate (default-cli) @ standalone-pom ---</span><br><span class="line">[INFO] Generating project <span class="keyword">in</span> Batch mode</span><br><span class="line">[INFO] ----------------------------------------------------------------------------</span><br><span class="line">[INFO] Using following parameters <span class="keyword">for</span> creating project from Old (1.x) Archetype: maven-archetype-quickstart:1.0</span><br><span class="line">[INFO] ----------------------------------------------------------------------------</span><br><span class="line">[INFO] Parameter: basedir, Value: /Users/tomin.henrylee/Workspace/temp</span><br><span class="line">[INFO] Parameter: package, Value: com.henry.webapp</span><br><span class="line">[INFO] Parameter: groupId, Value: com.henry.webapp</span><br><span class="line">[INFO] Parameter: artifactId, Value: maven-test</span><br><span class="line">[INFO] Parameter: packageName, Value: com.henry.webapp</span><br><span class="line">[INFO] Parameter: version, Value: 1.0-SNAPSHOT</span><br><span class="line">[INFO] project created from Old (1.x) Archetype <span class="keyword">in</span> <span class="built_in">dir</span>: /Users/tomin.henrylee/Workspace/temp/maven-test</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total <span class="keyword">time</span>: 3.268 s</span><br><span class="line">[INFO] Finished at: 2015-10-23T14:00:05+08:00</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ tree maven-test/</span><br><span class="line">maven-test/</span><br><span class="line">├── pom.xml</span><br><span class="line">└── src</span><br><span class="line">    ├── main</span><br><span class="line">    │   └── java</span><br><span class="line">    │       └── com</span><br><span class="line">    │           └── henry</span><br><span class="line">    │               └── webapp</span><br><span class="line">    │                   └── App.java</span><br><span class="line">    └── <span class="built_in">test</span></span><br><span class="line">        └── java</span><br><span class="line">            └── com</span><br><span class="line">                └── henry</span><br><span class="line">                    └── webapp</span><br><span class="line">                        └── AppTest.java</span><br><span class="line"></span><br><span class="line">11 directories, 3 files</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> maven-test/</span><br><span class="line">$ <span class="built_in">cat</span> pom.xml</span><br><span class="line">&lt;project xmlns=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> xmlns:xsi=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="line">  xsi:schemaLocation=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span>&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.henry.webapp&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;maven-test&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;jar&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;name&gt;maven-test&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.8.1&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$ mvn package</span><br><span class="line">[INFO] Scanning <span class="keyword">for</span> projects...</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Building maven-test 1.0-SNAPSHOT</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ maven-test ---</span><br><span class="line">[INFO] Using <span class="string">&#x27;UTF-8&#x27;</span> encoding to copy filtered resources.</span><br><span class="line">[INFO] skip non existing resourceDirectory /Users/tomin.henrylee/Workspace/temp/maven-test/src/main/resources</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ maven-test ---</span><br><span class="line">[INFO] Nothing to compile - all classes are up to <span class="built_in">date</span></span><br><span class="line">[INFO]</span><br><span class="line">[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ maven-test ---</span><br><span class="line">[INFO] Using <span class="string">&#x27;UTF-8&#x27;</span> encoding to copy filtered resources.</span><br><span class="line">[INFO] skip non existing resourceDirectory /Users/tomin.henrylee/Workspace/temp/maven-test/src/test/resources</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ maven-test ---</span><br><span class="line">[INFO] Nothing to compile - all classes are up to <span class="built_in">date</span></span><br><span class="line">[INFO]</span><br><span class="line">[INFO] --- maven-surefire-plugin:2.12.4:<span class="built_in">test</span> (default-test) @ maven-test ---</span><br><span class="line">[INFO] Surefire report directory: /Users/tomin.henrylee/Workspace/temp/maven-test/target/surefire-reports</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------</span><br><span class="line"> T E S T S</span><br><span class="line">-------------------------------------------------------</span><br><span class="line">Running com.henry.webapp.AppTest</span><br><span class="line">Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec</span><br><span class="line"></span><br><span class="line">Results :</span><br><span class="line"></span><br><span class="line">Tests run: 1, Failures: 0, Errors: 0, Skipped: 0</span><br><span class="line"></span><br><span class="line">[INFO]</span><br><span class="line">[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ maven-test ---</span><br><span class="line">[INFO] Building jar: /Users/tomin.henrylee/Workspace/temp/maven-test/target/maven-test-1.0-SNAPSHOT.jar</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Total <span class="keyword">time</span>: 1.147 s</span><br><span class="line">[INFO] Finished at: 2015-10-23T14:20:40+08:00</span><br><span class="line">[INFO] Final Memory: 11M/220M</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">$ tree .</span><br><span class="line">.</span><br><span class="line">├── pom.xml</span><br><span class="line">├── src</span><br><span class="line">│   ├── main</span><br><span class="line">│   │   └── java</span><br><span class="line">│   │       └── com</span><br><span class="line">│   │           └── henry</span><br><span class="line">│   │               └── webapp</span><br><span class="line">│   │                   └── App.java</span><br><span class="line">│   └── <span class="built_in">test</span></span><br><span class="line">│       └── java</span><br><span class="line">│           └── com</span><br><span class="line">│               └── henry</span><br><span class="line">│                   └── webapp</span><br><span class="line">│                       └── AppTest.java</span><br><span class="line">└── target</span><br><span class="line">    ├── classes</span><br><span class="line">    │   └── com</span><br><span class="line">    │       └── henry</span><br><span class="line">    │           └── webapp</span><br><span class="line">    │               └── App.class</span><br><span class="line">    ├── maven-archiver</span><br><span class="line">    │   └── pom.properties</span><br><span class="line">    ├── maven-status</span><br><span class="line">    │   └── maven-compiler-plugin</span><br><span class="line">    │       ├── compile</span><br><span class="line">    │       │   └── default-compile</span><br><span class="line">    │       │       ├── createdFiles.lst</span><br><span class="line">    │       │       └── inputFiles.lst</span><br><span class="line">    │       └── testCompile</span><br><span class="line">    │           └── default-testCompile</span><br><span class="line">    │               ├── createdFiles.lst</span><br><span class="line">    │               └── inputFiles.lst</span><br><span class="line">    ├── maven-test-1.0-SNAPSHOT.jar</span><br><span class="line">    ├── surefire-reports</span><br><span class="line">    │   ├── TEST-com.henry.webapp.AppTest.xml</span><br><span class="line">    │   └── com.henry.webapp.AppTest.txt</span><br><span class="line">    └── test-classes</span><br><span class="line">        └── com</span><br><span class="line">            └── henry</span><br><span class="line">                └── webapp</span><br><span class="line">                    └── AppTest.class</span><br><span class="line"></span><br><span class="line">28 directories, 13 files</span><br></pre></td></tr></table></figure>
+<p><a href="http://books.sonatype.com/mvnex-book/reference/index.html">Maven by Example</a><br><a href="https://www.evernote.com/shard/s75/sh/20369e9b-278a-4782-b42c-9f4e820aced6/2fd59b98812bfd5a45e9bd6763ba63b8">How to enable index downloads in Eclipse for Maven search?</a><br><a href="https://www.evernote.com/shard/s75/sh/af016fc0-1205-4c35-b663-6ba2b7ecf41e/073450b9e72f07636e8e7329885e102c">Maven – Maven in 5 Minutes</a><br><a href="https://www.evernote.com/shard/s75/sh/309517cb-d15f-4f31-b3e2-79d2c0b41101/a47793422368965fa44fe1a7cfabb823">How do I prevent “[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!”</a></p>
+<h1 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h1><ul>
+<li>Seti</li>
+<li></li>
+</ul>
+<h1 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h1><ul>
+<li>修改編輯器字型</li>
+</ul>
+<p>Preferences&#x2F;Settings - User</p>
+<p><img src="https://dl.dropbox.com/s/ibc99anekxd4b1o/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202015-11-27%20%E4%B8%8B%E5%8D%881.55.16.png?dl=0"></p>
+<h1 id="Eclipse"><a href="#Eclipse" class="headerlink" title="Eclipse"></a>Eclipse</h1><ul>
+<li><a href="http://www.eclipse.org/cdt/downloads.php">CDT</a></li>
+<li><a href="http://www.baeyens.it/eclipse/nightly-osx.html">Arduino plugin nightly-osx</a></li>
+<li>Log Viewer</li>
+<li>SQL Development Tool</li>
+<li>Eclipse Color Theme</li>
+<li>Eclipse Moonrise UI Theme<br><img src="https://dl.dropboxusercontent.com/u/16245733/eclipse-color-theme-1.png"><br><img src="https://dl.dropboxusercontent.com/u/16245733/eclipse-color-theme-2.png"></li>
+<li>ModelGoon UML4Java</li>
+<li>Gradle IDE package 3.6.x</li>
+</ul>
+<h2 id="eclipse-dark-theme-project-explore-black-text"><a href="#eclipse-dark-theme-project-explore-black-text" class="headerlink" title="eclipse-dark-theme-project-explore-black-text"></a>eclipse-dark-theme-project-explore-black-text</h2><h3 id="solution-1"><a href="#solution-1" class="headerlink" title="solution 1"></a>solution 1</h3><ol>
+<li><p>export original preference setting<br><img src="https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-1.png"></p>
+</li>
+<li><p>import fixed-preference setting<br><img src="https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-2.png"><br><img src="https://dl.dropboxusercontent.com/u/16245733/eclipse-dark-theme-project-explore-black-text-3.png"></p>
+</li>
+</ol>
+<h3 id="solution-2"><a href="#solution-2" class="headerlink" title="solution 2"></a>solution 2</h3><p><img src="https://dl.dropboxusercontent.com/u/16245733/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-28%20%E4%B8%8A%E5%8D%886.44.07.png"><br><a href="http://stackoverflow.com/questions/14545978/how-to-change-the-background-color-for-changed-files-in-eclipse-project-explorer">How to change the background color for changed files in eclipse project explorer?</a></p>
+<h2 id="Maven設定"><a href="#Maven設定" class="headerlink" title="Maven設定"></a>Maven設定</h2><p><img src="https://dl.dropbox.com/s/owbo5mpunt2wyib/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-07%20%E4%B8%8A%E5%8D%889.28.46.png?dl=0"></p>
+<h2 id="icon定義"><a href="#icon定義" class="headerlink" title="icon定義"></a>icon定義</h2><p><a href="http://help.eclipse.org/juno/index.jsp?topic=/org.eclipse.jdt.doc.user/reference/ref-icons.htm">Eclipse JDT icon</a><br><img src="https://dl.dropbox.com/s/yl3mbxsbnsn53zb/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-07%20%E4%B8%8B%E5%8D%884.14.38.png?dl=0"></p>
+<h1 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h1><p>Insomnia<br>postman<br>better google tasks</p>
+<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><h2 id="報錯-Error-Module-version-mismatch-Expected-14-got-46"><a href="#報錯-Error-Module-version-mismatch-Expected-14-got-46" class="headerlink" title="報錯[Error: Module version mismatch. Expected 14, got 46.]"></a>報錯[Error: Module version mismatch. Expected 14, got 46.]</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">✔ ~/Workspace/src.hamn07.github.io [master|✔]</span><br><span class="line">13:08 $ hexo --version</span><br><span class="line">[Error: Module version mismatch. Expected 14, got 46.]</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">&#x27;./build/default/DTraceProviderBindings&#x27;</span>] code: <span class="string">&#x27;MODULE_NOT_FOUND&#x27;</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">&#x27;./build/Debug/DTraceProviderBindings&#x27;</span>] code: <span class="string">&#x27;MODULE_NOT_FOUND&#x27;</span> &#125;</span><br><span class="line">hexo: 3.1.1</span><br><span class="line">os: Darwin 15.0.0 darwin x64</span><br><span class="line">http_parser: 2.3</span><br><span class="line">node: 0.12.7</span><br><span class="line">v8: 3.28.71.19</span><br><span class="line">uv: 1.6.1</span><br><span class="line">zlib: 1.2.8</span><br><span class="line">modules: 14</span><br><span class="line">openssl: 1.0.1p</span><br></pre></td></tr></table></figure>
+
+<p><strong>Workaround</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">13:08 $ npm install hexo --no-optional</span><br><span class="line">hexo@3.1.1 node_modules/hexo</span><br><span class="line">├── hexo-front-matter@0.2.2</span><br><span class="line">├── pretty-hrtime@1.0.1</span><br><span class="line">├── abbrev@1.0.7</span><br><span class="line">├── archy@1.0.0</span><br><span class="line">├── titlecase@1.0.2</span><br><span class="line">├── text-table@0.2.0</span><br><span class="line">├── tildify@1.1.2 (os-homedir@1.0.1)</span><br><span class="line">├── strip-indent@1.0.1 (get-stdin@4.0.1)</span><br><span class="line">├── hexo-i18n@0.2.1 (sprintf-js@1.0.3)</span><br><span class="line">├── chalk@1.1.1 (escape-string-regexp@1.0.3, supports-color@2.0.0, ansi-styles@2.1.0, has-ansi@2.0.0, strip-ansi@3.0.0)</span><br><span class="line">├── minimatch@2.0.10 (brace-expansion@1.1.1)</span><br><span class="line">├── bunyan@1.5.1</span><br><span class="line">├── through2@1.1.1 (xtend@4.0.0, readable-stream@1.1.13)</span><br><span class="line">├── swig-extras@0.0.1 (markdown@0.5.0)</span><br><span class="line">├── bluebird@2.10.2</span><br><span class="line">├── js-yaml@3.4.3 (esprima@2.6.0, argparse@1.0.2)</span><br><span class="line">├── cheerio@0.19.0 (entities@1.1.1, dom-serializer@0.1.0, css-select@1.0.0, htmlparser2@3.8.3)</span><br><span class="line">├── warehouse@1.0.3 (graceful-fs@4.1.2, cuid@1.2.5, JSONStream@1.0.6)</span><br><span class="line">├── nunjucks@1.3.4 (optimist@0.6.1, chokidar@0.12.6)</span><br><span class="line">├── hexo-cli@0.1.8 (minimist@1.2.0)</span><br><span class="line">├── hexo-fs@0.1.4 (escape-string-regexp@1.0.3, graceful-fs@4.1.2, chokidar@1.2.0)</span><br><span class="line">├── hexo-util@0.1.7 (ent@2.2.0, highlight.js@8.8.0)</span><br><span class="line">├── moment-timezone@0.3.1</span><br><span class="line">├── lodash@3.10.1</span><br><span class="line">├── moment@2.10.6</span><br><span class="line">└── swig@1.4.2 (optimist@0.6.1, uglify-js@2.4.24)</span><br><span class="line"></span><br><span class="line">13:09 $ hexo server &amp;</span><br><span class="line">[1] 3911</span><br><span class="line">✔ ~/Workspace/src.hamn07.github.io [master|✔]</span><br><span class="line">13:09 $ INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br><span class="line"></span><br><span class="line">13:14 $ ps</span><br><span class="line">  PID TTY           TIME CMD</span><br><span class="line">  596 ttys000    0:01.23 -bash</span><br><span class="line"> 3911 ttys000    0:24.76 hexo</span><br><span class="line"></span><br><span class="line">13:14 $ <span class="built_in">kill</span> 3911</span><br><span class="line">[1]+  Terminated: 15          hexo server</span><br></pre></td></tr></table></figure>
+
+<h2 id="npm-install卡在node-gyp-rebuild"><a href="#npm-install卡在node-gyp-rebuild" class="headerlink" title="npm install卡在node-gyp rebuild"></a>npm install卡在node-gyp rebuild</h2><p>Workaround:<br>1.安裝nvm<br><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.28.0/install.sh | bash</code></p>
+<p>2.更新npm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">08:58 $ nvm list</span><br><span class="line">-&gt;       system</span><br><span class="line">node -&gt; stable (-&gt; N/A) (default)</span><br><span class="line">iojs -&gt; N/A (default)</span><br><span class="line">✔ ~</span><br><span class="line">08:58 $ nvm install stable</span><br><span class="line"><span class="comment">######################################################################## 100.0%</span></span><br><span class="line">WARNING: checksums are currently disabled <span class="keyword">for</span> node.js v4.0 and later</span><br><span class="line">Now using node v4.1.2 (npm v2.14.4)</span><br><span class="line">✔ ~</span><br><span class="line">09:00 $ nvm <span class="built_in">ls</span></span><br><span class="line">-&gt;       v4.1.2</span><br><span class="line">         system</span><br><span class="line">node -&gt; stable (-&gt; v4.1.2) (default)</span><br><span class="line">stable -&gt; 4.1 (-&gt; v4.1.2) (default)</span><br><span class="line">iojs -&gt; N/A (default)</span><br></pre></td></tr></table></figure>
+
+<h2 id="deploy前置設定"><a href="#deploy前置設定" class="headerlink" title="deploy前置設定"></a>deploy前置設定</h2><p><code>npm install hexo-toc --save</code><br><code>npm install hexo-deployer-git --save</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br><span class="line">Permission denied (publickey).</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL Something wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Permission denied (publickey).</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line"></span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (/Users/Hamn/Workspace/src.hamn07.github.io/node_modules/hexo-deployer-git/node_modules/hexo-util/lib/spawn.js:42:17)</span><br><span class="line">    at ChildProcess.emit (events.js:110:17)</span><br><span class="line">    at maybeClose (child_process.js:1015:16)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (child_process.js:1087:5)</span><br></pre></td></tr></table></figure>
+<p>Workaround: <a href="https://help.github.com/articles/generating-ssh-keys/">add SSH keys to GitHub.com</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://lukang.me/categories/Hexo/">lukang介紹Hexo系列文章</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://hamn07.github.io/2015/07/22/configuration/" data-title="備忘 - Configuration of Server, IDE | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/07/30/android-note/" title="安卓筆記區">
+  <strong>上一篇：</strong><br/>
+  <span>
+  安卓筆記區</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/12/proposal-android/"  title="Android小專題 - 網路相簿">
+ <strong>下一篇：</strong><br/> 
+ <span>Android小專題 - 網路相簿
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OSX"><span class="toc-number">1.</span> <span class="toc-text">OSX</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9AAutomator%E5%AE%9A%E6%9C%9F%E5%82%99%E4%BB%BDWorkspace%E3%80%81%E5%8F%B3%E9%8D%B5%E6%8B%B7%E8%B2%9D"><span class="toc-number">1.1.</span> <span class="toc-text">設定Automator定期備份Workspace、右鍵拷貝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-bootable-USB"><span class="toc-number">1.2.</span> <span class="toc-text">CentOS bootable USB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9Aapache"><span class="toc-number">1.3.</span> <span class="toc-text">設定apache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8mac%E5%82%99%E4%BB%BDiphone"><span class="toc-number">1.4.</span> <span class="toc-text">使用mac備份iphone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iTerm2"><span class="toc-number">1.5.</span> <span class="toc-text">iTerm2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9Avim%E6%9C%83highlight-syntax"><span class="toc-number">1.6.</span> <span class="toc-text">設定vim會highlight syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Software"><span class="toc-number">1.7.</span> <span class="toc-text">Software</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Heroku"><span class="toc-number">2.</span> <span class="toc-text">Heroku</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#deploy"><span class="toc-number">2.1.</span> <span class="toc-text">deploy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git"><span class="toc-number">3.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-gitignore-global"><span class="toc-number">3.1.</span> <span class="toc-text">設定.gitignore_global</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E7%8F%BE%E6%9C%89%E5%B0%88%E6%A1%88push%E4%B8%8Agihub-com"><span class="toc-number">3.2.</span> <span class="toc-text">將現有專案push上gihub.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-diff-%E6%AF%94%E8%BC%83%E5%85%A9%E5%80%8Bcommit%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">git diff 比較兩個commit的差異</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-pull-%E5%BE%8C-%E5%9B%9E%E5%BE%A9%E5%88%B0%E5%89%8D%E7%89%88%E6%AC%A1"><span class="toc-number">3.4.</span> <span class="toc-text">git pull 後, 回復到前版次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9commit%E8%AA%AA%E6%98%8E%E6%96%87%E5%AD%97"><span class="toc-number">3.5.</span> <span class="toc-text">修改commit說明文字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Maven"><span class="toc-number">4.</span> <span class="toc-text">Maven</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Atom"><span class="toc-number">5.</span> <span class="toc-text">Atom</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sublime"><span class="toc-number">6.</span> <span class="toc-text">Sublime</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Eclipse"><span class="toc-number">7.</span> <span class="toc-text">Eclipse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#eclipse-dark-theme-project-explore-black-text"><span class="toc-number">7.1.</span> <span class="toc-text">eclipse-dark-theme-project-explore-black-text</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#solution-1"><span class="toc-number">7.1.1.</span> <span class="toc-text">solution 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#solution-2"><span class="toc-number">7.1.2.</span> <span class="toc-text">solution 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maven%E8%A8%AD%E5%AE%9A"><span class="toc-number">7.2.</span> <span class="toc-text">Maven設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icon%E5%AE%9A%E7%BE%A9"><span class="toc-number">7.3.</span> <span class="toc-text">icon定義</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chrome"><span class="toc-number">8.</span> <span class="toc-text">Chrome</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo"><span class="toc-number">9.</span> <span class="toc-text">hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%B1%E9%8C%AF-Error-Module-version-mismatch-Expected-14-got-46"><span class="toc-number">9.1.</span> <span class="toc-text">報錯[Error: Module version mismatch. Expected 14, got 46.]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install%E5%8D%A1%E5%9C%A8node-gyp-rebuild"><span class="toc-number">9.2.</span> <span class="toc-text">npm install卡在node-gyp rebuild</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deploy%E5%89%8D%E7%BD%AE%E8%A8%AD%E5%AE%9A"><span class="toc-number">9.3.</span> <span class="toc-text">deploy前置設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">9.4.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/rtfd/" title="rtfd">rtfd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dojo/" title="dojo">dojo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Henry Lee in Taiwan. <br/>
+			This is my blog for study note.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2025 
+		
+		<a href="/about" target="_blank" title="Henry Lee">Henry Lee</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

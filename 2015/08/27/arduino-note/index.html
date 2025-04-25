@@ -1,0 +1,461 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>arduino筆記區 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Henry Lee">
+    
+
+    
+    <meta name="description" content="林老師的教作業郵件 SyntaxMemoryPort RegistersWhat is the difference between Serial.write and Serial.print? And when are they used? IDEStino is a Sublime Text plugin that provides an Arduino-like environement">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arduino筆記區">
+<meta property="og:url" content="http://hamn07.github.io/2015/08/27/arduino-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="林老師的教作業郵件 SyntaxMemoryPort RegistersWhat is the difference between Serial.write and Serial.print? And when are they used? IDEStino is a Sublime Text plugin that provides an Arduino-like environement">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2015-08-27T06:01:13.000Z">
+<meta property="article:modified_time" content="2015-11-03T02:41:39.000Z">
+<meta property="article:author" content="Henry Lee">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives/">Archives</a></li>
+					
+						<li><a href="/about/">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hamn07.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/27/arduino-note/" title="arduino筆記區" itemprop="url">arduino筆記區</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Henry Lee" target="_blank" itemprop="author">Henry Lee</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-27T06:01:13.000Z" itemprop="datePublished"> Published 2015-08-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax"><span class="toc-number">1.</span> <span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDE"><span class="toc-number">2.</span> <span class="toc-text">IDE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lib-location"><span class="toc-number">3.</span> <span class="toc-text">lib location</span></a></li></ol>
+		
+		</div>
+		
+		<!-- toc -->
+
+<p><a href="mailto:&#47;&#47;&#104;&#x6f;&#x6d;&#x65;&#x77;&#x6f;&#114;&#107;&#x73;&#x2e;&#x69;&#105;&#105;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">林老師的教作業郵件</a></p>
+<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><p><a href="http://playground.arduino.cc/Learning/Memory">Memory</a><br><a href="https://www.arduino.cc/en/Reference/PortManipulation">Port Registers</a><br><a href="http://arduino.stackexchange.com/questions/10088/what-is-the-difference-between-serial-write-and-serial-print-and-when-are-they">What is the difference between Serial.write and Serial.print? And when are they used?</a></p>
+<h1 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h1><p><a href="https://github.com/Robot-Will/Stino">Stino is a Sublime Text plugin that provides an Arduino-like environement for editing, compiling and uploading sketches.</a></p>
+<h1 id="lib-location"><a href="#lib-location" class="headerlink" title="lib location"></a>lib location</h1><p>&#x2F;Applications&#x2F;Arduino.app&#x2F;Contents&#x2F;Java&#x2F;libraries</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">✔ /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino</span><br><span class="line">21:09 $ <span class="built_in">ls</span> -al</span><br><span class="line">total 640</span><br><span class="line">drwxr-xr-x@ 45 HamnLee  staff   1530  7 20 14:03 .</span><br><span class="line">drwxr-xr-x@  3 HamnLee  staff    102  7 20 14:03 ..</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   7286  7 20 14:03 Arduino.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   5867  7 20 14:03 CDC.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1529  7 20 14:03 Client.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff  13744  7 20 14:03 HID.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   7783  7 20 14:03 HardwareSerial.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   4875  7 20 14:03 HardwareSerial.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   2605  7 20 14:03 HardwareSerial0.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   2315  7 20 14:03 HardwareSerial1.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1975  7 20 14:03 HardwareSerial2.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1975  7 20 14:03 HardwareSerial3.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   4469  7 20 14:03 HardwareSerial_private.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1993  7 20 14:03 IPAddress.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   2715  7 20 14:03 IPAddress.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   5371  7 20 14:03 Print.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   2614  7 20 14:03 Print.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1335  7 20 14:03 Printable.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff    963  7 20 14:03 Server.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   8677  7 20 14:03 Stream.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   5111  7 20 14:03 Stream.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff  15010  7 20 14:03 Tone.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   6805  7 20 14:03 USBAPI.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff  14010  7 20 14:03 USBCore.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   7855  7 20 14:03 USBCore.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1872  7 20 14:03 USBDesc.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   4180  7 20 14:03 Udp.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   4576  7 20 14:03 WCharacter.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   9342  7 20 14:03 WInterrupts.c</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1650  7 20 14:03 WMath.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff  16825  7 20 14:03 WString.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   9591  7 20 14:03 WString.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1222  7 20 14:03 abi.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff  11214  7 20 14:03 binary.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1142  7 20 14:03 hooks.c</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1312  7 20 14:03 main.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1027  7 20 14:03 new.cpp</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff    979  7 20 14:03 new.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff  12103  7 20 14:03 wiring.c</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   7751  7 20 14:03 wiring_analog.c</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   5030  7 20 14:03 wiring_digital.c</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   2147  7 20 14:03 wiring_private.h</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   6022  7 20 14:03 wiring_pulse.S</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   3631  7 20 14:03 wiring_pulse.c</span><br><span class="line">-rw-r--r--@  1 HamnLee  staff   1601  7 20 14:03 wiring_shift.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -✔ /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/libraries</span><br><span class="line">21:16 $ <span class="built_in">ls</span> -al</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x@  6 HamnLee  staff  204  7 20 14:03 .</span><br><span class="line">drwxr-xr-x@ 10 HamnLee  staff  340  7 20 14:03 ..</span><br><span class="line">drwxr-xr-x@  7 HamnLee  staff  238  7 20 14:03 EEPROM</span><br><span class="line">drwxr-xr-x@  7 HamnLee  staff  238  7 20 14:03 SPI</span><br><span class="line">drwxr-xr-x@  7 HamnLee  staff  238  7 20 14:03 SoftwareSerial</span><br><span class="line">drwxr-xr-x@  8 HamnLee  staff  272  7 20 14:03 Wire</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br></pre></td><td class="code"><pre><span class="line">✔ /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include</span><br><span class="line">21:40 $ tree .</span><br><span class="line">.</span><br><span class="line">├── alloca.h</span><br><span class="line">├── assert.h</span><br><span class="line">├── avr</span><br><span class="line">│   ├── boot.h</span><br><span class="line">│   ├── builtins.h</span><br><span class="line">│   ├── common.h</span><br><span class="line">│   ├── cpufunc.h</span><br><span class="line">│   ├── crc16.h</span><br><span class="line">│   ├── delay.h</span><br><span class="line">│   ├── eeprom.h</span><br><span class="line">│   ├── fuse.h</span><br><span class="line">│   ├── interrupt.h</span><br><span class="line">│   ├── io.h</span><br><span class="line">│   ├── io1200.h</span><br><span class="line">│   ├── io2313.h</span><br><span class="line">│   ├── io2323.h</span><br><span class="line">│   ├── io2333.h</span><br><span class="line">│   ├── io2343.h</span><br><span class="line">│   ├── io43u32x.h</span><br><span class="line">│   ├── io43u35x.h</span><br><span class="line">│   ├── io4414.h</span><br><span class="line">│   ├── io4433.h</span><br><span class="line">│   ├── io4434.h</span><br><span class="line">│   ├── io76c711.h</span><br><span class="line">│   ├── io8515.h</span><br><span class="line">│   ├── io8534.h</span><br><span class="line">│   ├── io8535.h</span><br><span class="line">│   ├── io86r401.h</span><br><span class="line">│   ├── io90pwm1.h</span><br><span class="line">│   ├── io90pwm161.h</span><br><span class="line">│   ├── io90pwm216.h</span><br><span class="line">│   ├── io90pwm2b.h</span><br><span class="line">│   ├── io90pwm316.h</span><br><span class="line">│   ├── io90pwm3b.h</span><br><span class="line">│   ├── io90pwm81.h</span><br><span class="line">│   ├── io90pwmx.h</span><br><span class="line">│   ├── io90scr100.h</span><br><span class="line">│   ├── ioa5272.h</span><br><span class="line">│   ├── ioa5505.h</span><br><span class="line">│   ├── ioa5702m322.h</span><br><span class="line">│   ├── ioa5782.h</span><br><span class="line">│   ├── ioa5790.h</span><br><span class="line">│   ├── ioa5790n.h</span><br><span class="line">│   ├── ioa5795.h</span><br><span class="line">│   ├── ioa5831.h</span><br><span class="line">│   ├── ioa6285.h</span><br><span class="line">│   ├── ioa6286.h</span><br><span class="line">│   ├── ioa6289.h</span><br><span class="line">│   ├── ioa6612c.h</span><br><span class="line">│   ├── ioa6613c.h</span><br><span class="line">│   ├── ioa6614q.h</span><br><span class="line">│   ├── ioa6616c.h</span><br><span class="line">│   ├── ioa6617c.h</span><br><span class="line">│   ├── ioa664251.h</span><br><span class="line">│   ├── ioat94k.h</span><br><span class="line">│   ├── iocan128.h</span><br><span class="line">│   ├── iocan32.h</span><br><span class="line">│   ├── iocan64.h</span><br><span class="line">│   ├── iocanxx.h</span><br><span class="line">│   ├── iom103.h</span><br><span class="line">│   ├── iom128.h</span><br><span class="line">│   ├── iom1280.h</span><br><span class="line">│   ├── iom1281.h</span><br><span class="line">│   ├── iom1284.h</span><br><span class="line">│   ├── iom1284p.h</span><br><span class="line">│   ├── iom1284rfr2.h</span><br><span class="line">│   ├── iom128a.h</span><br><span class="line">│   ├── iom128rfa1.h</span><br><span class="line">│   ├── iom128rfr2.h</span><br><span class="line">│   ├── iom16.h</span><br><span class="line">│   ├── iom161.h</span><br><span class="line">│   ├── iom162.h</span><br><span class="line">│   ├── iom163.h</span><br><span class="line">│   ├── iom164.h</span><br><span class="line">│   ├── iom164a.h</span><br><span class="line">│   ├── iom164p.h</span><br><span class="line">│   ├── iom164pa.h</span><br><span class="line">│   ├── iom165.h</span><br><span class="line">│   ├── iom165a.h</span><br><span class="line">│   ├── iom165p.h</span><br><span class="line">│   ├── iom165pa.h</span><br><span class="line">│   ├── iom168.h</span><br><span class="line">│   ├── iom168a.h</span><br><span class="line">│   ├── iom168p.h</span><br><span class="line">│   ├── iom168pa.h</span><br><span class="line">│   ├── iom168pb.h</span><br><span class="line">│   ├── iom169.h</span><br><span class="line">│   ├── iom169a.h</span><br><span class="line">│   ├── iom169p.h</span><br><span class="line">│   ├── iom169pa.h</span><br><span class="line">│   ├── iom16a.h</span><br><span class="line">│   ├── iom16hva.h</span><br><span class="line">│   ├── iom16hva2.h</span><br><span class="line">│   ├── iom16hvb.h</span><br><span class="line">│   ├── iom16hvbrevb.h</span><br><span class="line">│   ├── iom16m1.h</span><br><span class="line">│   ├── iom16u2.h</span><br><span class="line">│   ├── iom16u4.h</span><br><span class="line">│   ├── iom2560.h</span><br><span class="line">│   ├── iom2561.h</span><br><span class="line">│   ├── iom2564rfr2.h</span><br><span class="line">│   ├── iom256rfr2.h</span><br><span class="line">│   ├── iom3000.h</span><br><span class="line">│   ├── iom32.h</span><br><span class="line">│   ├── iom323.h</span><br><span class="line">│   ├── iom324a.h</span><br><span class="line">│   ├── iom324p.h</span><br><span class="line">│   ├── iom324pa.h</span><br><span class="line">│   ├── iom325.h</span><br><span class="line">│   ├── iom3250.h</span><br><span class="line">│   ├── iom3250a.h</span><br><span class="line">│   ├── iom3250p.h</span><br><span class="line">│   ├── iom3250pa.h</span><br><span class="line">│   ├── iom325a.h</span><br><span class="line">│   ├── iom325p.h</span><br><span class="line">│   ├── iom325pa.h</span><br><span class="line">│   ├── iom328.h</span><br><span class="line">│   ├── iom328p.h</span><br><span class="line">│   ├── iom329.h</span><br><span class="line">│   ├── iom3290.h</span><br><span class="line">│   ├── iom3290a.h</span><br><span class="line">│   ├── iom3290pa.h</span><br><span class="line">│   ├── iom329a.h</span><br><span class="line">│   ├── iom329p.h</span><br><span class="line">│   ├── iom329pa.h</span><br><span class="line">│   ├── iom32a.h</span><br><span class="line">│   ├── iom32c1.h</span><br><span class="line">│   ├── iom32hvb.h</span><br><span class="line">│   ├── iom32hvbrevb.h</span><br><span class="line">│   ├── iom32m1.h</span><br><span class="line">│   ├── iom32u2.h</span><br><span class="line">│   ├── iom32u4.h</span><br><span class="line">│   ├── iom32u6.h</span><br><span class="line">│   ├── iom406.h</span><br><span class="line">│   ├── iom48.h</span><br><span class="line">│   ├── iom48a.h</span><br><span class="line">│   ├── iom48p.h</span><br><span class="line">│   ├── iom48pa.h</span><br><span class="line">│   ├── iom48pb.h</span><br><span class="line">│   ├── iom64.h</span><br><span class="line">│   ├── iom640.h</span><br><span class="line">│   ├── iom644.h</span><br><span class="line">│   ├── iom644a.h</span><br><span class="line">│   ├── iom644p.h</span><br><span class="line">│   ├── iom644pa.h</span><br><span class="line">│   ├── iom644rfr2.h</span><br><span class="line">│   ├── iom645.h</span><br><span class="line">│   ├── iom6450.h</span><br><span class="line">│   ├── iom6450a.h</span><br><span class="line">│   ├── iom6450p.h</span><br><span class="line">│   ├── iom645a.h</span><br><span class="line">│   ├── iom645p.h</span><br><span class="line">│   ├── iom649.h</span><br><span class="line">│   ├── iom6490.h</span><br><span class="line">│   ├── iom6490a.h</span><br><span class="line">│   ├── iom6490p.h</span><br><span class="line">│   ├── iom649a.h</span><br><span class="line">│   ├── iom649p.h</span><br><span class="line">│   ├── iom64a.h</span><br><span class="line">│   ├── iom64c1.h</span><br><span class="line">│   ├── iom64hve.h</span><br><span class="line">│   ├── iom64hve2.h</span><br><span class="line">│   ├── iom64m1.h</span><br><span class="line">│   ├── iom64rfr2.h</span><br><span class="line">│   ├── iom8.h</span><br><span class="line">│   ├── iom8515.h</span><br><span class="line">│   ├── iom8535.h</span><br><span class="line">│   ├── iom88.h</span><br><span class="line">│   ├── iom88a.h</span><br><span class="line">│   ├── iom88p.h</span><br><span class="line">│   ├── iom88pa.h</span><br><span class="line">│   ├── iom88pb.h</span><br><span class="line">│   ├── iom8a.h</span><br><span class="line">│   ├── iom8hva.h</span><br><span class="line">│   ├── iom8u2.h</span><br><span class="line">│   ├── iomx8.h</span><br><span class="line">│   ├── iomxx0_1.h</span><br><span class="line">│   ├── iomxx4.h</span><br><span class="line">│   ├── iomxxhva.h</span><br><span class="line">│   ├── iotn10.h</span><br><span class="line">│   ├── iotn11.h</span><br><span class="line">│   ├── iotn12.h</span><br><span class="line">│   ├── iotn13.h</span><br><span class="line">│   ├── iotn13a.h</span><br><span class="line">│   ├── iotn15.h</span><br><span class="line">│   ├── iotn1634.h</span><br><span class="line">│   ├── iotn167.h</span><br><span class="line">│   ├── iotn20.h</span><br><span class="line">│   ├── iotn22.h</span><br><span class="line">│   ├── iotn2313.h</span><br><span class="line">│   ├── iotn2313a.h</span><br><span class="line">│   ├── iotn24.h</span><br><span class="line">│   ├── iotn24a.h</span><br><span class="line">│   ├── iotn25.h</span><br><span class="line">│   ├── iotn26.h</span><br><span class="line">│   ├── iotn261.h</span><br><span class="line">│   ├── iotn261a.h</span><br><span class="line">│   ├── iotn28.h</span><br><span class="line">│   ├── iotn4.h</span><br><span class="line">│   ├── iotn40.h</span><br><span class="line">│   ├── iotn4313.h</span><br><span class="line">│   ├── iotn43u.h</span><br><span class="line">│   ├── iotn44.h</span><br><span class="line">│   ├── iotn441.h</span><br><span class="line">│   ├── iotn44a.h</span><br><span class="line">│   ├── iotn45.h</span><br><span class="line">│   ├── iotn461.h</span><br><span class="line">│   ├── iotn461a.h</span><br><span class="line">│   ├── iotn48.h</span><br><span class="line">│   ├── iotn5.h</span><br><span class="line">│   ├── iotn828.h</span><br><span class="line">│   ├── iotn84.h</span><br><span class="line">│   ├── iotn841.h</span><br><span class="line">│   ├── iotn84a.h</span><br><span class="line">│   ├── iotn85.h</span><br><span class="line">│   ├── iotn861.h</span><br><span class="line">│   ├── iotn861a.h</span><br><span class="line">│   ├── iotn87.h</span><br><span class="line">│   ├── iotn88.h</span><br><span class="line">│   ├── iotn9.h</span><br><span class="line">│   ├── iotnx4.h</span><br><span class="line">│   ├── iotnx5.h</span><br><span class="line">│   ├── iotnx61.h</span><br><span class="line">│   ├── iousb1286.h</span><br><span class="line">│   ├── iousb1287.h</span><br><span class="line">│   ├── iousb162.h</span><br><span class="line">│   ├── iousb646.h</span><br><span class="line">│   ├── iousb647.h</span><br><span class="line">│   ├── iousb82.h</span><br><span class="line">│   ├── iousbxx2.h</span><br><span class="line">│   ├── iousbxx6_7.h</span><br><span class="line">│   ├── iox128a1.h</span><br><span class="line">│   ├── iox128a1u.h</span><br><span class="line">│   ├── iox128a3.h</span><br><span class="line">│   ├── iox128a3u.h</span><br><span class="line">│   ├── iox128a4u.h</span><br><span class="line">│   ├── iox128b1.h</span><br><span class="line">│   ├── iox128b3.h</span><br><span class="line">│   ├── iox128c3.h</span><br><span class="line">│   ├── iox128d3.h</span><br><span class="line">│   ├── iox128d4.h</span><br><span class="line">│   ├── iox16a4.h</span><br><span class="line">│   ├── iox16a4u.h</span><br><span class="line">│   ├── iox16c4.h</span><br><span class="line">│   ├── iox16d4.h</span><br><span class="line">│   ├── iox16e5.h</span><br><span class="line">│   ├── iox192a3.h</span><br><span class="line">│   ├── iox192a3u.h</span><br><span class="line">│   ├── iox192c3.h</span><br><span class="line">│   ├── iox192d3.h</span><br><span class="line">│   ├── iox256a3.h</span><br><span class="line">│   ├── iox256a3b.h</span><br><span class="line">│   ├── iox256a3bu.h</span><br><span class="line">│   ├── iox256a3u.h</span><br><span class="line">│   ├── iox256c3.h</span><br><span class="line">│   ├── iox256d3.h</span><br><span class="line">│   ├── iox32a4.h</span><br><span class="line">│   ├── iox32a4u.h</span><br><span class="line">│   ├── iox32c3.h</span><br><span class="line">│   ├── iox32c4.h</span><br><span class="line">│   ├── iox32d3.h</span><br><span class="line">│   ├── iox32d4.h</span><br><span class="line">│   ├── iox32e5.h</span><br><span class="line">│   ├── iox384c3.h</span><br><span class="line">│   ├── iox384d3.h</span><br><span class="line">│   ├── iox64a1.h</span><br><span class="line">│   ├── iox64a1u.h</span><br><span class="line">│   ├── iox64a3.h</span><br><span class="line">│   ├── iox64a3u.h</span><br><span class="line">│   ├── iox64a4u.h</span><br><span class="line">│   ├── iox64b1.h</span><br><span class="line">│   ├── iox64b3.h</span><br><span class="line">│   ├── iox64c3.h</span><br><span class="line">│   ├── iox64d3.h</span><br><span class="line">│   ├── iox64d4.h</span><br><span class="line">│   ├── iox8e5.h</span><br><span class="line">│   ├── lock.h</span><br><span class="line">│   ├── parity.h</span><br><span class="line">│   ├── pgmspace.h</span><br><span class="line">│   ├── portpins.h</span><br><span class="line">│   ├── power.h</span><br><span class="line">│   ├── sfr_defs.h</span><br><span class="line">│   ├── signal.h</span><br><span class="line">│   ├── signature.h</span><br><span class="line">│   ├── sleep.h</span><br><span class="line">│   ├── version.h</span><br><span class="line">│   ├── wdt.h</span><br><span class="line">│   └── xmega.h</span><br><span class="line">├── compat</span><br><span class="line">│   ├── deprecated.h</span><br><span class="line">│   ├── ina90.h</span><br><span class="line">│   └── twi.h</span><br><span class="line">├── ctype.h</span><br><span class="line">├── errno.h</span><br><span class="line">├── inttypes.h</span><br><span class="line">├── math.h</span><br><span class="line">├── setjmp.h</span><br><span class="line">├── stdfix-avrlibc.h</span><br><span class="line">├── stdint.h</span><br><span class="line">├── stdio.h</span><br><span class="line">├── stdlib.h</span><br><span class="line">├── string.h</span><br><span class="line">└── util</span><br><span class="line">    ├── atomic.h</span><br><span class="line">    ├── crc16.h</span><br><span class="line">    ├── delay.h</span><br><span class="line">    ├── delay_basic.h</span><br><span class="line">    ├── parity.h</span><br><span class="line">    ├── setbaud.h</span><br><span class="line">    └── twi.h</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://hamn07.github.io/2015/08/27/arduino-note/" data-title="arduino筆記區 | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/07/hello-world/" title="Hello World">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Hello World</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/20/shell-script-note/"  title="shell筆記區">
+ <strong>下一篇：</strong><br/> 
+ <span>shell筆記區
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax"><span class="toc-number">1.</span> <span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDE"><span class="toc-number">2.</span> <span class="toc-text">IDE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lib-location"><span class="toc-number">3.</span> <span class="toc-text">lib location</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/rtfd/" title="rtfd">rtfd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dojo/" title="dojo">dojo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Henry Lee in Taiwan. <br/>
+			This is my blog for study note.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2025 
+		
+		<a href="/about" target="_blank" title="Henry Lee">Henry Lee</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

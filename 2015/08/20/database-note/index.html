@@ -1,0 +1,501 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>資料庫筆記區 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Henry Lee">
+    
+
+    
+    <meta name="description" content="MySQLCreate Database1CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;  MariaDB install on OSX官網教學  brew install mariadb  12345678910111213141516171819202122232425">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料庫筆記區">
+<meta property="og:url" content="http://hamn07.github.io/2015/08/20/database-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MySQLCreate Database1CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;  MariaDB install on OSX官網教學  brew install mariadb  12345678910111213141516171819202122232425">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2015-08-19T21:55:47.000Z">
+<meta property="article:modified_time" content="2016-01-26T04:09:38.000Z">
+<meta property="article:author" content="Henry Lee">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives/">Archives</a></li>
+					
+						<li><a href="/about/">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hamn07.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/20/database-note/" title="資料庫筆記區" itemprop="url">資料庫筆記區</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Henry Lee" target="_blank" itemprop="author">Henry Lee</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-19T21:55:47.000Z" itemprop="datePublished"> Published 2015-08-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-number">1.</span> <span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-Database"><span class="toc-number">1.1.</span> <span class="toc-text">Create Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MariaDB-install-on-OSX"><span class="toc-number">1.2.</span> <span class="toc-text">MariaDB install on OSX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%9F%E5%8B%95mariadb%E7%99%BC%E7%94%9F%E9%8C%AF%E8%AA%A4"><span class="toc-number">1.3.</span> <span class="toc-text">啟動mariadb發生錯誤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%AD%A4session%E6%98%AF%E7%94%A8%E9%82%A3%E5%80%8B%E5%B8%B3%E8%99%9F%E7%99%BB%E5%85%A5"><span class="toc-number">1.4.</span> <span class="toc-text">查此session是用那個帳號登入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%9F%E5%8B%95MySQL"><span class="toc-number">1.5.</span> <span class="toc-text">啟動MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trouble-Shooting"><span class="toc-number">1.6.</span> <span class="toc-text">Trouble Shooting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#add-primary-key%E6%99%82%EF%BC%8C%E5%87%BA%E7%8F%BEkey-was-too-long%E7%9A%84%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF"><span class="toc-number">1.6.1.</span> <span class="toc-text">add primary key時，出現key was too long的錯誤訊息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">1.7.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<!-- toc -->
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="Create-Database"><a href="#Create-Database" class="headerlink" title="Create Database"></a>Create Database</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE wordpress <span class="keyword">DEFAULT</span> <span class="keyword">CHARACTER SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MariaDB-install-on-OSX"><a href="#MariaDB-install-on-OSX" class="headerlink" title="MariaDB install on OSX"></a>MariaDB install on OSX</h2><p><a href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/">官網教學</a></p>
+<ol>
+<li><code>brew install mariadb</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">04:55 $ brew install mariadb</span><br><span class="line">==&gt; Installing mariadb dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl-1.0.2d_1.yosemite.bottle.tar.gz</span><br><span class="line"><span class="comment">######################################################################## 100.0%</span></span><br><span class="line">==&gt; Pouring openssl-1.0.2d_1.yosemite.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">A CA file has been bootstrapped using certificates from the system</span><br><span class="line">keychain. To add additional certificates, place .pem files <span class="keyword">in</span></span><br><span class="line">  /usr/local/etc/openssl/certs</span><br><span class="line"></span><br><span class="line">and run</span><br><span class="line">  /usr/local/opt/openssl/bin/c_rehash</span><br><span class="line"></span><br><span class="line">This formula is keg-only, <span class="built_in">which</span> means it was not symlinked into /usr/local.</span><br><span class="line"></span><br><span class="line">Apple has deprecated use of OpenSSL <span class="keyword">in</span> favor of its own TLS and crypto libraries</span><br><span class="line"></span><br><span class="line">Generally there are no consequences of this <span class="keyword">for</span> you. If you build your</span><br><span class="line">own software and it requires this formula, you<span class="string">&#x27;ll need to add to your</span></span><br><span class="line"><span class="string">build variables:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    LDFLAGS:  -L/usr/local/opt/openssl/lib</span></span><br><span class="line"><span class="string">    CPPFLAGS: -I/usr/local/opt/openssl/include</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">==&gt; Summary</span></span><br><span class="line"><span class="string">🍺  /usr/local/Cellar/openssl/1.0.2d_1: 464 files, 18M</span></span><br><span class="line"><span class="string">==&gt; Installing mariadb</span></span><br><span class="line"><span class="string">==&gt; Downloading https://homebrew.bintray.com/bottles/mariadb-10.0.21.yosemite.bottle.tar.gz</span></span><br><span class="line"><span class="string">######################################################################## 100.0%</span></span><br><span class="line"><span class="string">==&gt; Pouring mariadb-10.0.21.yosemite.bottle.tar.gz</span></span><br><span class="line"><span class="string">==&gt; /usr/local/Cellar/mariadb/10.0.21/bin/mysql_install_db --verbose --user=HamnLee --basedir=/usr/lo</span></span><br><span class="line"><span class="string">==&gt; Caveats</span></span><br><span class="line"><span class="string">A &quot;/etc/my.cnf&quot; from another install may interfere with a Homebrew-built</span></span><br><span class="line"><span class="string">server starting up correctly.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">To connect:</span></span><br><span class="line"><span class="string">    mysql -uroot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">To have launchd start mariadb at login:</span></span><br><span class="line"><span class="string">  ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents</span></span><br><span class="line"><span class="string">Then to load mariadb now:</span></span><br><span class="line"><span class="string">  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist</span></span><br><span class="line"><span class="string">Or, if you don&#x27;</span>t want/need launchctl, you can just run:</span><br><span class="line">  mysql.server start</span><br><span class="line">==&gt; Summary</span><br><span class="line">🍺  /usr/local/Cellar/mariadb/10.0.21: 530 files, 130M</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>unset TMPDIR</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$TMPDIR</span></span><br><span class="line">/var/folders/jw/6rpyrtd14g156cll7p2fx_vc0000gn/T/</span><br><span class="line">$ <span class="built_in">unset</span> TMPDIR</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>mysql_install_db</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">$ mysql_install_db</span><br><span class="line">Installing MariaDB/MySQL system tables <span class="keyword">in</span> <span class="string">&#x27;/usr/local/var/mysql&#x27;</span> ...</span><br><span class="line">150820  5:02:59 [Note] /usr/local/Cellar/mariadb/10.0.21/bin/mysqld (mysqld 10.0.21-MariaDB) starting as process 6132 ...</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Using mutexes to ref count buffer pool pages</span><br><span class="line">150820  5:02:59 [Note] InnoDB: The InnoDB memory heap is disabled</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Memory barrier is not used</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Compressed tables use zlib 1.2.5</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Using CPU crc32 instructions</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Initializing buffer pool, size = 128.0M</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Completed initialization of buffer pool</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Highest supported file format is Barracuda.</span><br><span class="line">150820  5:02:59 [Note] InnoDB: 128 rollback segment(s) are active.</span><br><span class="line">150820  5:02:59 [Note] InnoDB: Waiting <span class="keyword">for</span> purge to start</span><br><span class="line">150820  5:02:59 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.25-73.1 started; <span class="built_in">log</span> sequence number 1616707</span><br><span class="line">150820  5:03:06 [Note] InnoDB: FTS optimize thread exiting.</span><br><span class="line">150820  5:03:06 [Note] InnoDB: Starting shutdown...</span><br><span class="line">150820  5:03:08 [Note] InnoDB: Shutdown completed; <span class="built_in">log</span> sequence number 1616717</span><br><span class="line">OK</span><br><span class="line">Filling <span class="built_in">help</span> tables...</span><br><span class="line">150820  5:03:09 [Note] /usr/local/Cellar/mariadb/10.0.21/bin/mysqld (mysqld 10.0.21-MariaDB) starting as process 6136 ...</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Using mutexes to ref count buffer pool pages</span><br><span class="line">150820  5:03:09 [Note] InnoDB: The InnoDB memory heap is disabled</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Memory barrier is not used</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Compressed tables use zlib 1.2.5</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Using CPU crc32 instructions</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Initializing buffer pool, size = 128.0M</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Completed initialization of buffer pool</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Highest supported file format is Barracuda.</span><br><span class="line">150820  5:03:09 [Note] InnoDB: 128 rollback segment(s) are active.</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Waiting <span class="keyword">for</span> purge to start</span><br><span class="line">150820  5:03:09 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.25-73.1 started; <span class="built_in">log</span> sequence number 1616717</span><br><span class="line">150820  5:03:09 [Note] InnoDB: FTS optimize thread exiting.</span><br><span class="line">150820  5:03:09 [Note] InnoDB: Starting shutdown...</span><br><span class="line">150820  5:03:11 [Note] InnoDB: Shutdown completed; <span class="built_in">log</span> sequence number 1616727</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">To start mysqld at boot <span class="keyword">time</span> you have to copy</span><br><span class="line">support-files/mysql.server to the right place <span class="keyword">for</span> your system</span><br><span class="line"></span><br><span class="line">PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !</span><br><span class="line">To <span class="keyword">do</span> so, start the server, <span class="keyword">then</span> issue the following commands:</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;/usr/local/Cellar/mariadb/10.0.21/bin/mysqladmin&#x27;</span> -u root password <span class="string">&#x27;new-password&#x27;</span></span><br><span class="line"><span class="string">&#x27;/usr/local/Cellar/mariadb/10.0.21/bin/mysqladmin&#x27;</span> -u root -h Leeteki-MacBook-Pro.<span class="built_in">local</span> password <span class="string">&#x27;new-password&#x27;</span></span><br><span class="line"></span><br><span class="line">Alternatively you can run:</span><br><span class="line"><span class="string">&#x27;/usr/local/Cellar/mariadb/10.0.21/bin/mysql_secure_installation&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">which</span> will also give you the option of removing the <span class="built_in">test</span></span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended <span class="keyword">for</span> production servers.</span><br><span class="line"></span><br><span class="line">See the MariaDB Knowledgebase at http://mariadb.com/kb or the</span><br><span class="line">MySQL manual <span class="keyword">for</span> more instructions.</span><br><span class="line"></span><br><span class="line">You can start the MariaDB daemon with:</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&#x27;/usr/local/Cellar/mariadb/10.0.21&#x27;</span> ; /usr/local/Cellar/mariadb/10.0.21/bin/mysqld_safe --datadir=<span class="string">&#x27;/usr/local/var/mysql&#x27;</span></span><br><span class="line"></span><br><span class="line">You can <span class="built_in">test</span> the MariaDB daemon with mysql-test-run.pl</span><br><span class="line"><span class="built_in">cd</span> <span class="string">&#x27;/usr/local/Cellar/mariadb/10.0.21/mysql-test&#x27;</span> ; perl mysql-test-run.pl</span><br><span class="line"></span><br><span class="line">Please report any problems at http://mariadb.org/jira</span><br><span class="line"></span><br><span class="line">The latest information about MariaDB is available at http://mariadb.org/.</span><br><span class="line">You can find additional information about the MySQL part at:</span><br><span class="line">http://dev.mysql.com</span><br><span class="line">Support MariaDB development by buying support/new features from MariaDB</span><br><span class="line">Corporation Ab. You can contact us about this at sales@mariadb.com.</span><br><span class="line">Alternatively consider joining our community based development effort:</span><br><span class="line">http://mariadb.com/kb/en/contributing-to-the-mariadb-project/</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><code>mysql.server start</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mysql.server start</span><br><span class="line">Starting MySQL</span><br><span class="line">. SUCCESS!</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p><code>mysqladmin -u root password &#39;密碼&#39;</code></p>
+</li>
+<li><p><code>mysql -uroot -p</code></p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -uroot -p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection <span class="built_in">id</span> is 4</span><br><span class="line">Server version: 10.0.21-MariaDB Homebrew</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| <span class="built_in">test</span>               |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="啟動mariadb發生錯誤"><a href="#啟動mariadb發生錯誤" class="headerlink" title="啟動mariadb發生錯誤"></a>啟動mariadb發生錯誤</h2><p>查看&#x2F;usr&#x2F;local&#x2F;var&#x2F;mysql&#x2F;Leeteki-MacBook-Pro.local.err</p>
+<blockquote>
+<p>151006 13:05:14 [ERROR] mysqld: File ‘&#x2F;usr&#x2F;local&#x2F;var&#x2F;mysql&#x2F;aria_log_control’ not found (Errcode: 13 “Permission denied”)<br>151006 13:05:14 [ERROR] mysqld: Got error ‘Can’t open file’ when trying to use aria control file ‘&#x2F;usr&#x2F;local&#x2F;var&#x2F;mysql&#x2F;aria_log_control’<br>151006 13:05:14 [ERROR] Plugin ‘Aria’ init function returned error.<br>151006 13:05:14 [ERROR] Plugin ‘Aria’ registration as a STORAGE ENGINE failed.</p>
+</blockquote>
+<p><a href="https://www.evernote.com/shard/s75/sh/7cbf8a25-bd79-4024-a73f-f0688883befe/c970ee04dedab7f6fd8fd499f61f7f1a">解法</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">13:30 $ <span class="built_in">ls</span> -al</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x   3 HamnLee  admin  102  8 20 04:58 .</span><br><span class="line">drwxrwxr-x  24 root     admin  816 10  3 05:58 ..</span><br><span class="line">drwxr-xr-x  16 HamnLee  admin  544 10  6 13:30 mysql</span><br><span class="line">✔ /usr/local/var [master L|✔]</span><br><span class="line">13:30 $ <span class="built_in">sudo</span> <span class="built_in">chown</span> -R _mysql /usr/local/var/mysql</span><br><span class="line">Password:</span><br><span class="line">✔ /usr/local/var [master L|✔]</span><br><span class="line">13:30 $ <span class="built_in">ls</span> -al</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x   3 HamnLee  admin  102  8 20 04:58 .</span><br><span class="line">drwxrwxr-x  24 root     admin  816 10  3 05:58 ..</span><br><span class="line">drwxr-xr-x  16 _mysql   admin  544 10  6 13:30 mysql</span><br><span class="line">✔ /usr/local/var [master L|✔]</span><br><span class="line">13:30 $ <span class="built_in">sudo</span> <span class="built_in">chmod</span> -R g+rwx /usr/local/var/mysql</span><br><span class="line">✔ /usr/local/var [master L|✔]</span><br><span class="line">13:31 $ <span class="built_in">ls</span> -al</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x   3 HamnLee  admin  102  8 20 04:58 .</span><br><span class="line">drwxrwxr-x  24 root     admin  816 10  3 05:58 ..</span><br><span class="line">drwxrwxr-x  16 _mysql   admin  544 10  6 13:30 mysql</span><br><span class="line">✔ /usr/local/var [master L|✔]</span><br><span class="line">13:31 $ <span class="built_in">sudo</span> mysql.server start</span><br><span class="line">Starting MySQL</span><br><span class="line">.. SUCCESS!</span><br></pre></td></tr></table></figure>
+<h2 id="查此session是用那個帳號登入"><a href="#查此session是用那個帳號登入" class="headerlink" title="查此session是用那個帳號登入"></a>查此session是用那個帳號登入</h2><blockquote>
+<p>Actually, you need to use two functions</p>
+<p><code>SELECT USER(),CURRENT_USER();</code><br>USER() reports how you attempted to authenticate in MySQL</p>
+<p>CURRENT_USER() reports how you were allowed to authenticate in MySQL</p>
+<p>Sometimes, they are different</p>
+</blockquote>
+<h2 id="啟動MySQL"><a href="#啟動MySQL" class="headerlink" title="啟動MySQL"></a>啟動MySQL</h2><p>OSX<br><code>mysql.server &#123;start|status|stop&#125;</code><br>Linux<br><code>systemctl &#123;start|status|stop&#125; mariadb</code></p>
+<h2 id="Trouble-Shooting"><a href="#Trouble-Shooting" class="headerlink" title="Trouble Shooting"></a>Trouble Shooting</h2><h3 id="add-primary-key時，出現key-was-too-long的錯誤訊息"><a href="#add-primary-key時，出現key-was-too-long的錯誤訊息" class="headerlink" title="add primary key時，出現key was too long的錯誤訊息"></a>add primary key時，出現key was too long的錯誤訊息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER TABLE</span> post</span><br><span class="line">    <span class="operator">-</span><span class="operator">&gt;</span>   <span class="keyword">ADD</span> <span class="keyword">PRIMARY KEY</span> (<span class="type">timestamp</span>,member_id);</span><br><span class="line">ERROR <span class="number">1071</span> (<span class="number">42000</span>): Specified key was too long; max key length <span class="keyword">is</span> <span class="number">767</span> bytes</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>id 長度設定為VARCHAR(256)，db編碼採用utf8，要佔掉256x3&#x3D;768 bytes，再加上timestamp佔掉4個bytes，已超過限制，因此將id長度改成254</p>
+</blockquote>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://dev.mysql.com/doc/refman/5.7/en/error-messages-server.html">Server Error Codes and Messages</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://hamn07.github.io/2015/08/20/database-note/" data-title="資料庫筆記區 | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/20/shell-script-note/" title="shell筆記區">
+  <strong>上一篇：</strong><br/>
+  <span>
+  shell筆記區</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/16/quotes/"  title="金玉良言">
+ <strong>下一篇：</strong><br/> 
+ <span>金玉良言
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-number">1.</span> <span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-Database"><span class="toc-number">1.1.</span> <span class="toc-text">Create Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MariaDB-install-on-OSX"><span class="toc-number">1.2.</span> <span class="toc-text">MariaDB install on OSX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%9F%E5%8B%95mariadb%E7%99%BC%E7%94%9F%E9%8C%AF%E8%AA%A4"><span class="toc-number">1.3.</span> <span class="toc-text">啟動mariadb發生錯誤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%AD%A4session%E6%98%AF%E7%94%A8%E9%82%A3%E5%80%8B%E5%B8%B3%E8%99%9F%E7%99%BB%E5%85%A5"><span class="toc-number">1.4.</span> <span class="toc-text">查此session是用那個帳號登入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%9F%E5%8B%95MySQL"><span class="toc-number">1.5.</span> <span class="toc-text">啟動MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trouble-Shooting"><span class="toc-number">1.6.</span> <span class="toc-text">Trouble Shooting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#add-primary-key%E6%99%82%EF%BC%8C%E5%87%BA%E7%8F%BEkey-was-too-long%E7%9A%84%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF"><span class="toc-number">1.6.1.</span> <span class="toc-text">add primary key時，出現key was too long的錯誤訊息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">1.7.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/rtfd/" title="rtfd">rtfd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dojo/" title="dojo">dojo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Henry Lee in Taiwan. <br/>
+			This is my blog for study note.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2025 
+		
+		<a href="/about" target="_blank" title="Henry Lee">Henry Lee</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

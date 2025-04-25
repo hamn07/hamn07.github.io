@@ -1,0 +1,619 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>安卓筆記區 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Henry Lee">
+    
+
+    
+    <meta name="description" content="趙老師的雲端分享資料夾  bluetoothofficial guide 12345&lt;manifest ... &gt;  &lt;uses-permission android:name&#x3D;&quot;android.permission.BLUETOOTH&quot; &#x2F;&gt;  &lt;uses-permission android:name&#x3D;&quot;android.permi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓筆記區">
+<meta property="og:url" content="http://hamn07.github.io/2015/07/30/android-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="趙老師的雲端分享資料夾  bluetoothofficial guide 12345&lt;manifest ... &gt;  &lt;uses-permission android:name&#x3D;&quot;android.permission.BLUETOOTH&quot; &#x2F;&gt;  &lt;uses-permission android:name&#x3D;&quot;android.permi">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png">
+<meta property="og:image" content="http://developer.android.com/images/service_lifecycle.png">
+<meta property="og:image" content="http://developer.android.com/intl/zh-cn/images/mediaplayer_state_diagram.gif">
+<meta property="article:published_time" content="2015-07-30T01:17:19.000Z">
+<meta property="article:modified_time" content="2016-11-30T22:26:40.000Z">
+<meta property="article:author" content="Henry Lee">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives/">Archives</a></li>
+					
+						<li><a href="/about/">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hamn07.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/30/android-note/" title="安卓筆記區" itemprop="url">安卓筆記區</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Henry Lee" target="_blank" itemprop="author">Henry Lee</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-30T01:17:19.000Z" itemprop="datePublished"> Published 2015-07-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#bluetooth"><span class="toc-number">1.</span> <span class="toc-text">bluetooth</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#problem-to-fix"><span class="toc-number">2.</span> <span class="toc-text">problem to fix</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dialog"><span class="toc-number">3.</span> <span class="toc-text">dialog</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sensor"><span class="toc-number">4.</span> <span class="toc-text">sensor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#example"><span class="toc-number">4.1.</span> <span class="toc-text">example</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#media-player"><span class="toc-number">5.</span> <span class="toc-text">media player</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#volley"><span class="toc-number">6.</span> <span class="toc-text">volley</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#POST-image-file"><span class="toc-number">6.1.</span> <span class="toc-text">POST image file</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HttpURLConnection"><span class="toc-number">7.</span> <span class="toc-text">HttpURLConnection</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#POST-image-file-1"><span class="toc-number">7.1.</span> <span class="toc-text">POST image file</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AsyncTask"><span class="toc-number">8.</span> <span class="toc-text">AsyncTask</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E6%9E%B6App"><span class="toc-number">9.</span> <span class="toc-text">上架App</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Providing-Resource"><span class="toc-number">10.</span> <span class="toc-text">Providing Resource</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Notification"><span class="toc-number">11.</span> <span class="toc-text">Notification</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java"><span class="toc-number">12.</span> <span class="toc-text">java</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#convetion"><span class="toc-number">13.</span> <span class="toc-text">convetion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question"><span class="toc-number">14.</span> <span class="toc-text">Question</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java"><span class="toc-number">15.</span> <span class="toc-text">Java</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-net"><span class="toc-number">15.1.</span> <span class="toc-text">java.net</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%B7%E8%A1%8C%E7%B7%92Thread"><span class="toc-number">15.2.</span> <span class="toc-text">執行緒Thread</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection"><span class="toc-number">15.3.</span> <span class="toc-text">Collection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">15.4.</span> <span class="toc-text">IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-number">15.5.</span> <span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annotation"><span class="toc-number">15.6.</span> <span class="toc-text">Annotation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CDI"><span class="toc-number">15.7.</span> <span class="toc-text">CDI</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p><img src="http://developer.android.com/intl/zh-cn/images/activity_lifecycle.png"></p>
+<hr>
+<p><img src="http://developer.android.com/images/service_lifecycle.png"><br><a href="https://drive.google.com/folderview?id=0B5zn2b2xqOwGfm5yYVd2emZrcnN6YTBvbDhpQTY1OGdxSExFWGczMlFzZV9sMFdGUS1UeTg&usp=sharing#list">趙老師的雲端分享資料夾</a></p>
+<!-- toc -->
+<h1 id="bluetooth"><a href="#bluetooth" class="headerlink" title="bluetooth"></a>bluetooth</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/connectivity/bluetooth.html">official guide</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.BLUETOOTH&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.BLUETOOTH_ADMIN&quot;</span> /&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="problem-to-fix"><a href="#problem-to-fix" class="headerlink" title="problem to fix"></a>problem to fix</h1><p><a href="https://www.evernote.com/shard/s75/sh/ef5c662a-4cb3-486e-b24f-c59191df5f39/cdb742b3e18301296d66d002b36fcb2f">Android uploading pictures to server in most efficient way</a></p>
+<h1 id="dialog"><a href="#dialog" class="headerlink" title="dialog"></a>dialog</h1><ol>
+<li>ProgressDialog</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ProgressDialog</span> <span class="variable">dialog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ProgressDialog</span>(<span class="built_in">this</span>);</span><br><span class="line">dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);</span><br><span class="line">dialog.setMessage(<span class="string">&quot;downloading...&quot;</span>);</span><br><span class="line">dialog.show();</span><br><span class="line">dialog.dismiss();</span><br></pre></td></tr></table></figure>
+
+<h1 id="sensor"><a href="#sensor" class="headerlink" title="sensor"></a>sensor</h1><ul>
+<li>位移</li>
+<li>環境</li>
+<li>位置</li>
+</ul>
+<h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--設定device需有三軸加速感應器才可安裝--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-feature</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">&quot;android.hardware.sensor.accelerometer&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:required</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    mgr = (SensorManager) getSystemService(SENSOR_SERVICE);</span><br><span class="line">    List&lt;Sensor&gt; list = mgr.getSensorList(Sensor.TYPE_ALL);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Sensor sensor:list) &#123;</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>,sensor.getName()+<span class="string">&quot; : &quot;</span>+sensor.getType()+<span class="string">&quot; : &quot;</span>+sensor.getVendor());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sensor = mgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);</span><br><span class="line">    <span class="keyword">if</span> (sensor!=<span class="literal">null</span>) &#123;</span><br><span class="line">        isSensorEnable=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * define</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    sensorEventListener = <span class="keyword">new</span> <span class="title class_">SensorEventListener</span>() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onSensorChanged</span><span class="params">(SensorEvent event)</span> &#123;</span><br><span class="line">            <span class="type">float</span>[] values = event.values;</span><br><span class="line"></span><br><span class="line">            ((TextView)findViewById(R.id.tv1)).setText(<span class="string">&quot;x : &quot;</span>+values[<span class="number">0</span>]);</span><br><span class="line">            ((TextView)findViewById(R.id.tv2)).setText(<span class="string">&quot;y : &quot;</span>+values[<span class="number">1</span>]);</span><br><span class="line">            ((TextView)findViewById(R.id.tv3)).setText(<span class="string">&quot;z : &quot;</span>+values[<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">            <span class="type">MyView</span> <span class="variable">mv</span> <span class="operator">=</span> (MyView) findViewById(R.id.mv);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onAccuracyChanged</span><span class="params">(Sensor sensor, <span class="type">int</span> accuracy)</span> &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    <span class="keyword">if</span> (isSensorEnable) &#123;</span><br><span class="line">        mgr.registerListener(sensorEventListener, sensor, SensorManager.SENSOR_DELAY_UI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    <span class="keyword">if</span> (isSensorEnable) &#123;</span><br><span class="line">        mgr.unregisterListener(sensorEventListener, sensor);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="media-player"><a href="#media-player" class="headerlink" title="media player"></a>media player</h1><p><img src="http://developer.android.com/intl/zh-cn/images/mediaplayer_state_diagram.gif"></p>
+<h1 id="volley"><a href="#volley" class="headerlink" title="volley"></a>volley</h1><h2 id="POST-image-file"><a href="#POST-image-file" class="headerlink" title="POST image file"></a>POST image file</h2><p><a href="http://stackoverflow.com/questions/29430599/upload-an-image-using-google-volley">stackoverflow</a></p>
+<h1 id="HttpURLConnection"><a href="#HttpURLConnection" class="headerlink" title="HttpURLConnection"></a>HttpURLConnection</h1><h2 id="POST-image-file-1"><a href="#POST-image-file-1" class="headerlink" title="POST image file"></a>POST image file</h2><p><a href="http://blog.kenyang.net/2011/12/android-httpurlconnection-multipartform.html">Android HttpURLConnection 上傳檔案 (multipart&#x2F;form-data)</a></p>
+<h1 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyAsyncTask</span> <span class="keyword">extends</span> <span class="title class_">AsyncTask</span>&lt;String, Integer, Boolean&gt; &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates a new asynchronous task. This constructor must be invoked on the UI thread.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyAsyncTask</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Runs on the UI thread before &#123;<span class="doctag">@link</span> #doInBackground&#125;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #onPostExecute</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #doInBackground</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPreExecute</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onPreExecute();</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onPreExecute&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Override this method to perform a computation on a background thread. The</span></span><br><span class="line"><span class="comment">     * specified parameters are the parameters passed to &#123;<span class="doctag">@link</span> #execute&#125;</span></span><br><span class="line"><span class="comment">     * by the caller of this task.</span></span><br><span class="line"><span class="comment">     * &lt;p/&gt;</span></span><br><span class="line"><span class="comment">     * This method can call &#123;<span class="doctag">@link</span> #publishProgress&#125; to publish updates</span></span><br><span class="line"><span class="comment">     * on the UI thread.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> names The parameters of the task.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> A result, defined by the subclass of this task.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #onPreExecute()</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #onPostExecute</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #publishProgress</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Boolean <span class="title function_">doInBackground</span><span class="params">(String... names)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (String name:names)&#123;</span><br><span class="line">            intCounter++;</span><br><span class="line">            Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;doInBackground&quot;</span>);</span><br><span class="line"></span><br><span class="line">            publishProgress(intCounter,intCounter*<span class="number">10</span>,intCounter*<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (isCancelled()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Runs on the UI thread after &#123;<span class="doctag">@link</span> #publishProgress&#125; is invoked.</span></span><br><span class="line"><span class="comment">     * The specified values are the values passed to &#123;<span class="doctag">@link</span> #publishProgress&#125;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> values The values indicating progress.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #publishProgress</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #doInBackground</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onProgressUpdate</span><span class="params">(Integer... values)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onProgressUpdate(values);</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onProgressUpdate&quot;</span>);</span><br><span class="line">        tv1.setText(<span class="string">&quot;OK&quot;</span>+values[<span class="number">0</span>]);</span><br><span class="line">        tv2.setText(<span class="string">&quot;OK&quot;</span>+values[<span class="number">1</span>]);</span><br><span class="line">        tv3.setText(<span class="string">&quot;OK&quot;</span>+values[<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Runs on the UI thread after &#123;<span class="doctag">@link</span> #doInBackground&#125;. The</span></span><br><span class="line"><span class="comment">     * specified result is the value returned by &#123;<span class="doctag">@link</span> #doInBackground&#125;.&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p/&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;This method won&#x27;t be invoked if the task was cancelled.&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> aVoid The result of the operation computed by &#123;<span class="doctag">@link</span> #doInBackground&#125;.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #onPreExecute</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #doInBackground</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #onCancelled(Object)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPostExecute</span><span class="params">(Boolean aVoid)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onPostExecute(aVoid);</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onPostExecute&quot;</span>);</span><br><span class="line">        tv4.setText(aVoid?<span class="string">&quot;Finished&quot;</span>:<span class="string">&quot;Cancelled&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Runs on the UI thread after &#123;<span class="doctag">@link</span> #cancel(boolean)&#125; is invoked and</span></span><br><span class="line"><span class="comment">     * &#123;<span class="doctag">@link</span> #doInBackground(Object[])&#125; has finished.&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p/&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;The default implementation simply invokes &#123;<span class="doctag">@link</span> #onCancelled()&#125; and</span></span><br><span class="line"><span class="comment">     * ignores the result. If you write your own implementation, do not call</span></span><br><span class="line"><span class="comment">     * &lt;code&gt;super.onCancelled(result)&lt;/code&gt;.&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> aVoid The result, if any, computed in</span></span><br><span class="line"><span class="comment">     *              &#123;<span class="doctag">@link</span> #doInBackground(Object[])&#125;, can be null</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #cancel(boolean)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #isCancelled()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCancelled</span><span class="params">(Boolean aVoid)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCancelled(aVoid);</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onCancelled&quot;</span>);</span><br><span class="line">        tv4.setText(aVoid?<span class="string">&quot;Finished&quot;</span>:<span class="string">&quot;Cancelled&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Applications should preferably override &#123;<span class="doctag">@link</span> #onCancelled(Object)&#125;.</span></span><br><span class="line"><span class="comment">     * This method is invoked by the default implementation of</span></span><br><span class="line"><span class="comment">     * &#123;<span class="doctag">@link</span> #onCancelled(Object)&#125;.&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p/&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Runs on the UI thread after &#123;<span class="doctag">@link</span> #cancel(boolean)&#125; is invoked and</span></span><br><span class="line"><span class="comment">     * &#123;<span class="doctag">@link</span> #doInBackground(Object[])&#125; has finished.&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #onCancelled(Object)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #cancel(boolean)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> #isCancelled()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCancelled</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCancelled();</span><br><span class="line">        Log.i(<span class="string">&quot;henry&quot;</span>, <span class="string">&quot;onCancelled2&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">task = <span class="keyword">new</span> <span class="title class_">MyAsyncTask</span>();</span><br><span class="line">task.execute(<span class="string">&quot;test1&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test2&quot;</span>,</span><br><span class="line">             <span class="string">&quot;test3&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="上架App"><a href="#上架App" class="headerlink" title="上架App"></a>上架App</h1><p><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a><br>export signed package<br>keystore</p>
+<h1 id="Providing-Resource"><a href="#Providing-Resource" class="headerlink" title="Providing Resource"></a>Providing Resource</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/resources/providing-resources.html">official</a><br><code>res/layout-land</code>當device拿橫時，就會套用到此版面<br><code>res/values-zh-rTW</code>當語系改為中文台灣時，就會套用此values設定</p>
+<h1 id="Notification"><a href="#Notification" class="headerlink" title="Notification"></a>Notification</h1><p><a href="http://developer.android.com/intl/zh-cn/guide/topics/ui/notifiers/notifications.html">official</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">mgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiate PendingIntent</span></span><br><span class="line"><span class="type">TaskStackBuilder</span> <span class="variable">taskStackBuilder</span> <span class="operator">=</span> TaskStackBuilder.create(<span class="built_in">this</span>);</span><br><span class="line">taskStackBuilder.addParentStack(NoticePageActivity.class);</span><br><span class="line">taskStackBuilder.addNextIntent(<span class="keyword">new</span> <span class="title class_">Intent</span>(<span class="built_in">this</span>,NoticePageActivity.class));</span><br><span class="line"><span class="type">PendingIntent</span> <span class="variable">pendingIntent</span> <span class="operator">=</span> taskStackBuilder.getPendingIntent(<span class="number">124</span>,PendingIntent.FLAG_UPDATE_CURRENT);</span><br><span class="line"></span><br><span class="line"><span class="comment">// instantiate Notification.Builder</span></span><br><span class="line">Notification.<span class="type">Builder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Notification</span>.Builder(<span class="built_in">this</span>);</span><br><span class="line">builder.setTicker(<span class="string">&quot;super important&quot;</span>);</span><br><span class="line">builder.setAutoCancel(<span class="literal">true</span>);</span><br><span class="line">builder.setSmallIcon(android.R.drawable.sym_def_app_icon);</span><br><span class="line">builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.drawable.sym_def_app_icon));</span><br><span class="line">builder.setSound(Uri.fromFile(<span class="keyword">new</span> <span class="title class_">File</span>(Environment.getExternalStorageDirectory(),<span class="string">&quot;sound.wav&quot;</span>)));</span><br><span class="line">builder.setContentInfo(<span class="string">&quot;info&quot;</span>);</span><br><span class="line">builder.setContentText(<span class="string">&quot;text&quot;</span>);</span><br><span class="line">builder.setContentTitle(<span class="string">&quot;title&quot;</span>);</span><br><span class="line">builder.setContentIntent(pendingIntent);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// API Level 11+</span></span><br><span class="line"><span class="comment">//Notification notification = builder.getNotification();</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// API Level 16+ (4.1.2+)</span></span><br><span class="line"><span class="type">Notification</span> <span class="variable">notification</span> <span class="operator">=</span> builder.build();</span><br><span class="line"><span class="comment">// send notification</span></span><br><span class="line">mgr.notify(<span class="number">0</span>,notification);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><ul>
+<li>garbage collection<blockquote>
+<p>物件沒有被reference時，<code>System.gc();</code>會要求系統做gc，但若系統沒空，還是要等到它有空才會做。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="convetion"><a href="#convetion" class="headerlink" title="convetion"></a>convetion</h1><p><a href="http://source.android.com/source/code-style.html">Official Code Style Guidelines for Android Contributors</a></p>
+<p><a href="https://google.github.io/styleguide/javaguide.html">Google Java Style</a></p>
+<blockquote>
+<p>lint<br>在計算機科學中，lint是一種工具程序的名稱，它用來標記源代碼中，某些可疑的、不具結構性的段落。它是一種靜態程序分析工具，最早適用於C語言，在UNIX平台上開發出來。後來它成為通用術語，可用於描述在任何一種電腦編程語言中，用來標記源代碼中有疑義段落的工具。</p>
+</blockquote>
+<h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><ul>
+<li><p>Content Provider的使用時機</p>
+</li>
+<li><p>Fragment的使用時機</p>
+</li>
+<li><p>FrameLayout的使用時機</p>
+</li>
+<li><p>Service的動作是否都能做在Activity<br>跟UI無關的動作都放在Service</p>
+</li>
+<li><p>啥是Context<br>Activity&#x2F;Service..等類別</p>
+</li>
+<li><p>QA</p>
+<ol>
+<li>coding完用JUnit單元測試，<a href="http://140.127.82.166/retrieve/18991/91.pdf">參考</a></li>
+<li>brad客製化QA測試工具做整體測試</li>
+</ol>
+</li>
+<li><p>公司VersionControlSystem, gitignore</p>
+<blockquote>
+<p>內部git, vpn</p>
+</blockquote>
+</li>
+<li><p>API https</p>
+</li>
+<li><p>程式架構文件-&gt; PGM: Phase Gate Model</p>
+<ol>
+<li>流程圖 -&gt; brad</li>
+<li>演算法 -&gt; all</li>
+<li>coding -&gt; member</li>
+<li>code review -&gt; all</li>
+</ol>
+</li>
+</ul>
+<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p><a href="mailto:&#47;&#47;&#x62;&#x72;&#x61;&#x64;&#x40;&#98;&#x72;&#97;&#100;&#x2e;&#116;&#119;">brad@brad.tw</a></p>
+<p><strong>Apache Cordova</strong> is a platform for building native mobile applications using HTML, CSS and JavaScript<br><a href="https://cordova.apache.org/">官網</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span> b; <span class="comment">// [a-zA-Z$_][a-zA-Z0-9$_]</span></span><br><span class="line"><span class="type">byte</span> 成績=<span class="number">127</span>; <span class="comment">//8個位元組，-127~127，常用在圖形及網路streaming</span></span><br><span class="line">System.out.println(成績);</span><br></pre></td></tr></table></figure>
+
+<p>Instances of <code>StringBuilder</code> are not safe for use by multiple threads. If such synchronization is required then it is recommended that <code>StringBuffer</code> be used.</p>
+<p><strong>FileInputStream</strong>:  一次讀取一個byte，適用於讀取影片、圖片…等檔案<br><strong>FileReader</strong>: 一次讀取一個character，適用於讀取文件<br><strong>BufferReader</strong>: 一次讀取一行<code>readline()</code>，適用於讀取文件，需串接<code>InputStreamReader</code>，再由<code>InputStreamReader</code>串接<code>FileInputStream</code><br><strong>FileOutputStream</strong>:</p>
+<ul>
+<li>最後要close前，要強制將buffer裡的資料寫入disk—-&gt;<code>flush()</code></li>
+</ul>
+<p>DataInputStream: 可存基本型態(primitive Java data types)<br>ObjectInputStream: 可存Object，前提是此Object需<code>implements Serializable</code>，另可再此Object屬性加上<code>transient</code>表示此屬性不可序列化</p>
+<p>存取權</p>
+<ul>
+<li>public: 全世界</li>
+<li>protected:<ul>
+<li>同package</li>
+<li>子類別</li>
+</ul>
+</li>
+<li>沒寫: 同package</li>
+<li>private: 本類別</li>
+</ul>
+<h2 id="java-net"><a href="#java-net" class="headerlink" title="java.net"></a>java.net</h2><blockquote>
+<p>InetAddress<br>UDP:</p>
+</blockquote>
+<ul>
+<li>fast</li>
+<li>unreliable</li>
+<li>socket: 接口, <code>DatagramSocket</code></li>
+<li>packet: 封包, <code>DatagramPacket</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sender</span></span><br><span class="line"><span class="type">byte</span>[] buf = <span class="string">&quot;hello, I&#x27;m Henry&quot;</span>.getBytes();</span><br><span class="line"><span class="type">DatagramSocket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramSocket</span>();</span><br><span class="line"><span class="type">DatagramPacket</span> <span class="variable">packet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramPacket</span>(buf, buf.length, InetAddress.getByName(<span class="string">&quot;10.2.24.156&quot;</span>), <span class="number">9999</span>);</span><br><span class="line">socket.send(packet);</span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//reciever</span></span><br><span class="line"><span class="type">byte</span>[] buf = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">4096</span>];</span><br><span class="line"><span class="type">DatagramSocket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramSocket</span>(<span class="number">8888</span>);</span><br><span class="line"><span class="type">DatagramPacket</span> <span class="variable">packet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramPacket</span>(buf, buf.length);</span><br><span class="line">socket.receive(packet);</span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
+
+<p>  TCP:<br>  server socket: <code>ServerSocket</code><br>  client socket: <code>Socket</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// reciever</span></span><br><span class="line"><span class="type">ServerSocket</span> <span class="variable">server</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">8888</span>);</span><br><span class="line"><span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> server.accept();</span><br><span class="line"><span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> socket.getInputStream();</span><br><span class="line"></span><br><span class="line"><span class="type">InputStreamReader</span> <span class="variable">isr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(is);</span><br><span class="line"><span class="type">int</span> temp;</span><br><span class="line"><span class="keyword">while</span> ( (temp = isr.read())!=-<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	System.out.print((<span class="type">char</span>)temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">is.close();</span><br><span class="line">socket.close();</span><br><span class="line">server.close();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sender</span></span><br><span class="line"><span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Socket</span>(ip, <span class="number">8888</span>);</span><br><span class="line"><span class="type">OutputStream</span> <span class="variable">out</span> <span class="operator">=</span> socket.getOutputStream();</span><br><span class="line">out.write(<span class="string">&quot;Hi, I&#x27;m Henry!!&quot;</span>.getBytes());</span><br><span class="line">out.flush();</span><br><span class="line">out.close();</span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
+
+<h2 id="執行緒Thread"><a href="#執行緒Thread" class="headerlink" title="執行緒Thread"></a>執行緒Thread</h2><ul>
+<li>有生命週期之物件</li>
+<li>寫法一<code>extends Thread</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadObject</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">ServerThreads</span> <span class="variable">st1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerThreads</span>(<span class="string">&quot;bella&quot;</span>);</span><br><span class="line">		<span class="type">ServerThreads</span> <span class="variable">st2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerThreads</span>(<span class="string">&quot;vivian&quot;</span>);</span><br><span class="line">		st1.start();</span><br><span class="line">		st2.start();</span><br><span class="line">		System.out.println(<span class="string">&quot;penny&quot;</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;henry&quot;</span>);</span><br><span class="line">	    <span class="comment">// trigger InterruptedException例外</span></span><br><span class="line">		st1.interrupt();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ServerThreads</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ServerThreads</span><span class="params">(String s)</span> &#123;</span><br><span class="line">		name = s;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">200</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			<span class="comment">// trigger by st1.interrupt();</span></span><br><span class="line">			    <span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(name+<span class="string">&quot;:&quot;</span>+i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>寫法二<code>implements Runnable</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadObject</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">		<span class="type">ServerRunnable</span> <span class="variable">sr1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerRunnable</span>(<span class="string">&quot;bella&quot;</span>);</span><br><span class="line">		<span class="type">Thread</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(sr1);</span><br><span class="line">		t1.start();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ServerRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ServerRunnable</span><span class="params">(String s)</span> &#123;</span><br><span class="line">		name = s;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">200</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(name+<span class="string">&quot;:&quot;</span>+i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><ul>
+<li><a href="https://www.evernote.com/shard/s75/sh/29c4aebe-c386-4275-a320-94fa28e3b32f/5552b7359ba91b9e8a00e0989df94d62">what is the sense of final ArrayList?</a></li>
+<li><a href="https://www.evernote.com/shard/s75/sh/f6f4a967-57d5-4139-82c2-6120f1dc4df8/523b027d19c67ec23c6afd48f63c9b72">HashMap with multiple values under the same key</a></li>
+</ul>
+<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2><ul>
+<li><a href="https://www.evernote.com/shard/s75/sh/95db27f4-be6d-4e21-ab5c-8e6e50f45aa2/d778d182765dc1ef92b79988df04fe79">Java 7 新的 try-with-resources 语句，自动资源释放</a></li>
+</ul>
+<h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><ul>
+<li>PreparedStatement與Statement最大的差異在於SQL已預載入，因此執行時僅需bind variable即可，所以SQL是bind不同var頻繁執行時，使用PS會比較有效率；但若是不重覆執行頻繁更換SQL的用法時，效能基本上就跟S差不多。</li>
+</ul>
+<h2 id="Annotation"><a href="#Annotation" class="headerlink" title="Annotation"></a>Annotation</h2><ul>
+<li>將metadata, data, methods都放在程式裡, 易於分析&#x2F;解讀.</li>
+</ul>
+<h2 id="CDI"><a href="#CDI" class="headerlink" title="CDI"></a>CDI</h2><ul>
+<li>當沒有@ApplicationScoped, 會報錯Unsatisfied dependencies for type xxxxx with qualifiers @Default</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: org.apache.catalina.LifecycleException: org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies <span class="keyword">for</span> <span class="built_in">type</span> CdiServerJava with qualifiers @Default</span><br><span class="line">  at injection point [BackedAnnotatedField] @Inject private tw.henry.test.JaxRsService.server</span><br><span class="line">  at tw.henry.test.JaxRsService.server(JaxRsService.java:0)</span><br></pre></td></tr></table></figure>
+<p><a href="http://stackoverflow.com/questions/27706091/unsatisfied-dependencies-for-type-x-with-qualifiers-default">參考</a></p>
+<ul>
+<li>當有兩個以上的@Default, 會報錯Ambiguous dependencies</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">org.jboss.weld.exceptions.DeploymentException: WELD-001409: Ambiguous dependencies <span class="keyword">for</span> <span class="built_in">type</span> CdiServerIF with qualifiers @Default</span><br><span class="line">  at injection point [BackedAnnotatedField] @Inject private tw.henry.test.JaxRsService.server</span><br><span class="line">  at tw.henry.test.JaxRsService.server(JaxRsService.java:0)</span><br><span class="line">  Possible dependencies:</span><br><span class="line">  - Managed Bean [class tw.henry.test.CdiServerJava] with qualifiers [@Any @Default],</span><br><span class="line">  - Managed Bean [class tw.henry.test.CdiServerPhp] with qualifiers [@Any @Default]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>管理物件生命週期, e.g. JDBC resource, client 無需開關</li>
+<li>没有 Scope 注解的情况下，default scope 是@Dependent, 而@Dependent Scope 中的 Bean 的生命周期取决于被注入的 Bean 的生命周期</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/android/">android</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://hamn07.github.io/2015/07/30/android-note/" data-title="安卓筆記區 | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/07/php-note/" title="Web筆記區">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Web筆記區</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/22/configuration/"  title="備忘 - Configuration of Server, IDE">
+ <strong>下一篇：</strong><br/> 
+ <span>備忘 - Configuration of Server, IDE
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#bluetooth"><span class="toc-number">1.</span> <span class="toc-text">bluetooth</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#problem-to-fix"><span class="toc-number">2.</span> <span class="toc-text">problem to fix</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dialog"><span class="toc-number">3.</span> <span class="toc-text">dialog</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sensor"><span class="toc-number">4.</span> <span class="toc-text">sensor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#example"><span class="toc-number">4.1.</span> <span class="toc-text">example</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#media-player"><span class="toc-number">5.</span> <span class="toc-text">media player</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#volley"><span class="toc-number">6.</span> <span class="toc-text">volley</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#POST-image-file"><span class="toc-number">6.1.</span> <span class="toc-text">POST image file</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HttpURLConnection"><span class="toc-number">7.</span> <span class="toc-text">HttpURLConnection</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#POST-image-file-1"><span class="toc-number">7.1.</span> <span class="toc-text">POST image file</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AsyncTask"><span class="toc-number">8.</span> <span class="toc-text">AsyncTask</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E6%9E%B6App"><span class="toc-number">9.</span> <span class="toc-text">上架App</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Providing-Resource"><span class="toc-number">10.</span> <span class="toc-text">Providing Resource</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Notification"><span class="toc-number">11.</span> <span class="toc-text">Notification</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java"><span class="toc-number">12.</span> <span class="toc-text">java</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#convetion"><span class="toc-number">13.</span> <span class="toc-text">convetion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question"><span class="toc-number">14.</span> <span class="toc-text">Question</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java"><span class="toc-number">15.</span> <span class="toc-text">Java</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-net"><span class="toc-number">15.1.</span> <span class="toc-text">java.net</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%B7%E8%A1%8C%E7%B7%92Thread"><span class="toc-number">15.2.</span> <span class="toc-text">執行緒Thread</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection"><span class="toc-number">15.3.</span> <span class="toc-text">Collection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">15.4.</span> <span class="toc-text">IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-number">15.5.</span> <span class="toc-text">Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annotation"><span class="toc-number">15.6.</span> <span class="toc-text">Annotation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CDI"><span class="toc-number">15.7.</span> <span class="toc-text">CDI</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/rtfd/" title="rtfd">rtfd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dojo/" title="dojo">dojo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Henry Lee in Taiwan. <br/>
+			This is my blog for study note.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2025 
+		
+		<a href="/about" target="_blank" title="Henry Lee">Henry Lee</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

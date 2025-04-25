@@ -1,0 +1,743 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>real time communication, server push | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Henry Lee">
+    
+
+    
+    <meta name="description" content="ConcpetMessage Oriented Middleware (MOM)Asynchronous Messaging, fire-and-forget, evnet-driven architechure Systems that rely upon synchronous requests typically have a limited ability to scale because">
+<meta property="og:type" content="article">
+<meta property="og:title" content="real time communication, server push">
+<meta property="og:url" content="http://hamn07.github.io/2015/10/08/real-time/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ConcpetMessage Oriented Middleware (MOM)Asynchronous Messaging, fire-and-forget, evnet-driven architechure Systems that rely upon synchronous requests typically have a limited ability to scale because">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://hamn07.github.io/ws-echo-server1.png">
+<meta property="og:image" content="http://hamn07.github.io/ws-echo-server2.png">
+<meta property="og:image" content="http://hamn07.github.io/ws-echo-server3.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-1.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-2.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-3.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-4.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-5.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-6.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-7.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-1.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-2.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-3.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-4.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-5.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-6.png">
+<meta property="og:image" content="http://hamn07.github.io/JBoss-Eclipse-7.png">
+<meta property="og:image" content="http://hamn07.github.io/capture-20151016-154243.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-1.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-2.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-3.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-4.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-6.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-5.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-7.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-8.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-9.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-10.png">
+<meta property="og:image" content="http://hamn07.github.io/glassfish-eclipse-11.png">
+<meta property="article:published_time" content="2015-10-08T01:42:39.000Z">
+<meta property="article:modified_time" content="2022-10-19T00:00:58.897Z">
+<meta property="article:author" content="Henry Lee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hamn07.github.io/ws-echo-server1.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives/">Archives</a></li>
+					
+						<li><a href="/about/">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hamn07.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/08/real-time/" title="real time communication, server push" itemprop="url">real time communication, server push</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Henry Lee" target="_blank" itemprop="author">Henry Lee</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-08T01:42:39.000Z" itemprop="datePublished"> Published 2015-10-08</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Concpet"><span class="toc-number">1.</span> <span class="toc-text">Concpet</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Message-Oriented-Middleware-MOM"><span class="toc-number">1.1.</span> <span class="toc-text">Message Oriented Middleware (MOM)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reactive-Programming"><span class="toc-number">1.2.</span> <span class="toc-text">Reactive Programming</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#websocket"><span class="toc-number">1.3.</span> <span class="toc-text">websocket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RFC-6455"><span class="toc-number">1.3.1.</span> <span class="toc-text">RFC 6455</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-Base-Framing-Protocol"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">5.2 Base Framing Protocol</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#websocket-communication-by-Java-server-side"><span class="toc-number">1.3.2.</span> <span class="toc-text">websocket communication by Java (server-side)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Server-message-broker-gateway"><span class="toc-number">2.</span> <span class="toc-text">Server (message broker, gateway)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jWebsocket"><span class="toc-number">2.1.</span> <span class="toc-text">jWebsocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php"><span class="toc-number">2.2.</span> <span class="toc-text">php</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-number">2.2.1.</span> <span class="toc-text">Reference</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GlassFish-implements-WebSocket-over-TLS"><span class="toc-number">2.3.</span> <span class="toc-text">GlassFish implements WebSocket over TLS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#preview"><span class="toc-number">2.3.1.</span> <span class="toc-text">preview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server-configuration"><span class="toc-number">2.3.2.</span> <span class="toc-text">server configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server-side"><span class="toc-number">2.3.3.</span> <span class="toc-text">server-side</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client-side-Web"><span class="toc-number">2.3.4.</span> <span class="toc-text">client-side: Web</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client-side-Android"><span class="toc-number">2.3.5.</span> <span class="toc-text">client-side : Android</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JBoss-Eclipse-development-Env-setup"><span class="toc-number">2.4.</span> <span class="toc-text">JBoss-Eclipse development Env. setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">2.4.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Steps"><span class="toc-number">2.4.2.</span> <span class="toc-text">Setup Steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GlassFish-Eclipse-development-Env-setup"><span class="toc-number">2.5.</span> <span class="toc-text">GlassFish-Eclipse development Env. setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment-1"><span class="toc-number">2.5.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Steps-1"><span class="toc-number">2.5.2.</span> <span class="toc-text">Setup Steps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring"><span class="toc-number">2.5.3.</span> <span class="toc-text">Spring</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx-as-reverse-proxy"><span class="toc-number">2.6.</span> <span class="toc-text">Nginx as reverse proxy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference-1"><span class="toc-number">2.6.1.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cloud-Service-SaaS"><span class="toc-number">3.</span> <span class="toc-text">Cloud Service (SaaS)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Protocol"><span class="toc-number">4.</span> <span class="toc-text">Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Refernces"><span class="toc-number">4.1.</span> <span class="toc-text">Refernces</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#whatsapp"><span class="toc-number">5.</span> <span class="toc-text">whatsapp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Erlang"><span class="toc-number">5.1.</span> <span class="toc-text">Erlang</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Concpet"><a href="#Concpet" class="headerlink" title="Concpet"></a>Concpet</h1><h2 id="Message-Oriented-Middleware-MOM"><a href="#Message-Oriented-Middleware-MOM" class="headerlink" title="Message Oriented Middleware (MOM)"></a>Message Oriented Middleware (MOM)</h2><p>Asynchronous Messaging, fire-and-forget, evnet-driven architechure</p>
+<p>Systems that rely upon synchronous requests typically have a limited ability to scale because eventually requests will begin to back up, thereby slowing the whole system.</p>
+<p><em>Refernces</em></p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/2388539/in-which-domains-are-message-oriented-middleware-like-amqp-useful">In which domains are message oriented middleware like AMQP useful?</a></li>
+<li><a href="http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes#Criteria">Message Queue Evaluation Notes</a></li>
+<li><a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/index.html">Messaging Patterns Overview</a></li>
+</ul>
+<h2 id="Reactive-Programming"><a href="#Reactive-Programming" class="headerlink" title="Reactive Programming"></a>Reactive Programming</h2><ul>
+<li><a href="https://www.evernote.com/shard/s75/sh/20e03309-c4b7-4a6a-9440-048f43526f90/a46385724a71c34839213c719b360d79">FRP與函數式</a></li>
+</ul>
+<h2 id="websocket"><a href="#websocket" class="headerlink" title="websocket"></a>websocket</h2><h3 id="RFC-6455"><a href="#RFC-6455" class="headerlink" title="RFC 6455"></a>RFC 6455</h3><p><a href="https://tools.ietf.org/html/rfc6455">ieft official</a></p>
+<h4 id="5-2-Base-Framing-Protocol"><a href="#5-2-Base-Framing-Protocol" class="headerlink" title="5.2 Base Framing Protocol"></a>5.2 Base Framing Protocol</h4><p>Let’s examin our framing logic base by rfc6455 framing protocol as below.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$msg</span> = <span class="string">&#x27;hi&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">bstr2bin</span>(<span class="title function_ invoke__">frame</span>(<span class="variable">$msg</span>));</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">frame</span>(<span class="params"><span class="variable">$s</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// our framing logic</span></span><br><span class="line">  <span class="variable">$a</span> = <span class="title function_ invoke__">str_split</span>(<span class="variable">$s</span>, <span class="number">125</span>);</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_ invoke__">count</span>(<span class="variable">$a</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;\x81&quot;</span>.<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">strlen</span>(<span class="variable">$a</span>[<span class="number">0</span>])).<span class="variable">$a</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$ns</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="keyword">foreach</span> (<span class="variable">$a</span> <span class="keyword">as</span> <span class="variable">$o</span>) &#123;</span><br><span class="line">    <span class="variable">$ns</span> .= <span class="string">&quot;\x81&quot;</span>.<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">strlen</span>(<span class="variable">$o</span>)).<span class="variable">$o</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$ns</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bstr2bin</span>(<span class="params"><span class="variable">$input</span></span>)</span></span><br><span class="line"><span class="function">// <span class="title">Binary</span> <span class="title">representation</span> <span class="title">of</span> <span class="title">a</span> <span class="title">binary</span>-<span class="title">string</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="title function_ invoke__">is_string</span>(<span class="variable">$input</span>)) <span class="keyword">return</span> <span class="literal">null</span>; <span class="comment">// Sanity check</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Unpack as a hexadecimal string</span></span><br><span class="line">  <span class="variable">$value</span> = <span class="title function_ invoke__">unpack</span>(<span class="string">&quot;H*&quot;</span>, <span class="variable">$input</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Output binary representation</span></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_ invoke__">base_convert</span>(<span class="variable">$value</span>[<span class="number">1</span>], <span class="number">16</span>, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>while sent hi as message, the output would be <code>10000001000000100110100001101001</code> in binary. Let’s fill in base frame protocol table as below.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0                   1                   2                   3</span><br><span class="line">0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br><span class="line">|F|R|R|R| opcode|M| Payload len |         payload Data (hi)     |</span><br><span class="line">|I|S|S|S|  (4)  |A|     (7)     |             (16)              |</span><br><span class="line">|N|V|V|V|       |S|             |                               |</span><br><span class="line">| |1|2|3|       |K|             |                               |</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br><span class="line">|1|0|0|0|0 0 0 1|0|0 0 0 0 0 1 0|0 1 1 0 1 0 0 0 0 1 1 0 1 0 0 1|</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br></pre></td></tr></table></figure>
+
+<p>\x81 are 2 hex; 10000001 in binary.</p>
+<p>FIN&#x3D;1 denotes a final frame</p>
+<blockquote>
+<p>FIN:  1 bit</p>
+<p>Indicates that this is the final fragment in a message.  The first<br>fragment MAY also be the final fragment.</p>
+</blockquote>
+<p>RSV1&#x3D;0<br>RSV2&#x3D;0<br>RSV3&#x3D;0</p>
+<p>RSV1~3 are set to 0, denotes we don’t use any extension.</p>
+<blockquote>
+<p>RSV1, RSV2, RSV3:  1 bit each</p>
+<p>MUST be 0 unless an extension is negotiated that defines meanings for non-zero values.  If a nonzero value is received and none of the negotiated extensions defines the meaning of such a nonzero value, the receiving endpoint MUST _Fail the WebSocket Connection_.</p>
+</blockquote>
+<p>opcode&#x3D;0001 denotes a text frame</p>
+<blockquote>
+<p>Opcode:  4 bits</p>
+<p>Defines the interpretation of the “Payload data”.  If an unknown opcode is received, the receiving endpoint MUST _Fail the WebSocket Connection_.  The following values are defined.</p>
+<pre><code> *  %x0 denotes a continuation frame
+
+ *  %x1 denotes a text frame
+
+ *  %x2 denotes a binary frame
+
+ *  %x3-7 are reserved for further non-control frames
+
+ *  %x8 denotes a connection close
+
+ *  %x9 denotes a ping
+
+ *  %xA denotes a pong
+
+ *  %xB-F are reserved for further control frames
+</code></pre>
+</blockquote>
+<p><code>chr(strlen($a[0]))</code> returns a specific charater according to frame length, since we limit frame length to 125, first binary would be 0.</p>
+<p>Mask&#x3D;0 denotes no mask</p>
+<blockquote>
+<p>Mask:  1 bit</p>
+<p>  Defines whether the “Payload data” is masked.  If set to 1, a<br>  masking key is present in masking-key, and this is used to unmask<br>  the “Payload data” as per Section 5.3.  All frames sent from<br>  client to server have this bit set to 1.</p>
+</blockquote>
+<p>Payload length&#x3D; 0000010<br>in this example, ‘hi’ is a 2 charater data, ‘0000010’ in binary.</p>
+<blockquote>
+<p>Payload length:  7 bits, 7+16 bits, or 7+64 bits</p>
+<p>  The length of the “Payload data”, in bytes: if 0-125, that is the<br>  payload length.  If 126, the following 2 bytes interpreted as a<br>  16-bit unsigned integer are the payload length.  If 127, the<br>  following 8 bytes interpreted as a 64-bit unsigned integer (the<br>  most significant bit MUST be 0) are the payload length.  Multibyte<br>  length quantities are expressed in network byte order.  Note that<br>  in all cases, the minimal number of bytes MUST be used to encode<br>  the length, for example, the length of a 124-byte-long string<br>  can’t be encoded as the sequence 126, 0, 124.  The payload length<br>  is the length of the “Extension data” + the length of the<br>  “Application data”.  The length of the “Extension data” may be<br>  zero, in which case the payload length is the length of the<br>  “Application data”.</p>
+</blockquote>
+<p>Payload Data&#x3D;0110100001101001<br>since we limit our frame length to 125, the remaining bytes are payload.<br>01101000 is ‘h’ in binary<br>01101001 is ‘i’ in binary</p>
+<blockquote>
+<p>Application data:  y bytes</p>
+<p>Arbitrary “Application data”, taking up the remainder of the frame<br>after any “Extension data”.  The length of the “Application data”<br>is equal to the payload length minus the length of the “Extension<br>data”.</p>
+</blockquote>
+<p>Note: Further discussion would be needed while migration to another platform language which already implements WebSocket (like Java).</p>
+<p><em>Refernces</em></p>
+<ul>
+<li><a href="http://www.w3.org/TR/websockets/">w3c</a></li>
+<li><a href="http://eng.kifi.com/websockets-vs-regular-sockets/">WebSockets vs. Regular Sockets</a></li>
+</ul>
+<h3 id="websocket-communication-by-Java-server-side"><a href="#websocket-communication-by-Java-server-side" class="headerlink" title="websocket communication by Java (server-side)"></a>websocket communication by Java (server-side)</h3><ul>
+<li><a href="http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html">JSR 356, Java API for WebSocket</a></li>
+<li><a href="http://javaday.org.ua/2013/images/pdf/Delabassee_Kiev_WebSocket.pdf">Java Day pdf</a></li>
+<li><a href="https://blogs.oracle.com/PavelBucek/entry/securing_websocket_applications_on_glassfish">Securing WebSocket applications on Glassfish</a></li>
+</ul>
+<h1 id="Server-message-broker-gateway"><a href="#Server-message-broker-gateway" class="headerlink" title="Server (message broker, gateway)"></a>Server (message broker, gateway)</h1><p><a href="https://dzone.com/refcardz/html5-websocket">alternatives</a></p>
+<ul>
+<li><p><a href="https://www.process-one.net/en/ejabberd/#getejabberd">https://www.process-one.net/en/ejabberd/#getejabberd</a></p>
+</li>
+<li><p><a href="http://www.rabbitmq.com/">http://www.rabbitmq.com/</a></p>
+</li>
+<li><p><a href="http://activemq.apache.org/">http://activemq.apache.org/</a></p>
+</li>
+<li><p><a href="http://karaf.apache.org/">apache karaf</a><br>Apache Karaf is a small OSGi based runtime which provides a lightweight container onto which various components and applications can be deployed.</p>
+</li>
+<li><p><a href="http://kaazing.org/">http://kaazing.org/</a><br>The Gateway is a network gateway created to provide a single access point for real-time web based protocol elevation that supports <strong>load balancing, clustering, and security management</strong>. It is designed to provide scalable and secure bidirectional event-based communication over the web; <strong>on every platform, browser, and device</strong>.</p>
+<ul>
+<li><p>Requirement</p>
+<ul>
+<li>Java Runtime Environment (JRE) 1.7.0_21 or higher</li>
+<li>JAVA_HOME must be set</li>
+</ul>
+</li>
+<li><p>Feature</p>
+<ul>
+<li>cluster -&gt; <a href="http://developer.kaazing.com/documentation/5.0/high-availability/u_ha.html">參考連結</a></li>
+<li><a href="http://developer.kaazing.com/documentation/aws/marketplace/index.html">AWS marketplace</a></li>
+<li><a href="http://developer.kaazing.com/documentation/5.0/security/c_sec_security.html">About Security with KAAZING Gateway</a></li>
+<li><a href="http://kaazing.com/products/kaazing-websocket-gateway/websocket-emulation/">WebSocket Emulation for older browsers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="http://caucho.com/">http://caucho.com/</a></p>
+</li>
+<li><p><a href="http://www.lightstreamer.com/">http://www.lightstreamer.com/</a></p>
+<ul>
+<li><a href="http://www.slideshare.net/alinone/from-push-technology-to-the-realtime-web">http://www.slideshare.net/alinone/from-push-technology-to-the-realtime-web</a></li>
+</ul>
+</li>
+<li><p><a href="https://www.ejabberd.im/">https://www.ejabberd.im/</a></p>
+</li>
+</ul>
+<p><a href="https://www.evernote.com/shard/s75/sh/3eb6cf33-71db-4412-973d-7d7efac62d47/02330b3286d02dd6558129f4ec914c75">消息队列软件产品大比拼</a><br><a href="https://www.quora.com/What-are-the-differences-between-JBoss-GlassFish-and-Apache-Tomcat-servers">What are the differences between JBoss, GlassFish, and Apache Tomcat servers?</a></p>
+<h2 id="jWebsocket"><a href="#jWebsocket" class="headerlink" title="jWebsocket"></a>jWebsocket</h2><p><a href="http://jwebsocket.org/">jWebsocket official site</a><br><a href="http://jwebsocket.org/documentation/installation-guide/jwebsocket-cluster">jWebSocket JMS based Cluster</a></p>
+<h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://medium.com/laravel-4/laravel-4-real-time-chat-eaa550829538">Laravel 4 Real Time Chat</a></p>
+<h2 id="GlassFish-implements-WebSocket-over-TLS"><a href="#GlassFish-implements-WebSocket-over-TLS" class="headerlink" title="GlassFish implements WebSocket over TLS"></a>GlassFish implements WebSocket over TLS</h2><blockquote>
+<p>This example demostrate a echo server peroidically return server time via websocket connection.</p>
+</blockquote>
+<h3 id="preview"><a href="#preview" class="headerlink" title="preview"></a>preview</h3><p><img src="/ws-echo-server1.png"><br><img src="/ws-echo-server2.png"><br><img src="/ws-echo-server3.png"></p>
+<h3 id="server-configuration"><a href="#server-configuration" class="headerlink" title="server configuration"></a>server configuration</h3><p><code>web.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line">...</span><br><span class="line">  <span class="tag">&lt;<span class="name">security-constraint</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">web-resource-collection</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">web-resource-name</span>&gt;</span>Protected resource<span class="tag">&lt;/<span class="name">web-resource-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">http-method</span>&gt;</span>GET<span class="tag">&lt;/<span class="name">http-method</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">web-resource-collection</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- https --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user-data-constraint</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">transport-guarantee</span>&gt;</span>CONFIDENTIAL<span class="tag">&lt;/<span class="name">transport-guarantee</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user-data-constraint</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">security-constraint</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="server-side"><a href="#server-side" class="headerlink" title="server-side"></a>server-side</h3><p><code>EchoEndpoint.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tw.henry.websocket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ScheduledExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ScheduledFuture;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"><span class="keyword">import</span> java.util.logging.Level;</span><br><span class="line"><span class="keyword">import</span> java.util.logging.Logger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnClose;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnMessage;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnOpen;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.Session;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.server.ServerEndpoint;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@ServerEndpoint(&quot;/echo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EchoEndpoint</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">LOG</span> <span class="operator">=</span> Logger.getLogger(EchoEndpoint.class.getName());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Set&lt;Session&gt; allSessions;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">ScheduledExecutorService</span> <span class="variable">timer</span> <span class="operator">=</span></span><br><span class="line">               Executors.newSingleThreadScheduledExecutor();</span><br><span class="line">    <span class="type">DateTimeFormatter</span> <span class="variable">timeFormatter</span> <span class="operator">=</span>  </span><br><span class="line">              DateTimeFormatter.ofPattern(<span class="string">&quot;HH:mm:ss&quot;</span>);</span><br><span class="line"></span><br><span class="line">    ScheduledFuture&lt;?&gt; result;</span><br><span class="line">    <span class="meta">@OnMessage</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">echo</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> message + <span class="string">&quot; (from your server)&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OnOpen</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">connectionOpened</span><span class="params">(Session session)</span> &#123;</span><br><span class="line">        LOG.log(Level.INFO, <span class="string">&quot;WebSocket opened: &quot;</span>+session.getId());</span><br><span class="line"></span><br><span class="line">        allSessions = session.getOpenSessions();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (allSessions.size()==<span class="number">1</span>)&#123;   </span><br><span class="line">            result = timer.scheduleAtFixedRate(</span><br><span class="line">                 () -&gt; sendTimeToAll(session),<span class="number">0</span>,<span class="number">10</span>,TimeUnit.SECONDS);    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">sendTimeToAll</span><span class="params">(Session session)</span>&#123;       </span><br><span class="line">         allSessions = session.getOpenSessions();</span><br><span class="line">         <span class="keyword">for</span> (Session sess: allSessions)&#123;          </span><br><span class="line">            <span class="keyword">try</span>&#123;   </span><br><span class="line">              sess.getBasicRemote().sendText(<span class="string">&quot;Hi, give me some thing to echo (Server time: &quot;</span> +</span><br><span class="line">                        LocalTime.now().format(timeFormatter)+<span class="string">&quot;)&quot;</span>);</span><br><span class="line">              &#125; <span class="keyword">catch</span> (IOException ioe) &#123;        </span><br><span class="line">                  System.out.println(ioe.getMessage());         </span><br><span class="line">              &#125;   </span><br><span class="line">         &#125;  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OnClose</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">connectionClosed</span><span class="params">()</span> &#123;</span><br><span class="line">        result.cancel(<span class="literal">true</span>);</span><br><span class="line">        LOG.log(Level.INFO, <span class="string">&quot;connection closed&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="client-side-Web"><a href="#client-side-Web" class="headerlink" title="client-side: Web"></a>client-side: Web</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;content-type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=ISO-8859-1&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Web Socket JavaScript Echo Client<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">&quot;javascript&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> endpointPath = <span class="string">&quot;/echo&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> wsUri = <span class="title function_">getRootUri</span>() + endpointPath;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> websocket;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/**</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">     * Get application root uri with ws/wss protocol.</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">     *</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">     * <span class="doctag">@returns</span> &#123;<span class="type">string</span>&#125;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">     */</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">getRootUri</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> uri = <span class="string">&quot;wss://&quot;</span> + (<span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">hostname</span> == <span class="string">&quot;&quot;</span> ? <span class="string">&quot;localhost&quot;</span> : <span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">hostname</span>) + <span class="string">&quot;:&quot;</span> +</span></span><br><span class="line"><span class="language-javascript">        (<span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">port</span> == <span class="string">&quot;&quot;</span> ? <span class="string">&quot;8181&quot;</span> : <span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">port</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> pathname = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (<span class="title function_">endsWith</span>(pathname, <span class="string">&quot;/index.html&quot;</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript">        uri = uri + pathname.<span class="title function_">substring</span>(<span class="number">0</span>, pathname.<span class="property">length</span> - <span class="number">11</span>);</span></span><br><span class="line"><span class="language-javascript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="title function_">endsWith</span>(pathname, <span class="string">&quot;/&quot;</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript">        uri = uri + pathname.<span class="title function_">substring</span>(<span class="number">0</span>, pathname.<span class="property">length</span> - <span class="number">1</span>);</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> uri;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">endsWith</span>(<span class="params">str, suffix</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> str.<span class="title function_">indexOf</span>(suffix, str.<span class="property">length</span> - suffix.<span class="property">length</span>) !== -<span class="number">1</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">init</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      output = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;output&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">send_echo</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (!websocket) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        websocket = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(wsUri);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        websocket.<span class="property">onopen</span> = <span class="keyword">function</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="title function_">onOpen</span>(evt)</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        websocket.<span class="property">onmessage</span> = <span class="keyword">function</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="title function_">onMessage</span>(evt)</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        websocket.<span class="property">onerror</span> = <span class="keyword">function</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="title function_">onError</span>(evt)</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        websocket.<span class="property">onclose</span> = <span class="keyword">function</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="title function_">onClose</span>(evt);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// doSend(textID.value);</span></span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">sendMessage</span>(textID.<span class="property">value</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">onOpen</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">writeToScreen</span>(<span class="string">&quot;CONNECTED&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">onMessage</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">writeToScreen</span>(<span class="string">&quot;RECEIVED: &quot;</span> + evt.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">onClose</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">writeToScreen</span>(<span class="string">&quot;CLOSED: &quot;</span> + evt.<span class="property">code</span> + <span class="string">&quot;: &quot;</span> + evt.<span class="property">reason</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">onError</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">writeToScreen</span>(<span class="string">&#x27;&lt;span style=&quot;color: red;&quot;&gt;ERROR:&lt;/span&gt; &#x27;</span> + evt.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">doSend</span>(<span class="params">message</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(websocket);</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">writeToScreen</span>(<span class="string">&quot;SENT: &quot;</span> + message);</span></span><br><span class="line"><span class="language-javascript">      websocket.<span class="title function_">send</span>(message);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">sendMessage</span>(<span class="params">msg</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">waitForSocketConnection</span>(websocket, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">writeToScreen</span>(<span class="string">&quot;SENT: &quot;</span> + msg);</span></span><br><span class="line"><span class="language-javascript">        websocket.<span class="title function_">send</span>(msg);</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">waitForSocketConnection</span>(<span class="params">socket, callback</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="built_in">setTimeout</span>(</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">if</span> (socket.<span class="property">readyState</span> === <span class="title class_">WebSocket</span>.<span class="property">OPEN</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (callback !== <span class="literal">undefined</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="title function_">callback</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-javascript">          &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">waitForSocketConnection</span>(socket, callback);</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;, <span class="number">5</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">writeToScreen</span>(<span class="params">message</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> pre = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;p&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">      pre.<span class="property">style</span>.<span class="property">wordWrap</span> = <span class="string">&quot;break-word&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">      pre.<span class="property">innerHTML</span> = message;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//alert(output);</span></span></span><br><span class="line"><span class="language-javascript">      output.<span class="title function_">appendChild</span>(pre);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;load&quot;</span>, init, <span class="literal">false</span>);</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>Web Socket Echo Client<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">&quot; width: 64px; height: 64px;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">src</span>=<span class="string">&quot;HTML5_Logo_512.png&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">onclick</span>=<span class="string">&quot;send_echo()&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Press me&quot;</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;textID&quot;</span> <span class="attr">name</span>=<span class="string">&quot;message&quot;</span> <span class="attr">label</span>=<span class="string">&quot;message&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Hello Web Sockets !&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;output&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="client-side-Android"><a href="#client-side-Android" class="headerlink" title="client-side : Android"></a>client-side : Android</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.os.Build;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.EditText;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.java_websocket.client.DefaultSSLWebSocketClientFactory;</span><br><span class="line"><span class="keyword">import</span> org.java_websocket.client.WebSocketClient;</span><br><span class="line"><span class="keyword">import</span> org.java_websocket.drafts.Draft_17;</span><br><span class="line"><span class="keyword">import</span> org.java_websocket.handshake.ServerHandshake;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.URI;</span><br><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.SSLContext;</span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.TrustManager;</span><br><span class="line"><span class="keyword">import</span> javax.net.ssl.X509TrustManager;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> WebSocketClient mWebSocketClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//           connectWebSocket(new URI(&quot;ws://10.0.3.2:8080/tm.EchoServer/echo&quot;),false);</span></span><br><span class="line"><span class="comment">//           connectWebSocket(new URI(&quot;wss://10.0.3.2:8181/tm.EchoServer/echo&quot;),true);</span></span><br><span class="line"><span class="comment">//           connectWebSocket(new URI(&quot;ws://10.0.1.147:8080/tm.EchoServer/echo&quot;),false);</span></span><br><span class="line">           connectWebSocket(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">&quot;wss://10.0.1.147:8181/tm.EchoServer/echo&quot;</span>),<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (URISyntaxException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">connectWebSocket</span><span class="params">(URI uri, <span class="type">boolean</span> overTLS)</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        mWebSocketClient = <span class="keyword">new</span> <span class="title class_">WebSocketClient</span>(uri, <span class="keyword">new</span> <span class="title class_">Draft_17</span>()) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onOpen</span><span class="params">(ServerHandshake serverHandshake)</span> &#123;</span><br><span class="line">                Log.i(<span class="string">&quot;Websocket&quot;</span>, <span class="string">&quot;Opened&quot;</span>);</span><br><span class="line">                mWebSocketClient.send(<span class="string">&quot;Hello from &quot;</span> + Build.MANUFACTURER + <span class="string">&quot; &quot;</span> + Build.MODEL);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(String s)</span> &#123;</span><br><span class="line">                <span class="keyword">final</span> <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> s;</span><br><span class="line">                runOnUiThread(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                        <span class="type">TextView</span> <span class="variable">textView</span> <span class="operator">=</span> (TextView)findViewById(R.id.messages);</span><br><span class="line">                        textView.setText(textView.getText() + <span class="string">&quot;\n&quot;</span> + message);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClose</span><span class="params">(<span class="type">int</span> i, String s, <span class="type">boolean</span> b)</span> &#123;</span><br><span class="line">                Log.i(<span class="string">&quot;Websocket&quot;</span>, <span class="string">&quot;Closed &quot;</span> + s);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onError</span><span class="params">(Exception e)</span> &#123;</span><br><span class="line">                Log.i(<span class="string">&quot;Websocket&quot;</span>, <span class="string">&quot;Error &quot;</span> + e.getMessage());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (overTLS) &#123;</span><br><span class="line">            <span class="comment">/***************************************************************************/</span></span><br><span class="line">            <span class="comment">//This part is needed in case you are going to use self-signed certificates</span></span><br><span class="line">            TrustManager[] trustAllCerts = <span class="keyword">new</span> <span class="title class_">TrustManager</span>[]&#123;<span class="keyword">new</span> <span class="title class_">X509TrustManager</span>() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">checkClientTrusted</span><span class="params">(java.security.cert.X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> java.security.cert.CertificateException &#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">checkServerTrusted</span><span class="params">(java.security.cert.X509Certificate[] chain, String authType)</span> <span class="keyword">throws</span> java.security.cert.CertificateException &#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">public</span> java.security.cert.X509Certificate[] getAcceptedIssuers() &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">java</span>.security.cert.X509Certificate[]&#123;&#125;;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;&#125;;</span><br><span class="line">            <span class="comment">/**************************************************************************/</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="type">SSLContext</span> <span class="variable">sc</span> <span class="operator">=</span> SSLContext.getInstance(<span class="string">&quot;TLS&quot;</span>);</span><br><span class="line">                sc.init(<span class="literal">null</span>, trustAllCerts, <span class="keyword">new</span> <span class="title class_">java</span>.security.SecureRandom());</span><br><span class="line"></span><br><span class="line">                <span class="comment">//Otherwise the line below is all that is needed.</span></span><br><span class="line">                <span class="comment">//sc.init(null, null, null);</span></span><br><span class="line">                mWebSocketClient.setWebSocketFactory(<span class="keyword">new</span> <span class="title class_">DefaultSSLWebSocketClientFactory</span>(sc));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mWebSocketClient.connect();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendMessage</span><span class="params">(View view)</span> &#123;</span><br><span class="line">        <span class="type">EditText</span> <span class="variable">editText</span> <span class="operator">=</span> (EditText)findViewById(R.id.message);</span><br><span class="line">        mWebSocketClient.send(editText.getText().toString());</span><br><span class="line">        editText.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onDestroy</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onDestroy();</span><br><span class="line">        mWebSocketClient.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Reference<br><a href="http://www.juliankrone.com/connect-and-transfer-data-with-secure-websockets-in-android/">Connect and transfer data with secure WebSockets in Android</a></p>
+<h2 id="JBoss-Eclipse-development-Env-setup"><a href="#JBoss-Eclipse-development-Env-setup" class="headerlink" title="JBoss-Eclipse development Env. setup"></a>JBoss-Eclipse development Env. setup</h2><h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><ol>
+<li><p>JDK 8</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">java version <span class="string">&quot;1.8.0_45&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_45-b14)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JBoss Enterprise Application Platform 6.4</p>
+</li>
+<li><p>Eclipse (Mars Release) IDE for Java EE Developers</p>
+</li>
+</ol>
+<h3 id="Setup-Steps"><a href="#Setup-Steps" class="headerlink" title="Setup Steps"></a>Setup Steps</h3><ol>
+<li>Download JBoss EPA<br><img src="/JBoss-1.png"></li>
+<li>installation<br><img src="/JBoss-2.png"><br><img src="/JBoss-3.png"><br><img src="/JBoss-4.png"><br><img src="/JBoss-5.png"><br><img src="/JBoss-6.png"><br><img src="/JBoss-7.png"></li>
+<li>Download JBoss Development Studio in marketplace<br><img src="/JBoss-Eclipse-1.png"><br><img src="/JBoss-Eclipse-2.png"></li>
+<li>add JBoss server in eclipse<br><img src="/JBoss-Eclipse-3.png"><br><img src="/JBoss-Eclipse-4.png"><br><img src="/JBoss-Eclipse-5.png"><br><img src="/JBoss-Eclipse-6.png"></li>
+<li>Run JBoss server in eclipse, visit <a href="http://localhost:8080/">http://localhost:8080</a><br><img src="/JBoss-Eclipse-7.png"></li>
+</ol>
+<h2 id="GlassFish-Eclipse-development-Env-setup"><a href="#GlassFish-Eclipse-development-Env-setup" class="headerlink" title="GlassFish-Eclipse development Env. setup"></a>GlassFish-Eclipse development Env. setup</h2><h3 id="Environment-1"><a href="#Environment-1" class="headerlink" title="Environment"></a>Environment</h3><ol>
+<li><p>JDK 8</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">java version <span class="string">&quot;1.8.0_45&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_45-b14)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>GlassFish 4 Java EE 7 Full Platform<br><img src="/capture-20151016-154243.png"></p>
+</li>
+<li><p>Eclipse (Mars Release) IDE for Java EE Developers</p>
+</li>
+</ol>
+<h3 id="Setup-Steps-1"><a href="#Setup-Steps-1" class="headerlink" title="Setup Steps"></a>Setup Steps</h3><ol>
+<li><p>goto Eclipse preferences <code>hotkey: cmd+,</code>, preferences-&gt;Server-&gt;Runtime Environment-&gt;Add…<br><img src="/glassfish-eclipse-1.png"></p>
+</li>
+<li><p>no glashfish environment runtime found, click <code>Download additional server adapters</code><br><img src="/glassfish-eclipse-2.png"></p>
+</li>
+<li><p>choose <code>GlassFish Tools</code><br><img src="/glassfish-eclipse-3.png"></p>
+</li>
+<li><p>restart Eclipse after installaction completes<br><img src="/glassfish-eclipse-4.png"></p>
+</li>
+<li><p>repeat step 1.~2., GlassFish runtime should appear, choose GlassFish 4<br><img src="/glassfish-eclipse-6.png"></p>
+</li>
+<li><p>locate your glassfish4 path<br><img src="/glassfish-eclipse-5.png"></p>
+</li>
+<li><p>use Wizard to create GlassFish Server <code>hotkey: cmd+n</code><br><img src="/glassfish-eclipse-7.png"></p>
+</li>
+<li><p>choose GlassFish 4<br><img src="/glassfish-eclipse-8.png"></p>
+</li>
+<li><p>setup administrator name and password, finish setup<br><img src="/glassfish-eclipse-9.png"></p>
+</li>
+<li><p>Start Server<br><img src="/glassfish-eclipse-10.png"></p>
+</li>
+<li><p>visit <a href="http://localhost:8080/">http://localhost:8080/</a> to see if GlassFish works properly.<br><img src="/glassfish-eclipse-11.png"></p>
+</li>
+</ol>
+<p>Refernces</p>
+<p><a href="https://www.evernote.com/shard/s75/sh/b3bab388-37e0-4945-8a3e-eda3fb9e398c/8e4b3a2fb69ab2d662a36db15230201d">Multiple JDK in Mac OSX 10.10 Yosemite</a></p>
+<p><a href="https://www.evernote.com/shard/s75/sh/a8635da6-efa0-4eda-a3a7-0a79ba6315d0/f8b95301cf59fed2b8993ad263e9cb72">Eclipse Marketplace GlassFish Tools</a></p>
+<p><a href="https://glassfish.java.net/download.html">GlassFish Download Page</a></p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK Download Page</a></p>
+<p><a href="https://www.eclipse.org/downloads/">Eclipse download Page</a></p>
+<h3 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h3><p><a href="http://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example">Spring 4 WebSocket + SockJS + STOMP + Tomcat Example</a><br><a href="https://dev.windows.com/en-us/microsoft-edge/tools/vms/mac/">Test Microsoft Edge and versions of IE6 through IE11 using free virtual machines you download and manage locally.</a></p>
+<h2 id="Nginx-as-reverse-proxy"><a href="#Nginx-as-reverse-proxy" class="headerlink" title="Nginx as reverse proxy"></a>Nginx as reverse proxy</h2><h3 id="Reference-1"><a href="#Reference-1" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://github.com/nicokaiser/nginx-websocket-proxy">nginx WebSocket Proxy</a><br><a href="http://stackoverflow.com/questions/12102110/nginx-to-reverse-proxy-websockets-and-enable-ssl-wss">NGINX to reverse proxy websockets AND enable SSL (wss:&#x2F;&#x2F;)?</a><br><a href="https://www.nginx.com/blog/websocket-nginx/">NGINX as a WebSocket Proxy</a></p>
+<h1 id="Cloud-Service-SaaS"><a href="#Cloud-Service-SaaS" class="headerlink" title="Cloud Service (SaaS)"></a>Cloud Service (SaaS)</h1><ul>
+<li><a href="http://framework.realtime.co/">http://framework.realtime.co/</a></li>
+<li><a href="https://pusher.com/">https://pusher.com/</a></li>
+<li><a href="https://www.pubnub.com/">https://www.pubnub.com/</a></li>
+<li><a href="https://ejabberd-saas.com/">https://ejabberd-saas.com/</a></li>
+<li><a href="https://www.mulesoft.com/">https://www.mulesoft.com/</a></li>
+<li><a href="https://www.hydna.com/">https://www.hydna.com/</a></li>
+<li><a href="https://www.pubnub.com/">https://www.pubnub.com/</a></li>
+<li><a href="https://www.intercom.io/">https://www.intercom.io/</a></li>
+<li><a href="https://cloud.google.com/pubsub/">https://cloud.google.com/pubsub/</a></li>
+</ul>
+<p><a href="https://medium.com/@davidbyttow/scaling-secret-real-time-chat-d8589f8f0c9b">Scaling Secret: Real-time Chat</a></p>
+<h1 id="Protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h1><p>By using standard protocol instead of proprietary one, we could leverage lots of client and server implementations to quickly build our app.</p>
+<ul>
+<li>STOMP: Simple (or Streaming) Text Oriented Messaging Protocol<ul>
+<li>it’s not always straightforward to port code between brokers</li>
+</ul>
+</li>
+<li>XMPP : Extensible Messaging and Presence Protocol<ul>
+<li><a href="http://igniterealtime.org/">http://igniterealtime.org/</a></li>
+</ul>
+</li>
+<li>AQMP : Advanced Message Queuing Protocol<ul>
+<li>Except puducer,broker,consumer(like JMS), AQMP introduce new component ‘exchange’</li>
+</ul>
+</li>
+<li><a href="https://github.com/mqtt/mqtt.github.io/wiki">MQTT</a> : Message Queue Telemery Transport<ul>
+<li>Can be applied to IoT, such as connecting an Arduino device to a web service with MQTT.</li>
+</ul>
+</li>
+<li>JMS : Java Message Service</li>
+<li>Protocol Buffers</li>
+</ul>
+<h2 id="Refernces"><a href="#Refernces" class="headerlink" title="Refernces"></a>Refernces</h2><p><a href="http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes">Message Queue Evaluation Notes</a><br><a href="https://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html">Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP
+</a></p>
+<h1 id="whatsapp"><a href="#whatsapp" class="headerlink" title="whatsapp"></a>whatsapp</h1><p><a href="https://www.evernote.com/shard/s75/sh/caec8dac-1026-4603-bab4-d241c9e1e1e3/bea5136188b0948f22aea9f65e5652e4">The WhatsApp Architecture Facebook Bought For $19 Billion - High Scalability -</a><br><a href="https://www.evernote.com/shard/s75/sh/5a371dae-b43c-4229-8717-4d5bb1d031a5/a43f440b05685b66b342bd7c0ad061f9">INSIDE ERLANG, THE RARE PROGRAMMING LANGUAGE BEHIND WHATSAPP’S SUCCESS</a><br><a href="https://www.quora.com/What-is-the-technology-behind-the-web-based-version-of-WhatsApp">What is the technology behind the web-based version of WhatsApp?</a></p>
+<ul>
+<li><p>chat history is only stored on phone, none on server. Thus, to use the web client your smartphone has to be connected to the internet.</p>
+</li>
+<li><p>What protocol is used in Whatsapp app? SSL socket to the WhatsApp server pools.</p>
+</li>
+<li><p>Erlang&#x2F;FreeBSD-based server infrastructure</p>
+<ul>
+<li>Server systems that do the backend message routing are done in Erlang.<ul>
+<li>Ericsson engineer Joe Armstrong developed Erlang with the logic of telecommunications in mind: millions of parallel conversations happening at the same time, with almost zero tolerance for downtime.</li>
+<li>Erlang allows for bug fixes and updates without downtime.</li>
+<li>Erlang is very good at efficiently executing commands across processors within a single machine.</li>
+</ul>
+</li>
+<li>Great achievement is that the number of active users is managed with a really small server footprint. Team consensus is that it is largely because of Erlang.</li>
+<li>Interesting to note Facebook Chat was written in Erlang in 2009, but they went away from it because it was hard to find qualified programmers.</li>
+</ul>
+</li>
+<li><p>WhatsApp server has started from ejabberd</p>
+<ul>
+<li>Ejabberd is a famous open source Jabber server written in Erlang.</li>
+<li>Originally chosen because its open, had great reviews by developers, ease of start and the promise of Erlang’s long term suitability for large communication system.</li>
+<li>The next few years were spent re-writing and modifying quite a few parts of ejabberd, including switching from XMPP to internally developed protocol, restructuring the code base and redesigning some core components, and making lots of important modifications to Erlang VM to optimize server performance.</li>
+</ul>
+</li>
+<li><p>A primary gauge of system health is message queue length. The message queue length of all the processes on a node is constantly monitored and an alert is sent out if they accumulate backlog beyond a preset threshold. If one or more processes falls behind that is alerted on, which gives a pointer to the next bottleneck to attack.</p>
+</li>
+<li><p>Multimedia messages are sent by uploading the image, audio or video to be sent to an HTTP server and then sending a link to the content along with its Base64 encoded thumbnail (if applicable).</p>
+<h2 id="Erlang"><a href="#Erlang" class="headerlink" title="Erlang"></a>Erlang</h2></li>
+<li><p>The basic unit of concurrency in Erlang is the process.</p>
+</li>
+<li><p>An Erlang process is a little virtual machine that can evaluate a single Erlang function; it should not be confused with an operating system process.</p>
+</li>
+<li><p>cannot rebind variable.</p>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://hamn07.github.io/2015/10/08/real-time/" data-title="real time communication, server push | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/03/26/javascript/" title="javascript">
+  <strong>上一篇：</strong><br/>
+  <span>
+  javascript</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/07/hello-world/"  title="Hello World">
+ <strong>下一篇：</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Concpet"><span class="toc-number">1.</span> <span class="toc-text">Concpet</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Message-Oriented-Middleware-MOM"><span class="toc-number">1.1.</span> <span class="toc-text">Message Oriented Middleware (MOM)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reactive-Programming"><span class="toc-number">1.2.</span> <span class="toc-text">Reactive Programming</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#websocket"><span class="toc-number">1.3.</span> <span class="toc-text">websocket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RFC-6455"><span class="toc-number">1.3.1.</span> <span class="toc-text">RFC 6455</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-Base-Framing-Protocol"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">5.2 Base Framing Protocol</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#websocket-communication-by-Java-server-side"><span class="toc-number">1.3.2.</span> <span class="toc-text">websocket communication by Java (server-side)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Server-message-broker-gateway"><span class="toc-number">2.</span> <span class="toc-text">Server (message broker, gateway)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jWebsocket"><span class="toc-number">2.1.</span> <span class="toc-text">jWebsocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php"><span class="toc-number">2.2.</span> <span class="toc-text">php</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-number">2.2.1.</span> <span class="toc-text">Reference</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GlassFish-implements-WebSocket-over-TLS"><span class="toc-number">2.3.</span> <span class="toc-text">GlassFish implements WebSocket over TLS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#preview"><span class="toc-number">2.3.1.</span> <span class="toc-text">preview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server-configuration"><span class="toc-number">2.3.2.</span> <span class="toc-text">server configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server-side"><span class="toc-number">2.3.3.</span> <span class="toc-text">server-side</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client-side-Web"><span class="toc-number">2.3.4.</span> <span class="toc-text">client-side: Web</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client-side-Android"><span class="toc-number">2.3.5.</span> <span class="toc-text">client-side : Android</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JBoss-Eclipse-development-Env-setup"><span class="toc-number">2.4.</span> <span class="toc-text">JBoss-Eclipse development Env. setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">2.4.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Steps"><span class="toc-number">2.4.2.</span> <span class="toc-text">Setup Steps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GlassFish-Eclipse-development-Env-setup"><span class="toc-number">2.5.</span> <span class="toc-text">GlassFish-Eclipse development Env. setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment-1"><span class="toc-number">2.5.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Steps-1"><span class="toc-number">2.5.2.</span> <span class="toc-text">Setup Steps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring"><span class="toc-number">2.5.3.</span> <span class="toc-text">Spring</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx-as-reverse-proxy"><span class="toc-number">2.6.</span> <span class="toc-text">Nginx as reverse proxy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference-1"><span class="toc-number">2.6.1.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cloud-Service-SaaS"><span class="toc-number">3.</span> <span class="toc-text">Cloud Service (SaaS)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Protocol"><span class="toc-number">4.</span> <span class="toc-text">Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Refernces"><span class="toc-number">4.1.</span> <span class="toc-text">Refernces</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#whatsapp"><span class="toc-number">5.</span> <span class="toc-text">whatsapp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Erlang"><span class="toc-number">5.1.</span> <span class="toc-text">Erlang</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/rtfd/" title="rtfd">rtfd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dojo/" title="dojo">dojo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Henry Lee in Taiwan. <br/>
+			This is my blog for study note.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2025 
+		
+		<a href="/about" target="_blank" title="Henry Lee">Henry Lee</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

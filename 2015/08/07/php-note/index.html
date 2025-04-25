@@ -1,0 +1,670 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Web筆記區 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Henry Lee">
+    
+
+    
+    <meta name="description" content="html123456&lt;!-- 瀏覽器會根據伺服器送過來的 header 或是用其他方法來判定 HTML文件的編碼--&gt;&lt;!-- 但是判定不一定會是正確，所以我們會在 &lt;head&gt; 告訴瀏覽器，這一份HTML文件的編碼是什麼 --&gt;&lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;&lt;!-- 為了手機瀏覽器設定的一個標籤 view">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web筆記區">
+<meta property="og:url" content="http://hamn07.github.io/2015/08/07/php-note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="html123456&lt;!-- 瀏覽器會根據伺服器送過來的 header 或是用其他方法來判定 HTML文件的編碼--&gt;&lt;!-- 但是判定不一定會是正確，所以我們會在 &lt;head&gt; 告訴瀏覽器，這一份HTML文件的編碼是什麼 --&gt;&lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;&lt;!-- 為了手機瀏覽器設定的一個標籤 view">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://hamn07.github.io/pdo-error-msg.png">
+<meta property="og:image" content="http://hamn07.github.io/pdo-error-phpinfo.png">
+<meta property="og:image" content="http://hamn07.github.io/pdo-error-phpini.png">
+<meta property="og:image" content="http://hamn07.github.io/pdo-error-mysql-sock.png">
+<meta property="article:published_time" content="2015-08-06T22:44:51.000Z">
+<meta property="article:modified_time" content="2017-01-13T21:41:28.000Z">
+<meta property="article:author" content="Henry Lee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hamn07.github.io/pdo-error-msg.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives/">Archives</a></li>
+					
+						<li><a href="/about/">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hamn07.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/07/php-note/" title="Web筆記區" itemprop="url">Web筆記區</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Henry Lee" target="_blank" itemprop="author">Henry Lee</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-06T22:44:51.000Z" itemprop="datePublished"> Published 2015-08-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#html"><span class="toc-number">1.</span> <span class="toc-text">html</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css"><span class="toc-number">2.</span> <span class="toc-text">css</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery"><span class="toc-number">3.</span> <span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-number">4.</span> <span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS-HTTP-over-SSL"><span class="toc-number">4.1.</span> <span class="toc-text">HTTPS - HTTP over SSL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Trouble-Shooting"><span class="toc-number">5.</span> <span class="toc-text">Trouble Shooting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PDO%E9%80%A3%E7%B7%9A%E5%A0%B1%E9%8C%AFno-such-file"><span class="toc-number">5.1.</span> <span class="toc-text">PDO連線報錯no such file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSX%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%E6%99%82%E5%A0%B1%E9%8C%AFPHP-Warning-mkdir-Permission-denied"><span class="toc-number">5.2.</span> <span class="toc-text">OSX上傳檔案時報錯PHP Warning:  mkdir(): Permission denied</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redhat%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%E6%99%82%E5%A0%B1%E9%8C%AFPHP-Warning-mkdir-Permission-denied"><span class="toc-number">5.3.</span> <span class="toc-text">Redhat上傳檔案時報錯PHP Warning:  mkdir(): Permission denied</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E7%95%8C%E7%AC%A6%E5%B0%8D%E6%87%89%E4%B9%8B%E7%B5%90%E6%9D%9F%E7%AC%A6%E7%9A%84%E5%89%8D%E4%B8%80%E5%80%8B%E4%BD%8D%E5%85%83%E9%9C%80%E7%82%BA%E6%8F%9B%E8%A1%8C%E7%AC%A6%E8%99%9F"><span class="toc-number">5.4.</span> <span class="toc-text">定界符對應之結束符的前一個位元需為換行符號</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8exif-read-date%E9%9C%80%E6%96%BCphp-ini%E5%81%9A%E4%BB%A5%E4%B8%8B%E8%A8%AD%E5%AE%9A"><span class="toc-number">5.5.</span> <span class="toc-text">使用exif_read_date需於php.ini做以下設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%E6%99%82%E7%84%A1%E6%B3%95%E5%8F%96%E5%BE%97%E5%8E%9F%E5%A7%8B%E6%8B%8D%E6%94%9D%E6%97%A5%E6%9C%9F"><span class="toc-number">5.6.</span> <span class="toc-text">上傳檔案時無法取得原始拍攝日期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Apache-httpd%E5%BB%BA%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">Apache httpd建置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#win7"><span class="toc-number">6.1.</span> <span class="toc-text">win7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSX"><span class="toc-number">6.2.</span> <span class="toc-text">OSX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B6%B2%E7%AB%99%E7%9B%AE%E9%8C%84%E6%AC%8A%E9%99%90%E8%A8%AD%E5%AE%9A"><span class="toc-number">6.3.</span> <span class="toc-text">網站目錄權限設定</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP"><span class="toc-number">7.</span> <span class="toc-text">PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl%E4%BD%BF%E7%94%A8POST%E6%89%93JSON%E6%90%ADBasic-Authentication"><span class="toc-number">7.1.</span> <span class="toc-text">curl使用POST打JSON搭Basic Authentication</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pichannel-web-test-curl-json-php"><span class="toc-number">7.1.0.0.1.</span> <span class="toc-text">&#x2F;pichannel.web&#x2F;test&#x2F;curl-json.php</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E7%AD%96%E6%9C%83%E8%AA%B2%E7%A8%8B"><span class="toc-number">7.2.</span> <span class="toc-text">資策會課程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#win7-1"><span class="toc-number">7.3.</span> <span class="toc-text">win7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSX-extra"><span class="toc-number">7.4.</span> <span class="toc-text">OSX (extra)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%96%8B%E5%95%9Fxdebug"><span class="toc-number">7.4.1.</span> <span class="toc-text">開啟xdebug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer"><span class="toc-number">7.4.2.</span> <span class="toc-text">Composer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">8.</span> <span class="toc-text">Reference</span></a></li></ol>
+		
+		</div>
+		
+		<!-- toc -->
+
+<h1 id="html"><a href="#html" class="headerlink" title="html"></a>html</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 瀏覽器會根據伺服器送過來的 header 或是用其他方法來判定 HTML文件的編碼--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 但是判定不一定會是正確，所以我們會在 &lt;head&gt; 告訴瀏覽器，這一份HTML文件的編碼是什麼 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 為了手機瀏覽器設定的一個標籤 viewport (p17-12)--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no&quot;</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>HTML data-* Attributes–&gt;自定義tag屬性<br><a href="http://www.w3schools.com/tags/att_global_data.asp">w3c</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-animal-type</span>=<span class="string">&quot;bird&quot;</span>&gt;</span>Owl<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-animal-type</span>=<span class="string">&quot;fish&quot;</span>&gt;</span>Salmon<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-animal-type</span>=<span class="string">&quot;spider&quot;</span>&gt;</span>Tarantula<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><p>文字段落太長超過div後會有  …  的效果</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">border-width</span>: <span class="number">5px</span>;</span><br><span class="line">        <span class="attribute">border-color</span>: <span class="number">#000000</span>;</span><br><span class="line">        <span class="attribute">border-style</span>: solid;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*這三組屬性必須同時存在*/</span></span><br><span class="line">        <span class="attribute">overflow</span>: hidden;</span><br><span class="line">        <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">        <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><p><a href="http://www.w3schools.com/jquerymobile/">w3c參考網頁</a></p>
+<p><a href="http://demos.jquerymobile.com/1.4.5/grids/">官網demo</a></p>
+<p><a href="http://api.jquerymobile.com/data-attribute/">Data Arributes</a></p>
+<p><a href="http://api.jquerymobile.com/classes/">Classes</a></p>
+<p><a href="http://www.w3schools.com/jquery/jquery_selectors.asp">jQuery Selectors</a></p>
+<p><a href="http://www.anowave.com/factory/anoslide/demo.html">圖片slide的demo</a></p>
+<p><a href="http://photoswipe.com/">PhotoSwipe</a></p>
+<p><a href="http://glide.jedrzejchalubek.com/">Glide</a></p>
+<p><a href="http://www.thebuzzmedia.com/html5-drag-and-drop-and-file-api-tutorial/">HTML5 Drag and Drop Upload and File API Tutorial</a></p>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h1><h2 id="HTTPS-HTTP-over-SSL"><a href="#HTTPS-HTTP-over-SSL" class="headerlink" title="HTTPS - HTTP over SSL"></a>HTTPS - HTTP over SSL</h2><p>工作原理:</p>
+<ol>
+<li>使用非對稱式加密演算法來對通訊雙方做身分認證</li>
+<li>並交換對稱金鑰為Session Key</li>
+<li>使用Session Key來加密C&#x2F;S間的通訊內容</li>
+</ol>
+<p>缺點:</p>
+<ol>
+<li>通訊內容加量，因此傳輸時間變長</li>
+<li>加解密需消耗額外機器資源 (可由SSL acceleration加速之)</li>
+</ol>
+<p>IETF - Internet Engineering Task Force<br>SSL - Secure Socket Layer<br>TLS - Transport Layer Secure</p>
+<p>SSL acceleration</p>
+<h1 id="Trouble-Shooting"><a href="#Trouble-Shooting" class="headerlink" title="Trouble Shooting"></a>Trouble Shooting</h1><h2 id="PDO連線報錯no-such-file"><a href="#PDO連線報錯no-such-file" class="headerlink" title="PDO連線報錯no such file"></a>PDO連線報錯no such file</h2><p><a href="https://dzone.com/articles/setting-php-mysql-os-x">Setting up PHP &amp; MySQL on OS X Yosemite</a><br><img src="/pdo-error-msg.png"><br><img src="/pdo-error-phpinfo.png"><br><img src="/pdo-error-phpini.png"><br><img src="/pdo-error-mysql-sock.png"></p>
+<h2 id="OSX上傳檔案時報錯PHP-Warning-mkdir-Permission-denied"><a href="#OSX上傳檔案時報錯PHP-Warning-mkdir-Permission-denied" class="headerlink" title="OSX上傳檔案時報錯PHP Warning:  mkdir(): Permission denied"></a>OSX上傳檔案時報錯<code>PHP Warning:  mkdir(): Permission denied</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Fri Aug 21 06:46:19.036740 2015] [:error] [pid 4098] [client ::1:52036] PHP Warning:  <span class="built_in">mkdir</span>(): Permission denied <span class="keyword">in</span> /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line 77</span><br><span class="line">[Fri Aug 21 06:46:19.037019 2015] [:error] [pid 4098] [client ::1:52036] PHP Warning:  file_put_contents(/Users/Hamn/Workspace/pichannel.web/img-repo/fd/94400820857e1f415555cda791b279af6d72e8.jpg): failed to open stream: No such file or <span class="built_in">dir</span></span><br></pre></td></tr></table></figure>
+<p>Workaround:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> img-repo</span><br><span class="line">$ <span class="built_in">sudo</span> <span class="built_in">chown</span> img-repo _www</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Redhat上傳檔案時報錯PHP-Warning-mkdir-Permission-denied"><a href="#Redhat上傳檔案時報錯PHP-Warning-mkdir-Permission-denied" class="headerlink" title="Redhat上傳檔案時報錯PHP Warning:  mkdir(): Permission denied"></a>Redhat上傳檔案時報錯<code>PHP Warning:  mkdir(): Permission denied</code></h2><p>Workaround: <a href="http://stackoverflow.com/questions/13908722/php-unable-to-create-a-directory-with-mkdir">參考</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -lZ img-repo/</span></span><br><span class="line">drwxrwxr-x. ec2-user ec2-user unconfined_u:object_r:httpd_sys_content_t:s0 img-repo</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chcon</span> -R -t httpd_sys_content_rw_t img-repo/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/httpd/conf/httpd.conf</span><br><span class="line"></span><br><span class="line"><span class="keyword">user</span> <span class="title">ec2-user</span></span><br><span class="line"><span class="keyword">group</span> <span class="title">ec2-user</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="定界符對應之結束符的前一個位元需為換行符號"><a href="#定界符對應之結束符的前一個位元需為換行符號" class="headerlink" title="定界符對應之結束符的前一個位元需為換行符號"></a>定界符對應之結束符的前一個位元需為換行符號</h2><p>以下會報錯<code>Parse error: syntax error, unexpected $end in xxx.php on line 64 </code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertImage</span>(<span class="params"><span class="variable">$sha1</span>,<span class="variable">$timestamp</span></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$sql</span> = <span class="string">&lt;&lt;&lt;sqlText</span></span><br><span class="line"><span class="string">    INSERT INTO image VALUES (?,?)</span></span><br><span class="line"><span class="string">  sqlText</span>;</span><br></pre></td></tr></table></figure>
+
+<p>以下正解</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertImage</span>(<span class="params"><span class="variable">$sha1</span>,<span class="variable">$timestamp</span></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$sql</span> = <span class="string">&lt;&lt;&lt;sqlText</span></span><br><span class="line"><span class="string">    INSERT INTO image VALUES (?,?)</span></span><br><span class="line"><span class="string">sqlText</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="使用exif-read-date需於php-ini做以下設定"><a href="#使用exif-read-date需於php-ini做以下設定" class="headerlink" title="使用exif_read_date需於php.ini做以下設定"></a>使用exif_read_date需於php.ini做以下設定</h2><p>以下報錯<code>Fatal error: Call to undefined function exif_read_data() xxx.php on line 2 </code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extension=php_exif.dll</span><br><span class="line">extension=php_mbstring.dll</span><br></pre></td></tr></table></figure>
+<p>以下正解</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extension=php_mbstring.dll</span><br><span class="line">extension=php_exif.dll</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="上傳檔案時無法取得原始拍攝日期"><a href="#上傳檔案時無法取得原始拍攝日期" class="headerlink" title="上傳檔案時無法取得原始拍攝日期"></a>上傳檔案時無法取得原始拍攝日期</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Sat Aug 22 18:12:45.538546 2015] [:error] [pid 833] [client ::1:49587] PHP Notice:  Undefined index: DateTimeOriginal <span class="keyword">in</span> /Users/Hamn/Workspace/pichannel.web/api/MyAPI.class.php on line 89</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Apache-httpd建置"><a href="#Apache-httpd建置" class="headerlink" title="Apache httpd建置"></a>Apache httpd建置</h1><h2 id="win7"><a href="#win7" class="headerlink" title="win7"></a>win7</h2><ol>
+<li>目錄預設檔案</li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;IfModule dir_module&gt;</span></span><br><span class="line">    <span class="attribute">DirectoryIndex</span> index.php</span><br><span class="line"><span class="section">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>apache安裝目錄<br><code>Define SRVROOT &quot;D:\dvp\dev-tool\httpd-2.4.16-x64-vc11\Apache24&quot;</code></p>
+</li>
+<li><p>網頁根目錄<br><code>DocumentRoot &quot;D:\dvp\workspace\classroom2001\project&quot;</code><br><code>&lt;Directory &quot;D:\dvp\workspace\classroom2001\project&quot;&gt;</code></p>
+</li>
+<li><p>介紹apache認識php</p>
+</li>
+</ol>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LoadModule php5_module <span class="string">&quot;D:<span class="char escape_">\d</span>vp<span class="char escape_">\d</span>ev-tool<span class="char escape_">\p</span>hp-5.6.11-Win32-VC11-x64<span class="char escape_">\p</span>hp5apache2_4.dll&quot;</span></span><br><span class="line">AddType application<span class="symbol">/x-httpd-php</span> .php</span><br><span class="line">PHPIniDir <span class="string">&quot;D:<span class="char escape_">\d</span>vp<span class="char escape_">\d</span>ev-tool<span class="char escape_">\p</span>hp-5.6.11-Win32-VC11-x64&quot;</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>網頁重導設定<br><code>LoadModule rewrite_module modules/mod_rewrite.so</code></li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;IfModule mod_rewrite.c&gt;</span></span><br><span class="line"><span class="attribute">RewriteEngine</span> <span class="literal">On</span></span><br><span class="line"><span class="attribute">RewriteCond</span> <span class="variable">%&#123;REQUEST_FILENAME&#125;</span> !-f</span><br><span class="line"><span class="attribute">RewriteCond</span> <span class="variable">%&#123;REQUEST_FILENAME&#125;</span> !-d</span><br><span class="line"><span class="comment">#RewriteRule api/v1/(.*)$ phpinfo.php?request=$1 [QSA,NC,L]</span></span><br><span class="line"><span class="attribute">RewriteRule</span> api/(.*)$ /api/controller.php?request=$<span class="number">1</span><span class="meta"> [QSA,NC,L]</span></span><br><span class="line"><span class="section">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li><p>環境變數$PATH加入<code>D:\dvp\dev-tool\httpd-2.4.16-x64-vc11\Apache24\bin</code></p>
+</li>
+<li><p>防止diretory listing (Production)</p>
+</li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Options Indexes FollowSymLinks</span></span><br><span class="line"><span class="attribute">Options</span> FollowSymLinks</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>Cross-Origin Resource Sharing (Optional)，於DocumentRoot的Diretory裡設定<br><code>LoadModule headers_module modules/mod_headers.so</code></li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;IfModule mod_headers.c&gt;</span></span><br><span class="line">  <span class="attribute">Header</span> set Access-Control-<span class="literal">Allow</span>-Origin <span class="string">&quot;*&quot;</span></span><br><span class="line"><span class="section">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>註冊到service後，可使用Apache Monitor管理<br><code>httpd.exe -k install [-n MyServiceName]</code></li>
+</ol>
+<blockquote>
+<p>※使用service開啟httpd無法載入curl，原因是apache認不到curl在PHP目錄裡的依賴包libssh2.dll<br><code>PHP Fatal error:  Call to undefined function curl_init()</code><br>解法: 將libssh2.dll複製一份到apache&#x2F;bin再重啟</p>
+</blockquote>
+<h2 id="OSX"><a href="#OSX" class="headerlink" title="OSX"></a>OSX</h2><p><a href="https://discussions.apple.com/docs/DOC-3083">Setting up a local web server on OS X</a></p>
+<h2 id="網站目錄權限設定"><a href="#網站目錄權限設定" class="headerlink" title="網站目錄權限設定"></a>網站目錄權限設定</h2><p><a href="https://wiki.apache.org/httpd/FileSystemPermissions">官網說明文件 » File and Directory Ownership and Permissions for Web Content</a></p>
+<h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><h2 id="curl使用POST打JSON搭Basic-Authentication"><a href="#curl使用POST打JSON搭Basic-Authentication" class="headerlink" title="curl使用POST打JSON搭Basic Authentication"></a>curl使用POST打JSON搭Basic Authentication</h2><h5 id="pichannel-web-test-curl-json-php"><a href="#pichannel-web-test-curl-json-php" class="headerlink" title="&#x2F;pichannel.web&#x2F;test&#x2F;curl-json.php"></a>&#x2F;pichannel.web&#x2F;test&#x2F;curl-json.php</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$url</span> = <span class="string">&#x27;http://10.0.1.149:8080/SimpleTalk/test/henry/notify-sync&#x27;</span>;</span><br><span class="line"><span class="variable">$ch</span> = <span class="title function_ invoke__">curl_init</span>( <span class="variable">$url</span> );</span><br><span class="line"><span class="comment"># Setup request to send json via POST.</span></span><br><span class="line"><span class="variable">$payload</span> = <span class="title function_ invoke__">json_encode</span>( <span class="keyword">array</span>( <span class="string">&quot;member_id&quot;</span>=&gt; <span class="string">&quot;Samma&quot;</span> , <span class="string">&quot;sync_type&quot;</span> =&gt; <span class="string">&quot;A&quot;</span> , <span class="string">&quot;timestampe&quot;</span> =&gt; <span class="string">&quot;123456789&quot;</span>) );</span><br><span class="line"><span class="title function_ invoke__">curl_setopt</span>( <span class="variable">$ch</span>, CURLOPT_POSTFIELDS, <span class="variable">$payload</span> );</span><br><span class="line"><span class="comment"># Setup content-type as JSON</span></span><br><span class="line"><span class="title function_ invoke__">curl_setopt</span>( <span class="variable">$ch</span>, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">&#x27;Content-Type:application/json&#x27;</span>));</span><br><span class="line"><span class="comment"># Return response instead of printing.</span></span><br><span class="line"><span class="title function_ invoke__">curl_setopt</span>( <span class="variable">$ch</span>, CURLOPT_RETURNTRANSFER, <span class="literal">true</span> );</span><br><span class="line"><span class="comment"># Basic Authentication</span></span><br><span class="line"><span class="variable">$username</span> = <span class="string">&quot;api&quot;</span>;</span><br><span class="line"><span class="variable">$password</span> = <span class="string">&quot;api&quot;</span>;</span><br><span class="line"><span class="title function_ invoke__">curl_setopt</span>( <span class="variable">$ch</span>, CURLOPT_USERPWD, <span class="variable">$username</span> . <span class="string">&quot;:&quot;</span> . <span class="variable">$password</span> );</span><br><span class="line"><span class="comment"># Send request.</span></span><br><span class="line"><span class="variable">$response</span> = <span class="title function_ invoke__">curl_exec</span>( <span class="variable">$ch</span> );</span><br><span class="line"><span class="comment"># Close Resource</span></span><br><span class="line"><span class="title function_ invoke__">curl_close</span>( <span class="variable">$ch</span> );</span><br><span class="line"><span class="comment"># Parse to Array</span></span><br><span class="line"><span class="variable">$result</span> = <span class="title function_ invoke__">json_decode</span>( <span class="variable">$response</span>, <span class="literal">true</span> );</span><br><span class="line"><span class="comment"># Print response.</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">var_dump</span>(<span class="variable">$result</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a href="http://stackoverflow.com/questions/11079135/how-to-post-json-data-with-php-curl">How to POST JSON Data With PHP cURL?</a></p>
+<p><a href="http://phpave.com/how-to-process-put-requests-with-php/">How to process PUT requests with PHP</a></p>
+<h2 id="資策會課程"><a href="#資策會課程" class="headerlink" title="資策會課程"></a>資策會課程</h2><p><a href="http://sdrv.ms/178960Y">教材</a></p>
+<p>MAMP: Mac Apache MySQL PHP</p>
+<p>錢達智老師 <a href="mailto:&#x77;&#111;&#x6c;&#102;&#x67;&#97;&#110;&#x67;&#46;&#x63;&#104;&#x69;&#x65;&#x6e;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;">wolfgang.chien@gmail.com</a></p>
+<p>RWD可參考 HTML5App_0309</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定界符號</span></span><br><span class="line"><span class="variable">$sSQL</span>=<span class="string">&lt;&lt;&lt;sqlText</span></span><br><span class="line"><span class="string">SELECT id,name</span></span><br><span class="line"><span class="string">  FROM employee</span></span><br><span class="line"><span class="string">sqlText</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//string</span></span><br><span class="line"><span class="variable">$str1</span> = <span class="variable">$str1</span>.<span class="string">&quot; &quot;</span>.Str2</span><br><span class="line"><span class="comment">//string裡可放變數</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;result=<span class="subst">$sSum</span>&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>include, require: 3-40</li>
+<li>include_once, <strong>require_once</strong>: 3-43</li>
+<li>define: 常數, 3-11</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//當檔案讀取到最後一行後會傳回false</span></span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$line</span> = <span class="title function_ invoke__">readline</span>())&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//global使用全域變數</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">20</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"><span class="variable">$b</span></span>)</span>&#123;</span><br><span class="line">	<span class="variable">$a</span> = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line">	<span class="keyword">global</span> <span class="variable">$a</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 陣列</span></span><br><span class="line"><span class="variable">$weekArr</span> [] = <span class="string">&quot;Monday&quot;</span>;</span><br><span class="line"><span class="variable">$weekArr</span> [] = <span class="string">&quot;Tuesday&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$weekArr</span> [<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$myArr</span> [<span class="string">&#x27;myName&#x27;</span>] = <span class="string">&#x27;Henry&#x27;</span>;</span><br><span class="line"><span class="variable">$myArr</span> [<span class="string">&#x27;myHeight&#x27;</span>] = <span class="number">183</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$myArr</span> [<span class="string">&#x27;myName&#x27;</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;Hello!<span class="subst">&#123;$myArr[&#x27;myName&#x27;]&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$weekArr</span> = <span class="keyword">array</span>(<span class="string">&#x27;Mondy&#x27;</span>,<span class="string">&#x27;Thuesday&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$myArr</span> = <span class="keyword">array</span>(<span class="string">&#x27;myName&#x27;</span>=&gt;<span class="string">&#x27;Henry&#x27;</span>,<span class="string">&#x27;myHeight&#x27;</span>=&gt;<span class="number">183</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$weekArr</span> <span class="keyword">as</span> <span class="variable">$value</span>)&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$weekArr</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$key</span> . <span class="string">&quot;:&quot;</span> . <span class="variable">$value</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//排序func</span></span><br><span class="line"><span class="variable">$myArr</span> = <span class="keyword">array</span> (</span><br><span class="line">		<span class="string">&#x27;img1&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;img3&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;img5&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;img2&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;img11&#x27;</span></span><br><span class="line">);</span><br><span class="line"><span class="title function_ invoke__">sort</span>(<span class="variable">$myArr</span>);</span><br><span class="line"><span class="title function_ invoke__">var_dump</span> ( <span class="variable">$myArr</span> );</span><br><span class="line"><span class="title function_ invoke__">natsort</span>(<span class="variable">$myArr</span>);</span><br><span class="line"><span class="title function_ invoke__">var_dump</span> ( <span class="variable">$myArr</span> );</span><br><span class="line"></span><br><span class="line"><span class="comment">// usort =&gt; 使用者自訂</span></span><br><span class="line"><span class="title function_ invoke__">usort</span>(<span class="variable">$myArr</span>, <span class="string">&quot;cmp&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cmp</span>(<span class="params"><span class="variable">$a</span>, <span class="variable">$b</span></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="variable">$a</span> == <span class="variable">$b</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">return</span> (<span class="variable">$a</span> &lt; <span class="variable">$b</span>) ? -<span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Session操作</span></span><br><span class="line"><span class="title function_ invoke__">start_session</span>();</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&quot;btnWriteSession&quot;</span>]))&#123;</span><br><span class="line">	<span class="variable">$_SESSION</span>[<span class="string">&quot;userName&quot;</span>]=<span class="variable">$_POST</span>[<span class="string">&quot;txt1&quot;</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&quot;btnWriteCookie&quot;</span>]))&#123;</span><br><span class="line">	<span class="title function_ invoke__">setcookie</span>(<span class="string">&quot;userid&quot;</span>, <span class="variable">$_POST</span>[<span class="string">&quot;txt2&quot;</span>]);</span><br><span class="line">	<span class="title function_ invoke__">setcookie</span>(<span class="string">&quot;userid&quot;</span>, <span class="variable">$_POST</span>[<span class="string">&quot;txt2&quot;</span>], <span class="title function_ invoke__">time</span>() + <span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>*<span class="number">7</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//另一種if else寫法，可用來區分js的if else，提高可讀性</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">if</span> (<span class="variable">$sUserName</span>==<span class="string">&quot;&quot;</span>) : <span class="meta">?&gt;</span></span><br><span class="line">	&lt;td align=<span class="string">&quot;center&quot;</span> valign=<span class="string">&quot;Wbaseline&quot;</span>&gt;&lt;a href=<span class="string">&quot;login.php&quot;</span>&gt;登入&lt;/a&gt; | &lt;a href=<span class="string">&quot;secret.php&quot;</span>&gt;會員專用頁&lt;/a&gt;&lt;/td&gt;</span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">else</span> : <span class="meta">?&gt;</span></span><br><span class="line">	&lt;td align=<span class="string">&quot;center&quot;</span> valign=<span class="string">&quot;Wbaseline&quot;</span>&gt;&lt;a href=<span class="string">&quot;login.php?signout=1&quot;</span>&gt;登出&lt;/a&gt; | &lt;a href=<span class="string">&quot;secret.php&quot;</span>&gt;會員專用頁&lt;/a&gt;&lt;/td&gt;</span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">endif</span> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;#letter&#x27;</span>).<span class="title function_">change</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">//jQuery的$.get(url,func)即為AJAX機制存取資料</span></span><br><span class="line">	$.<span class="title function_">get</span>(<span class="string">&#x27;getLetterNumber.php?letter=&#x27;</span>+$(<span class="string">&#x27;#letter option:selected&#x27;</span>).<span class="title function_">text</span>(),</span><br><span class="line">			<span class="keyword">function</span>(<span class="params">htmlData</span>)&#123;</span><br><span class="line">				$(<span class="string">&#x27;#letterNumber&#x27;</span>).<span class="title function_">html</span>(htmlData);</span><br><span class="line">			&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Async的範例可參考0702的Lab_AsyncPost</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">sprintf</span>(<span class="string">&quot;&lt;option value=&#x27;%s&#x27;&gt;%s%s&lt;/option&gt;&quot;</span>,<span class="variable">$i</span>, <span class="variable">$x</span>, <span class="variable">$i</span>+<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>##存取DB</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//連db(加上@是發生錯誤不show錯誤資訊)</span></span><br><span class="line"><span class="variable">$db_link</span> = @<span class="title function_ invoke__">mysql_connect</span>(<span class="variable">$db_host</span>, <span class="variable">$db_username</span>, <span class="variable">$db_password</span>);</span><br><span class="line"><span class="comment">//指定要操作那一個db</span></span><br><span class="line"><span class="variable">$seldb</span> = @<span class="title function_ invoke__">mysql_select_db</span>(<span class="string">&quot;class&quot;</span>);</span><br><span class="line"><span class="comment">//撈資訊</span></span><br><span class="line"><span class="variable">$sql_query</span> = <span class="string">&quot;SELECT * FROM `students`&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = <span class="title function_ invoke__">mysql_query</span>(<span class="variable">$sql_query</span>);</span><br><span class="line"><span class="comment">//滾資料</span></span><br><span class="line"><span class="comment">//mysql_fetch_assoc =&gt; $item為欄位名 (associative array)</span></span><br><span class="line"><span class="comment">//mysql_fetch_row   =&gt; $item為array序號 (enumerated array)</span></span><br><span class="line"><span class="comment">//mysql_fetch_array =&gt; $both，所以會有兩筆</span></span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$row_result</span>=<span class="title function_ invoke__">mysql_fetch_assoc</span>(<span class="variable">$result</span>))&#123;</span><br><span class="line">	<span class="keyword">foreach</span>(<span class="variable">$row_result</span> <span class="keyword">as</span> <span class="variable">$item</span>=&gt;<span class="variable">$value</span>)&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="variable">$item</span>.<span class="string">&quot;=&quot;</span>.<span class="variable">$value</span>.<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;hr /&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//取得資料筆數</span></span><br><span class="line"><span class="variable">$total_records</span> = <span class="title function_ invoke__">mysql_num_rows</span>(<span class="variable">$result</span>);</span><br></pre></td></tr></table></figure>
+<p>以下程式碼為建立連線存取資料的標準寫法<br>&#x2F;LabPhp&#x2F;php&#x2F;0626&#x2F;Lab_MySQL_basic_1_start.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&quot;content-type:text/html; charset=utf-8&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 0. 請先建立 Class 資料庫 （執行 class.sql）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 連接資料庫伺服器</span></span><br><span class="line"><span class="variable">$link</span> = <span class="title function_ invoke__">mysql_connect</span>(<span class="string">&quot;localhost&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;root&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="title function_ invoke__">mysql_error</span>());</span><br><span class="line"><span class="variable">$result</span> = <span class="title function_ invoke__">mysql_query</span>(<span class="string">&quot;set names utf8&quot;</span>, <span class="variable">$link</span>);</span><br><span class="line"><span class="title function_ invoke__">mysql_selectdb</span>(<span class="string">&quot;class&quot;</span>, <span class="variable">$link</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 執行 SQL 敘述</span></span><br><span class="line"><span class="variable">$commandText</span> = <span class="string">&quot;select * from students&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = <span class="title function_ invoke__">mysql_query</span>(<span class="variable">$commandText</span>, <span class="variable">$link</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 處理查詢結果</span></span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$row</span> = <span class="title function_ invoke__">mysql_fetch_assoc</span>(<span class="variable">$result</span>))</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;ID：<span class="subst">&#123;$row[&#x27;cID&#x27;]&#125;</span>&lt;br&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;Name：<span class="subst">&#123;$row[&#x27;cName&#x27;]&#125;</span>&lt;br&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;HR&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">mysql_free_result</span>(<span class="variable">$result</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 結束連線</span></span><br><span class="line"><span class="title function_ invoke__">mysql_close</span>(<span class="variable">$link</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br /&gt;-- Done --&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>PDO (PHP Data Object): 參考0702 Demo_PDO_xxxxx</p>
+</blockquote>
+<p>6.29上午<br>file i&#x2F;o<br>網站路徑(實體,虛擬)<br>檔名&#x2F;目錄名&#x2F;路徑的操作<br>檔案操作: 開&#x2F;讀&#x2F;關<br>目錄操作: 開&#x2F;讀&#x2F;關<br>form檔案上傳</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//目錄操作: 開/讀/關</span></span><br><span class="line">	<span class="variable">$fileDir</span> = <span class="title function_ invoke__">dirname</span>(<span class="title function_ invoke__">realpath</span>(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">	<span class="variable">$fileResource</span> = <span class="title function_ invoke__">opendir</span>(<span class="variable">$fileDir</span>);</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;table border=&#x27;1&#x27; width=&#x27;100%&#x27;&gt;&lt;tr&gt;&lt;td width=&#x27;20%&#x27; valign=&#x27;top&#x27;&gt;資料夾：&lt;/td&gt;&lt;td&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="variable">$fileList</span> = <span class="title function_ invoke__">readdir</span>(<span class="variable">$fileResource</span>))&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="title function_ invoke__">is_dir</span>(<span class="variable">$fileDir</span>.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$fileList</span>))	<span class="keyword">echo</span> <span class="variable">$fileList</span>.<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="title function_ invoke__">rewinddir</span>(<span class="variable">$fileResource</span>);</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=&#x27;20%&#x27; valign=&#x27;top&#x27;&gt;檔案：&lt;/td&gt;&lt;td&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="variable">$fileList</span> = <span class="title function_ invoke__">readdir</span>(<span class="variable">$fileResource</span>))&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="title function_ invoke__">is_file</span>(<span class="variable">$fileDir</span>.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$fileList</span>))<span class="keyword">echo</span> <span class="variable">$fileList</span>.<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span>;</span><br><span class="line">	<span class="title function_ invoke__">closedir</span>(<span class="variable">$fileResource</span>);</span><br><span class="line"><span class="comment">//檔案操作: 開/讀/關</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="title function_ invoke__">fopen</span>(<span class="string">&quot;php_file13.htm&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">while</span>(<span class="variable">$line</span> = <span class="title function_ invoke__">fgets</span>(<span class="variable">$filename</span>))&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$line</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">fclose</span>(<span class="variable">$filename</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&quot;Content-Type: image/gif&quot;</span>);</span><br><span class="line"><span class="comment">// fopne圖片/影片時，需使用rb</span></span><br><span class="line"><span class="variable">$filename</span> = <span class="title function_ invoke__">fopen</span>(<span class="string">&quot;php_file18.gif&quot;</span>,<span class="string">&quot;rb&quot;</span>);</span><br><span class="line"><span class="comment">// fread讀取給定size的block進來(這裡的範例為整個圖片讀進來)</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">fread</span>(<span class="variable">$filename</span>,<span class="title function_ invoke__">filesize</span>(<span class="string">&quot;php_file18.gif&quot;</span>));</span><br><span class="line"><span class="title function_ invoke__">fclose</span>(<span class="variable">$filename</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="http://www.w3schools.com/php/php_ref_filesystem.asp">PHP 5 Filesystem Functions Reference</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//檔案操作: 直接讀</span></span><br><span class="line"><span class="variable">$contents</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;php_file11.htm&#x27;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">strip_tags</span>(<span class="variable">$contents</span>);</span><br><span class="line"><span class="comment">//擋案操作: 直接讀成array</span></span><br><span class="line"><span class="variable">$lines</span> = <span class="title function_ invoke__">file</span>(<span class="string">&#x27;php_file11.htm&#x27;</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$lines</span> <span class="keyword">as</span> <span class="variable">$line_num</span> =&gt; <span class="variable">$line</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;#&lt;b&gt;<span class="subst">$line_num</span>&lt;/b&gt; : &quot;</span> . <span class="title function_ invoke__">htmlspecialchars</span>(<span class="variable">$line</span>) . <span class="string">&quot;&lt;br /&gt;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//檔案操作: 直接寫</span></span><br><span class="line"><span class="variable">$content</span> = <span class="string">&lt;&lt;&lt;useHTML</span></span><br><span class="line"><span class="string">	&lt;html&gt;</span></span><br><span class="line"><span class="string">	&lt;head&gt;</span></span><br><span class="line"><span class="string">		&lt;META HTTP-EQUIV=&quot;Content-Type&quot; CONTENT=&quot;text/html; charset=utf-8&quot;&gt;</span></span><br><span class="line"><span class="string">		&lt;title&gt;關於文淵閣工作室&lt;/title&gt;</span></span><br><span class="line"><span class="string">	&lt;/head&gt;</span></span><br><span class="line"><span class="string">	&lt;body&gt;</span></span><br><span class="line"><span class="string">	&lt;p&gt;文淵閣工作室創立於1987年，第一本電腦叢書「快快樂樂學電腦」於該年底問世。工作室的創會成員－鄧文淵、李淑玲均為苦學出身，在學習電腦的過程中，一路顛簸走來，嚐遍人間冷暖。&lt;/p&gt;</span></span><br><span class="line"><span class="string">	&lt;p&gt;因此，決定整合自身的編輯、教學經驗及新生代的高手群，陸續推出 「快快樂樂全系列」 電腦叢書，冀望以輕鬆、深入淺出的筆觸、詳細的圖說，解決電腦學習者的徬徨無助，並搭配相關網站服務讀者。&lt;/p&gt;</span></span><br><span class="line"><span class="string">	&lt;p&gt;感謝您對文淵閣工作室的熱愛，也請您和我們在快快樂樂的氣氛中共同成長，突破極限、超越顛峰。謝謝大家！&lt;/p&gt;</span></span><br><span class="line"><span class="string">	&lt;/body&gt;</span></span><br><span class="line"><span class="string">	&lt;/html&gt;</span></span><br><span class="line"><span class="string">useHTML</span>;</span><br><span class="line"><span class="variable">$filesize</span> = <span class="title function_ invoke__">file_put_contents</span>(<span class="string">&quot;php_file13a.htm&quot;</span>, <span class="variable">$content</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;檔案寫入完成，大小為 <span class="subst">$filesize</span> bytes&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>##檔案上傳</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">META</span> <span class="attr">HTTP-EQUIV</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">CONTENT</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>上傳檔案表單<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;php_file9.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">	請選取要上傳的檔案：<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;fileUpload&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;送出資料&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;error&quot;</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;tmp_name&quot;</span>], <span class="string">&quot;./&quot;</span>.<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;name&quot;</span>]))&#123;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;上傳成功&lt;br /&gt;&quot;</span>;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;檔案名稱：&quot;</span>.<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;name&quot;</span>].<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;檔案類型：&quot;</span>.<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;type&quot;</span>].<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;檔案大小：&quot;</span>.<span class="variable">$_FILES</span>[<span class="string">&quot;fileUpload&quot;</span>][<span class="string">&quot;size&quot;</span>].<span class="string">&quot;&lt;br /&gt;&quot;</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;上傳失敗! &quot;</span>;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;&lt;a href=&#x27;javascript:window.history.back();&#x27;&gt;回上一頁&lt;/a&gt;&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>6.29下午<br>物件導向<br>類別: 定義資料&amp;方法(封裝)<br>物件: 實體化類別定義<br>繼承(extends). 多型.<br>建構子(construct) &#x2F; 解構子(destruct)</p>
+<p>##物件導向</p>
+<p>OOPLib.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">media</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span>  <span class="variable">$name</span>;</span><br><span class="line">	<span class="keyword">protected</span>  <span class="variable">$size</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="variable">$desc</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$fname</span></span>)</span>&#123;</span><br><span class="line">		<span class="variable language_">$this</span>-&gt;name = <span class="variable">$fname</span>;</span><br><span class="line">		<span class="comment">//echo &#x27;&lt;h2&gt;new image constrct&lt;br&gt;&#x27;;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">echoDesc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;&lt;h1&gt;<span class="subst">$this</span>-&gt;name description: <span class="subst">$this</span>-&gt;desc&lt;br&gt;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;&lt;h2&gt;this image(<span class="subst">$this</span>-&gt;name) has been desctrct&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">image</span> <span class="keyword">extends</span> <span class="title">media</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$fname</span></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">parent</span>::<span class="title function_ invoke__">__construct</span>(<span class="variable">$fname</span> . <span class="string">&quot;(image)&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OOP.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">&#x27;OOPLib.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">session_start</span>();</span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">&#x27;image&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$img</span> = <span class="keyword">new</span> <span class="title function_ invoke__">image</span>(<span class="string">&#x27;lily-image.jpg&#x27;</span>);</span><br><span class="line">	<span class="variable">$_SESSION</span>[<span class="string">&#x27;image&#x27;</span>]=<span class="variable">$img</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&quot;Location: OOP2.php&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>OOP2.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">&#x27;OOPLib.php&#x27;</span>;</span><br><span class="line"><span class="title function_ invoke__">session_start</span>();</span><br><span class="line"><span class="variable">$img</span> = <span class="variable">$_SESSION</span>[<span class="string">&#x27;image&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$img</span>-&gt;desc = <span class="string">&#x27;boracay&#x27;</span>;</span><br><span class="line"><span class="variable">$img</span>-&gt;<span class="title function_ invoke__">echoDesc</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;&lt;h3&gt;&#x27;</span>;</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$img</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$img</span> = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;&lt;h3&gt;&#x27;</span>;</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$img</span>);</span><br></pre></td></tr></table></figure>
+<p>##JSON</p>
+<p>0630</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sJson</span> = <span class="string">&#x27;&#123;&quot;cID&quot;:&quot;01&quot;,&quot;cName&quot;:&quot;\u7c21\u5949\u541b&quot;,&quot;cSex&quot;:&quot;F&quot;,&quot;cBirthday&quot;:&quot;1987-04-04&quot;,&quot;cEmail&quot;:&quot;elven@superstar.com&quot;,&quot;cPhone&quot;:&quot;0922988876&quot;,&quot;cAddr&quot;:&quot;\u53f0\u5317\u5e02\u6fdf\u6d32\u5317\u8def12\u865f&quot;&#125;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$obj</span> = <span class="title function_ invoke__">json_decode</span>(<span class="variable">$sJson</span>, <span class="literal">false</span>);<span class="comment">//$assoc代上false表示轉成物件</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;h1&gt; <span class="subst">$obj</span>-&gt;cName&quot;</span>;</span><br><span class="line"><span class="variable">$arr</span> = <span class="title function_ invoke__">json_decode</span>(<span class="variable">$sJson</span>, <span class="literal">true</span>);<span class="comment">//$assoc代上true表示轉成陣列</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;h2&gt; <span class="subst">&#123;$arr[&#x27;cName&#x27;]&#125;</span>&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$arrData</span> = <span class="title function_ invoke__">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="title function_ invoke__">Array</span>(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>), <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="variable">$arr</span> = <span class="title function_ invoke__">json_encode</span>(<span class="variable">$arrData</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;h3&gt; <span class="subst">$arr</span>&quot;</span>;</span><br><span class="line"><span class="variable">$obj</span> = <span class="title function_ invoke__">json_encode</span>(<span class="variable">$arrData</span>, JSON_FORCE_OBJECT);</span><br><span class="line"><span class="comment">//JSON_FORCE_OBJECT (integer) Outputs an object rather than an array when a non-associative array is used. Especially useful when the recipient of the output is expecting an object and the array is empty. Available since PHP 5.3.0.</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;h4&gt; <span class="subst">$obj</span>&quot;</span>;</span><br></pre></td></tr></table></figure>
+<dl><dt>[…] 中括號代表陣列<br>{…} 大括號代表物件<br>, 逗號分隔屬性</dt><dd>分號設定屬性值<br>“ 雙引號括住屬性值</dd></dl><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">sJson = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(a);</span><br><span class="line">b=<span class="title class_">JSON</span>.<span class="title function_">parse</span>(sJson);<span class="comment">//嚴謹，JSON字串需符合格式</span></span><br><span class="line">b=<span class="built_in">eval</span>(sJson);<span class="comment">//較鬆散，JSON字串可有點小錯</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同源政策 (Same-origin policy): 同源政策限制了程式碼和不同網域資源間的互動。<br>JSONP: JSON Padding, 技術性處理同源政策的issue</p>
+</blockquote>
+<p>scenario: 於localhost跨域要求<a href="http://www.monster.com的資料/">www.monster.com的資料</a><br>solution: 透過指定script的src來跨域取得資料</p>
+<p>http:&#x2F;&#x2F;<strong>localhost</strong>&#x2F;Lab_JSONP&#x2F;GetDataFromServer_34.php</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#btnRefresh&quot;</span>).<span class="title function_">click</span>(btnRefresh_click);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">btnRefresh_click</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">    script.<span class="property">src</span> = <span class="string">&#x27;http://www.monster.com/Lab_JSONP/GetProductJsonp.php?id=1&amp;callback=DataArrived&#x27;</span>;</span><br><span class="line">    script.<span class="property">type</span> = <span class="string">&#x27;text/javascript&#x27;</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>].<span class="title function_">appendChild</span>(script);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">DataArrived</span>(<span class="params">data</span>) &#123;</span><br><span class="line">	$(<span class="string">&quot;#txtUnitsInStock&quot;</span>).<span class="title function_">val</span>(data.<span class="property">UnitsInStock</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>jQuery的寫法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#btnRefresh&quot;</span>).<span class="title function_">click</span>(btnRefresh_click);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">btnRefresh_click</span>(<span class="params"></span>) &#123;</span><br><span class="line">	$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">		<span class="attr">url</span>: <span class="string">&quot;http://www.monster.com/Lab_JSONP/GetProductJsonp.php&quot;</span>,</span><br><span class="line">		<span class="attr">type</span>: <span class="string">&quot;get&quot;</span>,</span><br><span class="line">		<span class="attr">dataType</span>: <span class="string">&#x27;jsonp&#x27;</span>,</span><br><span class="line">		<span class="attr">data</span>: &#123;<span class="attr">id</span>: <span class="number">1</span>&#125;,</span><br><span class="line">		<span class="attr">jsonp</span>: <span class="string">&#x27;callback&#x27;</span>,</span><br><span class="line">		<span class="attr">jsonpCallback</span>: <span class="string">&#x27;DataArrived&#x27;</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">DataArrived</span>(<span class="params">data</span>) &#123;</span><br><span class="line">	$(<span class="string">&quot;#txtUnitsInStock&quot;</span>).<span class="title function_">val</span>(data.<span class="property">UnitsInStock</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##XML<br>0701上午</p>
+<blockquote>
+<p><strong>使用xpath來存取資料</strong></p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$doc</span> = <span class="keyword">new</span> <span class="title class_">DOMDocument</span>();</span><br><span class="line"><span class="variable">$doc</span>-&gt;<span class="title function_ invoke__">Load</span>(<span class="string">&#x27;employees.xml&#x27;</span>);</span><br><span class="line"><span class="variable">$xpath</span> = <span class="keyword">new</span> <span class="title class_">DOMXPath</span>(<span class="variable">$doc</span>);</span><br><span class="line"><span class="comment">//取得屬性值</span></span><br><span class="line"><span class="variable">$entries</span> = <span class="variable">$xpath</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="string">&quot;/employees/employee/@EmpType&quot;</span>);</span><br><span class="line"><span class="comment">//對屬性值設定條件來filter資料</span></span><br><span class="line"><span class="variable">$entries</span> = <span class="variable">$xpath</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="string">&quot;/employees/employee[@EmpType=&#x27;Sales&#x27;]/lastName&quot;</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$entries</span> <span class="keyword">as</span> <span class="variable">$entry</span>)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">&quot;結果：&quot;</span> . <span class="variable">$entry</span>-&gt;nodeValue . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>chunked transfer encoding : Lab_LongRequest<br>websocket<br>single page application</p>
+</blockquote>
+<p>##安全<br>0701下午</p>
+<blockquote>
+<p>參考WebProgramSecurity.pdf，有server-side及client-side，極重要</p>
+<ul>
+<li>SQL Injection</li>
+<li>Server Configuration</li>
+<li>XSS &#x2F; CSRF<br>– captcha: 可參考0702 Lab_CAPTCHA<br>– anti CSRF token</li>
+<li>ClickJacking<br>– frame bustering<br>– header(“X-Frame-Options: Deny”);</li>
+</ul>
+</blockquote>
+<p>##laravel<br>Application key [TlDlIaffLhhfrgA5doqNw6iecg9KjNoU] set successfully.</p>
+<h2 id="win7-1"><a href="#win7-1" class="headerlink" title="win7"></a>win7</h2><ol>
+<li><p>顯示錯誤<br><code>display_errors = On</code></p>
+</li>
+<li><p>設置extension目錄<br><code>extension_dir = &quot;D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64\ext&quot;</code></p>
+</li>
+<li><p>enable extenstions<br><code>extension=php_bz2.dll</code><br><code>extension=php_curl.dll</code><br><code>extension=php_gd2.dll</code><br><code>extension=php_mbstring.dll</code><br><code>extension=php_exif.dll</code><br><code>extension=php_mysql.dll</code><br><code>extension=php_mysqli.dll</code><br><code>extension=php_pdo_mysql.dll</code></p>
+</li>
+<li><p>時區<br><code>date.timezone = Asia/Taipei</code></p>
+</li>
+<li><p>環境變數$PATH加入<code>D:\dvp\dev-tool\php-5.6.11-Win32-VC11-x64</code></p>
+</li>
+<li><p>設置最大post size - Production<br>post_max_size &#x3D; 1M</p>
+</li>
+</ol>
+<h2 id="OSX-extra"><a href="#OSX-extra" class="headerlink" title="OSX (extra)"></a>OSX (extra)</h2><h3 id="開啟xdebug"><a href="#開啟xdebug" class="headerlink" title="開啟xdebug"></a>開啟xdebug</h3><p><code>zend_extension = &quot;xdebug.so&quot;</code></p>
+<h3 id="Composer"><a href="#Composer" class="headerlink" title="Composer"></a>Composer</h3><p><code>curl -sS https://getcomposer.org/installer | php</code><br><code>mv composer.phar /usr/local/bin/composer</code></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers">PDO Tutorial for MySQL Developers</a><br><a href="http://www.restapitutorial.com/index.html">REST API Turorial</a><br><a href="http://php.net/manual/en/language.oop5.paamayim-nekudotayim.php">Scope Resolution Operator (::)</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://hamn07.github.io/2015/08/07/php-note/" data-title="Web筆記區 | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/12/embedded-android-final-project/" title="期末專題">
+  <strong>上一篇：</strong><br/>
+  <span>
+  期末專題</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/30/android-note/"  title="安卓筆記區">
+ <strong>下一篇：</strong><br/> 
+ <span>安卓筆記區
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#html"><span class="toc-number">1.</span> <span class="toc-text">html</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css"><span class="toc-number">2.</span> <span class="toc-text">css</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery"><span class="toc-number">3.</span> <span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Security"><span class="toc-number">4.</span> <span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS-HTTP-over-SSL"><span class="toc-number">4.1.</span> <span class="toc-text">HTTPS - HTTP over SSL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Trouble-Shooting"><span class="toc-number">5.</span> <span class="toc-text">Trouble Shooting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PDO%E9%80%A3%E7%B7%9A%E5%A0%B1%E9%8C%AFno-such-file"><span class="toc-number">5.1.</span> <span class="toc-text">PDO連線報錯no such file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSX%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%E6%99%82%E5%A0%B1%E9%8C%AFPHP-Warning-mkdir-Permission-denied"><span class="toc-number">5.2.</span> <span class="toc-text">OSX上傳檔案時報錯PHP Warning:  mkdir(): Permission denied</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redhat%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%E6%99%82%E5%A0%B1%E9%8C%AFPHP-Warning-mkdir-Permission-denied"><span class="toc-number">5.3.</span> <span class="toc-text">Redhat上傳檔案時報錯PHP Warning:  mkdir(): Permission denied</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E7%95%8C%E7%AC%A6%E5%B0%8D%E6%87%89%E4%B9%8B%E7%B5%90%E6%9D%9F%E7%AC%A6%E7%9A%84%E5%89%8D%E4%B8%80%E5%80%8B%E4%BD%8D%E5%85%83%E9%9C%80%E7%82%BA%E6%8F%9B%E8%A1%8C%E7%AC%A6%E8%99%9F"><span class="toc-number">5.4.</span> <span class="toc-text">定界符對應之結束符的前一個位元需為換行符號</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8exif-read-date%E9%9C%80%E6%96%BCphp-ini%E5%81%9A%E4%BB%A5%E4%B8%8B%E8%A8%AD%E5%AE%9A"><span class="toc-number">5.5.</span> <span class="toc-text">使用exif_read_date需於php.ini做以下設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%E6%99%82%E7%84%A1%E6%B3%95%E5%8F%96%E5%BE%97%E5%8E%9F%E5%A7%8B%E6%8B%8D%E6%94%9D%E6%97%A5%E6%9C%9F"><span class="toc-number">5.6.</span> <span class="toc-text">上傳檔案時無法取得原始拍攝日期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Apache-httpd%E5%BB%BA%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">Apache httpd建置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#win7"><span class="toc-number">6.1.</span> <span class="toc-text">win7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSX"><span class="toc-number">6.2.</span> <span class="toc-text">OSX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B6%B2%E7%AB%99%E7%9B%AE%E9%8C%84%E6%AC%8A%E9%99%90%E8%A8%AD%E5%AE%9A"><span class="toc-number">6.3.</span> <span class="toc-text">網站目錄權限設定</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP"><span class="toc-number">7.</span> <span class="toc-text">PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl%E4%BD%BF%E7%94%A8POST%E6%89%93JSON%E6%90%ADBasic-Authentication"><span class="toc-number">7.1.</span> <span class="toc-text">curl使用POST打JSON搭Basic Authentication</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pichannel-web-test-curl-json-php"><span class="toc-number">7.1.0.0.1.</span> <span class="toc-text">&#x2F;pichannel.web&#x2F;test&#x2F;curl-json.php</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E7%AD%96%E6%9C%83%E8%AA%B2%E7%A8%8B"><span class="toc-number">7.2.</span> <span class="toc-text">資策會課程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#win7-1"><span class="toc-number">7.3.</span> <span class="toc-text">win7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSX-extra"><span class="toc-number">7.4.</span> <span class="toc-text">OSX (extra)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%96%8B%E5%95%9Fxdebug"><span class="toc-number">7.4.1.</span> <span class="toc-text">開啟xdebug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer"><span class="toc-number">7.4.2.</span> <span class="toc-text">Composer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">8.</span> <span class="toc-text">Reference</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/rtfd/" title="rtfd">rtfd<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dojo/" title="dojo">dojo<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Henry Lee in Taiwan. <br/>
+			This is my blog for study note.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2025 
+		
+		<a href="/about" target="_blank" title="Henry Lee">Henry Lee</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
