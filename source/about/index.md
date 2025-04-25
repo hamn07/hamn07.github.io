@@ -16,8 +16,8 @@ date: 2015-12-01 05:43:58
 
 期許自己能持續學習, 持續成長, 成為人類社會中的益類
 
-![](https://dl.dropboxusercontent.com/u/16245733/%251Dhenry-resume-infograph.jpg)
+![](./about/index/henry-resume-infograph.jpg)
 
-![](https://dl.dropboxusercontent.com/u/16245733/henry-timeline-infograph.jpg)
+![](./about/index/henry-timeline-infograph.jpg)
 
 {% youtube RGEygLmvqo0 %}

@@ -7,7 +7,7 @@ title: Hexo
 subtitle:
 description:
 author: Henry Lee
-language: en
+language: zh-tw
 timezone:
 
 # URL
@@ -75,7 +75,9 @@ stylus:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:hamn07/hamn07.github.io.git
+  repo: https://github.com/hamn07/hamn07.github.io
+  branch: gh-pages
+  # repo: git@github.com:hamn07/hamn07.github.io.git
 
 feed:
     type: atom

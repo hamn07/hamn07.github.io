@@ -2,10 +2,13 @@ title: real time communication, server push
 date: 2015-10-08 09:42:39
 tags:
 toc: true
+
 ---
 
 # Concpet
+
 ## Message Oriented Middleware (MOM)
+
 Asynchronous Messaging, fire-and-forget, evnet-driven architechure
 
 Systems that rely upon synchronous requests typically have a limited ability to scale because eventually requests will begin to back up, thereby slowing the whole system.
@@ -23,13 +26,12 @@ Systems that rely upon synchronous requests typically have a limited ability to 
 ## websocket
 
 ### RFC 6455
+
 [ieft official](https://tools.ietf.org/html/rfc6455)
 
 #### 5.2 Base Framing Protocol
 
 Let's examin our framing logic base by rfc6455 framing protocol as below.
-
-
 
 ```php
 $msg = 'hi';
@@ -65,7 +67,6 @@ function bstr2bin($input)
 
 while sent hi as message, the output would be `10000001000000100110100001101001` in binary. Let's fill in base frame protocol table as below.
 
-
 ```bash
 0                   1                   2                   3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -82,49 +83,50 @@ while sent hi as message, the output would be `10000001000000100110100001101001`
 \x81 are 2 hex; 10000001 in binary.
 
 FIN=1 denotes a final frame
+
 > FIN:  1 bit
->
+> 
 > Indicates that this is the final fragment in a message.  The first
 > fragment MAY also be the final fragment.
-
-
 
 RSV1=0
 RSV2=0
 RSV3=0
 
 RSV1~3 are set to 0, denotes we don't use any extension.
+
 > RSV1, RSV2, RSV3:  1 bit each
->
+> 
 > MUST be 0 unless an extension is negotiated that defines meanings for non-zero values.  If a nonzero value is received and none of the negotiated extensions defines the meaning of such a nonzero value, the receiving endpoint MUST \_Fail the WebSocket Connection_.
 
-
 opcode=0001 denotes a text frame
+
 > Opcode:  4 bits
->
+> 
 > Defines the interpretation of the "Payload data".  If an unknown opcode is received, the receiving endpoint MUST \_Fail the WebSocket Connection_.  The following values are defined.
->
+> 
 >      *  %x0 denotes a continuation frame
->
+>     
 >      *  %x1 denotes a text frame
->
+>     
 >      *  %x2 denotes a binary frame
->
+>     
 >      *  %x3-7 are reserved for further non-control frames
->
+>     
 >      *  %x8 denotes a connection close
->
+>     
 >      *  %x9 denotes a ping
->
+>     
 >      *  %xA denotes a pong
->
+>     
 >      *  %xB-F are reserved for further control frames
 
 `chr(strlen($a[0]))` returns a specific charater according to frame length, since we limit frame length to 125, first binary would be 0.
 
 Mask=0 denotes no mask
+
 > Mask:  1 bit
->
+> 
 >   Defines whether the "Payload data" is masked.  If set to 1, a
 >   masking key is present in masking-key, and this is used to unmask
 >   the "Payload data" as per Section 5.3.  All frames sent from
@@ -132,8 +134,9 @@ Mask=0 denotes no mask
 
 Payload length= 0000010
 in this example, 'hi' is a 2 charater data, '0000010' in binary.
+
 > Payload length:  7 bits, 7+16 bits, or 7+64 bits
->
+> 
 >   The length of the "Payload data", in bytes: if 0-125, that is the
 >   payload length.  If 126, the following 2 bytes interpreted as a
 >   16-bit unsigned integer are the payload length.  If 127, the
@@ -152,16 +155,15 @@ Payload Data=0110100001101001
 since we limit our frame length to 125, the remaining bytes are payload.
 01101000 is 'h' in binary
 01101001 is 'i' in binary
+
 > Application data:  y bytes
->
+> 
 > Arbitrary "Application data", taking up the remainder of the frame
 > after any "Extension data".  The length of the "Application data"
 > is equal to the payload length minus the length of the "Extension
 > data".
 
-
 Note: Further discussion would be needed while migration to another platform language which already implements WebSocket (like Java).
-
 
 *Refernces*
 
@@ -174,48 +176,59 @@ Note: Further discussion would be needed while migration to another platform lan
 - [Java Day pdf](http://javaday.org.ua/2013/images/pdf/Delabassee_Kiev_WebSocket.pdf)
 - [Securing WebSocket applications on Glassfish](https://blogs.oracle.com/PavelBucek/entry/securing_websocket_applications_on_glassfish)
 
-
-
-
-
-
-
 # Server (message broker, gateway)
+
 [alternatives](https://dzone.com/refcardz/html5-websocket)
+
 - https://www.process-one.net/en/ejabberd/#getejabberd
+
 - http://www.rabbitmq.com/
+
 - http://activemq.apache.org/
+
 - [apache karaf](http://karaf.apache.org/)
-Apache Karaf is a small OSGi based runtime which provides a lightweight container onto which various components and applications can be deployed.
+  Apache Karaf is a small OSGi based runtime which provides a lightweight container onto which various components and applications can be deployed.
+
 - http://kaazing.org/
-The Gateway is a network gateway created to provide a single access point for real-time web based protocol elevation that supports **load balancing, clustering, and security management**. It is designed to provide scalable and secure bidirectional event-based communication over the web; **on every platform, browser, and device**.
+  The Gateway is a network gateway created to provide a single access point for real-time web based protocol elevation that supports **load balancing, clustering, and security management**. It is designed to provide scalable and secure bidirectional event-based communication over the web; **on every platform, browser, and device**.
+  
+  - Requirement
+    
+    - Java Runtime Environment (JRE) 1.7.0_21 or higher
+    - JAVA_HOME must be set
+  
+  - Feature
+    
+    - cluster -> [參考連結](http://developer.kaazing.com/documentation/5.0/high-availability/u_ha.html)
+    - [AWS marketplace](http://developer.kaazing.com/documentation/aws/marketplace/index.html)
+    - [About Security with KAAZING Gateway](http://developer.kaazing.com/documentation/5.0/security/c_sec_security.html)
+    - [WebSocket Emulation for older browsers](http://kaazing.com/products/kaazing-websocket-gateway/websocket-emulation/)
 
- - Requirement
-   - Java Runtime Environment (JRE) 1.7.0_21 or higher
-   - JAVA_HOME must be set
-
- - Feature
-   - cluster -> [參考連結](http://developer.kaazing.com/documentation/5.0/high-availability/u_ha.html)
-   - [AWS marketplace](http://developer.kaazing.com/documentation/aws/marketplace/index.html)
-   - [About Security with KAAZING Gateway](http://developer.kaazing.com/documentation/5.0/security/c_sec_security.html)
-   - [WebSocket Emulation for older browsers](http://kaazing.com/products/kaazing-websocket-gateway/websocket-emulation/)
 - http://caucho.com/
+
 - http://www.lightstreamer.com/
- - http://www.slideshare.net/alinone/from-push-technology-to-the-realtime-web
+  
+  - http://www.slideshare.net/alinone/from-push-technology-to-the-realtime-web
+
 - https://www.ejabberd.im/
 
 [消息队列软件产品大比拼](https://www.evernote.com/shard/s75/sh/3eb6cf33-71db-4412-973d-7d7efac62d47/02330b3286d02dd6558129f4ec914c75)
 [What are the differences between JBoss, GlassFish, and Apache Tomcat servers?](https://www.quora.com/What-are-the-differences-between-JBoss-GlassFish-and-Apache-Tomcat-servers)
+
 ## jWebsocket
+
 [jWebsocket official site](http://jwebsocket.org/)
 [jWebSocket JMS based Cluster](http://jwebsocket.org/documentation/installation-guide/jwebsocket-cluster)
+
 ## php
+
 ### Reference
+
 [Laravel 4 Real Time Chat](https://medium.com/laravel-4/laravel-4-real-time-chat-eaa550829538)
+
 ## GlassFish implements WebSocket over TLS
 
 > This example demostrate a echo server peroidically return server time via websocket connection.
-
 
 ### preview
 
@@ -223,10 +236,10 @@ The Gateway is a network gateway created to provide a single access point for re
 ![](ws-echo-server2.png)
 ![](ws-echo-server3.png)
 
-
 ### server configuration
 
 `web.xml`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 ...
@@ -248,6 +261,7 @@ The Gateway is a network gateway created to provide a single access point for re
 ### server-side
 
 `EchoEndpoint.java`
+
 ```java
 package tw.henry.websocket;
 
@@ -271,55 +285,55 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/echo")
 public class EchoEndpoint {
-	private static final Logger LOG = Logger.getLogger(EchoEndpoint.class.getName());
+    private static final Logger LOG = Logger.getLogger(EchoEndpoint.class.getName());
 
-	private static Set<Session> allSessions;
+    private static Set<Session> allSessions;
 
-	static ScheduledExecutorService timer =
-		       Executors.newSingleThreadScheduledExecutor();
-	DateTimeFormatter timeFormatter =  
-	          DateTimeFormatter.ofPattern("HH:mm:ss");
+    static ScheduledExecutorService timer =
+               Executors.newSingleThreadScheduledExecutor();
+    DateTimeFormatter timeFormatter =  
+              DateTimeFormatter.ofPattern("HH:mm:ss");
 
-	ScheduledFuture<?> result;
-	@OnMessage
-	public String echo(String message) {
-	    return message + " (from your server)";
-	}
+    ScheduledFuture<?> result;
+    @OnMessage
+    public String echo(String message) {
+        return message + " (from your server)";
+    }
 
-	@OnOpen
-	public void connectionOpened(Session session) {
-		LOG.log(Level.INFO, "WebSocket opened: "+session.getId());
+    @OnOpen
+    public void connectionOpened(Session session) {
+        LOG.log(Level.INFO, "WebSocket opened: "+session.getId());
 
-		allSessions = session.getOpenSessions();
+        allSessions = session.getOpenSessions();
 
-		if (allSessions.size()==1){   
-	        result = timer.scheduleAtFixedRate(
-	             () -> sendTimeToAll(session),0,10,TimeUnit.SECONDS);    
-	    }
-	}
+        if (allSessions.size()==1){   
+            result = timer.scheduleAtFixedRate(
+                 () -> sendTimeToAll(session),0,10,TimeUnit.SECONDS);    
+        }
+    }
 
-	private void sendTimeToAll(Session session){       
-	     allSessions = session.getOpenSessions();
-	     for (Session sess: allSessions){          
-	        try{   
-	          sess.getBasicRemote().sendText("Hi, give me some thing to echo (Server time: " +
-	                    LocalTime.now().format(timeFormatter)+")");
-	          } catch (IOException ioe) {        
-	              System.out.println(ioe.getMessage());         
-	          }   
-	     }  
-	}
+    private void sendTimeToAll(Session session){       
+         allSessions = session.getOpenSessions();
+         for (Session sess: allSessions){          
+            try{   
+              sess.getBasicRemote().sendText("Hi, give me some thing to echo (Server time: " +
+                        LocalTime.now().format(timeFormatter)+")");
+              } catch (IOException ioe) {        
+                  System.out.println(ioe.getMessage());         
+              }   
+         }  
+    }
 
-	@OnClose
-	public void connectionClosed() {
-		result.cancel(true);
-		LOG.log(Level.INFO, "connection closed");
-	}
+    @OnClose
+    public void connectionClosed() {
+        result.cancel(true);
+        LOG.log(Level.INFO, "connection closed");
+    }
 }
 ```
 
-
 ### client-side: Web
+
 ```html
 <html>
 
@@ -408,7 +422,7 @@ public class EchoEndpoint {
 
     function sendMessage(msg) {
       waitForSocketConnection(websocket, function() {
-    	    writeToScreen("SENT: " + msg);
+            writeToScreen("SENT: " + msg);
         websocket.send(msg);
       });
     };
@@ -456,7 +470,6 @@ public class EchoEndpoint {
 </body>
 
 </html>
-
 ```
 
 ### client-side : Android
@@ -584,101 +597,102 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
 ```
 
 Reference
 [Connect and transfer data with secure WebSockets in Android](http://www.juliankrone.com/connect-and-transfer-data-with-secure-websockets-in-android/)
-
-
 
 ## JBoss-Eclipse development Env. setup
 
 ### Environment
 
 1. JDK 8
-```bash
-$ java -version
-java version "1.8.0_45"
-Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
-Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
-```
+   
+   ```bash
+   $ java -version
+   java version "1.8.0_45"
+   Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
+   Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
+   ```
+
 2. JBoss Enterprise Application Platform 6.4
 
 3. Eclipse (Mars Release) IDE for Java EE Developers
 
-
-
 ### Setup Steps
+
 1. Download JBoss EPA
-![](JBoss-1.png)
+   ![](JBoss-1.png)
 2. installation
-![](JBoss-2.png)
-![](JBoss-3.png)
-![](JBoss-4.png)
-![](JBoss-5.png)
-![](JBoss-6.png)
-![](JBoss-7.png)
+   ![](JBoss-2.png)
+   ![](JBoss-3.png)
+   ![](JBoss-4.png)
+   ![](JBoss-5.png)
+   ![](JBoss-6.png)
+   ![](JBoss-7.png)
 3. Download JBoss Development Studio in marketplace
-![](JBoss-Eclipse-1.png)
-![](JBoss-Eclipse-2.png)
+   ![](JBoss-Eclipse-1.png)
+   ![](JBoss-Eclipse-2.png)
 4. add JBoss server in eclipse
-![](JBoss-Eclipse-3.png)
-![](JBoss-Eclipse-4.png)
-![](JBoss-Eclipse-5.png)
-![](JBoss-Eclipse-6.png)
+   ![](JBoss-Eclipse-3.png)
+   ![](JBoss-Eclipse-4.png)
+   ![](JBoss-Eclipse-5.png)
+   ![](JBoss-Eclipse-6.png)
 5. Run JBoss server in eclipse, visit [http://localhost:8080](http://localhost:8080)
-![](JBoss-Eclipse-7.png)
+   ![](JBoss-Eclipse-7.png)
 
 ## GlassFish-Eclipse development Env. setup
+
 ### Environment
 
 1. JDK 8
-```bash
-$ java -version
-java version "1.8.0_45"
-Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
-Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
-```
-2. GlassFish 4 Java EE 7 Full Platform
-![](capture-20151016-154243.png)
-3. Eclipse (Mars Release) IDE for Java EE Developers
+   
+   ```bash
+   $ java -version
+   java version "1.8.0_45"
+   Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
+   Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
+   ```
 
+2. GlassFish 4 Java EE 7 Full Platform
+   ![](capture-20151016-154243.png)
+
+3. Eclipse (Mars Release) IDE for Java EE Developers
 
 ### Setup Steps
 
 1. goto Eclipse preferences `hotkey: cmd+,`, preferences->Server->Runtime Environment->Add...
-![](glassfish-eclipse-1.png)
+   ![](glassfish-eclipse-1.png)
 
 2. no glashfish environment runtime found, click `Download additional server adapters`
-![](glassfish-eclipse-2.png)
+   ![](glassfish-eclipse-2.png)
 
 3. choose `GlassFish Tools`
-![](glassfish-eclipse-3.png)
+   ![](glassfish-eclipse-3.png)
 
 4. restart Eclipse after installaction completes
-![](glassfish-eclipse-4.png)
+   ![](glassfish-eclipse-4.png)
 
 5. repeat step 1.~2., GlassFish runtime should appear, choose GlassFish 4
-![](glassfish-eclipse-6.png)
+   ![](glassfish-eclipse-6.png)
 
 6. locate your glassfish4 path
-![](glassfish-eclipse-5.png)
+   ![](glassfish-eclipse-5.png)
 
 7. use Wizard to create GlassFish Server `hotkey: cmd+n`
-![](glassfish-eclipse-7.png)
+   ![](glassfish-eclipse-7.png)
 
 8. choose GlassFish 4
-![](glassfish-eclipse-8.png)
+   ![](glassfish-eclipse-8.png)
 
 9. setup administrator name and password, finish setup
-![](glassfish-eclipse-9.png)
+   ![](glassfish-eclipse-9.png)
 
 10. Start Server
-![](glassfish-eclipse-10.png)
+    ![](glassfish-eclipse-10.png)
 
 11. visit http://localhost:8080/ to see if GlassFish works properly.
-![](glassfish-eclipse-11.png)
+    ![](glassfish-eclipse-11.png)
 
 Refernces
 
@@ -692,21 +706,21 @@ Refernces
 
 [Eclipse download Page](https://www.eclipse.org/downloads/)
 
-
 ### Spring
+
 [Spring 4 WebSocket + SockJS + STOMP + Tomcat Example](http://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example)
 [Test Microsoft Edge and versions of IE6 through IE11 using free virtual machines you download and manage locally.](https://dev.windows.com/en-us/microsoft-edge/tools/vms/mac/)
 
 ## Nginx as reverse proxy
 
 ### Reference
+
 [nginx WebSocket Proxy](https://github.com/nicokaiser/nginx-websocket-proxy)
 [NGINX to reverse proxy websockets AND enable SSL (wss://)?](http://stackoverflow.com/questions/12102110/nginx-to-reverse-proxy-websockets-and-enable-ssl-wss)
 [NGINX as a WebSocket Proxy](https://www.nginx.com/blog/websocket-nginx/)
 
-
-
 # Cloud Service (SaaS)
+
 - http://framework.realtime.co/
 - https://pusher.com/
 - https://www.pubnub.com/
@@ -720,45 +734,59 @@ Refernces
 [Scaling Secret: Real-time Chat](https://medium.com/@davidbyttow/scaling-secret-real-time-chat-d8589f8f0c9b)
 
 # Protocol
+
 By using standard protocol instead of proprietary one, we could leverage lots of client and server implementations to quickly build our app.
+
 - STOMP: Simple (or Streaming) Text Oriented Messaging Protocol
- - it’s not always straightforward to port code between brokers
+  - it’s not always straightforward to port code between brokers
 - XMPP : Extensible Messaging and Presence Protocol
   - http://igniterealtime.org/
 - AQMP : Advanced Message Queuing Protocol
   - Except puducer,broker,consumer(like JMS), AQMP introduce new component 'exchange'
 - [MQTT](https://github.com/mqtt/mqtt.github.io/wiki) : Message Queue Telemery Transport
- - Can be applied to IoT, such as connecting an Arduino device to a web service with MQTT.
+  - Can be applied to IoT, such as connecting an Arduino device to a web service with MQTT.
 - JMS : Java Message Service
 - Protocol Buffers
 
 ## Refernces
+
 [Message Queue Evaluation Notes](http://wiki.secondlife.com/wiki/Message_Queue_Evaluation_Notes)
 [Choosing Your Messaging Protocol: AMQP, MQTT, or STOMP
 ](https://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html)
 
 # whatsapp
+
 [The WhatsApp Architecture Facebook Bought For $19 Billion - High Scalability -](https://www.evernote.com/shard/s75/sh/caec8dac-1026-4603-bab4-d241c9e1e1e3/bea5136188b0948f22aea9f65e5652e4)
 [INSIDE ERLANG, THE RARE PROGRAMMING LANGUAGE BEHIND WHATSAPP'S SUCCESS](https://www.evernote.com/shard/s75/sh/5a371dae-b43c-4229-8717-4d5bb1d031a5/a43f440b05685b66b342bd7c0ad061f9)
 [What is the technology behind the web-based version of WhatsApp?](https://www.quora.com/What-is-the-technology-behind-the-web-based-version-of-WhatsApp)
+
 - chat history is only stored on phone, none on server. Thus, to use the web client your smartphone has to be connected to the internet.
+
 - What protocol is used in Whatsapp app? SSL socket to the WhatsApp server pools.
+
 - Erlang/FreeBSD-based server infrastructure
+  
   - Server systems that do the backend message routing are done in Erlang.
     - Ericsson engineer Joe Armstrong developed Erlang with the logic of telecommunications in mind: millions of parallel conversations happening at the same time, with almost zero tolerance for downtime.
     - Erlang allows for bug fixes and updates without downtime.
     - Erlang is very good at efficiently executing commands across processors within a single machine.
   - Great achievement is that the number of active users is managed with a really small server footprint. Team consensus is that it is largely because of Erlang.
   - Interesting to note Facebook Chat was written in Erlang in 2009, but they went away from it because it was hard to find qualified programmers.
+
 - WhatsApp server has started from ejabberd
+  
   - Ejabberd is a famous open source Jabber server written in Erlang.
   - Originally chosen because its open, had great reviews by developers, ease of start and the promise of Erlang’s long term suitability for large communication system.
   - The next few years were spent re-writing and modifying quite a few parts of ejabberd, including switching from XMPP to internally developed protocol, restructuring the code base and redesigning some core components, and making lots of important modifications to Erlang VM to optimize server performance.
+
 - A primary gauge of system health is message queue length. The message queue length of all the processes on a node is constantly monitored and an alert is sent out if they accumulate backlog beyond a preset threshold. If one or more processes falls behind that is alerted on, which gives a pointer to the next bottleneck to attack.
+
 - Multimedia messages are sent by uploading the image, audio or video to be sent to an HTTP server and then sending a link to the content along with its Base64 encoded thumbnail (if applicable).
-## Erlang
+  
+  ## Erlang
+
 - The basic unit of concurrency in Erlang is the process.
+
 - An Erlang process is a little virtual machine that can evaluate a single Erlang function; it should not be confused with an operating system process.
+
 - cannot rebind variable.
-
-
